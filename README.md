@@ -4,7 +4,7 @@
 
 正式站預定網址：<https://shoulder-ultrasound.sportsmedicine.tw>
 
-> 目前內容狀態為 `draft`。網站可供版型與課綱審閱，但不代表醫療內容已核准，也不取代實體 hands-on training、合格督導或機構 credentialing。
+> 目前內容狀態為 `medical-review`。網站可供版型與課綱審閱，但不代表醫療內容已核准，也不取代實體 hands-on training、合格督導或機構 credentialing。審閱範圍與剩餘簽核見 [醫療內容審閱紀錄](docs/MEDICAL_REVIEW.md)。
 
 ## 首輪範圍
 
@@ -15,6 +15,8 @@
 - 每單元具備學習目標、必備視圖、操作重點、常見陷阱、評量與審閱狀態
 
 詳細資料見 [課程結構](docs/CURRICULUM.md)、[選片規則](docs/VIDEO_CURATION.md)、[版型設計](docs/DESIGN_SYSTEM.md) 與 [建置計畫](docs/BUILD_PLAN.md)。
+
+Cloudflare Pages 採 GitHub integration，設定與醫療索引閘門見 [部署文件](docs/DEPLOYMENT.md)。
 
 ## 本機建置
 

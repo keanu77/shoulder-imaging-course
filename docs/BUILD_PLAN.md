@@ -18,10 +18,11 @@
 
 ### M2 — 醫療內容審閱
 
-- 逐單元核對 ACR/AIUM、AIUM、ESSR 與台灣指引
-- 確認 probe position、patient position、required views 與常見假影
-- 對每支影片完成日期、講者/機構、內容適用性及版權風險複核
-- 將通過項目由 `draft` 提升至 `medical-review` 或 `approved`
+- [x] 逐單元核對 ACR/AIUM、AIUM、ESSR 與台灣指引
+- [x] 確認 probe position、patient position、required views 與常見假影
+- [x] 確認每支影片的日期與講者／機構來源
+- [ ] 由具資格醫師逐段觀看第三方影片並完成最終內容適用性簽核
+- [ ] 將人工簽核通過的單元由 `medical-review` 提升至 `approved`
 
 ### M3 — 正式站部署
 

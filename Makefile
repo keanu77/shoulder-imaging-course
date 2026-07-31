@@ -22,9 +22,10 @@ icons: ## 重新下載 Lucide 圖示並打包成內嵌 sprite
 og: ## 用 headless Chrome 重新產生社群預覽圖
 	@"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
 		--headless --disable-gpu --hide-scrollbars --force-device-scale-factor=2 \
-		--window-size=1200,630 --screenshot="$(PWD)/$(DIST)/og.png" "$(PWD)/src/web/og.html"
-	@sips -z 630 1200 $(DIST)/og.png >/dev/null
-	@echo "→ $(DIST)/og.png"
+		--window-size=1200,630 --screenshot="$(PWD)/src/web/og.png" "$(PWD)/src/web/og.html"
+	@sips -z 630 1200 src/web/og.png >/dev/null
+	@cp src/web/og.png $(DIST)/og.png
+	@echo "→ src/web/og.png + $(DIST)/og.png"
 
 meta: ## 用 yt-dlp 補齊 video-meta.json（長度、觀看數、頻道）
 	$(PY) src/build/fetch_meta.py
@@ -44,9 +45,9 @@ serve: ## 本機預覽
 	@echo "→ http://localhost:$(PORT)"
 	@$(PY) -m http.server $(PORT) --directory $(DIST)
 
-deploy: build ## 建置後部署到 Cloudflare Pages
-	npm exec --yes -- wrangler@4 pages deploy $(DIST) \
-		--project-name $(PROJECT) --branch main --commit-dirty=true
+deploy: ## 正式站採 Cloudflare Git integration；避免誤建不可切換的 Direct Upload 專案
+	@echo "✗ 此專案停用 Direct Upload。請依 docs/DEPLOYMENT.md 由 GitHub main 部署。"
+	@exit 2
 
 lint: ## ruff 檢查
 	uv run ruff check .

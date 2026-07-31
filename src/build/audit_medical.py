@@ -27,7 +27,8 @@ def main() -> int:
     source_names = {chapter["source"] for chapter in cfg["chapters"]}
     sources = [load(COURSE / "data" / f"{name}.json") for name in source_names]
     medical = cfg.get("medical", {})
-    allowed_status = set(medical.get("reviewStatuses", []))
+    status_order = medical.get("reviewStatuses", [])
+    allowed_status = set(status_order)
     cutoff = date.fromisoformat(medical["contentCutoff"])
 
     references: dict[str, dict] = {}
@@ -40,8 +41,8 @@ def main() -> int:
     warnings: list[str] = []
     unit_ids: set[str] = set()
     video_ids: set[str] = set()
-    pending_dates = 0
     classic_count = 0
+    review_counts: dict[str, int] = {}
 
     def err(where: str, message: str) -> None:
         errors.append(f"{where}: {message}")
@@ -70,6 +71,9 @@ def main() -> int:
                 err(where, "assessment 少於 50 字")
             if unit.get("review_status") not in allowed_status:
                 err(where, f"review_status 不在允許清單：{unit.get('review_status')!r}")
+            else:
+                status = unit["review_status"]
+                review_counts[status] = review_counts.get(status, 0) + 1
             if unit.get("type") != "orientation" and not unit.get("required_views"):
                 err(where, "非導論單元必須列出 required_views")
 
@@ -95,7 +99,6 @@ def main() -> int:
                 published = video.get("published_at")
                 status = video.get("curation_status")
                 if not published:
-                    pending_dates += 1
                     if status != "pending-date-verification":
                         err(video_where, "缺少 published_at 時必須標記 pending-date-verification")
                     else:
@@ -128,10 +131,17 @@ def main() -> int:
         errors.append("設定檔：primaryAudience 必須是 physicians")
     if not medical.get("interventionalContentDeferred"):
         errors.append("設定檔：第一階段必須將介入注射標記為 deferred")
+    if medical.get("allowIndexing") and review_counts.get("approved", 0) != len(unit_ids):
+        errors.append("設定檔：仍有未 approved 單元時不得啟用搜尋引擎索引")
 
     print("\n醫療內容閘門")
     print(f"  {'✓' if not errors else '✗'} {len(unit_ids)} 個單元 · {len(video_ids)} 支影片")
     print(f"  ✓ {len(references)} 筆參考來源 · {classic_count} 支經典例外")
+    print(
+        "  ✓ 審閱狀態："
+        + " · ".join(f"{status} {review_counts.get(status, 0)}" for status in status_order)
+        + (" · 可索引" if medical.get("allowIndexing") else " · noindex")
+    )
     if warnings:
         print(f"  ⚠ {len(warnings)} 項非阻斷警告（目前主要為發布日期待確認）")
         for warning in warnings:
@@ -144,7 +154,7 @@ def main() -> int:
         print("  ✓ 診斷限定、審閱狀態與經典影片例外規則通過")
 
     print(
-        "\n注意：結構稽核通過不等於醫療核准；所有 draft 單元仍需由具資格醫師審閱。"
+        "\n注意：結構稽核通過不等於醫療核准；所有未 approved 單元仍需具資格醫師簽核。"
     )
     return 1 if errors else 0
 

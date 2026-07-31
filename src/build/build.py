@@ -347,7 +347,11 @@ def main() -> int:
     sync_web()
     OUT.write_text(json.dumps(course, ensure_ascii=False, indent=1))
 
-    print(f"→ {OUT.relative_to(ROOT)}  ({OUT.stat().st_size / 1024:.0f} KB)")
+    try:
+        out_label = OUT.relative_to(ROOT)
+    except ValueError:
+        out_label = OUT
+    print(f"→ {out_label}  ({OUT.stat().st_size / 1024:.0f} KB)")
     print(f"   教學單元 {unit_total} · 精選影片 {drill_total}")
     print("   " + " / ".join(f"{k['label']} {kinds[k['id']]}" for k in CFG["kinds"]))
     print(

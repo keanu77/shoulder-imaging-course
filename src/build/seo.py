@@ -27,6 +27,7 @@ NAME = SITE_CFG["name"]
 TITLE = SITE_CFG["title"]
 DESC = SITE_CFG["description"]
 LOCALE = SITE_CFG.get("locale", "zh-Hant")
+ALLOW_INDEXING = CFG.get("medical", {}).get("allowIndexing", False)
 
 
 def iso_duration(seconds: int) -> str:
@@ -183,7 +184,7 @@ def inject_schema(schema: dict) -> None:
 
 
 HEAD_TAGS = """    <link rel="canonical" href="{site}/" />
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <meta name="robots" content="{robots}" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="{name}" />
     <meta property="og:locale" content="{oglocale}" />
@@ -208,6 +209,11 @@ def inject_meta(course: dict) -> None:
     html = path.read_text()
     block = HEAD_TAGS.format(
         site=SITE,
+        robots=(
+            "index, follow, max-image-preview:large, max-snippet:-1"
+            if ALLOW_INDEXING
+            else "noindex, follow"
+        ),
         name=NAME,
         title=TITLE,
         desc=DESC,
@@ -222,6 +228,17 @@ def inject_meta(course: dict) -> None:
     )
     path.write_text(html)
     print(f"   index.html  SEO 標籤{'已注入' if n else '找不到佔位區塊'}")
+
+
+def write_indexing_header() -> None:
+    """審閱站以 HTTP header 再加一道 noindex；核准後建置會自動移除。"""
+    path = PUB / "_headers"
+    if ALLOW_INDEXING or not path.exists():
+        return
+    text = path.read_text()
+    text = text.replace("/*\n", "/*\n  X-Robots-Tag: noindex, follow\n", 1)
+    path.write_text(text)
+    print("   _headers  X-Robots-Tag=noindex（medical-review gate）")
 
 
 def write_sitemap() -> None:
@@ -329,6 +346,7 @@ def main() -> int:
     write_sitemap()
     write_robots()
     write_llms(course)
+    write_indexing_header()
     return 0
 
 

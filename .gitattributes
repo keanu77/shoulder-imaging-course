@@ -10,3 +10,4 @@ course/data/alt-lessons-*.json    linguist-generated=true
 
 * text=auto eol=lf
 *.png binary
+src/web/og.png linguist-generated=true -diff

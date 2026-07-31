@@ -39,6 +39,7 @@
     "contentCutoff": "2021-07-31",
     "classicExceptionsRequireReason": true,
     "interventionalContentDeferred": true,
+    "allowIndexing": false,
     "reviewStatuses": [
       "draft",
       "medical-review",
