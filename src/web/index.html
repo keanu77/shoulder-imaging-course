@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{site.title}}</title>
+    <!-- seo:start --><!-- seo:end -->
+
+    <!-- 由 build.py 依 course.json 產生，勿手動編輯 -->
+    <script type="application/ld+json" id="schema">{}</script>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230969da' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="css/tokens.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/course.css" />
+    <link rel="stylesheet" href="css/evidence.css" />
+    <link rel="stylesheet" href="css/stance.css" />
+    <link rel="stylesheet" href="css/tabs.css" />
+    <link rel="stylesheet" href="css/player.css" />
+    <link rel="stylesheet" href="css/landing.css" />
+    <link rel="stylesheet" href="css/clinical.css" />
+    <script>
+      // 在繪製前套用主題，避免深色使用者看到白色閃屏
+      (function () {
+        try {
+          var t = localStorage.getItem("susc:theme");
+          if (t) document.documentElement.dataset.theme = t;
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <a href="#main" class="visually-hidden">跳到主要內容</a>
+
+    <header class="AppHeader">
+      <a class="AppHeader__brand" href="#" data-tab-link="home">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-activity" /></svg>
+        <span>{{site.name}}</span>
+      </a>
+
+      <nav class="TabNav" aria-label="主要分頁">
+        <div class="TabNav__inner">
+          <button class="TabNav__item is-selected" data-tab="course" type="button" aria-current="page">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-layers" /></svg>
+            <span class="TabNav__label">{{ui.tabs.course}}</span>
+            <span class="Counter" id="tabCourseCount">24</span>
+          </button>
+          <button class="TabNav__item" data-tab="player" type="button">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-play" /></svg>
+            <span class="TabNav__label">{{ui.tabs.player}}</span>
+          </button>
+          <button class="TabNav__item" data-tab="stance" type="button">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-microscope" /></svg>
+            <span class="TabNav__label">{{ui.tabs.stance}}</span>
+            <span class="Counter" id="tabStanceCount">3</span>
+          </button>
+        </div>
+      </nav>
+
+      <div class="AppHeader__spacer"></div>
+
+      <div class="SearchBox" id="searchBox">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-search" /></svg>
+        <input
+          type="search"
+          id="search"
+          placeholder="{{ui.searchPlaceholder}}"
+          autocomplete="off"
+          aria-label="搜尋課程內容"
+        />
+        <button class="SearchBox__clear" id="searchClear" type="button" aria-label="清除搜尋">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-x" /></svg>
+        </button>
+      </div>
+
+      <!-- 瀏覽次數：設定檔有 counter 區塊且 API 回得出數字才會顯示 -->
+      <span class="HitCounter" id="hitCounter" hidden>
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-eye" /></svg>
+        <span id="hitCount"></span>
+        <span class="HitCounter__label" id="hitLabel"></span>
+      </span>
+
+      <div class="AppHeader__actions">
+        <button class="btn btn-invisible btn-icon" id="expandAll" type="button" title="全部展開／收合">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-layers" /></svg>
+        </button>
+        <button class="btn btn-invisible btn-icon" id="themeToggle" type="button" title="切換深色／淺色主題" aria-label="切換主題">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-sun" id="themeIcon" /></svg>
+        </button>
+      </div>
+    </header>
+
+
+
+
+    <div id="view-home">
+    <section class="Hero" id="top">
+      <div class="container">
+        <span class="Label Label--accent Hero__eyebrow">
+          <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-graduation-cap" /></svg>
+          {{hero.eyebrow}}
+        </span>
+        <h1>{{hero.heading}}</h1>
+        <!-- 中文之間的換行會被算成空格，這段刻意不折行 -->
+        <p class="Hero__lede">{{hero.lede}}</p>
+
+        <div class="Hero__stats" id="heroStats"></div>
+        <p class="Hero__note" id="heroNote"></p>
+      </div>
+    </section>
+      <div class="Landing" id="landingBody"></div>
+    </div>
+
+    <section class="Player" id="view-player" hidden>
+      <div class="Player__stage">
+        <div class="Player__frame" id="playerFrame">
+          <div class="Player__placeholder">
+            <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-play" /></svg>
+            <p class="Blankslate__heading">從右邊的清單挑一支開始</p>
+            <p>影片由 YouTube 提供，播放時才會連線到 youtube-nocookie.com。</p>
+          </div>
+        </div>
+        <div class="Player__info" id="playerInfo"></div>
+      </div>
+
+      <div class="Player__resizer" id="playerResizer" role="separator"
+           aria-orientation="vertical" aria-label="調整播放清單寬度" tabindex="0">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-grip-vertical" /></svg>
+      </div>
+
+      <aside class="Player__list">
+        <div class="Player__listHead">
+          <div class="SearchBox SearchBox--inline">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-search" /></svg>
+            <input type="search" id="playlistSearch" placeholder="{{ui.playlistSearch}}" autocomplete="off" aria-label="搜尋播放清單" />
+          </div>
+          <div class="Player__listMeta">
+            <span id="playlistCount"></span>
+            <button class="btn btn-invisible btn-icon" id="playlistOnlyTodo" type="button" title="只顯示未完成">
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-check" /></svg>
+            </button>
+          </div>
+        </div>
+        <div class="Player__items" id="playlist"></div>
+      </aside>
+    </section>
+
+    <section class="StancePage" id="view-stance" hidden></section>
+
+    <main class="Layout" id="main" data-view="course">
+      <aside class="Layout__sidebar">
+        <div class="ProgressPanel">
+          <div class="ProgressPanel__head">
+            <span class="ProgressPanel__title">{{ui.progressLabel}}</span>
+            <span class="ProgressPanel__value" id="progressValue">0 / 0</span>
+          </div>
+          <div class="ProgressBar">
+            <div class="ProgressBar__fill" id="progressFill" style="width: 0%"></div>
+          </div>
+          <button class="btn ProgressPanel__reset" id="resetProgress" type="button">
+            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-rotate-ccw" /></svg>
+            重設進度
+          </button>
+        </div>
+
+        <nav class="NavList" id="nav" aria-label="章節導覽"></nav>
+
+        <section class="MusclePanel" id="musclePanel">
+          <button class="MusclePanel__head" id="muscleToggle" type="button" aria-expanded="false">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-accessibility" /></svg>
+            <span>{{ui.facetLabel}}</span>
+            <span class="Counter" id="muscleCount">0</span>
+            <span class="MusclePanel__chevron">
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-chevron-right" /></svg>
+            </span>
+          </button>
+          <div class="MusclePanel__body" id="muscleBody"></div>
+        </section>
+      </aside>
+
+      <div class="Layout__main">
+        <div class="FilterBar">
+          <!-- 按鈕由 app.js 依 course.config.json 的 kinds 產生 -->
+          <div class="FilterBar__group" role="group" aria-label="動作類型篩選">
+            <button class="FilterBar__btn is-active" data-filter="all" type="button">全部</button>
+          </div>
+          <div class="FilterBar__spacer"></div>
+          <span class="FilterBar__count" id="filterCount"></span>
+        </div>
+
+        <div id="chapters">
+          <div class="Blankslate">
+            <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-inbox" /></svg>
+            <p class="Blankslate__heading">載入課程中…</p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="AppFooter">
+      <details class="AppFooter__details">
+        <summary class="AppFooter__summary" title="展開免責聲明與版權資訊">
+          <span class="AppFooter__disclaimer">{{footer.disclaimer}}</span>
+          <svg class="AppFooter__chevron" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-chevron-right" /></svg>
+        </summary>
+        <div class="AppFooter__more">
+          <p class="AppFooter__credits">{{footer.credits}}</p>
+          <p>設計語彙取自 <a href="https://primer.style/" rel="noopener">Primer</a>，圖示為 <a href="https://lucide.dev/icons/" rel="noopener">Lucide</a>（ISC）。</p>
+        </div>
+      </details>
+    </footer>
+
+    <script type="module" src="js/app.js"></script>
+  </body>
+</html>

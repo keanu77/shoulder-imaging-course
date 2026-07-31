@@ -1,0 +1,189 @@
+/* Clinical course layer: calm, information-dense, and usable beside the scanner. */
+
+:root {
+  --clinical-navy: #123047;
+  --clinical-teal: #087f8c;
+  --clinical-teal-muted: #e4f5f5;
+  --clinical-amber-muted: #fff4d6;
+  --clinical-red-muted: #fff0ef;
+  --clinical-panel: #f8fbfc;
+}
+
+:root[data-theme="dark"] {
+  --clinical-navy: #d8edf4;
+  --clinical-teal: #4bc4cc;
+  --clinical-teal-muted: #0d3338;
+  --clinical-amber-muted: #3a2d0f;
+  --clinical-red-muted: #3b1e1d;
+  --clinical-panel: #111b22;
+}
+
+.Hero {
+  background:
+    radial-gradient(circle at 78% 22%, color-mix(in srgb, var(--clinical-teal) 16%, transparent), transparent 32%),
+    linear-gradient(135deg, var(--bgColor-muted), var(--bgColor-default));
+}
+
+.Hero h1,
+.Landing__h2 {
+  color: var(--clinical-navy);
+}
+
+.AppHeader__brand {
+  color: var(--clinical-navy);
+}
+
+.ClinicalBrief {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--base-size-12);
+  margin-bottom: var(--base-size-16);
+}
+
+.ClinicalBrief__section,
+.ClinicalBrief__refs {
+  padding: var(--base-size-12);
+  background: var(--clinical-panel);
+  border: 1px solid var(--borderColor-muted);
+  border-radius: var(--borderRadius-medium);
+}
+
+.ClinicalBrief__section--views {
+  background: var(--clinical-teal-muted);
+  border-color: color-mix(in srgb, var(--clinical-teal) 34%, var(--borderColor-muted));
+}
+
+.ClinicalBrief__section--pitfalls {
+  background: var(--clinical-red-muted);
+  border-color: color-mix(in srgb, var(--fgColor-danger) 24%, var(--borderColor-muted));
+}
+
+.ClinicalBrief h4 {
+  display: flex;
+  align-items: center;
+  gap: var(--base-size-8);
+  margin-bottom: var(--base-size-8);
+  color: var(--clinical-navy);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.ClinicalBrief ul {
+  display: grid;
+  gap: 6px;
+  padding-left: 18px;
+  list-style: disc;
+}
+
+.ClinicalBrief li {
+  color: var(--fgColor-muted);
+  line-height: 1.55;
+}
+
+.ClinicalBrief__refs {
+  grid-column: 1 / -1;
+}
+
+.ClinicalBrief__refs ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.ClinicalBrief__refs li {
+  display: flex;
+  align-items: baseline;
+  gap: var(--base-size-8);
+}
+
+.Drill__why,
+.VideoCard__why {
+  display: block;
+  margin-top: 6px;
+  color: var(--fgColor-muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.Drill__trust,
+.VideoCard__trust {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 7px;
+}
+
+.Drill__trust .Label,
+.VideoCard__trust .Label {
+  white-space: normal;
+}
+
+.Unit__title .Label--attention {
+  background: var(--clinical-amber-muted);
+}
+
+@media (max-width: 760px) {
+  .AppHeader {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    height: auto;
+    padding: 0 var(--base-size-12) var(--base-size-12);
+  }
+
+  .AppHeader__brand {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .TabNav {
+    grid-column: 2;
+    grid-row: 1;
+    margin-left: 0;
+  }
+
+  .TabNav__inner {
+    justify-content: center;
+  }
+
+  .TabNav__item {
+    gap: var(--base-size-4);
+    padding-inline: var(--base-size-8);
+    font-size: 12px;
+  }
+
+  .TabNav__item .Counter {
+    display: none;
+  }
+
+  .AppHeader__spacer {
+    display: none;
+  }
+
+  .AppHeader__actions {
+    grid-column: 3;
+    grid-row: 1;
+  }
+
+  .AppHeader > .SearchBox {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    width: 100%;
+  }
+
+  .ClinicalBrief {
+    grid-template-columns: 1fr;
+  }
+
+  .ClinicalBrief__refs {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 360px) {
+  .TabNav__label {
+    display: none;
+  }
+
+  .TabNav__item {
+    padding-inline: var(--base-size-12);
+  }
+}

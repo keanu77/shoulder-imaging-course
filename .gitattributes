@@ -1,0 +1,12 @@
+# 建置輸出在 dist/，不進版控。策展中繼資料標記為 generated，
+# 讓大型 JSON diff 可摺疊且不影響主要語言統計。
+course/data/video-meta.json linguist-generated=true -diff
+
+# 策展資料由 agent 產生，體積大且不需逐行審閱
+course/data/syllabus.json  linguist-generated=true
+course/data/oe-*.json      linguist-generated=true
+course/data/drill-evidence-*.json linguist-generated=true
+course/data/alt-lessons-*.json    linguist-generated=true
+
+* text=auto eol=lf
+*.png binary

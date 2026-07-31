@@ -1,0 +1,37 @@
+# 憑證：.env 絕不進版控，範本要留
+.env
+.env.*
+!.env.example
+
+# Claude Code 的暫存 worktree，不是專案的一部分
+.claude/worktrees/
+
+# make counter 產生，含每門課自己的 D1 database_id
+wrangler.jsonc
+
+# 建置暫存
+.tmp/
+.wrangler/
+dist/
+
+# 有些人的全域 gitignore 有 build/ 規則，會連框架的 src/build/ 一起吃掉
+!src/build/
+
+# Python（uv 管理虛擬環境）
+.venv/
+__pycache__/
+*.py[cod]
+.ruff_cache/
+.mypy_cache/
+.pytest_cache/
+
+# Node
+node_modules/
+
+# 作業系統與編輯器
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/*
+!.vscode/extensions.json

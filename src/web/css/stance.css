@@ -1,0 +1,176 @@
+/* ==========================================================================
+   stance.css — 首頁的「這門課的立場」實證聲明
+   ========================================================================== */
+
+.Stance {
+  padding: var(--base-size-32) 0;
+  background-color: var(--bgColor-muted);
+  border-bottom: 1px solid var(--borderColor-default);
+}
+
+.Stance__head {
+  display: flex;
+  align-items: center;
+  gap: var(--base-size-8);
+  margin-bottom: var(--base-size-8);
+}
+
+.Stance__title {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.Stance__lede {
+  max-width: 72ch;
+  margin-bottom: var(--base-size-24);
+  font-size: 14px;
+  color: var(--fgColor-muted);
+  line-height: 1.6;
+}
+
+.Stance__grid {
+  display: grid;
+  /* min() 讓欄寬在窄於 300px 的視窗塌成 100%，否則會硬撐出水平捲軸 */
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+  gap: var(--base-size-16);
+}
+
+.StanceCard {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bgColor-default);
+  border: 1px solid var(--borderColor-default);
+  border-radius: var(--borderRadius-medium);
+  overflow: hidden;
+}
+
+.StanceCard__head {
+  display: flex;
+  align-items: center;
+  gap: var(--base-size-8);
+  padding: var(--base-size-12) var(--base-size-16);
+  border-bottom: 1px solid var(--borderColor-muted);
+}
+
+.StanceCard__n {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  font-size: 12px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--fgColor-onEmphasis);
+  background-color: var(--fgColor-done);
+  border-radius: var(--borderRadius-full);
+}
+
+.StanceCard__name {
+  flex: 1;
+  min-width: 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.StanceCard__body {
+  flex: 1;
+  padding: var(--base-size-16);
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.StanceCard__verdict {
+  margin-bottom: var(--base-size-12);
+  padding-left: var(--base-size-12);
+  border-left: 3px solid var(--fgColor-done);
+  font-weight: 600;
+}
+
+.StanceCard__summary {
+  color: var(--fgColor-muted);
+}
+
+.StanceCard details {
+  margin-top: var(--base-size-12);
+  border-top: 1px solid var(--borderColor-muted);
+  padding-top: var(--base-size-12);
+}
+
+.StanceCard summary {
+  display: flex;
+  align-items: center;
+  gap: var(--base-size-4);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--fgColor-accent);
+  cursor: pointer;
+  list-style: none;
+}
+
+.StanceCard summary::-webkit-details-marker {
+  display: none;
+}
+
+.StanceCard summary::after {
+  content: "▸";
+  font-size: 10px;
+  transition: transform 0.15s ease;
+}
+
+.StanceCard details[open] summary::after {
+  transform: rotate(90deg);
+}
+
+.StanceCard__findings {
+  display: grid;
+  gap: var(--base-size-8);
+  margin-top: var(--base-size-12);
+}
+
+.StanceCard__findings li {
+  position: relative;
+  padding-left: var(--base-size-16);
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--fgColor-muted);
+}
+
+.StanceCard__findings li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 5px;
+  height: 5px;
+  border-radius: var(--borderRadius-full);
+  background-color: var(--fgColor-muted);
+}
+
+.StanceCard__foot {
+  padding: var(--base-size-12) var(--base-size-16);
+  background-color: var(--bgColor-muted);
+  border-top: 1px solid var(--borderColor-muted);
+}
+
+.StanceCard__cites {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--base-size-4);
+}
+
+.StanceCard__cites a {
+  font-size: 11px;
+}
+
+@media (max-width: 767px) {
+  .Stance {
+    padding: var(--base-size-24) 0;
+  }
+
+  .Stance__title {
+    font-size: 17px;
+  }
+}

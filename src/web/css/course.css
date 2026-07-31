@@ -1,0 +1,370 @@
+/* ==========================================================================
+   course.css — 章節、單元、影片卡
+   ========================================================================== */
+
+.Chapter {
+  margin-bottom: var(--base-size-16);
+  scroll-margin-top: calc(var(--stick-top) + var(--base-size-16));
+}
+
+.Chapter__header {
+  display: flex;
+  align-items: center;
+  gap: var(--base-size-12);
+  width: 100%;
+  padding: var(--base-size-12) var(--base-size-16);
+  background-color: var(--bgColor-muted);
+  border: 1px solid var(--borderColor-default);
+  border-radius: var(--borderRadius-medium);
+  text-align: left;
+  transition: background-color 0.12s ease;
+}
+
+.Chapter__header:hover {
+  background-color: var(--bgColor-neutral-muted);
+}
+
+.Chapter.is-open .Chapter__header {
+  border-radius: var(--borderRadius-medium) var(--borderRadius-medium) 0 0;
+  border-bottom-color: var(--borderColor-muted);
+}
+
+.Chapter__num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  border-radius: var(--borderRadius-medium);
+  background-color: var(--bgColor-default);
+  border: 1px solid var(--borderColor-default);
+  color: var(--fgColor-accent);
+}
+
+.Chapter__titles {
+  flex: 1;
+  min-width: 0;
+}
+
+.Chapter__title {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--base-size-8);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.Chapter__code {
+  font-family: var(--fontStack-mono);
+  font-size: 12px;
+  color: var(--fgColor-muted);
+  font-weight: 500;
+}
+
+/* 這些節點在 markup 裡是 <span>，必須 blockify，
+   否則 margin/overflow/text-overflow 全部不生效 */
+.Chapter__meta {
+  display: block;
+  margin-top: 2px;
+  font-size: 12px;
+  color: var(--fgColor-muted);
+}
+
+.Chapter__progress {
+  width: 64px;
+  flex-shrink: 0;
+}
+
+.Chapter__chevron {
+  color: var(--fgColor-muted);
+  transition: transform 0.15s ease;
+}
+
+.Chapter.is-open .Chapter__chevron {
+  transform: rotate(90deg);
+}
+
+.Chapter__body {
+  display: none;
+  border: 1px solid var(--borderColor-default);
+  border-top: 0;
+  border-radius: 0 0 var(--borderRadius-medium) var(--borderRadius-medium);
+  overflow: hidden;
+}
+
+.Chapter.is-open .Chapter__body {
+  display: block;
+}
+
+/* --- Unit --------------------------------------------------------------- */
+
+.Unit {
+  border-top: 1px solid var(--borderColor-muted);
+}
+
+.Unit:first-child {
+  border-top: 0;
+}
+
+.Unit__header {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--base-size-12);
+  width: 100%;
+  padding: var(--base-size-12) var(--base-size-16);
+  background-color: transparent;
+  border: 0;
+  text-align: left;
+}
+
+.Unit__header:hover,
+.Unit.is-open .Unit__header {
+  background-color: var(--bgColor-muted);
+}
+
+.Unit__check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  flex-shrink: 0;
+  border: 1px solid var(--borderColor-default);
+  border-radius: var(--borderRadius-full);
+  background-color: var(--bgColor-default);
+  color: transparent;
+  transition: all 0.12s ease;
+}
+
+.Unit__check:hover {
+  border-color: var(--fgColor-success);
+}
+
+.Unit.is-done .Unit__check {
+  background-color: var(--fgColor-success);
+  border-color: var(--fgColor-success);
+  color: var(--fgColor-onEmphasis);
+}
+
+.Unit__main {
+  flex: 1;
+  min-width: 0;
+}
+
+.Unit__title {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--base-size-8);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.Unit.is-done .Unit__title {
+  color: var(--fgColor-muted);
+}
+
+.Unit__summary {
+  display: block;
+  margin-top: 2px;
+  font-size: 13px;
+  color: var(--fgColor-muted);
+  line-height: 1.5;
+}
+
+.Unit__chevron {
+  color: var(--fgColor-muted);
+  margin-top: 2px;
+  transition: transform 0.15s ease;
+}
+
+.Unit.is-open .Unit__chevron {
+  transform: rotate(90deg);
+}
+
+.Unit__body {
+  display: none;
+  padding: 0 var(--base-size-16) var(--base-size-16)
+    calc(var(--base-size-16) + 32px);
+  background-color: var(--bgColor-muted);
+}
+
+.Unit.is-open .Unit__body {
+  display: block;
+}
+
+/* --- VideoCard ---------------------------------------------------------- */
+
+.VideoCard {
+  display: flex;
+  align-items: center;
+  gap: var(--base-size-12);
+  padding: var(--base-size-8) var(--base-size-12);
+  background-color: var(--bgColor-default);
+  border: 1px solid var(--borderColor-default);
+  border-radius: var(--borderRadius-medium);
+  color: var(--fgColor-default);
+  transition: border-color 0.12s ease;
+}
+
+.VideoCard:hover {
+  border-color: var(--borderColor-accent-emphasis);
+  text-decoration: none;
+}
+
+.VideoCard--missing {
+  border-style: dashed;
+  color: var(--fgColor-muted);
+}
+
+.VideoCard--missing:hover {
+  border-color: var(--borderColor-default);
+}
+
+/* 左側標記表示「這是主課」，播放的視覺符號統一交給 .PlayBtn */
+.VideoCard__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  border-radius: var(--borderRadius-medium);
+  background-color: var(--bgColor-accent-muted);
+  border: 1px solid color-mix(in srgb, var(--fgColor-accent) 22%, transparent);
+  color: var(--fgColor-accent);
+}
+
+.VideoCard--missing .VideoCard__badge {
+  background-color: var(--bgColor-neutral-muted);
+  border-color: var(--borderColor-default);
+  color: var(--fgColor-muted);
+}
+
+.VideoCard__main {
+  flex: 1;
+  min-width: 0;
+}
+
+.VideoCard__title {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.VideoCard__meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--base-size-8);
+  font-size: 12px;
+  color: var(--fgColor-muted);
+}
+
+.VideoCard__why {
+  display: block;
+  margin-top: var(--base-size-4);
+  font-size: 12px;
+  color: var(--fgColor-muted);
+  line-height: 1.5;
+}
+
+@media (max-width: 767px) {
+  .Unit__body {
+    padding-left: var(--base-size-16);
+  }
+
+  .Chapter__progress {
+    display: none;
+  }
+
+  /* 窄螢幕上單行省略號會切掉大半個標題，改成完整換行顯示 */
+  .VideoCard {
+    align-items: flex-start;
+  }
+
+  .VideoCard__title {
+    white-space: normal;
+    overflow: visible;
+  }
+
+  /* 選片理由退居次要，最多三行 */
+  .VideoCard__why {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+@media print {
+  .Chapter__body,
+  .Unit__body {
+    display: block !important;
+  }
+}
+
+/* --- 主課的多語言切換 ---------------------------------------------------- */
+
+.LessonBox__langs {
+  display: flex;
+  gap: var(--base-size-4);
+  margin-bottom: var(--base-size-8);
+}
+
+.LessonBox__lang {
+  padding: 3px 10px;
+  font-size: 12px;
+  line-height: 18px;
+  color: var(--fgColor-muted);
+  background-color: var(--bgColor-default);
+  border: 1px solid var(--borderColor-default);
+  border-radius: var(--borderRadius-full);
+}
+
+.LessonBox__lang:hover {
+  color: var(--fgColor-default);
+  border-color: var(--borderColor-accent-emphasis);
+}
+
+.LessonBox__lang.is-active {
+  color: var(--fgColor-onEmphasis);
+  background-color: var(--fgColor-accent);
+  border-color: var(--fgColor-accent);
+  font-weight: 600;
+}
+
+/* 點側欄章節時，對應卡片閃一下描邊。
+   靜態的 box-shadow 先套上，所以 prefers-reduced-motion 把動畫關掉時仍看得見高亮；
+   動畫只負責脈衝兩下（低於每秒三閃的無障礙門檻）。 */
+.Chapter--flash > .Chapter__header {
+  border-color: var(--borderColor-accent-emphasis);
+  box-shadow: 0 0 0 2px var(--borderColor-accent-emphasis);
+  animation: chapterFlash 1.1s ease-out;
+}
+
+@keyframes chapterFlash {
+  0% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--borderColor-accent-emphasis) 70%, transparent);
+  }
+  25% {
+    box-shadow: 0 0 0 6px color-mix(in srgb, var(--borderColor-accent-emphasis) 22%, transparent);
+  }
+  50% {
+    box-shadow: 0 0 0 2px var(--borderColor-accent-emphasis);
+  }
+  75% {
+    box-shadow: 0 0 0 6px color-mix(in srgb, var(--borderColor-accent-emphasis) 22%, transparent);
+  }
+  100% {
+    box-shadow: 0 0 0 2px var(--borderColor-accent-emphasis);
+  }
+}

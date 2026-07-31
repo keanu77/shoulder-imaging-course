@@ -1,0 +1,215 @@
+/* ==========================================================================
+   landing.css — 首頁（點 header 品牌回到這裡）
+   ========================================================================== */
+
+.Landing {
+  margin: 0 auto;
+  padding: 0 var(--base-size-24) var(--base-size-40);
+}
+
+.Landing__section {
+  padding: var(--base-size-40) 0;
+  border-bottom: 1px solid var(--borderColor-muted);
+}
+
+.Landing__h2 {
+  display: flex;
+  align-items: center;
+  gap: var(--base-size-8);
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.Landing__h2 svg {
+  color: var(--fgColor-accent);
+}
+
+.Landing__lede {
+  max-width: 74ch;
+  margin-top: var(--base-size-8);
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--fgColor-muted);
+}
+
+/* --- 三步驟 -------------------------------------------------------------- */
+
+.Steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+  gap: var(--base-size-16);
+  margin-top: var(--base-size-24);
+}
+
+.Step {
+  display: flex;
+  gap: var(--base-size-12);
+  padding: var(--base-size-16);
+  background-color: var(--bgColor-muted);
+  border: 1px solid var(--borderColor-default);
+  border-radius: var(--borderRadius-medium);
+}
+
+.Step__n {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  color: var(--fgColor-accent);
+  background-color: var(--bgColor-default);
+  border: 1px solid var(--borderColor-default);
+  border-radius: var(--borderRadius-medium);
+}
+
+.Step__title {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.Step__body {
+  margin-top: var(--base-size-4);
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--fgColor-muted);
+}
+
+/* --- 立場摘要 ------------------------------------------------------------ */
+
+.Landing__stance {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+  gap: var(--base-size-12);
+  margin: var(--base-size-24) 0 var(--base-size-16);
+}
+
+.LandingStance {
+  padding: var(--base-size-16);
+  background-color: var(--bgColor-default);
+  border: 1px solid var(--borderColor-default);
+  border-radius: var(--borderRadius-medium);
+}
+
+.LandingStance__head {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--base-size-8);
+  margin-bottom: var(--base-size-8);
+  font-size: 13px;
+}
+
+.LandingStance p {
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--fgColor-muted);
+}
+
+/* --- 章節總覽 ------------------------------------------------------------ */
+
+.ChapterGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr));
+  gap: var(--base-size-12);
+  margin-top: var(--base-size-24);
+}
+
+.ChapterCard {
+  display: flex;
+  gap: var(--base-size-12);
+  padding: var(--base-size-12) var(--base-size-16);
+  text-align: left;
+  background-color: var(--bgColor-default);
+  border: 1px solid var(--borderColor-default);
+  border-radius: var(--borderRadius-medium);
+  transition: border-color 0.12s ease, background-color 0.12s ease;
+}
+
+.ChapterCard:hover {
+  border-color: var(--borderColor-accent-emphasis);
+  background-color: var(--bgColor-muted);
+}
+
+.ChapterCard__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  color: var(--fgColor-accent);
+  background-color: var(--bgColor-muted);
+  border: 1px solid var(--borderColor-default);
+  border-radius: var(--borderRadius-medium);
+}
+
+.ChapterCard__main {
+  min-width: 0;
+}
+
+.ChapterCard__title {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.ChapterCard__meta {
+  display: block;
+  font-size: 12px;
+  color: var(--fgColor-muted);
+}
+
+.ChapterCard__units {
+  display: block;
+  margin-top: var(--base-size-4);
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--fgColor-muted);
+}
+
+/* --- CTA ----------------------------------------------------------------- */
+
+.Landing__cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--base-size-24);
+  padding: var(--base-size-32) 0 0;
+}
+
+.Landing__ctaBtns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--base-size-8);
+}
+
+.btn-primary {
+  color: var(--fgColor-onEmphasis);
+  background-color: var(--fgColor-success);
+  border-color: color-mix(in srgb, var(--fgColor-success) 70%, #000);
+}
+
+.btn-primary:hover {
+  background-color: color-mix(in srgb, var(--fgColor-success) 88%, #000);
+}
+
+.btn-primary svg {
+  color: currentColor;
+}
+
+@media (max-width: 767px) {
+  .Landing {
+    padding: 0 var(--base-size-16) var(--base-size-32);
+  }
+
+  .Landing__section {
+    padding: var(--base-size-24) 0;
+  }
+
+  .Landing__h2 {
+    font-size: 17px;
+  }
+}

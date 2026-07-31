@@ -1,0 +1,530 @@
+/* ==========================================================================
+   layout.css — header、側欄、Hero、頁尾
+   ========================================================================== */
+
+/* --- Header ------------------------------------------------------------- */
+
+.AppHeader {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  gap: var(--base-size-16);
+  padding: 0 var(--base-size-16);
+  background-color: color-mix(in srgb, var(--bgColor-muted) 92%, transparent);
+  border-bottom: 1px solid var(--borderColor-default);
+  backdrop-filter: saturate(180%) blur(8px);
+}
+
+.AppHeader__brand {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--base-size-8);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--fgColor-default);
+}
+
+.AppHeader__brand:hover {
+  text-decoration: none;
+}
+
+.AppHeader__brand svg {
+  color: var(--fgColor-accent);
+}
+
+.AppHeader__spacer {
+  flex: 1;
+}
+
+.AppHeader__actions {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--base-size-8);
+}
+
+/* --- SearchBox ---------------------------------------------------------- */
+
+.SearchBox {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 260px;
+  min-width: 0;
+  flex-shrink: 1;
+}
+
+.SearchBox > svg {
+  position: absolute;
+  left: 8px;
+  color: var(--fgColor-muted);
+  pointer-events: none;
+}
+
+.SearchBox input {
+  width: 100%;
+  padding: 5px 28px 5px 30px;
+  font: inherit;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--fgColor-default);
+  background-color: var(--bgColor-default);
+  border: 1px solid var(--borderColor-default);
+  border-radius: var(--borderRadius-medium);
+}
+
+.SearchBox input::placeholder {
+  color: var(--fgColor-muted);
+}
+
+.SearchBox input:focus {
+  outline: none;
+  border-color: var(--borderColor-accent-emphasis);
+  box-shadow: 0 0 0 3px var(--bgColor-accent-muted);
+}
+
+.SearchBox__clear {
+  position: absolute;
+  right: 4px;
+  display: none;
+  padding: 3px;
+  border: 0;
+  border-radius: var(--borderRadius-full);
+  background: transparent;
+  color: var(--fgColor-muted);
+}
+
+.SearchBox__clear:hover {
+  background-color: var(--bgColor-neutral-muted);
+  color: var(--fgColor-default);
+}
+
+.SearchBox.has-value .SearchBox__clear {
+  display: block;
+}
+
+/* --- Hero --------------------------------------------------------------- */
+
+.Hero {
+  padding: var(--base-size-40) 0 var(--base-size-32);
+  border-bottom: 1px solid var(--borderColor-default);
+  background: radial-gradient(
+      ellipse 70% 60% at 20% 0%,
+      var(--bgColor-accent-muted),
+      transparent 70%
+    ),
+    var(--bgColor-default);
+}
+
+.Hero h1 {
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+.Hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--base-size-4);
+  margin-bottom: var(--base-size-12);
+}
+
+.Hero__lede {
+  margin-top: var(--base-size-12);
+  max-width: 62ch;
+  font-size: 16px;
+  color: var(--fgColor-muted);
+}
+
+.Hero__stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--base-size-32);
+  margin-top: var(--base-size-24);
+  padding-top: var(--base-size-24);
+  border-top: 1px solid var(--borderColor-muted);
+}
+
+.Stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.Stat__value {
+  display: flex;
+  align-items: center;
+  gap: var(--base-size-4);
+  font-size: 20px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.2;
+}
+
+.Stat__value svg {
+  color: var(--fgColor-muted);
+}
+
+.Stat__value .rating {
+  color: var(--fgColor-attention);
+}
+
+.Stat__label {
+  font-size: 12px;
+  color: var(--fgColor-muted);
+}
+
+/* --- Layout ------------------------------------------------------------- */
+
+.Layout {
+  display: grid;
+  grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
+  gap: var(--base-size-24);
+  margin: 0 auto;
+  padding: var(--base-size-24) var(--base-size-24);
+  align-items: start;
+}
+
+.Layout__sidebar {
+  position: sticky;
+  top: calc(var(--stick-top) + var(--base-size-24));
+  max-height: calc(
+    100vh - var(--stick-top) - var(--base-size-40) - var(--footer-height)
+  );
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding-right: var(--base-size-4);
+}
+
+.Layout__main {
+  min-width: 0;
+}
+
+/* --- Progress panel ----------------------------------------------------- */
+
+.ProgressPanel {
+  padding: var(--base-size-12);
+  margin-bottom: var(--base-size-16);
+  background-color: var(--bgColor-muted);
+  border: 1px solid var(--borderColor-default);
+  border-radius: var(--borderRadius-medium);
+}
+
+.ProgressPanel__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--base-size-8);
+  margin-bottom: var(--base-size-8);
+}
+
+.ProgressPanel__title {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--fgColor-muted);
+}
+
+.ProgressPanel__value {
+  font-size: 13px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.ProgressPanel__reset {
+  margin-top: var(--base-size-8);
+  font-size: 12px;
+  padding: 3px 8px;
+}
+
+/* --- NavList ------------------------------------------------------------ */
+
+.NavList {
+  font-size: 14px;
+}
+
+.NavList__group-title {
+  padding: var(--base-size-12) var(--base-size-12) var(--base-size-4);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--fgColor-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.NavList__item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--base-size-8);
+  padding: 6px var(--base-size-12);
+  border-radius: var(--borderRadius-medium);
+  color: var(--fgColor-default);
+  line-height: 20px;
+}
+
+.NavList__item:hover {
+  background-color: var(--bgColor-neutral-muted);
+  text-decoration: none;
+}
+
+.NavList__item.is-active {
+  background-color: var(--bgColor-neutral-muted);
+  font-weight: 600;
+}
+
+.NavList__item.is-active::before {
+  content: "";
+  position: absolute;
+  left: -4px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2px;
+  height: 20px;
+  background-color: var(--fgColor-accent);
+  border-radius: var(--borderRadius-full);
+}
+
+.NavList__icon {
+  color: var(--fgColor-muted);
+}
+
+.NavList__item.is-active .NavList__icon {
+  color: var(--fgColor-accent);
+}
+
+.NavList__label {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* --- FilterBar ---------------------------------------------------------- */
+
+.FilterBar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--base-size-8);
+  margin-bottom: var(--base-size-16);
+}
+
+.FilterBar__group {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--borderColor-default);
+  border-radius: var(--borderRadius-medium);
+  overflow: hidden;
+}
+
+.FilterBar__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--base-size-4);
+  padding: 5px 10px;
+  font-size: 13px;
+  background-color: var(--bgColor-default);
+  border: 0;
+  border-left: 1px solid var(--borderColor-default);
+  color: var(--fgColor-muted);
+}
+
+.FilterBar__btn:first-child {
+  border-left: 0;
+}
+
+.FilterBar__btn:hover {
+  background-color: var(--bgColor-muted);
+}
+
+.FilterBar__btn.is-active {
+  background-color: var(--bgColor-accent-muted);
+  color: var(--fgColor-accent);
+  font-weight: 600;
+}
+
+.FilterBar__spacer {
+  flex: 1;
+}
+
+.FilterBar__count {
+  font-size: 12px;
+  color: var(--fgColor-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+/* --- Footer ------------------------------------------------------------- */
+
+/* 固定貼在視窗底部，不隨頁面捲動；收合時一行，點開才展全文 */
+.AppFooter {
+  position: fixed;
+  inset-inline: 0;
+  bottom: 0;
+  z-index: 60;
+  max-height: 60vh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  border-top: 1px solid var(--borderColor-default);
+  background-color: color-mix(in srgb, var(--bgColor-muted) 92%, transparent);
+  backdrop-filter: saturate(180%) blur(8px);
+  font-size: 12px;
+  color: var(--fgColor-muted);
+}
+
+.AppFooter__summary {
+  display: flex;
+  align-items: center;
+  gap: var(--base-size-8);
+  min-height: calc(var(--footer-height) - 1px);
+  padding: 0 var(--base-size-16);
+  cursor: pointer;
+  list-style: none;
+}
+
+.AppFooter__summary::-webkit-details-marker {
+  display: none;
+}
+
+.AppFooter__summary:hover {
+  color: var(--fgColor-default);
+}
+
+.AppFooter__chevron {
+  flex-shrink: 0;
+  margin-left: auto;
+  transform: rotate(-90deg);
+  transition: transform 0.15s ease;
+}
+
+.AppFooter__details[open] .AppFooter__chevron {
+  transform: rotate(90deg);
+}
+
+.AppFooter__disclaimer {
+  flex: 1;
+  min-width: 0;
+  line-height: 1.6;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.AppFooter__details[open] .AppFooter__summary {
+  align-items: flex-start;
+  padding-block: var(--base-size-12);
+}
+
+.AppFooter__details[open] .AppFooter__disclaimer {
+  white-space: normal;
+  max-width: 80ch;
+}
+
+.AppFooter__more {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--base-size-16);
+  padding: 0 var(--base-size-16) var(--base-size-16);
+  line-height: 1.6;
+}
+
+/* --- Responsive --------------------------------------------------------- */
+
+@media (max-width: 1012px) {
+  .Layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .Layout__sidebar {
+    position: static;
+    max-height: none;
+  }
+
+  .SearchBox {
+    width: 200px;
+  }
+}
+
+@media (max-width: 767px) {
+  .Hero {
+    padding: var(--base-size-24) 0;
+  }
+
+  .Hero h1 {
+    font-size: 24px;
+  }
+
+  .Hero__stats {
+    gap: var(--base-size-16) var(--base-size-24);
+  }
+
+  .SearchBox {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .AppHeader {
+    gap: var(--base-size-8);
+  }
+
+  .AppHeader__brand span {
+    display: none;
+  }
+}
+
+@media print {
+  .AppHeader,
+  .Layout__sidebar,
+  .FilterBar,
+  .ProgressPanel {
+    display: none;
+  }
+
+  .Layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* 單元數與影片數不是同一個數字，這行負責解釋差在哪 */
+.Hero__note {
+  max-width: 78ch;
+  margin-top: var(--base-size-16);
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--fgColor-muted);
+}
+
+/* 瀏覽次數徽章。預設 hidden，只有真的取到數字才顯示——
+   沒綁 D1、離線、或 API 掛掉時就當作沒有這個功能，不留一個壞掉的空殼。 */
+.HitCounter {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--base-size-4);
+  padding: 0 var(--base-size-8);
+  flex-shrink: 0;
+  font-size: var(--text-body-size-small);
+  color: var(--fgColor-muted);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.HitCounter[hidden] {
+  display: none;
+}
+
+/* 窄螢幕先犧牲文字標籤，再犧牲整個徽章——搜尋框與分頁比它重要 */
+@media (max-width: 900px) {
+  .HitCounter__label {
+    display: none;
+  }
+}
+
+@media (max-width: 700px) {
+  .HitCounter {
+    display: none;
+  }
+}

@@ -1,0 +1,411 @@
+/* ==========================================================================
+   evidence.css — 自我評估、肌群分析、動作清單、實證註記
+   ========================================================================== */
+
+.Assessment {
+  display: flex;
+  gap: var(--base-size-12);
+  padding: var(--base-size-12);
+  margin-top: var(--base-size-12);
+  background-color: var(--bgColor-attention-muted);
+  border: 1px solid color-mix(in srgb, var(--fgColor-attention) 30%, transparent);
+  border-radius: var(--borderRadius-medium);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.Assessment__icon {
+  color: var(--fgColor-attention);
+  margin-top: 2px;
+}
+
+.Assessment__label {
+  font-weight: 600;
+  margin-right: var(--base-size-4);
+}
+
+/* --- MuscleGrid --------------------------------------------------------- */
+
+.MuscleGrid {
+  display: grid;
+  /* 同 Stance__grid：窄視窗要能塌成單欄，不能被 220px 下限撐開 */
+  grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
+  gap: var(--base-size-12);
+  margin-top: var(--base-size-12);
+}
+
+.MuscleBlock {
+  padding: var(--base-size-12);
+  background-color: var(--bgColor-default);
+  border: 1px solid var(--borderColor-default);
+  border-radius: var(--borderRadius-medium);
+}
+
+.MuscleBlock__title {
+  display: flex;
+  align-items: center;
+  gap: var(--base-size-4);
+  margin-bottom: var(--base-size-8);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--fgColor-muted);
+}
+
+.MuscleBlock--tight .MuscleBlock__title {
+  color: var(--fgColor-danger);
+}
+
+.MuscleBlock--weak .MuscleBlock__title {
+  color: var(--fgColor-accent);
+}
+
+.MuscleBlock__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--base-size-4);
+}
+
+/* --- Drills ------------------------------------------------------------- */
+
+.DrillGroup {
+  margin-top: var(--base-size-16);
+}
+
+.DrillGroup__title {
+  display: flex;
+  align-items: center;
+  gap: var(--base-size-8);
+  margin-bottom: var(--base-size-8);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.DrillList {
+  display: grid;
+  /* 寬螢幕下排成多欄，不要一列只放一個動作；
+     minmax 的 0 下限避免 grid item 被內容撐出容器 */
+  grid-template-columns: repeat(auto-fill, minmax(min(380px, 100%), 1fr));
+  gap: var(--base-size-8);
+}
+
+.Drill {
+  background-color: var(--bgColor-default);
+  border: 1px solid var(--borderColor-default);
+  border-radius: var(--borderRadius-medium);
+  transition: border-color 0.12s ease;
+}
+
+.Drill:has(a):hover {
+  border-color: var(--borderColor-accent-emphasis);
+}
+
+/* 整列可點，與主課卡片一致 */
+.Drill__link {
+  display: flex;
+  align-items: center;
+  gap: var(--base-size-12);
+  padding: var(--base-size-8) var(--base-size-12);
+  color: var(--fgColor-default);
+}
+
+.Drill__link:hover {
+  text-decoration: none;
+}
+
+.Drill__link[aria-disabled="true"] {
+  color: var(--fgColor-muted);
+}
+
+.Drill__muscles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--base-size-4);
+  margin-top: 5px;
+}
+
+.Drill__marker {
+  width: 8px;
+  height: 8px;
+  flex-shrink: 0;
+  border-radius: var(--borderRadius-full);
+}
+
+.Drill__marker--release {
+  background-color: var(--fgColor-accent);
+}
+
+.Drill__marker--stretch {
+  background-color: var(--fgColor-success);
+}
+
+.Drill__marker--train {
+  background-color: var(--fgColor-danger);
+}
+
+.Drill__main {
+  flex: 1;
+  min-width: 0;
+}
+
+.Drill__name {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.Drill__en {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--fgColor-muted);
+}
+
+.Drill__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--base-size-8);
+  margin-top: 2px;
+  font-size: 12px;
+  color: var(--fgColor-muted);
+}
+
+.Drill__dose {
+  font-family: var(--fontStack-mono);
+  font-size: 11px;
+  padding: 1px 5px;
+  background-color: var(--bgColor-neutral-muted);
+  border-radius: var(--borderRadius-small);
+}
+
+
+/* --- Evidence ----------------------------------------------------------- */
+
+.Evidence {
+  margin-top: var(--base-size-12);
+  background-color: var(--bgColor-default);
+  border: 1px solid var(--borderColor-default);
+  border-radius: var(--borderRadius-medium);
+  overflow: hidden;
+}
+
+.Evidence__header {
+  display: flex;
+  align-items: center;
+  gap: var(--base-size-8);
+  width: 100%;
+  min-width: 0;
+  padding: var(--base-size-8) var(--base-size-12);
+  background-color: var(--bgColor-muted);
+  border: 0;
+  border-bottom: 1px solid var(--borderColor-muted);
+  font-size: 12px;
+  font-weight: 600;
+  text-align: left;
+}
+
+.Evidence__header:hover {
+  background-color: var(--bgColor-neutral-muted);
+}
+
+.Evidence__header > svg:first-child {
+  color: var(--fgColor-done);
+}
+
+.Evidence__spacer {
+  flex: 1;
+}
+
+.Evidence__chevron {
+  color: var(--fgColor-muted);
+  transition: transform 0.15s ease;
+}
+
+.Evidence.is-open .Evidence__chevron {
+  transform: rotate(90deg);
+}
+
+.Evidence__body {
+  display: none;
+  padding: var(--base-size-12);
+  font-size: 13px;
+  gap: var(--base-size-8);
+}
+
+.Evidence.is-open .Evidence__body {
+  display: grid;
+}
+
+.Evidence__row {
+  display: grid;
+  grid-template-columns: 92px minmax(0, 1fr);
+  gap: var(--base-size-8);
+  align-items: start;
+  line-height: 1.6;
+}
+
+.Evidence__key {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--fgColor-muted);
+}
+
+.Evidence__flags {
+  display: flex;
+  flex-direction: column;
+  gap: var(--base-size-4);
+}
+
+.Evidence__cite {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--base-size-4);
+  padding-top: var(--base-size-8);
+  margin-top: var(--base-size-4);
+  border-top: 1px solid var(--borderColor-muted);
+}
+
+.Evidence__cite a {
+  font-size: 12px;
+}
+
+@media (max-width: 767px) {
+  .Evidence__row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* 這一列放不下三個標籤。OpenEvidence 標籤只是來源提示，
+     展開後的內文本來就有原始連結，窄螢幕先讓位給分級與展開鈕 */
+  .Evidence__header > .Label--neutral {
+    display: none;
+  }
+}
+
+/* 長肌群名與英文動作名在窄欄位要能斷行，否則會頂出卡片。
+   .Label 預設 nowrap，肌群標籤這裡必須解除 */
+.Drill__name,
+.Drill__en,
+.Drill__dose,
+/* 頻道名常是不含空格的長英文（TheProactiveAthlete），必須能硬斷 */
+.Drill__meta > span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.MuscleBlock__list .Label {
+  white-space: normal;
+  overflow-wrap: anywhere;
+  text-align: left;
+}
+
+@media print {
+  .Evidence__body {
+    display: grid !important;
+  }
+}
+
+/* --- 動作類別的 PubMed 文獻 ---------------------------------------------- */
+
+.DrillEv__body {
+  gap: var(--base-size-8);
+}
+
+.DrillEvCat {
+  border: 1px solid var(--borderColor-muted);
+  border-radius: var(--borderRadius-medium);
+  overflow: hidden;
+}
+
+.DrillEvCat > summary {
+  display: flex;
+  align-items: center;
+  gap: var(--base-size-8);
+  padding: var(--base-size-8) var(--base-size-12);
+  background-color: var(--bgColor-muted);
+  cursor: pointer;
+  list-style: none;
+  font-size: 13px;
+}
+
+.DrillEvCat > summary::-webkit-details-marker {
+  display: none;
+}
+
+.DrillEvCat > summary::after {
+  content: "▸";
+  margin-left: auto;
+  font-size: 10px;
+  color: var(--fgColor-muted);
+  transition: transform 0.15s ease;
+}
+
+.DrillEvCat[open] > summary::after {
+  transform: rotate(90deg);
+}
+
+.DrillEvCat__name {
+  font-weight: 600;
+}
+
+.DrillEvCat__summary {
+  padding: var(--base-size-12) var(--base-size-12) 0;
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--fgColor-muted);
+}
+
+.DrillEvCat__cites {
+  display: grid;
+  gap: var(--base-size-8);
+  padding: var(--base-size-12);
+  counter-reset: cite;
+}
+
+.DrillEvCat__cites li {
+  position: relative;
+  padding-left: var(--base-size-24);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.DrillEvCat__cites li::before {
+  counter-increment: cite;
+  content: counter(cite) ".";
+  position: absolute;
+  left: 0;
+  color: var(--fgColor-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.DrillEvCat__cites a {
+  display: block;
+  font-weight: 500;
+}
+
+.DrillEvCat__src {
+  display: block;
+  color: var(--fgColor-muted);
+  font-size: 11px;
+}
+
+.DrillEvCat__take {
+  display: block;
+  margin-top: 2px;
+  padding-left: var(--base-size-8);
+  border-left: 2px solid var(--borderColor-default);
+  color: var(--fgColor-muted);
+}
+
+
+/* --- 寬螢幕的可讀性 ------------------------------------------------------ */
+
+/* 容器可以吃滿寬度，但長段落不行——一行 150 個中文字沒人讀得下去 */
+.Evidence__row > span:not(.Evidence__key):not(.Evidence__flags),
+.DrillEvCat__summary,
+.DrillEvCat__cites li,
+.Assessment > span:last-child,
+.Unit__summary {
+  max-width: 88ch;
+}

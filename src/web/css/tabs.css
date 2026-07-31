@@ -1,0 +1,316 @@
+/* ==========================================================================
+   tabs.css — 分頁導覽、立場獨立頁、肌群篩選面板、統一播放鈕
+   ========================================================================== */
+
+/* --- TabNav（Primer UnderlineNav，內嵌於 header 同一列） ------------------ */
+
+.TabNav {
+  min-width: 0;
+  margin-left: var(--base-size-8);
+}
+
+.TabNav__inner {
+  display: flex;
+  gap: var(--base-size-4);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.TabNav__inner::-webkit-scrollbar {
+  display: none;
+}
+
+.TabNav__item {
+  display: flex;
+  align-items: center;
+  gap: var(--base-size-8);
+  height: var(--header-height);
+  padding: 0 var(--base-size-12);
+  font-size: 14px;
+  white-space: nowrap;
+  background: none;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  color: var(--fgColor-muted);
+  transition: color 0.12s ease, border-color 0.12s ease;
+}
+
+.TabNav__item:hover {
+  color: var(--fgColor-default);
+  border-bottom-color: var(--borderColor-default);
+}
+
+.TabNav__item.is-selected {
+  color: var(--fgColor-default);
+  font-weight: 600;
+  border-bottom-color: #fd8c73;
+}
+
+:root[data-theme="dark"] .TabNav__item.is-selected {
+  border-bottom-color: #f78166;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .TabNav__item.is-selected {
+    border-bottom-color: #f78166;
+  }
+}
+
+.TabNav__item svg {
+  color: var(--fgColor-muted);
+}
+
+.TabNav__item.is-selected svg {
+  color: var(--fgColor-default);
+}
+
+/* --- 立場獨立頁 ---------------------------------------------------------- */
+
+.StancePage {
+  margin: 0 auto;
+  padding: var(--base-size-32) var(--base-size-24) var(--base-size-40);
+}
+
+.StancePage__intro {
+  max-width: 74ch;
+  margin-bottom: var(--base-size-32);
+}
+
+.StancePage__intro h2 {
+  display: flex;
+  align-items: center;
+  gap: var(--base-size-8);
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+
+.StancePage__intro h2 svg {
+  color: var(--fgColor-done);
+}
+
+.StancePage__intro p {
+  margin-top: var(--base-size-12);
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--fgColor-muted);
+}
+
+.StancePage__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr));
+  gap: var(--base-size-16);
+}
+
+/* 立場頁的卡片內容全展開，不用折疊 */
+.StancePage .StanceCard details {
+  display: block;
+}
+
+.StancePage__outro {
+  max-width: 74ch;
+  margin-top: var(--base-size-32);
+  padding: var(--base-size-16);
+  background-color: var(--bgColor-muted);
+  border: 1px solid var(--borderColor-default);
+  border-radius: var(--borderRadius-medium);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.StancePage__outro strong {
+  color: var(--fgColor-default);
+}
+
+/* --- 肌群篩選面板 -------------------------------------------------------- */
+
+.MusclePanel {
+  margin-top: var(--base-size-16);
+  background-color: var(--bgColor-muted);
+  border: 1px solid var(--borderColor-default);
+  border-radius: var(--borderRadius-medium);
+  overflow: hidden;
+}
+
+.MusclePanel__head {
+  display: flex;
+  align-items: center;
+  gap: var(--base-size-8);
+  width: 100%;
+  padding: var(--base-size-12);
+  background: none;
+  border: 0;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--fgColor-muted);
+  text-align: left;
+}
+
+.MusclePanel__head:hover {
+  background-color: var(--bgColor-neutral-muted);
+  color: var(--fgColor-default);
+}
+
+.MusclePanel__head > span:first-of-type {
+  flex: 1;
+}
+
+.MusclePanel__chevron {
+  display: inline-flex;
+  transition: transform 0.15s ease;
+}
+
+.MusclePanel.is-open .MusclePanel__chevron {
+  transform: rotate(90deg);
+}
+
+.MusclePanel__body {
+  display: none;
+  padding: 0 var(--base-size-12) var(--base-size-12);
+  max-height: 46vh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.MusclePanel.is-open .MusclePanel__body {
+  display: block;
+}
+
+.MuscleGroup__title {
+  padding: var(--base-size-8) 0 var(--base-size-4);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--fgColor-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.MuscleChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--base-size-4);
+}
+
+.MuscleChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 9px;
+  font-size: 12px;
+  line-height: 18px;
+  color: var(--fgColor-default);
+  background-color: var(--bgColor-default);
+  border: 1px solid var(--borderColor-default);
+  border-radius: var(--borderRadius-full);
+  white-space: nowrap;
+}
+
+.MuscleChip:hover {
+  border-color: var(--borderColor-accent-emphasis);
+  color: var(--fgColor-accent);
+}
+
+.MuscleChip.is-active {
+  color: var(--fgColor-onEmphasis);
+  background-color: var(--fgColor-accent);
+  border-color: var(--fgColor-accent);
+}
+
+.MuscleChip__n {
+  font-size: 10px;
+  font-variant-numeric: tabular-nums;
+  opacity: 0.6;
+}
+
+.MusclePanel__clear {
+  width: 100%;
+  margin-top: var(--base-size-12);
+  justify-content: center;
+  font-size: 12px;
+  padding: 4px 8px;
+}
+
+/* 單元／動作內可點擊的肌群標籤 */
+.Label--muscle {
+  cursor: pointer;
+}
+
+.Label--muscle:hover {
+  color: var(--fgColor-accent);
+  border-color: var(--borderColor-accent-emphasis);
+}
+
+.Label--muscle.is-active {
+  color: var(--fgColor-onEmphasis);
+  background-color: var(--fgColor-accent);
+  border-color: var(--fgColor-accent);
+}
+
+/* --- 統一的播放鈕 -------------------------------------------------------- */
+
+.PlayBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  border-radius: var(--borderRadius-medium);
+  background-color: var(--bgColor-danger-muted);
+  border: 1px solid color-mix(in srgb, var(--fgColor-danger) 26%, transparent);
+  color: var(--fgColor-danger);
+  transition: background-color 0.12s ease, border-color 0.12s ease;
+}
+
+.PlayBtn--sm {
+  width: 28px;
+  height: 28px;
+}
+
+a:hover > .PlayBtn,
+.PlayBtn:hover {
+  background-color: color-mix(in srgb, var(--fgColor-danger) 18%, transparent);
+  border-color: var(--fgColor-danger);
+}
+
+.PlayBtn--disabled {
+  background-color: var(--bgColor-neutral-muted);
+  border-color: var(--borderColor-default);
+  border-style: dashed;
+  color: var(--fgColor-muted);
+  pointer-events: none;
+}
+
+/* 中等寬度：數字先讓位給搜尋框 */
+@media (max-width: 1100px) {
+  .TabNav__item .Counter {
+    display: none;
+  }
+}
+
+/* 窄螢幕：分頁只留圖示，文字用 title 提示 */
+@media (max-width: 700px) {
+  .TabNav {
+    margin-left: 0;
+  }
+
+  .TabNav__item {
+    padding: 0 10px;
+    gap: 0;
+  }
+
+  .TabNav__label {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+
+  .StancePage {
+    padding: var(--base-size-24) var(--base-size-16);
+  }
+
+  .StancePage__intro h2 {
+    font-size: 19px;
+  }
+}

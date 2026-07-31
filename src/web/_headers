@@ -1,0 +1,31 @@
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=()
+
+# CSS/JS 沒有 hash 檔名，長快取會讓改版後的使用者卡在舊樣式
+/index.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+# 課程資料改版要立刻反映，同樣靠 ETag 走 304
+/course.json
+  Cache-Control: public, max-age=0, must-revalidate
+
+# 檔名沒有 hash，長快取會讓改版後的使用者卡在舊樣式／舊行為。
+# max-age=0 + must-revalidate 仍走 ETag，命中時只回 304，不浪費頻寬。
+/css/*
+  Cache-Control: public, max-age=0, must-revalidate
+
+/js/*
+  Cache-Control: public, max-age=0, must-revalidate
+
+# 圖與爬蟲檔改動少，可以放長
+/og.png
+  Cache-Control: public, max-age=2592000
+
+/llms.txt
+  Cache-Control: public, max-age=86400
+
+# 計數 API 不能被任何一層快取，否則數字會凍在某個值
+/api/*
+  Cache-Control: no-store, max-age=0

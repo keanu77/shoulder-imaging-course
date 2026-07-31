@@ -1,0 +1,578 @@
+/* ==========================================================================
+   player.css — 上課模式：左側播放器、右側播放清單
+   ========================================================================== */
+
+/* 上課模式吃滿視窗高度，整頁不捲動；捲動交給左右兩欄各自處理 */
+.Player {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 10px var(--playlist-w, 380px);
+  gap: var(--base-size-16);
+  height: calc(100dvh - var(--stick-top));
+  margin: 0 auto;
+  padding: var(--base-size-16);
+  align-items: stretch;
+  overflow: hidden;
+}
+
+/* --- 左側：影片 ---------------------------------------------------------- */
+
+/* 影片與資訊列一起靠上，剩餘空間留在下方，
+   而不是把資訊列推到畫面最底、中間開一個大洞 */
+.Player__stage {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+}
+
+/* 寬度由 fitFrame() 依實際可用高度算出來寫進 --frame-w。
+   純 CSS 同時約束寬高會讓 aspect-ratio 失效變形，所以這裡交給 JS 量。 */
+.Player__frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  width: var(--frame-w, 100%);
+  max-width: 100%;
+  flex: 0 0 auto;
+  margin-inline: auto;
+  overflow: hidden;
+  background-color: var(--bgColor-inset);
+  border: 1px solid var(--borderColor-default);
+  border-radius: var(--borderRadius-medium);
+}
+
+.Player__frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.Player__placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--base-size-8);
+  height: 100%;
+  padding: var(--base-size-24);
+  text-align: center;
+  color: var(--fgColor-muted);
+  font-size: 13px;
+}
+
+.Player__placeholder svg {
+  color: var(--fgColor-danger);
+}
+
+/* --- 影片資訊 ------------------------------------------------------------ */
+
+/* 資訊區永遠完整顯示、不捲動；空間不夠是影片讓步，不是資訊被切掉 */
+.Player__info {
+  margin-top: var(--base-size-12);
+  flex: 0 0 auto;
+  overflow: visible;
+}
+
+/* 收起播放清單，讓影片吃滿整個寬度 */
+.Player.is-wide {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.Player.is-wide .Player__list,
+.Player.is-wide .Player__resizer {
+  display: none;
+}
+
+/* --- 可拖曳的欄寬分隔條 -------------------------------------------------- */
+
+.Player__resizer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: col-resize;
+  color: var(--fgColor-muted);
+  border-radius: var(--borderRadius-medium);
+  touch-action: none;
+  transition: background-color 0.12s ease, color 0.12s ease;
+}
+
+.Player__resizer:hover,
+.Player__resizer:focus-visible,
+.Player__resizer.is-dragging {
+  background-color: var(--bgColor-neutral-muted);
+  color: var(--fgColor-accent);
+}
+
+/* 拖曳中鎖住整頁選取與 iframe 的滑鼠事件，否則游標一進影片就斷掉 */
+body.is-resizing {
+  user-select: none;
+  cursor: col-resize;
+}
+
+body.is-resizing iframe {
+  pointer-events: none;
+}
+
+.Player__crumb {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--base-size-8);
+  font-size: 12px;
+  color: var(--fgColor-muted);
+}
+
+.Player__title {
+  margin-top: var(--base-size-4);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.Player__sub {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--base-size-8);
+  margin-top: var(--base-size-4);
+  font-size: 13px;
+  color: var(--fgColor-muted);
+}
+
+.Player__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--base-size-8);
+  margin-top: var(--base-size-12);
+  padding-top: var(--base-size-12);
+  border-top: 1px solid var(--borderColor-muted);
+}
+
+.Player__note {
+  margin-top: var(--base-size-12);
+  padding: var(--base-size-12);
+  background-color: var(--bgColor-muted);
+  border: 1px solid var(--borderColor-default);
+  border-radius: var(--borderRadius-medium);
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--fgColor-muted);
+}
+
+/* --- 右側：播放清單 ------------------------------------------------------ */
+
+.Player__list {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
+  background-color: var(--bgColor-default);
+  border: 1px solid var(--borderColor-default);
+  border-radius: var(--borderRadius-medium);
+  overflow: hidden;
+}
+
+.Player__listHead {
+  padding: var(--base-size-12);
+  background-color: var(--bgColor-muted);
+  border-bottom: 1px solid var(--borderColor-default);
+}
+
+.SearchBox--inline {
+  width: 100%;
+}
+
+.Player__listMeta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--base-size-8);
+  margin-top: var(--base-size-8);
+  font-size: 12px;
+  color: var(--fgColor-muted);
+}
+
+.Player__listMeta .is-active {
+  color: var(--fgColor-accent);
+  background-color: var(--bgColor-accent-muted);
+}
+
+.Player__items {
+  flex: 1;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.PlaylistChapter {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  padding: var(--base-size-8) var(--base-size-12);
+  background-color: var(--bgColor-muted);
+  border-bottom: 1px solid var(--borderColor-muted);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--fgColor-muted);
+}
+
+.PlaylistUnit {
+  padding: var(--base-size-8) var(--base-size-12) var(--base-size-4);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--fgColor-default);
+  border-top: 1px solid var(--borderColor-muted);
+}
+
+.PlaylistItem {
+  display: flex;
+  align-items: center;
+  gap: var(--base-size-8);
+  width: 100%;
+  padding: 7px var(--base-size-12);
+  background: none;
+  border: 0;
+  border-left: 2px solid transparent;
+  text-align: left;
+  color: var(--fgColor-default);
+}
+
+.PlaylistItem:hover {
+  background-color: var(--bgColor-muted);
+}
+
+.PlaylistItem.is-playing {
+  background-color: var(--bgColor-accent-muted);
+  border-left-color: var(--fgColor-accent);
+}
+
+.PlaylistItem.is-done .PlaylistItem__name {
+  color: var(--fgColor-muted);
+  text-decoration: line-through;
+  text-decoration-color: var(--borderColor-default);
+}
+
+.PlaylistItem__dot {
+  width: 7px;
+  height: 7px;
+  flex-shrink: 0;
+  border-radius: var(--borderRadius-full);
+}
+
+.PlaylistItem__dot--lesson {
+  background-color: var(--fgColor-accent);
+}
+.PlaylistItem__dot--release {
+  background-color: var(--fgColor-accent);
+  opacity: 0.55;
+}
+.PlaylistItem__dot--stretch {
+  background-color: var(--fgColor-success);
+}
+.PlaylistItem__dot--train {
+  background-color: var(--fgColor-danger);
+}
+
+.PlaylistItem__main {
+  flex: 1;
+  min-width: 0;
+}
+
+.PlaylistItem__name {
+  display: block;
+  font-size: 13px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.PlaylistItem__meta {
+  display: block;
+  font-size: 11px;
+  color: var(--fgColor-muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.PlaylistItem__dur {
+  flex-shrink: 0;
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+  color: var(--fgColor-muted);
+}
+
+.PlaylistItem.is-playing .PlaylistItem__dur {
+  color: var(--fgColor-accent);
+}
+
+/* --- 響應式 -------------------------------------------------------------- */
+
+/* 上課模式吃滿螢幕，頁尾在這一頁沒有意義 */
+body[data-tab="player"] .AppFooter {
+  display: none;
+}
+
+/* 頁尾不在時也不需要墊底空間 */
+body[data-tab="player"] {
+  padding-bottom: 0;
+}
+
+@media (max-width: 1012px) {
+  /* 窄螢幕改上下堆疊：影片在上、清單在下，各自佔一段固定高度 */
+  .Player {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto minmax(0, 1fr);
+  }
+
+  /* 上下堆疊時沒有左右欄可拖 */
+  .Player__resizer {
+    display: none;
+  }
+
+  .Player__stage {
+    grid-template-rows: auto auto;
+    min-height: 0;
+  }
+
+  .Player__frame {
+    max-width: calc(42dvh * 16 / 9);
+  }
+
+  .Player__info {
+    overflow: visible;
+  }
+
+  .Player__list {
+    min-height: 200px;
+  }
+}
+
+@media (max-width: 767px) {
+  .Player {
+    padding: var(--base-size-12);
+    gap: var(--base-size-12);
+  }
+
+  .Player__title {
+    font-size: 16px;
+  }
+}
+
+/* --- 精簡後的資訊列 ------------------------------------------------------ */
+
+.Player__bar {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--base-size-12);
+}
+
+.Player__barMain {
+  flex: 1;
+  min-width: 0;
+}
+
+.Player__bar .Player__title {
+  margin-top: 0;
+  font-size: 16px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.Player__bar .Player__actions {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
+  flex-wrap: nowrap;
+  flex-shrink: 0;
+}
+
+.Player__more {
+  margin-top: var(--base-size-8);
+}
+
+.Player__more > summary {
+  font-size: 12px;
+  color: var(--fgColor-accent);
+  cursor: pointer;
+  list-style: none;
+}
+
+.Player__more > summary::-webkit-details-marker {
+  display: none;
+}
+
+.Player__more > summary::after {
+  content: " ▸";
+  font-size: 10px;
+}
+
+.Player__more[open] > summary::after {
+  content: " ▾";
+}
+
+@media (max-width: 767px) {
+  .Player__bar {
+    flex-direction: column;
+    gap: var(--base-size-8);
+  }
+
+  .Player__bar .Player__title {
+    white-space: normal;
+  }
+}
+
+/* 上一部／下一部在窄螢幕收成純圖示，桌機顯示完整文字 */
+@media (max-width: 900px) {
+  .Player__btnText {
+    display: none;
+  }
+}
+
+/* --- 快捷鍵提示與說明表 -------------------------------------------------- */
+
+.YtToast {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 8px 18px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.72);
+  border-radius: var(--borderRadius-medium);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.18s ease;
+}
+
+.YtToast.is-on {
+  opacity: 1;
+}
+
+.KeySheet {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: var(--base-size-16);
+  background-color: rgba(1, 4, 9, 0.62);
+  backdrop-filter: blur(3px);
+}
+
+.KeySheet.is-on {
+  display: flex;
+}
+
+.KeySheet__box {
+  width: min(760px, 100%);
+  max-height: 86vh;
+  overflow-y: auto;
+  background-color: var(--bgColor-default);
+  border: 1px solid var(--borderColor-default);
+  border-radius: var(--borderRadius-large);
+  box-shadow: var(--shadow-floating-small);
+}
+
+.KeySheet__head {
+  display: flex;
+  align-items: center;
+  gap: var(--base-size-8);
+  padding: var(--base-size-12) var(--base-size-16);
+  border-bottom: 1px solid var(--borderColor-muted);
+}
+
+.KeySheet__head strong {
+  flex: 1;
+  font-size: 14px;
+}
+
+.KeySheet__cols {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
+  gap: var(--base-size-24);
+  padding: var(--base-size-16);
+}
+
+.KeySheet__group {
+  margin-bottom: var(--base-size-8);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--fgColor-muted);
+}
+
+.KeySheet__row {
+  display: flex;
+  align-items: center;
+  gap: var(--base-size-8);
+  padding: 3px 0;
+  font-size: 13px;
+}
+
+.KeySheet__row kbd {
+  flex-shrink: 0;
+  min-width: 92px;
+  padding: 2px 7px;
+  font-family: var(--fontStack-mono);
+  font-size: 11px;
+  text-align: center;
+  color: var(--fgColor-default);
+  background-color: var(--bgColor-muted);
+  border: 1px solid var(--borderColor-default);
+  border-bottom-width: 2px;
+  border-radius: var(--borderRadius-small);
+}
+
+.KeySheet__row span {
+  color: var(--fgColor-muted);
+}
+
+.KeySheet__foot {
+  padding: 0 var(--base-size-16) var(--base-size-16);
+  font-size: 12px;
+  color: var(--fgColor-muted);
+  line-height: 1.6;
+}
+
+/* --- 每支影片的 GitHub Discussions ---------------------------------------- */
+
+.Discuss {
+  margin-top: var(--base-size-12);
+  background-color: var(--bgColor-default);
+  border: 1px solid var(--borderColor-default);
+  border-radius: var(--borderRadius-medium);
+  overflow: hidden;
+}
+
+.Discuss__head {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--base-size-8);
+  padding: var(--base-size-8) var(--base-size-12);
+  background-color: var(--bgColor-muted);
+  border-bottom: 1px solid var(--borderColor-muted);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.Discuss__note {
+  font-weight: 400;
+  color: var(--fgColor-muted);
+}
+
+.Discuss__body {
+  padding: var(--base-size-8) var(--base-size-12);
+  min-height: 120px;
+}
+
+/* giscus 自帶容器寬度，讓它填滿 */
+.Discuss__body .giscus,
+.Discuss__body .giscus-frame {
+  width: 100%;
+}

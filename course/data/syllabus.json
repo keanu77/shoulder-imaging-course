@@ -1,0 +1,1093 @@
+{
+  "reference_catalog": {
+    "acr2022": {
+      "title": "ACR–AIUM–SPR–SSR–SRU Practice Parameter for the Performance of the Musculoskeletal Ultrasound Examination",
+      "type": "practice-parameter",
+      "year": 2022,
+      "url": "https://gravitas.acr.org/PPTS/GetDocumentView?docId=158"
+    },
+    "aium2023": {
+      "title": "AIUM Practice Parameter: Musculoskeletal Ultrasound",
+      "type": "practice-parameter",
+      "year": 2023,
+      "url": "https://www.aium.org/resources/practice-parameters/musculoskeletal"
+    },
+    "essr-shoulder": {
+      "title": "ESSR Musculoskeletal Ultrasound Technical Guidelines I. Shoulder",
+      "type": "technical-guideline",
+      "year": 2010,
+      "url": "https://www.essr.org/content-essr/uploads/2016/10/shoulder.pdf"
+    },
+    "usmsit2026": {
+      "title": "USMSIT/NMUSIT Fundamental Guide on Diagnostic and Interventional Shoulder Ultrasonography",
+      "type": "open-access-guideline",
+      "year": 2026,
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13128079/"
+    },
+    "martinoli2010": {
+      "title": "Musculoskeletal ultrasound: technical guidelines",
+      "type": "technical-review",
+      "year": 2010,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/23100193/"
+    },
+    "mezian2021": {
+      "title": "Scanning Technique in Shoulder Ultrasonography",
+      "type": "stepwise-guide",
+      "year": 2021,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34593095/"
+    },
+    "dynamic2018": {
+      "title": "Dynamic ultrasonography of the shoulder",
+      "type": "open-access-review",
+      "year": 2018,
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6044221/"
+    }
+  },
+  "stance": [
+    {
+      "unit": "standard-views",
+      "name": "標準切面與紀錄是最低共同語言",
+      "evidence_grade": "guideline",
+      "summary": "肩部超音波應以可重複的標準視圖、正確方向標示與必要影像保存為基礎，再依臨床問題增加針對性切面。",
+      "key_findings": [
+        "先完成完整且有順序的基礎掃描，降低只看疼痛點造成的遺漏。",
+        "每個結構保留可辨識骨性地標與探頭方向，讓後續審閱可追溯。"
+      ],
+      "caveats": "不同機構的最低影像組合可有差異，仍須遵循所在地與機構規範。",
+      "citations": [
+        {
+          "title": "ACR–AIUM–SPR–SSR–SRU Practice Parameter for the Performance of the Musculoskeletal Ultrasound Examination",
+          "journal": "ACR Practice Parameter",
+          "year": 2022,
+          "url": "https://gravitas.acr.org/PPTS/GetDocumentView?docId=158"
+        },
+        {
+          "title": "ESSR Musculoskeletal Ultrasound Technical Guidelines I. Shoulder",
+          "journal": "ESSR",
+          "year": 2010,
+          "url": "https://www.essr.org/content-essr/uploads/2016/10/shoulder.pdf"
+        }
+      ]
+    },
+    {
+      "unit": "multiplanar-dynamic",
+      "name": "多平面、動態與對側比較",
+      "evidence_grade": "review",
+      "summary": "肌腱、滑囊與關節周圍結構的判讀需結合長短軸、多角度與必要動態觀察，避免把 anisotropy 或單一切面假影當成病灶。",
+      "key_findings": [
+        "可疑病灶應在至少兩個正交平面確認。",
+        "動態檢查必須使用可重複動作並同時監看症狀與影像變化。"
+      ],
+      "caveats": "對側比較可提供脈絡，但不能把雙側相同直接視為正常。",
+      "citations": [
+        {
+          "title": "Dynamic ultrasonography of the shoulder",
+          "journal": "Ultrasonography",
+          "year": 2018,
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6044221/"
+        },
+        {
+          "title": "Scanning Technique in Shoulder Ultrasonography",
+          "journal": "Journal of Ultrasonography",
+          "year": 2021,
+          "url": "https://pubmed.ncbi.nlm.nih.gov/34593095/"
+        }
+      ]
+    },
+    {
+      "unit": "competency-boundary",
+      "name": "課程完成不等於獨立執業能力",
+      "evidence_grade": "guideline",
+      "summary": "網站提供的是認知框架與實機練習檢核表；獨立執行、判讀與報告仍需合格督導、病例量、品質回饋與機構 credentialing。",
+      "key_findings": [
+        "以保存影像與結構化回饋評估能力，不以觀看時數代替。",
+        "無法完整顯示結構、所見與臨床不一致或超出能力範圍時應升級評估。"
+      ],
+      "caveats": "訓練與 credentialing 要求依地區、專科及機構而異。",
+      "citations": [
+        {
+          "title": "AIUM Practice Parameter: Musculoskeletal Ultrasound",
+          "journal": "AIUM Practice Parameter",
+          "year": 2023,
+          "url": "https://www.aium.org/resources/practice-parameters/musculoskeletal"
+        }
+      ]
+    }
+  ],
+  "chapters": [
+    {
+      "chapter": "CH0",
+      "title": "課程定位、能力邊界與安全",
+      "units": [
+        {
+          "id": "ch0-u1",
+          "name": "課程範圍與學習契約",
+          "type": "orientation",
+          "level": "foundation",
+          "review_status": "draft",
+          "summary": "界定第一階段只處理診斷型肩部超音波，不包含任何注射、穿刺或其他介入操作。",
+          "objectives": [
+            "說明線上課程、實機訓練、督導與 credentialing 的差異",
+            "辨認超出本課程與個人能力範圍時的轉介需求"
+          ],
+          "key_points": [
+            "完成影片與測驗不等於可獨立執行或出具診斷",
+            "影像必須放回病史、理學檢查及其他影像脈絡中解讀"
+          ],
+          "pitfalls": [
+            "把自學完成度誤當成臨床能力證明",
+            "以單一超音波所見取代完整臨床推理"
+          ],
+          "required_views": [],
+          "assessment": "能用自己的話說明本課程不提供 credentialing，並列出至少三種需要合格督導或升級其他影像評估的情境，才算完成本單元。",
+          "reference_ids": [
+            "acr2022",
+            "aium2023"
+          ],
+          "drills": []
+        },
+        {
+          "id": "ch0-u2",
+          "name": "適應症、限制與升級檢查",
+          "type": "orientation",
+          "level": "foundation",
+          "review_status": "draft",
+          "summary": "理解肩部超音波擅長的表淺軟組織與動態評估，以及需 MRI、X 光或其他檢查補足的問題。",
+          "objectives": [
+            "區分適合超音波與不適合只靠超音波回答的臨床問題",
+            "把陰性或不確定結果轉換成合理的下一步"
+          ],
+          "key_points": [
+            "超音波適合旋轉肌袖、肱二頭肌長頭、滑囊及動態評估",
+            "深部關節內病變、骨髓與完整術前規劃常需要其他影像"
+          ],
+          "pitfalls": [
+            "把看不到解讀成沒有病變",
+            "未記錄檢查限制與病人無法配合的姿勢"
+          ],
+          "required_views": [],
+          "assessment": "針對外傷後無法抬手、疑似全層撕裂、疑似盂唇病變三個案例，分別寫出超音波能回答的問題及仍需補充的影像檢查。",
+          "reference_ids": [
+            "acr2022",
+            "usmsit2026"
+          ],
+          "drills": []
+        },
+        {
+          "id": "ch0-u3",
+          "name": "病人安全、隱私與感染控制",
+          "type": "orientation",
+          "level": "foundation",
+          "review_status": "draft",
+          "summary": "建立掃描前身分確認、知情說明、暴露範圍、探頭清潔、人體工學與影像去識別化流程。",
+          "objectives": [
+            "完成一份可在門診使用的掃描前安全檢核",
+            "說明教學影像保存與分享時的隱私要求"
+          ],
+          "key_points": [
+            "只暴露必要區域並先取得同意",
+            "教學影像不得保留可辨識病人的資訊"
+          ],
+          "pitfalls": [
+            "把一般表面清潔流程套用到所有臨床情境",
+            "在未授權的通訊工具傳送含個資的影像"
+          ],
+          "required_views": [],
+          "assessment": "能在模擬掃描前逐項完成身分、同意、暴露、設備清潔、病人姿勢與影像去識別化檢核，且能說明任何未完成項目的處理方式。",
+          "reference_ids": [
+            "aium2023",
+            "acr2022"
+          ],
+          "drills": []
+        }
+      ]
+    },
+    {
+      "chapter": "CH1",
+      "title": "影像最佳化與基本技術",
+      "units": [
+        {
+          "id": "ch1-u1",
+          "name": "探頭、頻率、深度與焦點",
+          "type": "foundation",
+          "level": "foundation",
+          "review_status": "draft",
+          "summary": "以高頻線性探頭取得足夠空間解析度，並用最小必要深度、合適焦點與均勻增益呈現表淺結構。",
+          "objectives": [
+            "依病人體型選擇探頭與頻率",
+            "在十秒內完成 depth、focus、gain 的基本優化"
+          ],
+          "key_points": [
+            "目標結構應占畫面主要區域且保留必要深部地標",
+            "焦點放在目標結構或稍深處"
+          ],
+          "pitfalls": [
+            "深度過深導致目標過小",
+            "以整體過亮掩蓋纖維結構與細微液體"
+          ],
+          "required_views": [
+            "同一肱二頭肌短軸的未優化與優化影像"
+          ],
+          "assessment": "在同一位健康受試者保存調整前後影像，說明探頭頻率、深度、焦點與增益如何影響肌腱纖維、骨皮質與周圍液體的可見度。",
+          "reference_ids": [
+            "martinoli2010",
+            "aium2023"
+          ],
+          "drills": []
+        },
+        {
+          "id": "ch1-u2",
+          "name": "長短軸、掃查與標準方向",
+          "type": "foundation",
+          "level": "foundation",
+          "review_status": "draft",
+          "summary": "用 sweep、slide、rock、heel-toe 與 rotation 在兩個互相垂直平面確認結構，並維持一致的方向標示。",
+          "objectives": [
+            "連續追蹤肌腱而不是只保存單一切面",
+            "在兩個正交平面重現同一所見"
+          ],
+          "key_points": [
+            "每個病灶至少在兩個平面確認",
+            "方向標記與畫面標籤必須一致"
+          ],
+          "pitfalls": [
+            "旋轉探頭時遺失原本的目標結構",
+            "只依單張靜態影像命名病灶"
+          ],
+          "required_views": [
+            "肱二頭肌長軸",
+            "肱二頭肌短軸"
+          ],
+          "assessment": "從肱二頭肌溝開始追蹤至肌腱肌肉交界，再返回近端並旋轉取得長軸；兩個平面都需保持肌腱居中且方向標示正確。",
+          "reference_ids": [
+            "martinoli2010",
+            "essr-shoulder"
+          ],
+          "drills": []
+        },
+        {
+          "id": "ch1-u3",
+          "name": "Anisotropy 與常見假影",
+          "type": "foundation",
+          "level": "foundation",
+          "review_status": "draft",
+          "summary": "辨認肌腱因聲束未垂直而產生的假性低回音，並以探頭角度變化確認是否為真實病灶。",
+          "objectives": [
+            "刻意產生並消除 anisotropy",
+            "區分可隨角度消失的假影與持續存在的異常"
+          ],
+          "key_points": [
+            "肩部肌腱走向彎曲，需持續微調入射角",
+            "假影測試必須結合掃查與兩平面確認"
+          ],
+          "pitfalls": [
+            "把正常棘上肌腱 anisotropy 誤報為撕裂",
+            "只調 gain 而不修正聲束角度"
+          ],
+          "required_views": [
+            "同一肌腱的 anisotropic 與 corrected 影像"
+          ],
+          "assessment": "在健康肌腱上刻意製造低回音區，再只用 heel-toe 或 rocking 讓纖維回音恢復；保存成對影像並指出判斷假影的依據。",
+          "reference_ids": [
+            "martinoli2010",
+            "mezian2021"
+          ],
+          "drills": [
+            {
+              "name": "肩部肌肉骨骼超音波入門總覽",
+              "kind": "overview",
+              "target": "標準掃描、探頭操作、正常解剖",
+              "title": "An introduction to shoulder musculoskeletal ultrasound",
+              "channel": "The Ultrasound Site - MSK ultrasound education",
+              "url": "https://www.youtube.com/watch?v=juUSIoplk1k",
+              "duration": "52:34",
+              "why": "作為基礎技術章的長篇總覽；發布日期仍需用官方 API 補查，正式入選前需完成醫療審閱。",
+              "published_at": null,
+              "source_authority": "specialist-training-provider",
+              "curation_status": "pending-date-verification",
+              "last_verified_at": "2026-07-31"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chapter": "CH2",
+      "title": "標準肩部掃描流程",
+      "units": [
+        {
+          "id": "ch2-u1",
+          "name": "從前到後的系統化順序",
+          "type": "protocol",
+          "level": "foundation",
+          "review_status": "draft",
+          "summary": "採固定順序完成肱二頭肌長頭、肩胛下肌、AC joint、棘上肌、棘下肌、小圓肌、後側關節與滑囊。",
+          "objectives": [
+            "在不跳項的情況下完成全套基礎掃描",
+            "用固定順序降低漏掃與左右混淆"
+          ],
+          "key_points": [
+            "每個結構都需長短軸或相應的正交平面",
+            "在進入病灶判讀前先確定標準視圖品質"
+          ],
+          "pitfalls": [
+            "因主訴集中在一處而完全省略其他必要結構",
+            "未保存正常基準視圖"
+          ],
+          "required_views": [
+            "前側",
+            "上外側",
+            "後側",
+            "動態"
+          ],
+          "assessment": "在十五分鐘內依固定順序完成單側肩部掃描，口頭報出每個結構、病人姿勢與探頭方向；任何跳項都要重新從頭演練。",
+          "reference_ids": [
+            "acr2022",
+            "essr-shoulder",
+            "usmsit2026"
+          ],
+          "drills": [
+            {
+              "name": "完整肩部掃描流程",
+              "kind": "scan-demo",
+              "target": "肱二頭肌、旋轉肌袖、AC joint、滑囊",
+              "title": "MSK Ultrasound Shoulder Scan: Techniques, Anatomy & Clinical Tips | SMUG UK",
+              "channel": "SMUG MSK ultrasound training",
+              "url": "https://www.youtube.com/watch?v=oSMful3J4gQ",
+              "duration": "9:08",
+              "why": "2025 年的精簡完整示範，病人姿勢與探頭位置清楚，可作為全流程預習。",
+              "published_at": "2025-02-24",
+              "source_authority": "specialist-training-provider",
+              "curation_status": "provisional",
+              "last_verified_at": "2026-07-31"
+            }
+          ]
+        },
+        {
+          "id": "ch2-u2",
+          "name": "病人姿勢與操作者人體工學",
+          "type": "protocol",
+          "level": "foundation",
+          "review_status": "draft",
+          "summary": "讓病人、超音波主機、掃描側與操作者形成可維持的配置，避免為了取得影像犧牲病人安全或操作者姿勢。",
+          "objectives": [
+            "在不同肩關節活動度下調整病人姿勢",
+            "維持手腕中立、肩膀放鬆及短距離操作"
+          ],
+          "key_points": [
+            "先調整床椅與主機，再開始掃描",
+            "疼痛或活動限制需記錄並採替代姿勢"
+          ],
+          "pitfalls": [
+            "強迫疼痛病人進入 Crass position",
+            "長時間懸空抬肩操作"
+          ],
+          "required_views": [
+            "標準坐姿配置",
+            "活動受限時的替代姿勢"
+          ],
+          "assessment": "請同儕從側面拍攝五分鐘掃描過程，確認手腕、肘、肩、頸與螢幕位置；列出至少兩項可改善的人體工學調整，完成調整後再拍攝一次並比較差異。",
+          "reference_ids": [
+            "acr2022",
+            "aium2023"
+          ],
+          "drills": []
+        },
+        {
+          "id": "ch2-u3",
+          "name": "標準影像保存與標示",
+          "type": "protocol",
+          "level": "foundation",
+          "review_status": "draft",
+          "summary": "建立左右側、結構名稱、長短軸、動態片段與異常量測的一致保存規則。",
+          "objectives": [
+            "完成一套可供他人重讀的影像紀錄",
+            "讓每張圖不依賴操作者記憶也能辨認"
+          ],
+          "key_points": [
+            "標示必須與實際方向一致",
+            "異常所見應有正交平面及必要的動態紀錄"
+          ],
+          "pitfalls": [
+            "只留下病灶的放大影像而缺少定位地標",
+            "使用自由文字卻未標左右側"
+          ],
+          "required_views": [
+            "各主要結構的標準靜態影像",
+            "必要動態 cine loop"
+          ],
+          "assessment": "將一次完整檢查交給未在場的同儕重讀；對方需能單靠標示辨認左右側、結構、切面及異常位置，否則補強保存規則。",
+          "reference_ids": [
+            "acr2022",
+            "usmsit2026"
+          ],
+          "drills": [
+            {
+              "name": "臺大醫院肩部基本超音波檢查",
+              "kind": "scan-demo",
+              "target": "標準視圖、繁中醫學教育",
+              "title": "Ultrasound examination of the shoulder: basic",
+              "channel": "臺大醫院肌肉骨骼超音波中心 NTUH MSK Ultrasound center",
+              "url": "https://www.youtube.com/watch?v=E_ydH_Slt2o",
+              "duration": "11:41",
+              "why": "台灣醫療體系的繁中示範，適合作為本地化術語與標準視圖對照；日期待官方 API 補查。",
+              "published_at": null,
+              "source_authority": "academic-medical-center",
+              "curation_status": "pending-date-verification",
+              "last_verified_at": "2026-07-31"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chapter": "CH3",
+      "title": "前側肩部：肱二頭肌與肩胛下肌",
+      "units": [
+        {
+          "id": "ch3-u1",
+          "name": "肱二頭肌長頭與肌腱溝",
+          "type": "anatomy",
+          "level": "foundation",
+          "review_status": "draft",
+          "summary": "從肱二頭肌溝辨認肌腱，沿近遠端追蹤並取得長短軸，注意積液、肥厚、斷裂與位置異常。",
+          "objectives": [
+            "連續追蹤至肌腱肌肉交界",
+            "以動態外旋內旋觀察肌腱穩定性"
+          ],
+          "key_points": [
+            "先用骨性地標確認溝的位置",
+            "肌腱周圍液體需結合關節積液脈絡"
+          ],
+          "pitfalls": [
+            "把 anisotropy 誤認為肌腱病變",
+            "只看近端而漏掉遠端病灶"
+          ],
+          "required_views": [
+            "短軸近端",
+            "短軸遠端",
+            "長軸",
+            "動態穩定性"
+          ],
+          "assessment": "在健康肩上取得肱二頭肌長短軸並追蹤至肌腱肌肉交界，使用動態旋轉證明肌腱位置穩定，且能指出結節間溝兩側骨性地標。",
+          "reference_ids": [
+            "essr-shoulder",
+            "usmsit2026"
+          ],
+          "drills": [
+            {
+              "name": "從肱二頭肌長頭開始掃描",
+              "kind": "scan-demo",
+              "target": "肱二頭肌長頭、病人姿勢、探頭位置",
+              "title": "Scanning the shoulder - start with the long head of biceps!",
+              "channel": "SMUG MSK ultrasound training",
+              "url": "https://www.youtube.com/watch?v=Us_8gKPbrdk",
+              "duration": "14:47",
+              "why": "2025 年針對初學者的逐步示範，清楚呈現起始地標與常見操作錯誤。",
+              "published_at": "2025-09-15",
+              "source_authority": "specialist-training-provider",
+              "curation_status": "provisional",
+              "last_verified_at": "2026-07-31"
+            }
+          ]
+        },
+        {
+          "id": "ch3-u2",
+          "name": "肩胛下肌與動態外旋",
+          "type": "anatomy",
+          "level": "foundation",
+          "review_status": "draft",
+          "summary": "以肘彎曲、前臂外旋展開肩胛下肌腱，辨認多束附著並在長短軸評估完整性。",
+          "objectives": [
+            "取得肩胛下肌腱長短軸標準影像",
+            "用動態外旋區分肌腱纖維與周邊組織"
+          ],
+          "key_points": [
+            "外旋幅度依疼痛與活動度調整",
+            "上束病變可能細微且需仔細掃查"
+          ],
+          "pitfalls": [
+            "探頭沒有跟隨彎曲肌腱調整角度",
+            "只保存單一束的影像"
+          ],
+          "required_views": [
+            "肩胛下肌長軸",
+            "肩胛下肌短軸",
+            "動態外旋"
+          ],
+          "assessment": "在不誘發明顯疼痛的範圍內完成動態外旋，展示肩胛下肌各束與小結節附著；長短軸都需維持纖維回音並避免 anisotropy。",
+          "reference_ids": [
+            "essr-shoulder",
+            "mezian2021"
+          ],
+          "drills": []
+        },
+        {
+          "id": "ch3-u3",
+          "name": "肱二頭肌不穩定與 pulley 線索",
+          "type": "dynamic",
+          "level": "intermediate",
+          "review_status": "draft",
+          "summary": "以動態內外旋觀察肱二頭肌長頭是否維持在溝內，並把不穩定與肩胛下肌、旋轉間隙結構一起評估。",
+          "objectives": [
+            "辨認半脫位與脫位的動態表現",
+            "避免以單一靜態偏位影像下結論"
+          ],
+          "key_points": [
+            "動態測試需持續顯示骨性地標",
+            "異常位置應與相關肌腱損傷一起報告"
+          ],
+          "pitfalls": [
+            "探頭滑動造成假性位移",
+            "忽略病人既有手術或解剖變異"
+          ],
+          "required_views": [
+            "中立短軸",
+            "動態內外旋 cine",
+            "相關肩胛下肌影像"
+          ],
+          "assessment": "保存一段探頭位置穩定的動態內外旋 cine，能持續看見肱二頭肌溝與肌腱，並說明哪些影像證據才足以支持不穩定。",
+          "reference_ids": [
+            "dynamic2018",
+            "usmsit2026"
+          ],
+          "drills": [
+            {
+              "name": "肱二頭肌長頭掃描技巧",
+              "kind": "scan-demo",
+              "target": "長短軸、追蹤與動態評估",
+              "title": "Shoulder ultrasound: How to scan the long head of biceps tendon",
+              "channel": "The Ultrasound Site - MSK ultrasound education",
+              "url": "https://www.youtube.com/watch?v=-sVLoelvpQs",
+              "duration": "3:52",
+              "why": "短篇技巧示範，適合實機掃描前快速複習；日期待官方 API 補查。",
+              "published_at": null,
+              "source_authority": "specialist-training-provider",
+              "curation_status": "pending-date-verification",
+              "last_verified_at": "2026-07-31"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chapter": "CH4",
+      "title": "上外側肩部：旋轉間隙與棘上肌",
+      "units": [
+        {
+          "id": "ch4-u1",
+          "name": "旋轉間隙與肱二頭肌近端",
+          "type": "anatomy",
+          "level": "intermediate",
+          "review_status": "draft",
+          "summary": "辨認旋轉間隙內肱二頭肌長頭、喙肱韌帶、上盂肱韌帶及鄰近旋轉肌袖邊界。",
+          "objectives": [
+            "建立旋轉間隙的立體解剖概念",
+            "從肱二頭肌近端追蹤至關節內走向"
+          ],
+          "key_points": [
+            "先找穩定骨性與肌腱地標再辨認細小韌帶",
+            "旋轉間隙需和肩胛下肌上緣一起評估"
+          ],
+          "pitfalls": [
+            "在影像品質不足時過度命名細小結構",
+            "把正常滑液或各向異性當成撕裂"
+          ],
+          "required_views": [
+            "旋轉間隙短軸",
+            "肱二頭肌近端長軸"
+          ],
+          "assessment": "在健康肩上以肱二頭肌長頭為中心取得旋轉間隙影像，能指出肩胛下肌與棘上肌邊界，並說明哪些細小結構只應在影像足夠時命名。",
+          "reference_ids": [
+            "essr-shoulder",
+            "usmsit2026"
+          ],
+          "drills": [
+            {
+              "name": "Martinoli：旋轉間隙",
+              "kind": "classic",
+              "target": "旋轉間隙、肱二頭肌近端、韌帶解剖",
+              "title": "Ultrasound of Rotator Interval by Carlo Martinoli",
+              "channel": "Martinoli Ultrasound",
+              "url": "https://www.youtube.com/watch?v=jjzMYgbYwTg",
+              "duration": "1:21",
+              "why": "一分鐘內清楚呈現旋轉間隙的解剖關係，教學密度高且具代表性。",
+              "published_at": "2018-05-21",
+              "source_authority": "international-expert",
+              "curation_status": "provisional",
+              "classic_exception": true,
+              "classic_exception_reason": "Prof. Carlo Martinoli 的代表性解剖示範，現有近五年公開影片未提供同等精簡且清楚的旋轉間隙說明。",
+              "last_verified_at": "2026-07-31"
+            }
+          ]
+        },
+        {
+          "id": "ch4-u2",
+          "name": "棘上肌長短軸與附著面",
+          "type": "anatomy",
+          "level": "foundation",
+          "review_status": "draft",
+          "summary": "使用 modified Crass 或可耐受的替代姿勢展開棘上肌腱，確認肱骨大結節附著與連續性。",
+          "objectives": [
+            "穩定取得棘上肌腱長短軸",
+            "辨認足跡、關節軟骨與滑囊層次"
+          ],
+          "key_points": [
+            "需沿整個前後寬度掃查而非只看中段",
+            "聲束角度要跟隨肱骨頭曲面調整"
+          ],
+          "pitfalls": [
+            "只掃一個切面而漏掉局部撕裂",
+            "把 anisotropy 當成低回音缺損"
+          ],
+          "required_views": [
+            "棘上肌長軸",
+            "棘上肌短軸",
+            "大結節足跡掃查"
+          ],
+          "assessment": "沿棘上肌腱前緣至後緣完成連續 sweep，保存代表性的長短軸與足跡影像；每張圖都需顯示可辨認的骨性與軟骨地標。",
+          "reference_ids": [
+            "essr-shoulder",
+            "mezian2021"
+          ],
+          "drills": [
+            {
+              "name": "Martinoli：旋轉肌袖超音波解剖",
+              "kind": "classic",
+              "target": "旋轉肌袖分層、附著面與動態解剖",
+              "title": "Professor C. Martinoli - Ultrasound dissection of rotator cuff tendons",
+              "channel": "Global Medical Business",
+              "url": "https://www.youtube.com/watch?v=_PrcLweY_X0",
+              "duration": "42:31",
+              "why": "ECR 2019 的經典長篇示範，提供難以由短影片取代的旋轉肌袖解剖脈絡。",
+              "published_at": "2019-06-05",
+              "source_authority": "international-expert",
+              "curation_status": "provisional",
+              "classic_exception": true,
+              "classic_exception_reason": "Prof. Carlo Martinoli 以超音波解剖方式呈現旋轉肌袖層次，屬本課程指定保留的經典大師內容。",
+              "last_verified_at": "2026-07-31"
+            }
+          ]
+        },
+        {
+          "id": "ch4-u3",
+          "name": "SASD 滑囊與 AC joint",
+          "type": "anatomy",
+          "level": "foundation",
+          "review_status": "draft",
+          "summary": "評估肩峰下三角肌下滑囊厚度與液體，並以 AC joint 骨性地標觀察關節間隙及動態變化。",
+          "objectives": [
+            "辨認正常滑囊層與真正積液",
+            "取得 AC joint 標準長軸影像"
+          ],
+          "key_points": [
+            "滑囊需沿前後與內外方向掃查",
+            "影像異常必須結合症狀及臨床檢查"
+          ],
+          "pitfalls": [
+            "把正常極薄低回音層誤報為滑囊炎",
+            "以退化性骨贅直接解釋疼痛來源"
+          ],
+          "required_views": [
+            "SASD 滑囊長軸",
+            "AC joint 長軸",
+            "必要時動態交叉內收"
+          ],
+          "assessment": "保存滑囊與 AC joint 標準影像，能指出三角肌、滑囊、旋轉肌袖及骨皮質層次，並用一句話區分形態所見與臨床疼痛歸因。",
+          "reference_ids": [
+            "acr2022",
+            "usmsit2026"
+          ],
+          "drills": []
+        }
+      ]
+    },
+    {
+      "chapter": "CH5",
+      "title": "後側肩部與動態檢查",
+      "units": [
+        {
+          "id": "ch5-u1",
+          "name": "棘下肌、小圓肌與後側關節",
+          "type": "anatomy",
+          "level": "foundation",
+          "review_status": "draft",
+          "summary": "從肩胛棘下方辨認棘下肌與小圓肌，追蹤至附著面並觀察後側盂肱關節與關節唇區域。",
+          "objectives": [
+            "分辨棘下肌與小圓肌",
+            "取得後側關節 recess 與旋轉肌袖影像"
+          ],
+          "key_points": [
+            "以肌內肌腱與肩胛棘作為近端地標",
+            "動態外旋可協助確認肌腱走向"
+          ],
+          "pitfalls": [
+            "把小圓肌誤認為棘下肌遠端",
+            "過度解讀關節唇的有限可見範圍"
+          ],
+          "required_views": [
+            "棘下肌長軸",
+            "小圓肌長軸",
+            "後側盂肱關節"
+          ],
+          "assessment": "從肩胛棘下方開始，分別追蹤棘下肌與小圓肌到肱骨附著；保存後側關節影像並說明超音波對關節唇評估的限制。",
+          "reference_ids": [
+            "essr-shoulder",
+            "usmsit2026"
+          ],
+          "drills": [
+            {
+              "name": "後側肩關節與棘下肌掃描",
+              "kind": "scan-demo",
+              "target": "棘下肌、後側 recess、探頭位置",
+              "title": "Infraspinatus MSK Ultrasound | Posterior Shoulder Joint Scan & Probe Position Tips",
+              "channel": "SMUG MSK ultrasound training",
+              "url": "https://www.youtube.com/watch?v=WzCnmptsMQ8",
+              "duration": "4:09",
+              "why": "2025 年短篇實作影片，清楚呈現後側肩部病人姿勢、探頭位置與主要地標。",
+              "published_at": "2025-08-18",
+              "source_authority": "specialist-training-provider",
+              "curation_status": "provisional",
+              "last_verified_at": "2026-07-31"
+            }
+          ]
+        },
+        {
+          "id": "ch5-u2",
+          "name": "肩峰下動態夾擠觀察",
+          "type": "dynamic",
+          "level": "intermediate",
+          "review_status": "draft",
+          "summary": "在肩外展過程持續觀察棘上肌腱、滑囊及肩峰下空間，同時記錄症狀、動作路徑與檢查限制。",
+          "objectives": [
+            "取得可重複的動態外展 cine",
+            "區分影像觀察與臨床診斷名稱"
+          ],
+          "key_points": [
+            "動態測試需維持固定掃描平面",
+            "影像變化不應脫離症狀與靜態檢查解讀"
+          ],
+          "pitfalls": [
+            "探頭位移造成假性組織堆疊",
+            "把任何肩峰下通過不順直接稱為 impingement syndrome"
+          ],
+          "required_views": [
+            "外展前靜態基準",
+            "連續外展 cine",
+            "症狀位置記錄"
+          ],
+          "assessment": "完成至少三次可重複的動態外展 cine，確認探頭與肩峰地標穩定；報告中分開描述影像動態所見與病人的疼痛反應。",
+          "reference_ids": [
+            "dynamic2018",
+            "acr2022"
+          ],
+          "drills": []
+        },
+        {
+          "id": "ch5-u3",
+          "name": "後側 recess、積液與比較掃描",
+          "type": "dynamic",
+          "level": "intermediate",
+          "review_status": "draft",
+          "summary": "利用後側 recess 觀察關節積液或滑膜變化，必要時與對側比較，但避免把左右差異當成病理的唯一證據。",
+          "objectives": [
+            "辨認後側 recess 的正常位置",
+            "建立有條件使用對側比較的原則"
+          ],
+          "key_points": [
+            "比較掃描需使用相同姿勢與機器設定",
+            "不對稱只是線索，仍需完整臨床脈絡"
+          ],
+          "pitfalls": [
+            "左右兩側使用不同壓力或角度",
+            "以輕微不對稱直接定義病灶"
+          ],
+          "required_views": [
+            "患側後側 recess",
+            "必要時同設定對側比較"
+          ],
+          "assessment": "以完全相同的深度、焦點、姿勢與探頭壓力取得雙側後側 recess 影像，列出至少兩個可能造成非病理性左右差異的因素。",
+          "reference_ids": [
+            "acr2022",
+            "dynamic2018"
+          ],
+          "drills": [
+            {
+              "name": "肩部滑囊解剖與更新概念",
+              "kind": "overview",
+              "target": "肩部滑囊、層次與解剖關係",
+              "title": "ANATOMY OF THE BURSAE OF THE SHOULDER (PART I) | Key Relationships & Updated Concepts",
+              "channel": "MSK Ultrasound Tutorials – Dr. Iriarte",
+              "url": "https://www.youtube.com/watch?v=n45q8fNv4oE",
+              "duration": "7:06",
+              "why": "解剖導向的滑囊複習，正式入選前仍需核對發布日期與完整內容。",
+              "published_at": null,
+              "source_authority": "expert-educator",
+              "curation_status": "pending-date-verification",
+              "last_verified_at": "2026-07-31"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chapter": "CH6",
+      "title": "常見病理判讀",
+      "units": [
+        {
+          "id": "ch6-u1",
+          "name": "肌腱病變與鈣化性肌腱病",
+          "type": "pathology",
+          "level": "intermediate",
+          "review_status": "draft",
+          "summary": "以肌腱厚度、回音、纖維結構、血流及鈣化形態描述所見，同時排除 anisotropy 與不具症狀意義的偶然發現。",
+          "objectives": [
+            "使用描述性詞彙而非只下病名",
+            "辨認鈣化的回音與聲影特徵"
+          ],
+          "key_points": [
+            "病灶需在正交平面確認",
+            "影像異常與症狀相關性需謹慎表述"
+          ],
+          "pitfalls": [
+            "把 anisotropy 當成 tendinosis",
+            "把所有鈣化都當成疼痛來源"
+          ],
+          "required_views": [
+            "病灶長軸",
+            "病灶短軸",
+            "必要時 Doppler"
+          ],
+          "assessment": "選一個疑似肌腱病變案例，用厚度、回音、纖維、血流與鈣化五個面向完成描述，並列出如何排除 anisotropy 與偶然發現。",
+          "reference_ids": [
+            "acr2022",
+            "usmsit2026"
+          ],
+          "drills": [
+            {
+              "name": "正常與異常肩部超音波外觀",
+              "kind": "pathology-demo",
+              "target": "正常對照、肌腱病變、滑囊與撕裂",
+              "title": "Shoulder Ultrasound Normal Vs Abnormal Image Appearances | Sports Injuries | Musculoskeletal USG",
+              "channel": "Dr. Sam's Imaging Library",
+              "url": "https://www.youtube.com/watch?v=ZMkYok_VU9w",
+              "duration": "15:10",
+              "why": "提供正常與異常影像對照；需完成講者資歷、日期與判讀內容的醫療審閱後才會正式核准。",
+              "published_at": null,
+              "source_authority": "specialist-educator",
+              "curation_status": "pending-date-verification",
+              "medical_review_required": true,
+              "last_verified_at": "2026-07-31"
+            }
+          ]
+        },
+        {
+          "id": "ch6-u2",
+          "name": "部分與全層旋轉肌袖撕裂",
+          "type": "pathology",
+          "level": "intermediate",
+          "review_status": "draft",
+          "summary": "以缺損位置、深度、寬度、肌腱退縮與相關次要徵象描述旋轉肌袖撕裂，並了解超音波的術前規劃限制。",
+          "objectives": [
+            "區分關節側、滑囊側與肌腱內部分撕裂",
+            "系統化描述全層缺損與退縮"
+          ],
+          "key_points": [
+            "需沿整個足跡前後 sweep",
+            "重大撕裂與手術評估常需其他影像補充"
+          ],
+          "pitfalls": [
+            "把 anisotropy 或纖維分隔誤判為撕裂",
+            "只測單一平面而低估範圍"
+          ],
+          "required_views": [
+            "最大缺損長軸",
+            "最大缺損短軸",
+            "足跡與退縮量測"
+          ],
+          "assessment": "在模擬病例中完成撕裂側別、位置、兩平面尺寸、退縮與相關滑囊／肱二頭肌所見的結構化描述，並說明是否需 MRI 補充。",
+          "reference_ids": [
+            "acr2022",
+            "usmsit2026"
+          ],
+          "drills": [
+            {
+              "name": "旋轉肌袖撕裂判讀重點",
+              "kind": "pathology-demo",
+              "target": "大結節 facets、撕裂定位與常見錯誤",
+              "title": "Diagnose Rotator Cuff Tears - Key Tips for Shoulder Ultrasound - MSK Ultrasound - MSKUS",
+              "channel": "SMUG MSK ultrasound training",
+              "url": "https://www.youtube.com/watch?v=fhrbY81YRN0",
+              "duration": "2:41",
+              "why": "2024 年聚焦旋轉肌袖足跡與撕裂定位的短篇教學，可補強初學者的三維解剖概念。",
+              "published_at": "2024-12-31",
+              "source_authority": "specialist-training-provider",
+              "curation_status": "provisional",
+              "last_verified_at": "2026-07-31"
+            }
+          ]
+        },
+        {
+          "id": "ch6-u3",
+          "name": "滑囊炎、積液與 AC joint 退化",
+          "type": "pathology",
+          "level": "intermediate",
+          "review_status": "draft",
+          "summary": "區分滑囊擴張、關節積液及退化性骨性改變，使用描述性語言並避免過度推論疼痛來源。",
+          "objectives": [
+            "描述滑囊液體、滑膜與 Doppler 所見",
+            "辨認 AC joint 退化但保持臨床相關性謹慎"
+          ],
+          "key_points": [
+            "積液位置需對應解剖腔室",
+            "退化性改變在無症狀者亦可能存在"
+          ],
+          "pitfalls": [
+            "把任何肱二頭肌周圍液體稱為 biceps tenosynovitis",
+            "以 AC joint 骨贅直接宣告症狀來源"
+          ],
+          "required_views": [
+            "滑囊長短軸",
+            "後側 joint recess",
+            "AC joint"
+          ],
+          "assessment": "針對一組滑囊液體與 AC joint 退化影像，以純描述性語言完成報告，再另外列出臨床相關性需要哪些病史或理學檢查支持。",
+          "reference_ids": [
+            "acr2022",
+            "dynamic2018"
+          ],
+          "drills": []
+        }
+      ]
+    },
+    {
+      "chapter": "CH7",
+      "title": "報告、品質與病例整合",
+      "units": [
+        {
+          "id": "ch7-u1",
+          "name": "結構化報告與最低紀錄",
+          "type": "reporting",
+          "level": "intermediate",
+          "review_status": "draft",
+          "summary": "建立包含適應症、技術、完整結構清單、陽性與陰性所見、限制及結論的肩部超音波報告。",
+          "objectives": [
+            "使用一致的肩部報告模板",
+            "在報告中明確記錄未完成或品質受限的部分"
+          ],
+          "key_points": [
+            "結論需能追溯到保存影像與描述",
+            "陰性報告仍要說明實際檢查了哪些結構"
+          ],
+          "pitfalls": [
+            "只寫診斷而沒有技術與影像描述",
+            "未揭露病人活動限制或影像品質限制"
+          ],
+          "required_views": [
+            "完整影像組",
+            "對應結構化報告"
+          ],
+          "assessment": "以一個完整案例寫出適應症、技術、逐結構所見、必要量測、限制與結論，並請未參與掃描的醫師核對報告是否能由保存影像支持。",
+          "reference_ids": [
+            "acr2022",
+            "aium2023"
+          ],
+          "drills": [
+            {
+              "name": "Diagnostic Shoulder Ultrasound Exam Part 1",
+              "kind": "overview",
+              "target": "前側肩部、系統化診斷檢查",
+              "title": "Webinar: Diagnostic Shoulder Ultrasound Exam - Part 1",
+              "channel": "FUJIFILM Sonosite",
+              "url": "https://www.youtube.com/watch?v=mezZ0x5-D3s",
+              "duration": "50:59",
+              "why": "長篇診斷示範可用來觀察完整掃描與說明節奏；正式入選前需補查發布日期。",
+              "published_at": null,
+              "source_authority": "medical-device-education",
+              "curation_status": "pending-date-verification",
+              "last_verified_at": "2026-07-31"
+            }
+          ]
+        },
+        {
+          "id": "ch7-u2",
+          "name": "品質保證與常見誤判回顧",
+          "type": "reporting",
+          "level": "intermediate",
+          "review_status": "draft",
+          "summary": "以固定比例抽查影像與報告，追蹤漏掃、方向標示、anisotropy、病灶量測及臨床相關性過度推論。",
+          "objectives": [
+            "建立個人影像品質審查清單",
+            "把錯誤分類成取得、判讀與報告三個階段"
+          ],
+          "key_points": [
+            "品質改善需要可重複的回顧機制",
+            "應保留不確定性而不是強迫每例得到單一診斷"
+          ],
+          "pitfalls": [
+            "只回顧陽性案例",
+            "把影像漂亮等同於診斷正確"
+          ],
+          "required_views": [
+            "品質不合格範例",
+            "修正後影像",
+            "對應報告修訂"
+          ],
+          "assessment": "隨機抽查十次肩部掃描，分別記錄影像取得、判讀與報告錯誤；選出最常見的一項，制定下一輪可量化的改善目標。",
+          "reference_ids": [
+            "acr2022",
+            "aium2023"
+          ],
+          "drills": []
+        },
+        {
+          "id": "ch7-u3",
+          "name": "病例整合與第一階段能力關卡",
+          "type": "case",
+          "level": "intermediate",
+          "review_status": "draft",
+          "summary": "以未知病例完成掃描計畫、標準視圖、動態檢查、描述性判讀、限制與下一步，不把線上測驗當作獨立執業資格。",
+          "objectives": [
+            "整合課程各章成為可重複流程",
+            "辨認自己仍需督導的知識與技術缺口"
+          ],
+          "key_points": [
+            "能力關卡評估的是流程與推理，不只辨認圖片",
+            "未達品質標準時應主動標記不確定並尋求協助"
+          ],
+          "pitfalls": [
+            "只做影像辨識題而沒有實機掃描",
+            "在未知病例中跳過陰性結構"
+          ],
+          "required_views": [
+            "完整標準視圖組",
+            "適應症導向的額外視圖",
+            "結構化報告"
+          ],
+          "assessment": "在合格督導下完成未知病例：先寫掃描計畫，再取得完整影像、提出描述性結論、列出限制與下一步；督導需逐項簽核而非只給總分。",
+          "reference_ids": [
+            "acr2022",
+            "essr-shoulder",
+            "usmsit2026"
+          ],
+          "drills": [
+            {
+              "name": "Diagnostic Shoulder Ultrasound Exam Part 2",
+              "kind": "overview",
+              "target": "後側肩部、動態檢查與病例整合",
+              "title": "Webinar: Diagnostic Shoulder Ultrasound Exam - Part 2",
+              "channel": "FUJIFILM Sonosite",
+              "url": "https://www.youtube.com/watch?v=WzkiVfEg3qw",
+              "duration": "1:00:30",
+              "why": "完整診斷示範的第二部分，供病例整合時觀察掃描流程；正式入選前需補查發布日期。",
+              "published_at": null,
+              "source_authority": "medical-device-education",
+              "curation_status": "pending-date-verification",
+              "last_verified_at": "2026-07-31"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

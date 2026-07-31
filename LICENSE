@@ -1,0 +1,37 @@
+MIT License
+
+Copyright (c) 2026 shoulder-ultrasound-course contributors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+本授權僅涵蓋本專案的程式碼（建置腳本、樣式、前端程式）。
+
+不涵蓋：
+
+- **影片內容**。所有 YouTube 影片的著作權屬於原頻道，本專案僅儲存連結與
+  公開的中繼資料（標題、頻道、長度、觀看數），不重製、不轉載、不代管影片。
+- **Lucide 圖示**，採 ISC 授權，見 https://lucide.dev
+- **Primer 設計語彙**，本專案以 CSS 變數自行實作，未使用其程式碼。
+- **學會指引與引用文獻**，著作權屬各出版者；本專案僅存書目
+  資訊與連結。
+
+課程內容供合格醫療專業人員教育使用，不取代正式訓練、督導、credentialing、
+病人個別評估或所在地法規。第一階段不教授介入注射。

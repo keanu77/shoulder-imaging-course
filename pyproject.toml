@@ -1,0 +1,39 @@
+[project]
+name = "shoulder-ultrasound-course"
+version = "1.0.0"
+description = "醫師版肩部超音波診斷掃描課程，含影片來源驗證與醫療內容審閱閘門"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+
+# 建置腳本刻意只用標準庫：沒有相依就沒有供應鏈風險，
+# 任何人 clone 下來不裝東西也跑得起來。
+dependencies = []
+
+[dependency-groups]
+dev = ["ruff>=0.12"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+extend-exclude = [".tmp", ".wrangler", "public"]
+
+[tool.ruff.lint]
+select = [
+  "E",   # pycodestyle
+  "F",   # pyflakes
+  "I",   # isort
+  "UP",  # pyupgrade
+  "B",   # flake8-bugbear
+  "SIM", # flake8-simplify
+  "RUF", # ruff 專屬（含全形標點檢查）
+]
+ignore = [
+  "E501",    # 行長交給 formatter
+  "RUF001",  # 註解與字串大量使用中文全形標點，這是刻意的
+  "RUF002",
+  "RUF003",
+]
+
+[tool.ruff.format]
+quote-style = "double"
