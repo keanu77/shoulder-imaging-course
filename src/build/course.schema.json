@@ -4,7 +4,7 @@
   "title": "課程設定檔",
   "description": "course/course.config.json 的結構。編輯器靠它自動完成，audit.py 靠它擋拼字錯誤。",
   "type": "object",
-  "required": ["site", "ui", "kinds", "chapters"],
+  "required": ["site", "ui", "kinds", "learningTiers", "chapters"],
   "properties": {
     "site": {
       "type": "object",
@@ -98,6 +98,13 @@
       "type": "array",
       "description": "單元底下的項目類型，至少一種",
       "minItems": 1,
+      "items": { "$ref": "#/$defs/labelled" }
+    },
+    "learningTiers": {
+      "type": "array",
+      "description": "影片學習優先級，與內容類型 kinds 正交。",
+      "minItems": 1,
+      "uniqueItems": true,
       "items": { "$ref": "#/$defs/labelled" }
     },
     "grades": {

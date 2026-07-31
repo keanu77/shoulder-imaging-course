@@ -56,7 +56,7 @@ export function syncMuscleChips(selected) {
 
 /**
  * 依 state 顯示／隱藏章節、單元與動作。
- * state: { query, filter, muscles:Set }
+ * state: { query, filter, learningTier, muscles:Set }
  */
 export function applyFilters(state, course) {
   const q = state.query.trim().toLowerCase();
@@ -82,10 +82,12 @@ export function applyFilters(state, course) {
       // 動作層級：類型 + 肌群兩個維度
       $$(".Drill", unitEl).forEach((d) => {
         const kindOk = state.filter === "all" || d.dataset.kind === state.filter;
+        const tierOk =
+          state.learningTier === "all" || d.dataset.learningTier === state.learningTier;
         const dm = (d.dataset.facets || "").split("|").filter(Boolean);
         const mOk = !sel.size || dm.some((m) => sel.has(m));
-        d.hidden = !(kindOk && mOk);
-        if (kindOk && mOk) visibleDrills++;
+        d.hidden = !(kindOk && tierOk && mOk);
+        if (kindOk && tierOk && mOk) visibleDrills++;
       });
 
       // 整組動作都被篩掉就把標題也收起來
@@ -103,6 +105,7 @@ export function applyFilters(state, course) {
   const parts = [];
   if (q) parts.push(`「${state.query.trim()}」`);
   if (sel.size) parts.push(`${UI.facetPrefix || ""}：${[...sel].join("、")}`);
+  if (state.learningTier === "core") parts.push(UI.coreCountLabel || "核心必看");
 
   $("#filterCount").textContent = parts.length
     ? `${visibleUnits} 個單元 · ${visibleDrills} 支影片符合 ${parts.join(" + ")}`

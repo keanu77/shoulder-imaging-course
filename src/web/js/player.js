@@ -1,6 +1,6 @@
 // player.js — 上課模式：把整門課攤平成播放清單，左側嵌入播放
 import { icon } from "./icons.js";
-import { esc, KIND, UI } from "./render.js";
+import { esc, KIND, TIER, UI } from "./render.js";
 import { button as discussButton, panel as discussPanel } from "./discuss.js";
 
 const $ = (s, r = document) => r.querySelector(s);
@@ -25,6 +25,7 @@ export function buildPlaylist(course) {
         items.push({
           ...base,
           kind: "lesson",
+          learning_tier: les.learning_tier || "core",
           lang: les.lang,
           name: les.title,
           title: les.title,
@@ -41,6 +42,7 @@ export function buildPlaylist(course) {
         items.push({
           ...base,
           kind: d.kind,
+          learning_tier: d.learning_tier,
           name: d.name,
           en: d.en,
           title: d.title,
@@ -52,6 +54,15 @@ export function buildPlaylist(course) {
           dose: d.dose,
           facets: d.facets,
           cat: d.cat,
+          why: d.why,
+          assessment: u.assessment,
+          original_content_date: d.original_content_date,
+          upload_date: d.upload_date,
+          date_note: d.date_note,
+          presenter: d.presenter,
+          presenter_note: d.presenter_note,
+          scope_note: d.scope_note,
+          disclosure: d.disclosure,
         });
       }
     }
@@ -68,21 +79,29 @@ function dur(s) {
   return s || "";
 }
 
+/** 播放清單的顯示、上一部／下一部共用同一套條件，避免操作到畫面上已隱藏的影片。 */
+export function playlistItemMatches(it, { doneSet, query, onlyTodo, learningTier }) {
+  if (onlyTodo && doneSet.has(it.unitId)) return false;
+  if (learningTier && learningTier !== "all" && it.learning_tier !== learningTier) return false;
+
+  const q = (query || "").trim().toLowerCase();
+  if (!q) return true;
+
+  const tierLabel = TIER[it.learning_tier]?.label || it.learning_tier || "";
+  const hay = `${it.name} ${it.title || ""} ${it.channel || ""} ${it.unitName} ${it.chTitle} ${(it.facets || []).join(" ")} ${it.target || ""} ${tierLabel} ${it.presenter || ""} ${it.presenter_note || ""} ${it.scope_note || ""} ${it.disclosure || ""} ${it.original_content_date || ""} ${it.upload_date || ""}`;
+  return hay.toLowerCase().includes(q);
+}
+
 /* --- 播放清單渲染 -------------------------------------------------------- */
 
-export function renderPlaylist(items, { doneSet, currentIndex, query, onlyTodo }) {
-  const q = (query || "").trim().toLowerCase();
+export function renderPlaylist(items, { doneSet, currentIndex, query, onlyTodo, learningTier }) {
   let lastCh = null;
   let lastUnit = null;
   let shown = 0;
   const html = [];
 
   for (const it of items) {
-    if (onlyTodo && doneSet.has(it.unitId)) continue;
-    if (q) {
-      const hay = `${it.name} ${it.title || ""} ${it.channel || ""} ${it.unitName} ${it.chTitle} ${(it.facets || []).join(" ")} ${it.target || ""}`;
-      if (!hay.toLowerCase().includes(q)) continue;
-    }
+    if (!playlistItemMatches(it, { doneSet, query, onlyTodo, learningTier })) continue;
 
     if (it.chCode !== lastCh) {
       html.push(`<div class="PlaylistChapter">${esc(it.chCode)} ${esc(it.chTitle)}</div>`);
@@ -95,13 +114,14 @@ export function renderPlaylist(items, { doneSet, currentIndex, query, onlyTodo }
     }
 
     const k = it.kind === "lesson" ? null : KIND[it.kind];
+    const tier = TIER[it.learning_tier];
     html.push(`
       <button class="PlaylistItem${it.i === currentIndex ? " is-playing" : ""}${doneSet.has(it.unitId) ? " is-done" : ""}"
               type="button" data-play="${it.i}">
         <span class="PlaylistItem__dot" style="background:var(--fgColor-${esc(it.kind === "lesson" ? "accent" : (KIND[it.kind] || {}).tone || "accent")})"></span>
         <span class="PlaylistItem__main">
           <span class="PlaylistItem__name">${esc(it.kind === "lesson" ? `${UI.lessonLabel || ""} · ${it.name}` : it.name)}</span>
-          <span class="PlaylistItem__meta">${k ? esc(k.label) + " · " : ""}${it.lang ? esc(LANG[it.lang] || it.lang) + " · " : ""}${esc(it.channel || "")}</span>
+          <span class="PlaylistItem__meta">${tier ? esc(tier.label) + " · " : ""}${k ? esc(k.label) + " · " : ""}${it.lang ? esc(LANG[it.lang] || it.lang) + " · " : ""}${esc(it.channel || "")}</span>
         </span>
         <span class="PlaylistItem__dur">${esc(dur(it.duration))}</span>
       </button>`);
@@ -132,6 +152,19 @@ export function play(item, { total }) {
   const badge = k
     ? `<span class="Label Label--${esc(k.tone || "neutral")}">${esc(k.label)}</span>`
     : `<span class="Label Label--accent">${esc(UI.lessonLabel || "")}</span>`;
+  const tier = TIER[item.learning_tier];
+  const tierBadge = tier
+    ? `<span class="Label Label--${esc(tier.tone || "neutral")}">${item.learning_tier === "core" ? icon("star", 11) : ""}${esc(tier.label)}</span>`
+    : "";
+  const dateBits = item.original_content_date && item.upload_date && item.upload_date !== item.original_content_date
+    ? `<span>· 內容 ${esc(item.original_content_date)}</span><span>· 上架 ${esc(item.upload_date)}</span>`
+    : item.original_content_date && item.upload_date
+      ? `<span>· 內容／上架 ${esc(item.original_content_date)}</span>`
+      : item.original_content_date
+        ? `<span>· 內容 ${esc(item.original_content_date)}</span>`
+      : item.upload_date
+        ? `<span>· 上架 ${esc(item.upload_date)}</span>`
+        : "";
 
   $("#playerInfo").innerHTML = `
     <div class="Player__bar">
@@ -142,10 +175,13 @@ export function play(item, { total }) {
           <span>›</span>
           <a href="#${esc(item.unitId)}" data-goto-unit="${esc(item.unitId)}">${esc(item.unitName)}</a>
           <span>· ${item.i + 1} / ${total}</span>
+          ${tierBadge}
           ${badge}
           ${item.lang ? `<span class="Label Label--neutral">${esc(LANG[item.lang] || item.lang)}</span>` : ""}
           <span>${esc(item.channel || "")}</span>
+          ${item.presenter || item.presenter_note ? `<span>· 講者：${esc(item.presenter || item.presenter_note)}</span>` : ""}
           ${item.duration ? `<span>· ${esc(item.duration)}</span>` : ""}
+          ${dateBits}
           ${item.dose ? `<span class="Drill__dose">${esc(item.dose)}</span>` : ""}
         </div>
       </div>
@@ -159,10 +195,13 @@ export function play(item, { total }) {
       </div>
     </div>
     ${
-      item.why || item.assessment
+      item.why || item.scope_note || item.disclosure || item.date_note || item.assessment
         ? `<details class="Player__more">
              <summary>${esc(UI.moreLabel || "")}</summary>
              ${item.why ? `<p class="Player__note">${esc(item.why)}</p>` : ""}
+             ${item.scope_note ? `<p class="Player__note"><strong>適用範圍　</strong>${esc(item.scope_note)}</p>` : ""}
+             ${item.disclosure ? `<p class="Player__note"><strong>來源揭露　</strong>${esc(item.disclosure)}</p>` : ""}
+             ${item.date_note ? `<p class="Player__note"><strong>日期註記　</strong>${esc(item.date_note)}</p>` : ""}
              ${item.assessment ? `<p class="Player__note"><strong>怎麼自己評估　</strong>${esc(item.assessment)}</p>` : ""}
            </details>`
         : ""

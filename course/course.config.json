@@ -75,7 +75,7 @@
       {
         "icon": "play",
         "field": "video_unique",
-        "label": "支首輪精選影片"
+        "label": "支精選影片"
       },
       {
         "icon": "clock",
@@ -128,6 +128,8 @@
     "doneLabel": "完成",
     "openExternal": "在 YouTube 開啟",
     "moreLabel": "選片理由與課程定位",
+    "coreOnlyLabel": "只看核心必看",
+    "coreCountLabel": "核心必看",
     "filterAll": "全部",
     "lessonNoun": "個教學單元",
     "drillNoun": "支精選影片"
@@ -152,6 +154,18 @@
       "id": "classic",
       "label": "經典大師",
       "tone": "attention"
+    }
+  ],
+  "learningTiers": [
+    {
+      "id": "core",
+      "label": "核心必看",
+      "tone": "accent"
+    },
+    {
+      "id": "extension",
+      "label": "延伸學習",
+      "tone": "neutral"
     }
   ],
   "grades": [
@@ -212,7 +226,7 @@
       "icon": "shield-check",
       "source": "syllabus",
       "units": 3,
-      "drills": 0
+      "drills": 1
     },
     {
       "code": "CH1",
@@ -220,7 +234,7 @@
       "icon": "activity",
       "source": "syllabus",
       "units": 3,
-      "drills": 1
+      "drills": 2
     },
     {
       "code": "CH2",
@@ -228,7 +242,7 @@
       "icon": "scan-line",
       "source": "syllabus",
       "units": 3,
-      "drills": 2
+      "drills": 3
     },
     {
       "code": "CH3",
@@ -236,7 +250,7 @@
       "icon": "target",
       "source": "syllabus",
       "units": 3,
-      "drills": 2
+      "drills": 3
     },
     {
       "code": "CH4",
@@ -252,7 +266,7 @@
       "icon": "move-diagonal",
       "source": "syllabus",
       "units": 3,
-      "drills": 2
+      "drills": 3
     },
     {
       "code": "CH6",
@@ -260,7 +274,7 @@
       "icon": "microscope",
       "source": "syllabus",
       "units": 3,
-      "drills": 2
+      "drills": 4
     },
     {
       "code": "CH7",
@@ -268,7 +282,7 @@
       "icon": "clipboard-list",
       "source": "syllabus",
       "units": 3,
-      "drills": 2
+      "drills": 0
     }
   ],
   "audit": {
@@ -338,7 +352,7 @@
     "stanceLede": "這是一門醫師專業教育課程，不是認證、credentialing 或個別病人的醫療建議。",
     "chaptersTitle": "八個章節，從標準化到臨床整合",
     "ctaTitle": "從課程定位開始",
-    "ctaLede": "第一版共有 {units} 個單元與 {videos} 個已建檔影片欄位；影片清單會在醫療審閱與嵌入驗證後持續擴充。"
+    "ctaLede": "目前共有 {units} 個單元與 {videos} 個已建檔影片欄位；影片清單會在醫療審閱與嵌入驗證後持續擴充。"
   },
   "footer": {
     "disclaimer": "<strong>專業教育聲明。</strong>本課程以醫師為主要學員，僅供教育用途，不取代實體 hands-on training、合格督導、機構 credentialing、完整病史理學檢查或正式影像判讀。第一階段不提供注射、穿刺或其他介入操作指引。",

@@ -32,7 +32,7 @@
     <a href="#main" class="visually-hidden">跳到主要內容</a>
 
     <header class="AppHeader">
-      <a class="AppHeader__brand" href="#" data-tab-link="home">
+      <a class="AppHeader__brand" href="#" data-tab-link="home" aria-label="肩部超音波診斷課程首頁">
         <span class="AppHeader__brandMark">
           <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-activity" /></svg>
           <span class="AppHeader__brandPulse"></span>
@@ -43,16 +43,16 @@
 
       <nav class="TabNav" aria-label="主要分頁">
         <div class="TabNav__inner">
-          <button class="TabNav__item is-selected" data-tab="course" type="button" aria-current="page">
+          <button class="TabNav__item is-selected" data-tab="course" type="button" aria-label="{{ui.tabs.course}}" aria-current="page">
             <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-layers" /></svg>
             <span class="TabNav__label">{{ui.tabs.course}}</span>
             <span class="Counter" id="tabCourseCount">24</span>
           </button>
-          <button class="TabNav__item" data-tab="player" type="button">
+          <button class="TabNav__item" data-tab="player" type="button" aria-label="{{ui.tabs.player}}">
             <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-play" /></svg>
             <span class="TabNav__label">{{ui.tabs.player}}</span>
           </button>
-          <button class="TabNav__item" data-tab="stance" type="button">
+          <button class="TabNav__item" data-tab="stance" type="button" aria-label="{{ui.tabs.stance}}">
             <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-microscope" /></svg>
             <span class="TabNav__label">{{ui.tabs.stance}}</span>
             <span class="Counter" id="tabStanceCount">3</span>
@@ -175,6 +175,9 @@
           </div>
           <div class="Player__listMeta">
             <span id="playlistCount"></span>
+            <button class="btn btn-invisible btn-icon" id="playlistCoreOnly" type="button" title="只顯示核心必看" aria-label="只顯示核心必看" aria-pressed="false" hidden>
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-star" /></svg>
+            </button>
             <button class="btn btn-invisible btn-icon" id="playlistOnlyTodo" type="button" title="只顯示未完成">
               <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-check" /></svg>
             </button>
@@ -257,6 +260,10 @@
           <div class="FilterBar__group" role="group" aria-label="動作類型篩選">
             <button class="FilterBar__btn is-active" data-filter="all" type="button">全部</button>
           </div>
+          <button class="FilterBar__core" id="corePathToggle" type="button" aria-pressed="false" hidden>
+            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-star" /></svg>
+            <span>只看核心必看</span>
+          </button>
           <div class="FilterBar__spacer"></div>
           <span class="FilterBar__count" id="filterCount"></span>
         </div>

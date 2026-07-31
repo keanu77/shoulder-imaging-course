@@ -8,9 +8,10 @@
 
 ## 首輪範圍
 
-- 8 章、24 個教學單元、13 支精選公開影片
+- 8 章、24 個教學單元、18 支精選公開影片
+- 5 支「核心必看」建立最短學習路徑，13 支「延伸學習」補充完整流程、病理與不同專家觀點
 - 近五年影片優先；具不可替代教學價值者可列為「經典例外」
-- 明確保留 Prof. Carlo Martinoli 的旋轉間隙與旋轉肌袖解剖示範
+- 核心納入 Jon Jacobson、Marc Schmitz、SMUG，並保留 Prof. Carlo Martinoli 的兩部解剖示範
 - 以 ACR/AIUM、AIUM、ESSR、USMSIT/NMUSIT 與同儕審查文獻建立掃描框架
 - 每單元具備學習目標、必備視圖、操作重點、常見陷阱、評量與審閱狀態
 
@@ -40,7 +41,7 @@ make verify
 
 - `course/course.config.json`：網站、章節、配額、稽核與醫療範圍設定
 - `course/data/syllabus.json`：課綱、單元、參考來源與策展影片
-- `course/data/video-meta.json`：影片 ID、頻道、長度及驗證中繼資料
+- `course/data/video-meta.json`：影片 ID、頻道、長度、觀看數及上架日期驗證中繼資料
 - `src/web/`：靜態前端
 - `src/build/`：建置、SEO、連結與醫療內容稽核
 

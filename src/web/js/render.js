@@ -12,15 +12,19 @@ export const esc = (s) =>
 /* 這些全部由 course.config.json 注入，框架本身不預設任何主題詞彙。
    用可變物件而非重新指派，import 過的模組才拿得到更新後的內容。 */
 export const KIND = {};
+export const TIER = {};
 export const GRADE = {};
 export const UI = {};
 let CFG = {};
 
 export function setConfig(cfg) {
   CFG = cfg || {};
-  for (const o of [KIND, GRADE, UI]) for (const k of Object.keys(o)) delete o[k];
+  for (const o of [KIND, TIER, GRADE, UI]) for (const k of Object.keys(o)) delete o[k];
 
   for (const k of CFG.kinds || []) KIND[k.id] = { label: k.label, tone: k.tone || "accent" };
+  for (const tier of CFG.learningTiers || []) {
+    TIER[tier.id] = { label: tier.label, tone: tier.tone || "neutral" };
+  }
   for (const g of CFG.grades || []) GRADE[g.id] = { label: g.label, tone: g.tone || "accent" };
   Object.assign(UI, CFG.ui || {});
 }
@@ -28,6 +32,19 @@ export function setConfig(cfg) {
 /** 分級／類型都用 tone 對應到樣式，id 可以隨主題自由命名 */
 const toneCls = (o) => `Label--${o?.tone || "neutral"}`;
 const gradeOf = (id) => GRADE[id] || Object.values(GRADE)[0] || { label: id, tone: "neutral" };
+const tierOf = (id) => TIER[id] || { label: id || "未分級", tone: "neutral" };
+
+function dateMeta(v) {
+  const original = v?.original_content_date;
+  const upload = v?.upload_date;
+  if (original && upload && original !== upload) {
+    return `<span>· 內容 ${esc(original)}</span><span>· 上架 ${esc(upload)}</span>`;
+  }
+  if (original && upload) return `<span>· 內容／上架 ${esc(original)}</span>`;
+  if (original) return `<span>· 內容 ${esc(original)}</span>`;
+  if (upload) return `<span>· 上架 ${esc(upload)}</span><span>· 原始內容日未公開</span>`;
+  return `<span>· 日期待查</span>`;
+}
 
 /* --- 影片 ---------------------------------------------------------------- */
 
@@ -64,12 +81,15 @@ function videoCard(v) {
       <span class="VideoCard__main">
         <span class="VideoCard__title">${esc(v.title)}</span>
         <span class="VideoCard__meta">
+          ${v.learning_tier ? `<span class="Label ${toneCls(tierOf(v.learning_tier))}">${esc(tierOf(v.learning_tier).label)}</span>` : ""}
           <span>${esc(v.channel)}</span>
           ${v.duration ? `<span>· ${esc(v.duration)}</span>` : ""}
           ${v.views ? `<span>· ${views(v.views)}</span>` : ""}
-          ${v.published_at ? `<span>· ${esc(v.published_at)}</span>` : `<span>· 發布日待查</span>`}
+          ${dateMeta(v)}
         </span>
         ${v.why ? `<span class="VideoCard__why">${esc(v.why)}</span>` : ""}
+        ${v.scope_note ? `<span class="Drill__context"><strong>適用範圍</strong>${esc(v.scope_note)}</span>` : ""}
+        ${v.disclosure ? `<span class="Drill__context Drill__context--disclosure"><strong>來源揭露</strong>${esc(v.disclosure)}</span>` : ""}
         <span class="VideoCard__trust">
           ${v.source_authority ? `<span class="Label Label--neutral">${esc(v.source_authority)}</span>` : ""}
           ${v.classic_exception ? `<span class="Label Label--attention">經典例外</span>` : ""}
@@ -221,18 +241,24 @@ function muscleTags(list) {
 }
 
 function drill(d) {
+  const tier = tierOf(d.learning_tier);
   const inner = `
     <span class="Drill__marker" style="background:var(--fgColor-${esc((KIND[d.kind] || {}).tone || "accent")})"></span>
     <span class="Drill__main">
       <span class="Drill__name">${esc(d.name)}${d.en ? ` <span class="Drill__en">${esc(d.en)}</span>` : ""}</span>
       <span class="Drill__meta">
+        <span class="Label ${toneCls(tier)}">${d.learning_tier === "core" ? icon("star", 11) : ""}${esc(tier.label)}</span>
         ${d.target ? `<span>${esc(d.target)}</span>` : ""}
         ${d.dose ? `<span class="Drill__dose">${esc(d.dose)}</span>` : ""}
         ${d.channel ? `<span>· ${esc(d.channel)}</span>` : ""}
+        ${d.presenter || d.presenter_note ? `<span>· 講者：${esc(d.presenter || d.presenter_note)}</span>` : ""}
         ${d.duration ? `<span>· ${esc(d.duration)}</span>` : ""}
-        ${d.published_at ? `<span>· ${esc(d.published_at)}</span>` : `<span>· 發布日待查</span>`}
+        ${dateMeta(d)}
       </span>
       ${d.why ? `<span class="Drill__why">${esc(d.why)}</span>` : ""}
+      ${d.scope_note ? `<span class="Drill__context"><strong>適用範圍</strong>${esc(d.scope_note)}</span>` : ""}
+      ${d.disclosure ? `<span class="Drill__context Drill__context--disclosure"><strong>來源揭露</strong>${esc(d.disclosure)}</span>` : ""}
+      ${d.date_note ? `<span class="Drill__context"><strong>日期註記</strong>${esc(d.date_note)}</span>` : ""}
       <span class="Drill__trust">
         ${d.source_authority ? `<span class="Label Label--neutral">${esc(d.source_authority)}</span>` : ""}
         ${d.classic_exception ? `<span class="Label Label--attention">經典例外</span>` : ""}
@@ -242,7 +268,7 @@ function drill(d) {
     </span>
     ${playBtn(true, !d.url)}`;
 
-  const attrs = `class="Drill" data-kind="${esc(d.kind)}" data-facets="${esc((d.facets || []).join("|"))}"${d.cat ? ` data-cat="${esc(d.cat)}"` : ""}`;
+  const attrs = `class="Drill" data-kind="${esc(d.kind)}" data-learning-tier="${esc(d.learning_tier)}" data-facets="${esc((d.facets || []).join("|"))}"${d.cat ? ` data-cat="${esc(d.cat)}"` : ""}`;
 
   // 有連結就整列可點，跟主課卡片一致
   return d.url
@@ -253,6 +279,9 @@ function drill(d) {
 function drillGroup(kind, list) {
   if (!list.length) return "";
   const k = KIND[kind];
+  const ranked = [...list].sort(
+    (a, b) => Number(b.learning_tier === "core") - Number(a.learning_tier === "core"),
+  );
   return `
     <div class="DrillGroup" data-group="${kind}">
       <h4 class="DrillGroup__title">
@@ -260,7 +289,7 @@ function drillGroup(kind, list) {
         ${k.label}
         <span class="Counter">${list.length}</span>
       </h4>
-      <ul class="DrillList">${list.map(drill).join("")}</ul>
+      <ul class="DrillList">${ranked.map(drill).join("")}</ul>
     </div>`;
 }
 
@@ -421,7 +450,15 @@ export function renderUnit(u, done) {
   ].join("");
 
   const groups = Object.keys(KIND)
-    .map((k) => drillGroup(k, (u.drills || []).filter((d) => d.kind === k)))
+    .map((k, i) => ({ k, i, list: (u.drills || []).filter((d) => d.kind === k) }))
+    .filter(({ list }) => list.length)
+    .sort(
+      (a, b) =>
+        Number(b.list.some((d) => d.learning_tier === "core")) -
+          Number(a.list.some((d) => d.learning_tier === "core")) ||
+        a.i - b.i,
+    )
+    .map(({ k, list }) => drillGroup(k, list))
     .join("");
 
   // 單元自身的肌群 + 底下所有動作的肌群，供側欄篩選比對

@@ -154,6 +154,7 @@ def main() -> int:
     unit_total = drill_total = 0
     seconds = 0
     kinds = Counter()
+    learning_tiers = Counter()
     missing_urls, bad_urls, seen_urls = [], [], Counter()
     within_unit = Counter()  # (unit_id, url) -> 次數，同單元重複才是真問題
 
@@ -266,6 +267,7 @@ def main() -> int:
 
             for d in u.get("drills") or []:
                 kinds[d.get("kind")] += 1
+                learning_tiers[d.get("learning_tier")] += 1
                 d["facets"] = facets.extract(d.get("target"), d.get("name")) if facets else []
                 cid = categories.classify(d) if categories else None
                 if cid:
@@ -309,7 +311,7 @@ def main() -> int:
     muscle_index.sort(key=lambda x: (group_order.index(x["group"]), -x["count"]))
 
     ui_keys = (
-        "site", "hero", "ui", "kinds", "grades", "languages",
+        "site", "hero", "ui", "kinds", "learningTiers", "grades", "languages",
         "nav", "stance", "landing", "footer",
         "discussions", "counter",
     )
@@ -324,6 +326,10 @@ def main() -> int:
             "units": unit_total,
             "lesson_units": unit_total,
             "drill_units": drill_total,
+            "drill_tier_counts": {
+                tier["id"]: learning_tiers[tier["id"]]
+                for tier in CFG.get("learningTiers", [])
+            },
             # 影片：有連結的主課 + 輔助影片 + 多語言替代版本
             "alt_lessons": alt_count[0],
             "video_slots": lesson_video_count + drill_total + alt_count[0],
@@ -354,6 +360,13 @@ def main() -> int:
     print(f"→ {out_label}  ({OUT.stat().st_size / 1024:.0f} KB)")
     print(f"   教學單元 {unit_total} · 精選影片 {drill_total}")
     print("   " + " / ".join(f"{k['label']} {kinds[k['id']]}" for k in CFG["kinds"]))
+    print(
+        "   "
+        + " / ".join(
+            f"{tier['label']} {learning_tiers[tier['id']]}"
+            for tier in CFG.get("learningTiers", [])
+        )
+    )
     print(
         f"   影片 {lesson_video_count + drill_total + alt_count[0]} 個欄位"
         f"（含 {alt_count[0]} 支多語言版本）· 去重後 {len(seen_urls)} 支"

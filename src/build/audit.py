@@ -400,6 +400,9 @@ def audit_structure(cfg: dict, units: list[dict], opts: dict, rep: Report) -> No
         if isinstance(c, dict) and c.get("code")
     }
     kind_ids = {k.get("id") for k in cfg.get("kinds", []) if isinstance(k, dict)}
+    tier_ids = {
+        tier.get("id") for tier in cfg.get("learningTiers", []) if isinstance(tier, dict)
+    }
     unit_types = set(cfg.get("ui", {}).get("unitTypes", {}))
 
     per_chapter = defaultdict(list)
@@ -445,6 +448,19 @@ def audit_structure(cfg: dict, units: list[dict], opts: dict, rep: Report) -> No
             sec,
             f"{len(bad_kind)} 個項目的 kind 不在 config.kinds（{'、'.join(sorted(kind_ids))}）",
             bad_kind,
+        )
+    bad_tier = [
+        f"{r['unit'].get('id')} / {d.get('name')} learning_tier={d.get('learning_tier')!r}"
+        for r in units
+        for d in r["unit"].get("drills") or []
+        if d.get("learning_tier") not in tier_ids
+    ]
+    if bad_tier:
+        rep.err(
+            sec,
+            f"{len(bad_tier)} 個項目的 learning_tier 不在 config.learningTiers"
+            f"（{'、'.join(sorted(tier_ids))}）",
+            bad_tier,
         )
     bad_type = [
         f"{r['unit'].get('id')} type={r['unit'].get('type')!r}"
@@ -515,7 +531,7 @@ def audit_videos(cfg: dict, units: list[dict], opts: dict, rep: Report) -> None:
     seen: Counter = Counter()
     within: Counter = Counter()
     hits = 0
-    dead, drift, short, long_, unpopular = [], [], [], [], []
+    dead, drift, date_drift, missing_meta_dates, short, long_, unpopular = [], [], [], [], [], [], []
     seconds = Counter()
 
     bounds = {
@@ -562,6 +578,13 @@ def audit_videos(cfg: dict, units: list[dict], opts: dict, rep: Report) -> None:
         if (views := info.get("views")) is not None and views < opts["minViews"]:
             unpopular.append(f"{uid} / {label} {views:,} 次觀看")
 
+        if not info.get("upload_date"):
+            missing_meta_dates.append(f"{uid} / {label}：中繼資料缺少 YouTube 上架日期")
+        elif v.get("upload_date") != info["upload_date"]:
+            date_drift.append(
+                f"{uid} / {label} 寫 {v.get('upload_date')!r}，YouTube 為 {info['upload_date']}"
+            )
+
     slots = len(nodes)
     filled = slots - len(explained) - len(unexplained)
     coverage = hits / filled if filled else 0
@@ -597,6 +620,14 @@ def audit_videos(cfg: dict, units: list[dict], opts: dict, rep: Report) -> None:
 
     if drift:
         rep.warn(sec, f"{len(drift)} 支影片的宣稱長度與實際差超過 {opts['driftSeconds']} 秒", drift)
+    if date_drift:
+        rep.err(sec, f"{len(date_drift)} 支影片的 upload_date 與 YouTube metadata 不符", date_drift)
+    if missing_meta_dates:
+        rep.err(
+            sec,
+            f"{len(missing_meta_dates)} 支影片的 YouTube metadata 缺少 upload_date（跑 make meta 補齊）",
+            missing_meta_dates,
+        )
     if short or long_:
         rep.warn(
             sec,

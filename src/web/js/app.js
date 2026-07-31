@@ -5,7 +5,8 @@ import {
 } from "./render.js";
 import { renderMusclePanel, syncMuscleChips, applyFilters as runFilters } from "./filters.js";
 import {
-  buildPlaylist, renderPlaylist, play, stop, fitFrame, watchFrame, initResizer, setLanguages,
+  buildPlaylist, renderPlaylist, playlistItemMatches, play, stop, fitFrame, watchFrame,
+  initResizer, setLanguages,
 } from "./player.js";
 import { bindKeys, listen as ytListen } from "./keys.js";
 import * as discuss from "./discuss.js";
@@ -33,6 +34,7 @@ const state = {
   course: null,
   done: new Set(),
   filter: "all",
+  learningTier: "all",
   query: "",
   muscles: new Set(),
   tab: "course",
@@ -113,6 +115,7 @@ function applyChrome(data) {
 
   for (const [key, label] of Object.entries(c.ui?.tabs || {})) {
     set(`.TabNav__item[data-tab="${key}"] .TabNav__label`, esc(label));
+    $(`.TabNav__item[data-tab="${key}"]`)?.setAttribute("aria-label", label);
   }
 
   set(".Hero__eyebrow", `${$(".Hero__eyebrow svg")?.outerHTML || ""} ${esc(c.hero?.eyebrow || "")}`);
@@ -128,7 +131,17 @@ function applyChrome(data) {
   set("#railChapterCount", `${data.chapters?.length || 0} CHAPTERS · ${data.meta?.units || 0} UNITS`);
   set("#consoleUnitCount", `${data.meta?.units || 0} UNITS`);
   set("#consoleVideoCount", `${data.meta?.video_unique || 0} VIDEOS`);
+  const coreCount = data.meta?.drill_tier_counts?.core || 0;
+  if (coreCount) set("#consoleVideoCount", `${data.meta?.video_unique || 0} VIDEOS · ${coreCount} CORE`);
   set("#consoleReviewStatus", esc(courseReviewLabel(data)));
+
+  const coreToggle = $("#corePathToggle");
+  const playlistCore = $("#playlistCoreOnly");
+  if (coreToggle) {
+    coreToggle.hidden = !coreCount;
+    coreToggle.querySelector("span").textContent = `${c.ui?.coreOnlyLabel || "只看核心必看"} · ${coreCount}`;
+  }
+  if (playlistCore) playlistCore.hidden = !coreCount;
 }
 
 /* --- 瀏覽次數 -------------------------------------------------------------
@@ -177,7 +190,8 @@ function renderStats() {
     .join("");
 
   $("#heroNote").innerHTML =
-    `${meta.lesson_units} ${LESSON_NOUN}，首輪建檔 ${meta.video_unique} 支不重複影片，` +
+    `${meta.lesson_units} ${LESSON_NOUN}，已建檔 ${meta.video_unique} 支不重複影片，` +
+    `${meta.drill_tier_counts?.core || 0} 支核心必看、${meta.drill_tier_counts?.extension || 0} 支延伸學習，` +
     `影片總長 ${meta.duration}。課程狀態：${esc(courseReviewLabel(state.course))}。`;
 }
 
@@ -262,6 +276,22 @@ function applyFilters() {
   syncMuscleChips(state.muscles);
 }
 
+function syncTierControls() {
+  const active = state.learningTier === "core";
+  for (const el of [$("#corePathToggle"), $("#playlistCoreOnly")]) {
+    if (!el) continue;
+    el.classList.toggle("is-active", active);
+    el.setAttribute("aria-pressed", String(active));
+  }
+}
+
+function toggleCorePath() {
+  state.learningTier = state.learningTier === "core" ? "all" : "core";
+  syncTierControls();
+  applyFilters();
+  alignPlayingToVisible();
+}
+
 /* --- 分頁 ---------------------------------------------------------------- */
 
 function setTab(tab) {
@@ -290,13 +320,50 @@ function setTab(tab) {
 
 /* --- 上課模式 ------------------------------------------------------------ */
 
-function refreshPlaylist() {
-  renderPlaylist(state.playlist, {
+function playlistFilterState() {
+  return {
     doneSet: state.done,
-    currentIndex: state.playing,
     query: state.playlistQuery,
     onlyTodo: state.onlyTodo,
+    learningTier: state.learningTier,
+  };
+}
+
+function refreshPlaylist() {
+  renderPlaylist(state.playlist, {
+    ...playlistFilterState(),
+    currentIndex: state.playing,
   });
+}
+
+function alignPlayingToVisible() {
+  const filters = playlistFilterState();
+  const current = state.playlist[state.playing];
+  if (current && playlistItemMatches(current, filters)) {
+    refreshPlaylist();
+    return;
+  }
+
+  const matches = state.playlist
+    .map((item, i) => ({ item, i }))
+    .filter(({ item }) => playlistItemMatches(item, filters));
+  if (!matches.length) {
+    refreshPlaylist();
+    return;
+  }
+
+  const origin = state.playing >= 0 ? state.playing : 0;
+  const next = matches.reduce((best, candidate) =>
+    Math.abs(candidate.i - origin) < Math.abs(best.i - origin) ? candidate : best,
+  ).i;
+
+  if (state.tab === "player") {
+    playAt(next);
+  } else {
+    state.playing = next;
+    save(STORE.playing, next);
+    refreshPlaylist();
+  }
 }
 
 function playAt(i) {
@@ -311,6 +378,18 @@ function playAt(i) {
   }
   refreshPlaylist();
   $(".PlaylistItem.is-playing")?.scrollIntoView({ block: "nearest" });
+}
+
+function stepPlaylist(delta) {
+  let i = state.playing;
+  const filters = playlistFilterState();
+  while (i + delta >= 0 && i + delta < state.playlist.length) {
+    i += delta;
+    if (playlistItemMatches(state.playlist[i], filters)) {
+      playAt(i);
+      return;
+    }
+  }
 }
 
 /* --- 事件 ---------------------------------------------------------------- */
@@ -367,7 +446,7 @@ function bindEvents() {
 
   $("#playerInfo").addEventListener("click", (e) => {
     const step = e.target.closest("[data-step]");
-    if (step) return playAt(state.playing + +step.dataset.step);
+    if (step) return stepPlaylist(+step.dataset.step);
 
     const mark = e.target.closest("[data-mark-unit]");
     if (mark) {
@@ -422,6 +501,9 @@ function bindEvents() {
     e.currentTarget.classList.toggle("is-active", state.onlyTodo);
     refreshPlaylist();
   });
+
+  $("#corePathToggle")?.addEventListener("click", toggleCorePath);
+  $("#playlistCoreOnly")?.addEventListener("click", toggleCorePath);
 
   // 課程內容裡點影片 → 切到上課模式站內播放，而不是跳去 YouTube。
   // 按住 ⌘/Ctrl/Shift 或中鍵時尊重瀏覽器原本行為（開新分頁）。
@@ -660,15 +742,16 @@ async function init() {
   bindKeys({
     next: () => {
       if (state.tab !== "player") setTab("player");
-      playAt(state.playing + 1);
+      stepPlaylist(1);
     },
     prev: () => {
       if (state.tab !== "player") setTab("player");
-      playAt(Math.max(0, state.playing - 1));
+      stepPlaylist(-1);
     },
     isPlayerTab: () => state.tab === "player",
   });
   applyFilters();
+  syncTierControls();
 
   // ?tab=player&play=12 可直接開到指定分頁與影片，也方便分享連結
   const params = new URLSearchParams(location.search);

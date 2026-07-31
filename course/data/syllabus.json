@@ -53,6 +53,19 @@
       "type": "practice-parameter",
       "year": 2020,
       "url": "https://www.aium.org/docs/default-source/resources/guidelines/aium-practice-parameter-for-documentation-of-an-ultrasound-examination.pdf?sfvrsn=3135b66_3"
+    },
+    "jacobson2011": {
+      "title": "Shoulder US: Anatomy, Technique, and Scanning Pitfalls",
+      "type": "peer-reviewed-technical-review",
+      "year": 2011,
+      "doi": "10.1148/radiol.11101082",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/21697306/"
+    },
+    "absis2021": {
+      "title": "A Stepwise Guide to Performing Shoulder Ultrasound: The ABSIS Protocol",
+      "type": "peer-reviewed-protocol",
+      "year": 2021,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34725606/"
     }
   },
   "stance": [
@@ -181,9 +194,30 @@
           "assessment": "針對外傷後無法抬手、疑似全層撕裂、疑似盂唇病變三個案例，分別寫出超音波能回答的問題及仍需補充的影像檢查。",
           "reference_ids": [
             "acr2022",
-            "usmsit2026"
+            "usmsit2026",
+            "absis2021"
           ],
-          "drills": []
+          "drills": [
+            {
+              "name": "ABSIS：肩部急性照護 POCUS 流程",
+              "kind": "overview",
+              "learning_tier": "extension",
+              "target": "AC joint、肱二頭肌、肩胛下肌、動態觀察、棘上肌",
+              "title": "A Stepwise Guide to Performing Shoulder Ultrasound: The ABSIS Protocol",
+              "channel": "MGH Ultrasound",
+              "url": "https://www.youtube.com/watch?v=JwMcy65g4Oc",
+              "duration": "6:38",
+              "why": "MGH 公開影片並有同儕審查論文配套，適合比較 focused acute-care POCUS 與完整肩部檢查的範圍。",
+              "original_content_date": null,
+              "upload_date": "2021-09-03",
+              "date_note": "影片未公開獨立的原始錄製日期；YouTube 頁面時區日期為 2021-09-02，yt-dlp 依 UTC 正規化為 2021-09-03；配套論文發表日為 2021-09-28。",
+              "presenter": "ABSIS protocol 作者團隊",
+              "scope_note": "這是急性照護 focused protocol，不是完整 MSK shoulder examination；省略棘下肌、小圓肌與完整後側結構，動態所見也不等同臨床 impingement syndrome。",
+              "source_authority": "academic-medical-center-peer-reviewed-companion",
+              "curation_status": "provisional",
+              "last_verified_at": "2026-07-31"
+            }
+          ]
         },
         {
           "id": "ch0-u3",
@@ -312,19 +346,43 @@
           "assessment": "在健康肌腱上刻意製造低回音區，再只用 heel-toe 或 rocking 讓纖維回音恢復；保存成對影像並指出判斷假影的依據。",
           "reference_ids": [
             "martinoli2010",
-            "mezian2021"
+            "mezian2021",
+            "jacobson2011"
           ],
           "drills": [
             {
+              "name": "Jacobson：肩部超音波解剖、技術與掃描陷阱",
+              "kind": "classic",
+              "learning_tier": "core",
+              "target": "標準流程、探頭位置、anisotropy、掃描陷阱",
+              "title": "How I Do It: Shoulder US Anatomy, Technique, and Scanning Pitfalls (Radiology 260:1 July 2011)",
+              "channel": "RadiologyRSNA",
+              "url": "https://www.youtube.com/watch?v=W_X5SmLE3gs",
+              "duration": "8:44",
+              "why": "RSNA 官方短片直接配套 Radiology 同儕審查文章，以不到九分鐘濃縮肩部標準取得、正常解剖、anisotropy 與常見陷阱。",
+              "original_content_date": "2011-07-01",
+              "upload_date": "2015-05-04",
+              "presenter": "Jon A. Jacobson, MD",
+              "scope_note": "經典技術教材，不等於 2026 年完整規範；動態 impingement 僅作影像觀察，仍須由現行標準視圖與臨床脈絡補足。",
+              "source_authority": "professional-society-journal",
+              "curation_status": "provisional",
+              "classic_exception": true,
+              "classic_exception_reason": "難以取代的肩部掃描 protocol、anisotropy 與 pitfalls 經典示範，並有 RSNA 同儕審查文章配套。",
+              "last_verified_at": "2026-07-31"
+            },
+            {
               "name": "肩部肌肉骨骼超音波入門總覽",
               "kind": "overview",
+              "learning_tier": "extension",
               "target": "標準掃描、探頭操作、正常解剖",
               "title": "An introduction to shoulder musculoskeletal ultrasound",
               "channel": "The Ultrasound Site - MSK ultrasound education",
               "url": "https://www.youtube.com/watch?v=juUSIoplk1k",
               "duration": "52:34",
               "why": "作為基礎技術章的長篇總覽；正式入選前仍需完成逐段醫療審閱。",
-              "published_at": "2025-06-03",
+              "original_content_date": "2025-06-03",
+              "upload_date": "2025-06-03",
+              "scope_note": "基礎長篇總覽；不取代本課程的完整標準掃描清單、正式報告規範與合格督導。",
               "source_authority": "specialist-training-provider",
               "curation_status": "provisional",
               "last_verified_at": "2026-07-31"
@@ -375,15 +433,39 @@
             {
               "name": "完整肩部掃描流程",
               "kind": "scan-demo",
+              "learning_tier": "extension",
               "target": "肱二頭肌、旋轉肌袖、AC joint、滑囊",
               "title": "MSK Ultrasound Shoulder Scan: Techniques, Anatomy & Clinical Tips | SMUG UK",
               "channel": "SMUG MSK ultrasound training",
               "url": "https://www.youtube.com/watch?v=oSMful3J4gQ",
               "duration": "9:08",
               "why": "2025 年的精簡完整示範，病人姿勢與探頭位置清楚，可作為全流程預習。",
-              "published_at": "2025-02-24",
+              "original_content_date": "2025-02-24",
+              "upload_date": "2025-02-24",
+              "scope_note": "精簡流程示範；仍需依課內 required views 補足完整結構、影像保存與標示。",
               "source_authority": "specialist-training-provider",
               "curation_status": "provisional",
+              "last_verified_at": "2026-07-31"
+            },
+            {
+              "name": "Buford：13-point 肩部超音波現場實作",
+              "kind": "scan-demo",
+              "learning_tier": "extension",
+              "target": "病人與操作者配置、連續掃描、地標間轉換",
+              "title": "Dr. Don Buford Live 13 Point Shoulder Ultrasound Exam Demo",
+              "channel": "Dr Don Buford",
+              "url": "https://www.youtube.com/watch?v=eglplbWaqxA",
+              "duration": "33:27",
+              "why": "未剪輯的 live exam 可觀察病人擺位、探頭移動與切面之間的轉換，適合已有解剖基礎後練習流程流暢度。",
+              "original_content_date": null,
+              "upload_date": "2011-08-03",
+              "date_note": "內容錄於 2011 San Diego Shoulder Course；確切錄製日期未公開。",
+              "presenter": "Don Buford, MD；Ben DuBois, MD",
+              "scope_note": "13-point 是講者的簡化 framework，不是共識標準，也不代表已完成本課程的完整 required views。",
+              "source_authority": "named-specialist-clinician-channel",
+              "curation_status": "provisional",
+              "classic_exception": true,
+              "classic_exception_reason": "保留少見的連續 live workflow 示範；僅列延伸，並與本課程標準視圖逐項對照。",
               "last_verified_at": "2026-07-31"
             }
           ]
@@ -454,13 +536,16 @@
             {
               "name": "臺大醫院肩部基本超音波檢查",
               "kind": "scan-demo",
+              "learning_tier": "extension",
               "target": "標準視圖、繁中醫學教育",
               "title": "Ultrasound examination of the shoulder: basic",
               "channel": "臺大醫院肌肉骨骼超音波中心 NTUH MSK Ultrasound center",
               "url": "https://www.youtube.com/watch?v=E_ydH_Slt2o",
               "duration": "11:41",
               "why": "台灣醫療體系的繁中示範，適合作為本地化術語與標準視圖對照。",
-              "published_at": "2023-01-09",
+              "original_content_date": "2023-01-09",
+              "upload_date": "2023-01-09",
+              "scope_note": "繁中基礎視圖對照；正式臨床影像保存與報告仍須遵循所在地及機構規範。",
               "source_authority": "academic-medical-center",
               "curation_status": "provisional",
               "last_verified_at": "2026-07-31"
@@ -508,13 +593,17 @@
             {
               "name": "從肱二頭肌長頭開始掃描",
               "kind": "scan-demo",
+              "learning_tier": "core",
               "target": "肱二頭肌長頭、病人姿勢、探頭位置",
               "title": "Scanning the shoulder - start with the long head of biceps!",
               "channel": "SMUG MSK ultrasound training",
               "url": "https://www.youtube.com/watch?v=Us_8gKPbrdk",
               "duration": "14:47",
               "why": "2025 年針對初學者的逐步示範，清楚呈現起始地標與常見操作錯誤。",
-              "published_at": "2025-09-15",
+              "original_content_date": "2025-09-15",
+              "upload_date": "2025-09-15",
+              "presenter_note": "公開頁面未具名個別講者；以 SMUG 教學團隊標示。",
+              "scope_note": "局部初學示範，不是完整肩部檢查，也不作獨立診斷權威。",
               "source_authority": "specialist-training-provider",
               "curation_status": "provisional",
               "last_verified_at": "2026-07-31"
@@ -551,7 +640,29 @@
             "essr-shoulder",
             "mezian2021"
           ],
-          "drills": []
+          "drills": [
+            {
+              "name": "Sonosite：完整肩部診斷檢查 Part 1",
+              "kind": "overview",
+              "learning_tier": "extension",
+              "target": "前側肩部、肱二頭肌、肩胛下肌、棘上肌與滑囊",
+              "title": "Webinar: Diagnostic Shoulder Ultrasound Exam - Part 1",
+              "channel": "Sonosite",
+              "url": "https://www.youtube.com/watch?v=mezZ0x5-D3s",
+              "duration": "50:59",
+              "why": "具名肩部骨科醫師的長篇連續示範，可補足短片難以呈現的前側肩部掃描脈絡。",
+              "original_content_date": "2015-02-13",
+              "upload_date": "2023-03-20",
+              "presenter": "Benjamin DuBois, MD",
+              "disclosure": "Sonosite 醫療器材教育平台；內容錄於廠商 webinar。",
+              "scope_note": "2015 年內容於 2023 年重上架；須以逐段審閱後的時間點學習，並以本課程更新 pulley、rotator interval 與報告術語。",
+              "source_authority": "medical-device-education",
+              "curation_status": "provisional",
+              "classic_exception": true,
+              "classic_exception_reason": "近期短片少有同等長度的肩部骨科醫師連續示範；只列延伸並保留內容日期揭露。",
+              "last_verified_at": "2026-07-31"
+            }
+          ]
         },
         {
           "id": "ch3-u3",
@@ -586,13 +697,16 @@
             {
               "name": "肱二頭肌長頭掃描技巧",
               "kind": "scan-demo",
+              "learning_tier": "extension",
               "target": "長短軸、追蹤與動態評估",
               "title": "Shoulder ultrasound: How to scan the long head of biceps tendon",
               "channel": "The Ultrasound Site - MSK ultrasound education",
               "url": "https://www.youtube.com/watch?v=-sVLoelvpQs",
               "duration": "3:52",
               "why": "短篇技巧示範，適合實機掃描前快速複習。",
-              "published_at": "2025-06-04",
+              "original_content_date": "2025-06-04",
+              "upload_date": "2025-06-04",
+              "scope_note": "局部技巧示範，不等於完整前側肩部診斷檢查或肱二頭肌不穩定評估。",
               "source_authority": "specialist-training-provider",
               "curation_status": "provisional",
               "last_verified_at": "2026-07-31"
@@ -637,14 +751,19 @@
             {
               "name": "Martinoli：旋轉間隙",
               "kind": "classic",
+              "learning_tier": "core",
               "target": "旋轉間隙、肱二頭肌近端、韌帶解剖",
               "title": "Ultrasound of Rotator Interval by Carlo Martinoli",
               "channel": "Martinoli Ultrasound",
               "url": "https://www.youtube.com/watch?v=jjzMYgbYwTg",
               "duration": "1:21",
               "why": "一分鐘內清楚呈現旋轉間隙的解剖關係，教學密度高且具代表性。",
-              "published_at": "2018-05-21",
-              "source_authority": "international-expert",
+              "original_content_date": null,
+              "upload_date": "2018-05-21",
+              "date_note": "原始錄製日期未公開；內容新鮮度暫以上架日判定。",
+              "presenter": "Carlo Martinoli, MD",
+              "scope_note": "高密度解剖辨識教材；不足以單獨教授完整取得流程、病理判讀或報告。",
+              "source_authority": "international-expert-official-channel",
               "curation_status": "provisional",
               "classic_exception": true,
               "classic_exception_reason": "Prof. Carlo Martinoli 的代表性解剖示範，現有近五年公開影片未提供同等精簡且清楚的旋轉間隙說明。",
@@ -686,14 +805,19 @@
             {
               "name": "Martinoli：旋轉肌袖超音波解剖",
               "kind": "classic",
+              "learning_tier": "core",
               "target": "旋轉肌袖分層、附著面與動態解剖",
               "title": "Professor C. Martinoli - Ultrasound dissection of rotator cuff tendons",
               "channel": "Global Medical Business",
               "url": "https://www.youtube.com/watch?v=_PrcLweY_X0",
               "duration": "42:31",
               "why": "ECR 2019 的經典長篇示範，提供難以由短影片取代的旋轉肌袖解剖脈絡。",
-              "published_at": "2019-06-05",
-              "source_authority": "international-expert",
+              "original_content_date": null,
+              "upload_date": "2019-06-05",
+              "date_note": "來源標示為 ECR 2019 錄影；確切錄製日期未公開。",
+              "presenter": "Carlo Martinoli, MD",
+              "scope_note": "以解剖層次與 footprint 為學習重點；不作當代完整 protocol 或 tear grading 標準。",
+              "source_authority": "international-expert-third-party-recording",
               "curation_status": "provisional",
               "classic_exception": true,
               "classic_exception_reason": "Prof. Carlo Martinoli 以超音波解剖方式呈現旋轉肌袖層次，屬本課程指定保留的經典大師內容。",
@@ -771,13 +895,16 @@
             {
               "name": "後側肩關節與棘下肌掃描",
               "kind": "scan-demo",
+              "learning_tier": "extension",
               "target": "棘下肌、後側 recess、探頭位置",
               "title": "Infraspinatus MSK Ultrasound | Posterior Shoulder Joint Scan & Probe Position Tips",
               "channel": "SMUG MSK ultrasound training",
               "url": "https://www.youtube.com/watch?v=WzCnmptsMQ8",
               "duration": "4:09",
               "why": "2025 年短篇實作影片，清楚呈現後側肩部病人姿勢、探頭位置與主要地標。",
-              "published_at": "2025-08-18",
+              "original_content_date": "2025-08-18",
+              "upload_date": "2025-08-18",
+              "scope_note": "局部後側掃描示範；需另完成小圓肌與完整後側 recess 檢查。",
               "source_authority": "specialist-training-provider",
               "curation_status": "provisional",
               "last_verified_at": "2026-07-31"
@@ -814,7 +941,28 @@
             "dynamic2018",
             "acr2022"
           ],
-          "drills": []
+          "drills": [
+            {
+              "name": "Schmitz：肩部動態超音波評估",
+              "kind": "scan-demo",
+              "learning_tier": "core",
+              "target": "肱二頭肌穩定性、rotator interval、肩胛下肌與肩峰下動態",
+              "title": "Pragmatic MSK Ultrasound: Dynamic Assessment of the Shoulder",
+              "channel": "Clarius Mobile Health",
+              "url": "https://www.youtube.com/watch?v=24Y2UY_YPvg",
+              "duration": "1:08:48",
+              "why": "近期長篇示範把靜態標準視圖延伸到功能性動態觀察，適合完成基礎流程後建立可重複的動態檢查。",
+              "original_content_date": "2023-07-12",
+              "upload_date": "2023-07-20",
+              "date_note": "YouTube 頁面時區日期為 2023-07-19，yt-dlp 依 UTC 正規化為 2023-07-20。",
+              "presenter": "Marc Schmitz, MSc",
+              "disclosure": "Clarius 廠商教育平台；影片示範其手持式超音波設備。",
+              "scope_note": "講者為 SonoSkills 教育者而非醫師；限用於影像取得與動態描述，不以影片單獨診斷 impingement syndrome 或推定疼痛來源。",
+              "source_authority": "medical-device-education",
+              "curation_status": "provisional",
+              "last_verified_at": "2026-07-31"
+            }
+          ]
         },
         {
           "id": "ch5-u3",
@@ -854,13 +1002,16 @@
             {
               "name": "肩部滑囊解剖與更新概念",
               "kind": "overview",
+              "learning_tier": "extension",
               "target": "肩部滑囊、層次與解剖關係",
               "title": "ANATOMY OF THE BURSAE OF THE SHOULDER (PART I) | Key Relationships & Updated Concepts",
               "channel": "MSK Ultrasound Tutorials – Dr. Iriarte",
               "url": "https://www.youtube.com/watch?v=n45q8fNv4oE",
               "duration": "7:06",
               "why": "解剖導向的滑囊複習；影片為 2024 年首播，正式入選前仍需完成逐段醫療審閱。",
-              "published_at": "2024-03-27",
+              "original_content_date": "2024-03-27",
+              "upload_date": "2024-03-27",
+              "scope_note": "解剖複習內容；不可由單一滑囊影像直接推定疼痛來源。",
               "source_authority": "expert-educator",
               "curation_status": "provisional",
               "last_verified_at": "2026-07-31"
@@ -902,19 +1053,23 @@
           "assessment": "選一個疑似肌腱病變案例，用厚度、回音、纖維、血流與鈣化五個面向完成描述；若評估血流，須記錄低流速 Doppler 設定與探頭壓力控制，並說明如何排除 anisotropy、技術性無血流與偶然發現。",
           "reference_ids": [
             "acr2022",
-            "usmsit2026"
+            "usmsit2026",
+            "aium2023"
           ],
           "drills": [
             {
               "name": "正常與異常肩部超音波外觀",
               "kind": "pathology-demo",
+              "learning_tier": "extension",
               "target": "正常對照、肌腱病變、滑囊與撕裂",
               "title": "Shoulder Ultrasound Normal Vs Abnormal Image Appearances | Sports Injuries | Musculoskeletal USG",
               "channel": "Dr. Sam's Imaging Library",
               "url": "https://www.youtube.com/watch?v=ZMkYok_VU9w",
               "duration": "15:10",
               "why": "提供正常與異常影像對照；需完成講者資歷、日期與判讀內容的醫療審閱後才會正式核准。",
-              "published_at": "2023-03-16",
+              "original_content_date": "2023-03-16",
+              "upload_date": "2023-03-16",
+              "scope_note": "影像對照仍需逐段醫療審閱；不以單張影像取代多平面確認與臨床整合。",
               "source_authority": "specialist-educator",
               "curation_status": "provisional",
               "medical_review_required": true,
@@ -959,15 +1114,60 @@
             {
               "name": "旋轉肌袖撕裂判讀重點",
               "kind": "pathology-demo",
+              "learning_tier": "extension",
               "target": "大結節 facets、撕裂定位與常見錯誤",
               "title": "Diagnose Rotator Cuff Tears - Key Tips for Shoulder Ultrasound - MSK Ultrasound - MSKUS",
               "channel": "SMUG MSK ultrasound training",
               "url": "https://www.youtube.com/watch?v=fhrbY81YRN0",
               "duration": "2:41",
               "why": "2024 年聚焦旋轉肌袖足跡與撕裂定位的短篇教學，可補強初學者的三維解剖概念。",
-              "published_at": "2024-12-31",
+              "original_content_date": "2024-12-31",
+              "upload_date": "2024-12-31",
+              "scope_note": "短篇定位技巧；不取代完整 tear grading、量測、肌肉評估與 MRI 升級判斷。",
               "source_authority": "specialist-training-provider",
               "curation_status": "provisional",
+              "last_verified_at": "2026-07-31"
+            },
+            {
+              "name": "AIUM：旋轉肌腱病變與撕裂鑑別",
+              "kind": "pathology-demo",
+              "learning_tier": "extension",
+              "target": "tendinopathy、partial-thickness 與 full-thickness tear",
+              "title": "MSK Ultrasound Evaluation: Differentiation of Tendinopathy vs Tear in the Rotator Cuff",
+              "channel": "AIUM",
+              "url": "https://www.youtube.com/watch?v=7_0epksK8BY",
+              "duration": "1:01:31",
+              "why": "AIUM／APTA 合作的病例式教學，聚焦正常假影、肌腱病變與不同深度撕裂的取得及鑑別。",
+              "original_content_date": "2018-09-24",
+              "upload_date": "2018-09-24",
+              "presenter": "Colin Rigney, PT, DPT, OCS, RMSK",
+              "disclosure": "AIUM 與 APTA Orthopedics 合作教育內容；講者並非醫師。",
+              "scope_note": "2018 年內容；high／low-grade 與撕裂分類必須依本課程現行量測、描述與報告規則覆核。",
+              "source_authority": "professional-society-education",
+              "curation_status": "provisional",
+              "classic_exception": true,
+              "classic_exception_reason": "官方學會合作且公開病例演算法完整；僅列延伸並以現行報告標準校正。",
+              "last_verified_at": "2026-07-31"
+            },
+            {
+              "name": "Sonosite：完整肩部診斷檢查 Part 2",
+              "kind": "overview",
+              "learning_tier": "extension",
+              "target": "影像品質、異常徵象與旋轉肌袖病灶判讀",
+              "title": "Webinar: Diagnostic Shoulder Ultrasound Exam - Part 2",
+              "channel": "Sonosite",
+              "url": "https://www.youtube.com/watch?v=WzkiVfEg3qw",
+              "duration": "1:00:30",
+              "why": "具名肌肉骨骼放射科醫師的長篇診斷觀點，可補足 Part 1 並深化影像品質與異常徵象的思考。",
+              "original_content_date": "2015-02-16",
+              "upload_date": "2023-03-21",
+              "presenter": "J. Antonio Bouffard, MD",
+              "disclosure": "Sonosite 醫療器材教育平台；內容錄於廠商 webinar。",
+              "scope_note": "2015 年內容於 2023 年重上架；逐段審閱完成前，不把其內容直接當成現行 tear grading 或病例能力關卡。",
+              "source_authority": "medical-device-education",
+              "curation_status": "provisional",
+              "classic_exception": true,
+              "classic_exception_reason": "保留具名 MSK radiologist 的長篇診斷觀點；只列延伸並保留內容日期揭露。",
               "last_verified_at": "2026-07-31"
             }
           ]
@@ -1043,22 +1243,7 @@
             "aium2023",
             "aium-documentation2020"
           ],
-          "drills": [
-            {
-              "name": "Diagnostic Shoulder Ultrasound Exam Part 1",
-              "kind": "overview",
-              "target": "前側肩部、系統化診斷檢查",
-              "title": "Webinar: Diagnostic Shoulder Ultrasound Exam - Part 1",
-              "channel": "Sonosite",
-              "url": "https://www.youtube.com/watch?v=mezZ0x5-D3s",
-              "duration": "50:59",
-              "why": "長篇診斷示範可用來觀察完整掃描與說明節奏；正式入選前仍需完成逐段醫療審閱。",
-              "published_at": "2023-03-20",
-              "source_authority": "medical-device-education",
-              "curation_status": "provisional",
-              "last_verified_at": "2026-07-31"
-            }
-          ]
+          "drills": []
         },
         {
           "id": "ch7-u2",
@@ -1121,22 +1306,7 @@
             "essr-shoulder",
             "usmsit2026"
           ],
-          "drills": [
-            {
-              "name": "Diagnostic Shoulder Ultrasound Exam Part 2",
-              "kind": "overview",
-              "target": "後側肩部、動態檢查與病例整合",
-              "title": "Webinar: Diagnostic Shoulder Ultrasound Exam - Part 2",
-              "channel": "Sonosite",
-              "url": "https://www.youtube.com/watch?v=WzkiVfEg3qw",
-              "duration": "1:00:30",
-              "why": "完整診斷示範的第二部分，供病例整合時觀察掃描流程；正式入選前仍需完成逐段醫療審閱。",
-              "published_at": "2023-03-21",
-              "source_authority": "medical-device-education",
-              "curation_status": "provisional",
-              "last_verified_at": "2026-07-31"
-            }
-          ]
+          "drills": []
         }
       ]
     }

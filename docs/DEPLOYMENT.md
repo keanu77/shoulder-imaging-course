@@ -42,6 +42,8 @@
 - `og.png` 是 1200×630
 - canonical、Open Graph 與 sitemap 使用正式網域
 - `_headers` 的安全、快取與 `X-Robots-Tag` 實際生效
-- 24 個單元、13 支影片、2 支 Martinoli 經典影片載入正常
+- 24 個單元、18 支影片、5 支核心必看與 13 支延伸學習載入正常
+- 「只看核心必看」在課程與播放清單同步生效；核心模式的上一部／下一部不跳入延伸影片
+- 原始內容日期、YouTube 上架日期、適用範圍及廠商揭露顯示正常
 - 搜尋、章節展開、進度、明暗模式及 320/390px 行動版正常
 - Console 無 JavaScript error、404 或 mixed content

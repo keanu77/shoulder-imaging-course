@@ -27,7 +27,7 @@ og: ## 用 headless Chrome 重新產生社群預覽圖
 	@cp src/web/og.png $(DIST)/og.png
 	@echo "→ src/web/og.png + $(DIST)/og.png"
 
-meta: ## 用 yt-dlp 補齊 video-meta.json（長度、觀看數、頻道）
+meta: ## 用 yt-dlp 補齊 video-meta.json（長度、觀看數、頻道、上架日期）
 	$(PY) src/build/fetch_meta.py
 
 counter: ## 建立瀏覽次數用的 D1 資料庫並寫出 wrangler 綁定（冪等，可重跑）

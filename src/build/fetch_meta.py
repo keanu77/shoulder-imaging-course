@@ -24,7 +24,7 @@ DATA = ROOT / os.environ.get("COURSE", "course") / "data"
 META = DATA / "video-meta.json"
 
 VID = re.compile(r"(?:v=|youtu\.be/)([\w-]{11})")
-FIELDS = "%(id)s\t%(duration)s\t%(view_count)s\t%(channel)s\t%(title)s"
+FIELDS = "%(id)s\t%(duration)s\t%(view_count)s\t%(channel)s\t%(title)s\t%(upload_date)s"
 
 
 def collect_ids() -> list[str]:
@@ -74,16 +74,27 @@ def fetch(vid: str) -> tuple[str, dict]:
     )
     line = proc.stdout.strip().split("\n")[-1] if proc.stdout.strip() else ""
     parts = line.split("\t")
-    if len(parts) < 5 or parts[0] != vid:
+    if len(parts) < 6 or parts[0] != vid:
         err = (proc.stderr or "").strip().split("\n")[-1][:120]
         return vid, {"status": "ERROR", "note": err or "no output"}
-    _, dur, views, channel, title = parts[:5]
+    _, dur, views, channel, title, upload = parts[:6]
+    seconds = int(float(dur)) if dur not in ("NA", "None", "") else 0
+    if seconds <= 0 or title.startswith("youtube video #"):
+        return vid, {"status": "ERROR", "note": "incomplete YouTube metadata"}
+    upload_date = (
+        f"{upload[:4]}-{upload[4:6]}-{upload[6:8]}"
+        if re.fullmatch(r"\d{8}", upload)
+        else None
+    )
+    if upload_date is None:
+        return vid, {"status": "ERROR", "note": "missing YouTube upload_date"}
     return vid, {
         "status": "OK",
-        "seconds": int(float(dur)) if dur not in ("NA", "None", "") else 0,
+        "seconds": seconds,
         "views": int(views) if views.isdigit() else None,
         "channel": channel,
         "title": title,
+        "upload_date": upload_date,
     }
 
 
@@ -92,7 +103,13 @@ def main() -> int:
     meta = {} if refresh else (json.loads(META.read_text()) if META.exists() else {})
 
     ids = collect_ids()
-    todo = [v for v in ids if v not in meta or meta[v].get("status") != "OK"]
+    todo = [
+        v
+        for v in ids
+        if v not in meta
+        or meta[v].get("status") != "OK"
+        or not meta[v].get("upload_date")
+    ]
     print(f"影片 {len(ids)} 支，需抓取 {len(todo)} 支")
 
     with ThreadPoolExecutor(max_workers=3) as pool:

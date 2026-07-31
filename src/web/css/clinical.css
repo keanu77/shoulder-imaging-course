@@ -970,6 +970,31 @@ body {
   box-shadow: 0 6px 14px rgb(8 40 61 / 18%);
 }
 
+.FilterBar__core {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 34px;
+  padding: 6px 11px;
+  color: var(--clinical-navy-2);
+  background: color-mix(in srgb, var(--clinical-teal-bright) 13%, var(--bgColor-default));
+  border: 1px solid color-mix(in srgb, var(--clinical-teal) 38%, var(--borderColor-default));
+  border-radius: 9px;
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.FilterBar__core:hover {
+  background: color-mix(in srgb, var(--clinical-teal-bright) 22%, var(--bgColor-default));
+}
+
+.FilterBar__core.is-active {
+  color: #01191b;
+  background: linear-gradient(135deg, var(--clinical-teal-bright), #9cfff3);
+  border-color: var(--clinical-teal);
+  box-shadow: 0 6px 16px rgb(8 127 134 / 18%);
+}
+
 /* --- Chapter and unit hierarchy ---------------------------------------- */
 
 .Chapter {
@@ -1458,6 +1483,26 @@ a:hover > .PlayBtn,
   line-height: 1.55;
 }
 
+.Drill__context {
+  display: block;
+  margin-top: 6px;
+  padding-left: 9px;
+  color: var(--fgColor-muted);
+  border-left: 2px solid color-mix(in srgb, var(--clinical-teal) 45%, transparent);
+  font-size: 11px;
+  line-height: 1.55;
+}
+
+.Drill__context strong {
+  margin-right: 0.65em;
+  color: var(--fgColor-default);
+  font-weight: 650;
+}
+
+.Drill__context--disclosure {
+  border-left-color: var(--fgColor-attention);
+}
+
 .Drill__trust,
 .VideoCard__trust {
   display: flex;
@@ -1844,6 +1889,10 @@ a:hover > .PlayBtn,
 
   .FilterBar__btn {
     flex: 0 0 auto;
+    min-height: 44px;
+  }
+
+  .FilterBar__core {
     min-height: 44px;
   }
 

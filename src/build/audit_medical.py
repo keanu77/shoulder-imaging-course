@@ -29,6 +29,12 @@ def main() -> int:
     medical = cfg.get("medical", {})
     status_order = medical.get("reviewStatuses", [])
     allowed_status = set(status_order)
+    allowed_tiers = {
+        tier.get("id")
+        for tier in cfg.get("learningTiers", [])
+        if isinstance(tier, dict) and tier.get("id")
+    }
+    allowed_curation = {"provisional", "pending-date-verification", "approved"}
     cutoff = date.fromisoformat(medical["contentCutoff"])
 
     references: dict[str, dict] = {}
@@ -92,26 +98,75 @@ def main() -> int:
                 else:
                     video_ids.add(match.group(1))
 
-                for field in ("source_authority", "curation_status", "last_verified_at", "why"):
+                for field in (
+                    "source_authority",
+                    "curation_status",
+                    "last_verified_at",
+                    "why",
+                    "scope_note",
+                ):
                     if not video.get(field):
                         err(video_where, f"缺少 {field}")
 
-                published = video.get("published_at")
+                tier = video.get("learning_tier")
+                if tier not in allowed_tiers:
+                    err(video_where, f"learning_tier 不在允許清單：{tier!r}")
+                if tier == "core" and not (video.get("presenter") or video.get("presenter_note")):
+                    err(video_where, "核心影片必須標示 presenter 或 presenter_note")
+
                 status = video.get("curation_status")
-                if not published:
-                    if status != "pending-date-verification":
-                        err(video_where, "缺少 published_at 時必須標記 pending-date-verification")
+                if status not in allowed_curation:
+                    err(video_where, f"curation_status 不在允許清單：{status!r}")
+
+                if (
+                    video.get("source_authority") == "medical-device-education"
+                    and not video.get("disclosure")
+                ):
+                    err(video_where, "醫療器材教育來源必須提供 disclosure")
+
+                upload = video.get("upload_date")
+                if not upload:
+                    if status == "pending-date-verification":
+                        warnings.append(f"{video_where}: YouTube 上架日期仍待確認")
                     else:
-                        warnings.append(f"{video_where}: 發布日期仍待確認")
-                    continue
-
+                        err(video_where, "缺少 upload_date 時必須標記 pending-date-verification")
+                upload_date = None
                 try:
-                    published_date = date.fromisoformat(published)
-                except ValueError:
-                    err(video_where, f"published_at 日期格式錯誤：{published!r}")
+                    if upload:
+                        upload_date = date.fromisoformat(upload)
+                except (TypeError, ValueError):
+                    err(video_where, f"upload_date 日期格式錯誤：{upload!r}")
+
+                if "original_content_date" not in video:
+                    err(video_where, "缺少 original_content_date 欄位；未知時請明確填 null")
+                original = video.get("original_content_date")
+                original_date = None
+                try:
+                    if original:
+                        original_date = date.fromisoformat(original)
+                except (TypeError, ValueError):
+                    err(video_where, f"original_content_date 日期格式錯誤：{original!r}")
+                if original is None and not video.get("date_note"):
+                    err(video_where, "original_content_date 為 null 時必須提供 date_note")
+                if original_date and upload_date and original_date > upload_date:
+                    err(video_where, "original_content_date 不得晚於 upload_date")
+
+                verified = video.get("last_verified_at")
+                try:
+                    if verified:
+                        verified_date = date.fromisoformat(verified)
+                        if verified_date > date.today():
+                            err(video_where, "last_verified_at 不得晚於今天")
+                except (TypeError, ValueError):
+                    err(video_where, f"last_verified_at 日期格式錯誤：{verified!r}")
+
+                content_date = original_date or upload_date
+                if not content_date:
+                    if status != "pending-date-verification":
+                        warnings.append(f"{video_where}: 原始內容與上架日期仍待確認")
                     continue
 
-                if published_date < cutoff:
+                if content_date < cutoff:
                     classic_count += 1
                     if not video.get("classic_exception"):
                         err(video_where, f"早於近五年門檻 {cutoff}，但未標示經典例外")
@@ -143,7 +198,7 @@ def main() -> int:
         + (" · 可索引" if medical.get("allowIndexing") else " · noindex")
     )
     if warnings:
-        print(f"  ⚠ {len(warnings)} 項非阻斷警告（目前主要為發布日期待確認）")
+        print(f"  ⚠ {len(warnings)} 項非阻斷警告（目前主要為內容或上架日期待確認）")
         for warning in warnings:
             print(f"      · {warning}")
     if errors:
