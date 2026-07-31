@@ -16,6 +16,7 @@
 
 from __future__ import annotations
 
+import hashlib
 import importlib
 import json
 import os
@@ -221,6 +222,105 @@ def sprite_icons() -> set[str]:
 def css_tones() -> set[str]:
     """tone 是設計語彙的一部分，定義在 tokens.css，不看其他主題性的樣式檔。"""
     return set(re.findall(r"\.Label--([a-z-]+)", (WEB / "css" / "tokens.css").read_text()))
+
+
+def audit_versioned_assets(rep: Report) -> None:
+    """所有未雜湊資產都要帶同一個內容指紋，不能只依賴 CDN cache header。"""
+    sec = "設定檔"
+    html_path = DIST / "index.html"
+    if not html_path.exists():
+        rep.warn(sec, "dist/index.html 尚未建置，略過前端資產版本稽核")
+        return
+
+    html = html_path.read_text()
+    html_assets = re.findall(
+        r'\b(?:href|src)=["\']((?:css|js)/[^"\']+\.(?:css|js)(?:\?[^"\']*)?)["\']',
+        html,
+    )
+    versions: set[str] = set()
+    missing = []
+    for asset in html_assets:
+        match = re.search(r"\?v=([0-9a-f]{12})$", asset)
+        if match:
+            versions.add(match.group(1))
+        else:
+            missing.append(f"index.html：{asset}")
+
+    module_refs = 0
+    module_targets: dict[Path, set[Path]] = defaultdict(set)
+    for path in sorted((DIST / "js").glob("*.js")):
+        source = path.read_text()
+        static_assets = re.findall(
+            r'(?:\bfrom\s+|\bimport\s*)["\'](\./[^"\']+\.js(?:\?[^"\']*)?)["\']',
+            source,
+        )
+        dynamic_assets = re.findall(
+            r'\bimport\s*\(\s*["\'](\./[^"\']+\.js(?:\?[^"\']*)?)["\']\s*\)',
+            source,
+        )
+        dynamic_calls = len(re.findall(r"\bimport\s*\(", source))
+        if dynamic_calls != len(dynamic_assets):
+            missing.append(f"{path.name}：含無法靜態加入版本的 dynamic import")
+
+        for asset in [*static_assets, *dynamic_assets]:
+            module_refs += 1
+            match = re.search(r"\?v=([0-9a-f]{12})$", asset)
+            if match:
+                versions.add(match.group(1))
+            else:
+                missing.append(f"{path.name}：{asset}")
+            target = (path.parent / asset.split("?", 1)[0]).resolve()
+            module_targets[path.resolve()].add(target)
+            if target.parent != (DIST / "js").resolve() or not target.is_file():
+                missing.append(f"{path.name}：import target 不存在 {asset}")
+
+    app_source = (DIST / "js" / "app.js").read_text()
+    course_match = re.search(r'fetch\(["\']course\.json\?v=([0-9a-f]{12})["\']\)', app_source)
+    if course_match:
+        versions.add(course_match.group(1))
+    else:
+        missing.append("app.js：course.json fetch 沒有內容指紋")
+
+    reachable = set()
+    pending = [(DIST / "js" / "app.js").resolve()]
+    while pending:
+        path = pending.pop()
+        if path in reachable:
+            continue
+        reachable.add(path)
+        pending.extend(module_targets.get(path, set()) - reachable)
+    js_files = {path.resolve() for path in (DIST / "js").glob("*.js")}
+    if orphaned := sorted(path.name for path in js_files - reachable):
+        missing.extend(f"ES module graph：app.js 無法到達 {name}" for name in orphaned)
+
+    if missing:
+        rep.err(sec, f"{len(missing)} 個前端請求沒有內容指紋", missing)
+    elif len(versions) != 1:
+        rep.err(sec, f"前端資產用了 {len(versions)} 個不同版本：{'、'.join(sorted(versions))}")
+    else:
+        version = next(iter(versions))
+        digest = hashlib.sha256()
+        inputs = sorted(
+            [*DIST.glob("css/*.css"), *DIST.glob("js/*.js"), DIST / "course.json"],
+            key=lambda path: path.relative_to(DIST).as_posix(),
+        )
+        for path in inputs:
+            content = path.read_bytes()
+            if path.suffix == ".js":
+                content = content.replace(f"?v={version}".encode(), b"")
+            digest.update(path.relative_to(DIST).as_posix().encode())
+            digest.update(b"\0")
+            digest.update(content)
+            digest.update(b"\0")
+        expected = digest.hexdigest()[:12]
+        if version != expected:
+            rep.err(sec, f"前端資產版本 {version} 與內容 digest {expected} 不符")
+            return
+        rep.ok(
+            sec,
+            f"前端資產版本 {version} · HTML {len(html_assets)} 處 · "
+            f"ES modules {module_refs} 處 · course.json 1 處",
+        )
 
 
 def audit_config(cfg: dict, rep: Report) -> None:
@@ -769,6 +869,7 @@ def main() -> int:
 
     rep = Report()
     audit_config(cfg, rep)
+    audit_versioned_assets(rep)
     units = walk(cfg, rep)
     audit_structure(cfg, units, opts, rep)
     audit_videos(cfg, units, opts, rep)

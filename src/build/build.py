@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import hashlib
 import importlib
 import json
 import os
@@ -146,6 +147,72 @@ def sync_web() -> None:
             dst = DIST / src.relative_to(assets)
             dst.parent.mkdir(parents=True, exist_ok=True)
             shutil.copy2(src, dst)
+
+
+def version_web_assets() -> str:
+    """替未雜湊的前端檔加內容指紋，避免 Cloudflare／瀏覽器沿用舊版。
+
+    Cloudflare zone 的 Browser Cache TTL 可能覆寫 Pages `_headers`。因此不能只靠
+    `max-age=0`；HTML、ES module import graph 與 course.json 必須共用同一個內容指紋。
+    """
+    inputs = sorted(
+        [*DIST.glob("css/*.css"), *DIST.glob("js/*.js"), OUT],
+        key=lambda path: path.relative_to(DIST).as_posix(),
+    )
+    digest = hashlib.sha256()
+    for path in inputs:
+        digest.update(path.relative_to(DIST).as_posix().encode())
+        digest.update(b"\0")
+        digest.update(path.read_bytes())
+        digest.update(b"\0")
+    version = digest.hexdigest()[:12]
+
+    html_path = DIST / "index.html"
+    html = html_path.read_text()
+    html, html_refs = re.subn(
+        r'(?P<prefix>\b(?:href|src)=["\'])(?P<path>(?:css|js)/[^"\'?]+\.(?:css|js))'
+        r'(?:\?[^"\']*)?(?P<suffix>["\'])',
+        lambda match: (
+            f"{match.group('prefix')}{match.group('path')}?v={version}{match.group('suffix')}"
+        ),
+        html,
+    )
+    if not html_refs:
+        raise RuntimeError("index.html 找不到可加入版本的 CSS／JS")
+    html_path.write_text(html)
+
+    import_refs = 0
+    course_refs = 0
+    for path in sorted((DIST / "js").glob("*.js")):
+        source = path.read_text()
+        source, count = re.subn(
+            r'(?P<prefix>\b(?:from\s+|import\s*)["\'])(?P<path>\./[^"\'?]+\.js)'
+            r'(?:\?[^"\']*)?(?P<suffix>["\'])',
+            lambda match: (
+                f"{match.group('prefix')}{match.group('path')}?v={version}{match.group('suffix')}"
+            ),
+            source,
+        )
+        import_refs += count
+        if path.name == "app.js":
+            source, count = re.subn(
+                r'fetch\((["\'])course\.json(?:\?[^"\']*)?\1\)',
+                f'fetch("course.json?v={version}")',
+                source,
+            )
+            course_refs += count
+        path.write_text(source)
+
+    if not import_refs:
+        raise RuntimeError("ES module graph 找不到可加入版本的相對 import")
+    if course_refs != 1:
+        raise RuntimeError(f"course.json fetch 應恰有 1 處，實際 {course_refs}")
+
+    print(
+        f"   資產版本 {version} · HTML {html_refs} 處 · "
+        f"ES modules {import_refs} 處 · course.json 1 處"
+    )
+    return version
 
 
 def main() -> int:
@@ -352,6 +419,7 @@ def main() -> int:
 
     sync_web()
     OUT.write_text(json.dumps(course, ensure_ascii=False, indent=1))
+    version_web_assets()
 
     try:
         out_label = OUT.relative_to(ROOT)

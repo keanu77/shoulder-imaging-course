@@ -3,16 +3,16 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: geolocation=(), microphone=(), camera=()
 
-# CSS/JS 沒有 hash 檔名，長快取會讓改版後的使用者卡在舊樣式
+# CSS/JS 沒有 hash 檔名；build 會加內容指紋 query，這裡仍要求重新驗證。
+# 即使 zone 的 Browser Cache TTL 覆寫本規則，新的指紋也會形成新 URL。
 /index.html
   Cache-Control: public, max-age=0, must-revalidate
 
-# 課程資料改版要立刻反映，同樣靠 ETag 走 304
+# 課程資料改版要立刻反映；app 也會帶與前端相同的內容指紋 query。
 /course.json
   Cache-Control: public, max-age=0, must-revalidate
 
-# 檔名沒有 hash，長快取會讓改版後的使用者卡在舊樣式／舊行為。
-# max-age=0 + must-revalidate 仍走 ETag，命中時只回 304，不浪費頻寬。
+# max-age=0 + must-revalidate 正常情況仍走 ETag，命中時只回 304。
 /css/*
   Cache-Control: public, max-age=0, must-revalidate
 
