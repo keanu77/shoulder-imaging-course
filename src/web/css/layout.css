@@ -471,7 +471,7 @@
     gap: var(--base-size-8);
   }
 
-  .AppHeader__brand span {
+  .AppHeader__brandName {
     display: none;
   }
 }

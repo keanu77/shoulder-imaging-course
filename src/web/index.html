@@ -33,8 +33,12 @@
 
     <header class="AppHeader">
       <a class="AppHeader__brand" href="#" data-tab-link="home">
-        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-activity" /></svg>
-        <span>{{site.name}}</span>
+        <span class="AppHeader__brandMark">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-activity" /></svg>
+          <span class="AppHeader__brandPulse"></span>
+        </span>
+        <span class="AppHeader__brandName">{{site.name}}</span>
+        <small class="AppHeader__edition">DIAGNOSTIC WORKSTATION</small>
       </a>
 
       <nav class="TabNav" aria-label="主要分頁">
@@ -95,16 +99,52 @@
     <div id="view-home">
     <section class="Hero" id="top">
       <div class="container">
-        <span class="Label Label--accent Hero__eyebrow">
-          <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-graduation-cap" /></svg>
-          {{hero.eyebrow}}
-        </span>
-        <h1>{{hero.heading}}</h1>
-        <!-- 中文之間的換行會被算成空格，這段刻意不折行 -->
-        <p class="Hero__lede">{{hero.lede}}</p>
+        <div class="Hero__grid">
+          <div class="Hero__content">
+            <span class="Label Label--accent Hero__eyebrow">
+              <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-graduation-cap" /></svg>
+              {{hero.eyebrow}}
+            </span>
+            <h1>{{hero.heading}}</h1>
+            <!-- 中文之間的換行會被算成空格，這段刻意不折行 -->
+            <p class="Hero__lede">{{hero.lede}}</p>
 
-        <div class="Hero__stats" id="heroStats"></div>
-        <p class="Hero__note" id="heroNote"></p>
+            <div class="Hero__actions">
+              <button class="btn btn-primary Hero__primary" type="button" data-tab-link="course">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-scan-line" /></svg>
+                進入掃描工作站
+              </button>
+              <button class="btn Hero__secondary" type="button" data-tab-link="player">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-play" /></svg>
+                開啟影片學習
+              </button>
+            </div>
+
+            <div class="Hero__stats" id="heroStats"></div>
+            <p class="Hero__note" id="heroNote"></p>
+          </div>
+
+          <div class="HeroScan" aria-hidden="true">
+            <div class="HeroScan__topbar">
+              <span><i></i> SHOULDER / B-MODE</span>
+              <span>DIAGNOSTIC</span>
+            </div>
+            <div class="HeroScan__screen">
+              <span class="HeroScan__depth">3.0<br />2.0<br />1.0</span>
+              <span class="HeroScan__sector"></span>
+              <span class="HeroScan__sweep"></span>
+              <span class="HeroScan__focus"></span>
+              <span class="HeroScan__label HeroScan__label--a">LHB</span>
+              <span class="HeroScan__label HeroScan__label--b">SSC</span>
+              <span class="HeroScan__label HeroScan__label--c">SSP</span>
+            </div>
+            <div class="HeroScan__readout">
+              <span><b>VIEW SET</b> STANDARD VIEW PATH</span>
+              <span><b>STATUS</b> REVIEW MODE</span>
+            </div>
+            <div class="HeroScan__wave"><span></span></div>
+          </div>
+        </div>
       </div>
     </section>
       <div class="Landing" id="landingBody"></div>
@@ -148,6 +188,12 @@
 
     <main class="Layout" id="main" data-view="course">
       <aside class="Layout__sidebar">
+        <div class="RailHeader">
+          <span class="RailHeader__eyebrow"><i></i> SCAN PATHWAY</span>
+          <strong>章節導覽</strong>
+          <small id="railChapterCount">8 CHAPTERS · 24 UNITS</small>
+        </div>
+
         <div class="ProgressPanel">
           <div class="ProgressPanel__head">
             <span class="ProgressPanel__title">{{ui.progressLabel}}</span>
@@ -178,7 +224,35 @@
       </aside>
 
       <div class="Layout__main">
+        <section class="ConsoleHeader" aria-labelledby="consoleTitle">
+          <div class="ConsoleHeader__content">
+            <span class="ConsoleHeader__eyebrow">
+              <i></i> CLINICAL SCAN PROTOCOL
+            </span>
+            <h1 id="consoleTitle">肩部診斷掃描工作站</h1>
+            <p>依章節定位結構，展開單元後先核對必備視圖，再確認操作重點與常見陷阱。</p>
+            <div class="ConsoleHeader__badges">
+              <span><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-user-round" /></svg> 醫師課程</span>
+              <span><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-scan-line" /></svg> 診斷掃描</span>
+              <span><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-shield-check" /></svg> <b id="consoleReviewStatus">醫療審閱中</b></span>
+            </div>
+          </div>
+          <div class="ConsoleHeader__monitor" aria-hidden="true">
+            <div class="ConsoleHeader__monitorTop"><span>LIVE PROTOCOL</span><span>READY</span></div>
+            <div class="ConsoleHeader__monitorBody">
+              <span class="ConsoleHeader__arc"></span>
+              <span class="ConsoleHeader__beam"></span>
+              <span class="ConsoleHeader__target"></span>
+            </div>
+            <div class="ConsoleHeader__monitorMeta">
+              <span id="consoleUnitCount">24 UNITS</span>
+              <span id="consoleVideoCount">13 VIDEOS</span>
+            </div>
+          </div>
+        </section>
+
         <div class="FilterBar">
+          <span class="FilterBar__label">VIDEO FILTER</span>
           <!-- 按鈕由 app.js 依 course.config.json 的 kinds 產生 -->
           <div class="FilterBar__group" role="group" aria-label="動作類型篩選">
             <button class="FilterBar__btn is-active" data-filter="all" type="button">全部</button>

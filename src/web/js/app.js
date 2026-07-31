@@ -42,6 +42,19 @@ const state = {
   onlyTodo: false,
 };
 
+function courseReviewLabel(data) {
+  const valid = new Set(["draft", "medical-review", "approved"]);
+  const statuses = (data?.chapters || []).flatMap((ch) =>
+    (ch.units || []).map((unit) =>
+      valid.has(unit.review_status) ? unit.review_status : "draft",
+    ),
+  );
+  if (!statuses.length) return "尚無審閱資料";
+  if (statuses.every((status) => status === "approved")) return "內容已核准";
+  if (statuses.some((status) => status === "draft")) return "含內容草稿";
+  return "醫療審閱中";
+}
+
 /* --- 儲存 ---------------------------------------------------------------- */
 
 function load(key, fallback) {
@@ -74,7 +87,7 @@ function applyChrome(data) {
   document.documentElement.lang = site.locale || "zh-Hant";
   LESSON_NOUN = c.ui?.lessonNoun || LESSON_NOUN;
   DRILL_NOUN = c.ui?.drillNoun || DRILL_NOUN;
-  set(".AppHeader__brand span", esc(site.name || ""));
+  set(".AppHeader__brandName", esc(site.name || ""));
   // brandIcon 由設定檔決定，index.html 裡的是換主題前的預設值
   if (site.brandIcon) {
     $(".AppHeader__brand use")?.setAttribute("href", `#i-${site.brandIcon}`);
@@ -112,6 +125,10 @@ function applyChrome(data) {
   );
   set(".AppFooter__disclaimer", c.footer?.disclaimer || "");
   set(".AppFooter__credits", esc(c.footer?.credits || ""));
+  set("#railChapterCount", `${data.chapters?.length || 0} CHAPTERS · ${data.meta?.units || 0} UNITS`);
+  set("#consoleUnitCount", `${data.meta?.units || 0} UNITS`);
+  set("#consoleVideoCount", `${data.meta?.video_unique || 0} VIDEOS`);
+  set("#consoleReviewStatus", esc(courseReviewLabel(data)));
 }
 
 /* --- 瀏覽次數 -------------------------------------------------------------
@@ -161,7 +178,7 @@ function renderStats() {
 
   $("#heroNote").innerHTML =
     `${meta.lesson_units} ${LESSON_NOUN}，首輪建檔 ${meta.video_unique} 支不重複影片，` +
-    `影片總長 ${meta.duration}。所有內容目前均以醫療審閱狀態標示。`;
+    `影片總長 ${meta.duration}。課程狀態：${esc(courseReviewLabel(state.course))}。`;
 }
 
 /* --- 側欄 ---------------------------------------------------------------- */
@@ -184,7 +201,10 @@ function renderNav() {
           return `
             <a class="NavList__item" href="#${esc(code)}" data-nav="${esc(code)}">
               <span class="NavList__icon">${icon(ch.icon || "circle-dot", 16)}</span>
-              <span class="NavList__label">${esc(ch.title)}</span>
+              <span class="NavList__main">
+                <span class="NavList__code">${esc(code)}</span>
+                <span class="NavList__label">${esc(ch.title)}</span>
+              </span>
               <span class="Counter">${done}/${ch.units.length}</span>
             </a>`;
         })

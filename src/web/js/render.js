@@ -87,13 +87,45 @@ const REVIEW = {
 };
 
 function clinicalBrief(u) {
-  const section = (title, iconName, list, cls = "") =>
-    (list || []).length
-      ? `<section class="ClinicalBrief__section ${cls}">
-           <h4>${icon(iconName, 14)} ${esc(title)}</h4>
-           <ul>${list.map((x) => `<li>${esc(x)}</li>`).join("")}</ul>
-         </section>`
-      : "";
+  const cleanList = (value) =>
+    Array.isArray(value)
+      ? value.filter((item) => typeof item === "string" && item.trim()).map((item) => item.trim())
+      : [];
+
+  const section = ({ title, code, iconName, list, cls = "", fallback, emptyLabel = "待補" }) => {
+    const items = cleanList(list);
+    return `<section class="ClinicalBrief__section ClinicalBrief__panel ${cls}${items.length ? "" : " is-fallback"}">
+      <header class="ClinicalBrief__panelHead">
+        <span class="ClinicalBrief__panelIcon">${icon(iconName, 16)}</span>
+        <div class="ClinicalBrief__panelTitle">
+          <span class="ClinicalBrief__panelCode">${esc(code)}</span>
+          <h4>${esc(title)}</h4>
+        </div>
+        <span class="ClinicalBrief__panelCount">${items.length ? `${items.length} 項` : esc(emptyLabel)}</span>
+      </header>
+      ${items.length
+        ? `<ol class="ClinicalBrief__list">
+            ${items
+              .map(
+                (item, i) => `<li>
+                  <span class="ClinicalBrief__listIndex">${String(i + 1).padStart(2, "0")}</span>
+                  <span>${esc(item)}</span>
+                </li>`,
+              )
+              .join("")}
+          </ol>`
+        : `<p class="ClinicalBrief__fallback">${esc(fallback)}</p>`}
+    </section>`;
+  };
+
+  const objectives = cleanList(u.objectives);
+  const objectiveBlock = objectives.length
+    ? `<section class="ClinicalBrief__objective">
+         <span class="ClinicalBrief__objectiveIcon">${icon("target", 17)}</span>
+         <span class="ClinicalBrief__objectiveLabel">LEARNING TARGET</span>
+         <ul>${objectives.map((x) => `<li>${esc(x)}</li>`).join("")}</ul>
+       </section>`
+    : "";
 
   const refs = (u.references || []).length
     ? `<section class="ClinicalBrief__refs">
@@ -109,11 +141,39 @@ function clinicalBrief(u) {
        </section>`
     : "";
 
+  const viewFallback = u.type === "orientation"
+    ? "本課程規範／安全單元目前未設定掃描視圖。"
+    : "必備視圖待醫療審閱。";
+
   return `<div class="ClinicalBrief">
-    ${section("學習目標", "target", u.objectives)}
-    ${section("必備視圖", "scan-line", u.required_views, "ClinicalBrief__section--views")}
-    ${section("操作與判讀重點", "shield-check", u.key_points)}
-    ${section("常見陷阱", "triangle-alert", u.pitfalls, "ClinicalBrief__section--pitfalls")}
+    ${objectiveBlock}
+    <div class="ClinicalBrief__grid" aria-label="臨床掃描檢核表">
+      ${section({
+        title: "必備視圖／產出",
+        code: "VIEW SET",
+        iconName: "scan-line",
+        list: u.required_views,
+        cls: "ClinicalBrief__section--views",
+        fallback: viewFallback,
+        emptyLabel: u.type === "orientation" ? "N/A" : "待補",
+      })}
+      ${section({
+        title: "操作與判讀重點",
+        code: "SCAN KEYS",
+        iconName: "shield-check",
+        list: u.key_points,
+        cls: "ClinicalBrief__section--points",
+        fallback: "操作與判讀重點待醫療審閱。",
+      })}
+      ${section({
+        title: "常見陷阱",
+        code: "PITFALLS",
+        iconName: "triangle-alert",
+        list: u.pitfalls,
+        cls: "ClinicalBrief__section--pitfalls",
+        fallback: "常見陷阱待醫療審閱。",
+      })}
+    </div>
     ${refs}
   </div>`;
 }
@@ -376,6 +436,7 @@ export function renderUnit(u, done) {
         <span class="Unit__check" data-action="toggle-done" role="checkbox"
               aria-checked="${done}" tabindex="0" title="標記為完成">${icon("check", 12)}</span>
         <span class="Unit__main">
+          <span class="Unit__kicker"><span>${esc(u.id.toUpperCase().replace("-", " / "))}</span> CLINICAL MODULE</span>
           <span class="Unit__title">${esc(u.name)} ${badges}</span>
           ${u.summary ? `<span class="Unit__summary">${esc(u.summary)}</span>` : ""}
         </span>
