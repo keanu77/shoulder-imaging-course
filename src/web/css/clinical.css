@@ -1809,6 +1809,7 @@ a:hover > .PlayBtn,
   .TabNav__item {
     gap: 4px;
     height: 56px;
+    min-width: 44px;
     padding-inline: 8px;
     font-size: 11px;
   }

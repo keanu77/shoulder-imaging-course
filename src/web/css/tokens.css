@@ -329,56 +329,6 @@ svg {
   border-radius: var(--borderRadius-full);
 }
 
-/* --- Box ---------------------------------------------------------------- */
-
-.Box {
-  background-color: var(--bgColor-default);
-  border: 1px solid var(--borderColor-default);
-  border-radius: var(--borderRadius-medium);
-}
-
-.Box__header {
-  display: flex;
-  align-items: center;
-  gap: var(--base-size-8);
-  padding: var(--base-size-12) var(--base-size-16);
-  background-color: var(--bgColor-muted);
-  border-bottom: 1px solid var(--borderColor-default);
-  border-radius: var(--borderRadius-medium) var(--borderRadius-medium) 0 0;
-  font-size: 14px;
-  font-weight: 600;
-}
-
-.Box__body {
-  padding: var(--base-size-16);
-}
-
-/* --- Flash -------------------------------------------------------------- */
-
-.Flash {
-  display: flex;
-  gap: var(--base-size-12);
-  padding: var(--base-size-16);
-  background-color: var(--bgColor-accent-muted);
-  border: 1px solid color-mix(in srgb, var(--fgColor-accent) 30%, transparent);
-  border-radius: var(--borderRadius-medium);
-  font-size: 13px;
-}
-
-.Flash--warn {
-  background-color: var(--bgColor-attention-muted);
-  border-color: color-mix(in srgb, var(--fgColor-attention) 30%, transparent);
-}
-
-.Flash__icon {
-  margin-top: 2px;
-  color: var(--fgColor-accent);
-}
-
-.Flash--warn .Flash__icon {
-  color: var(--fgColor-attention);
-}
-
 /* --- Blankslate --------------------------------------------------------- */
 
 .Blankslate {

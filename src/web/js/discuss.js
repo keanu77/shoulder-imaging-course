@@ -10,8 +10,6 @@ export function setDiscussions(cfg) {
 	CFG = cfg?.repo ? cfg : null;
 }
 
-export const enabled = () => !!CFG;
-
 /** 目前站台主題 → giscus 主題 */
 function theme() {
 	const dark =

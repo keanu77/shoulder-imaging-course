@@ -2,40 +2,6 @@
    stance.css — 首頁的「這門課的立場」實證聲明
    ========================================================================== */
 
-.Stance {
-  padding: var(--base-size-32) 0;
-  background-color: var(--bgColor-muted);
-  border-bottom: 1px solid var(--borderColor-default);
-}
-
-.Stance__head {
-  display: flex;
-  align-items: center;
-  gap: var(--base-size-8);
-  margin-bottom: var(--base-size-8);
-}
-
-.Stance__title {
-  font-size: 20px;
-  font-weight: 600;
-  letter-spacing: -0.01em;
-}
-
-.Stance__lede {
-  max-width: 72ch;
-  margin-bottom: var(--base-size-24);
-  font-size: 14px;
-  color: var(--fgColor-muted);
-  line-height: 1.6;
-}
-
-.Stance__grid {
-  display: grid;
-  /* min() 讓欄寬在窄於 300px 的視窗塌成 100%，否則會硬撐出水平捲軸 */
-  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
-  gap: var(--base-size-16);
-}
-
 .StanceCard {
   display: flex;
   flex-direction: column;
@@ -165,12 +131,3 @@
   font-size: 11px;
 }
 
-@media (max-width: 767px) {
-  .Stance {
-    padding: var(--base-size-24) 0;
-  }
-
-  .Stance__title {
-    font-size: 17px;
-  }
-}
