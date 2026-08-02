@@ -160,6 +160,19 @@ body.is-resizing iframe {
   color: var(--fgColor-muted);
 }
 
+.Player__interventionNotice {
+  display: grid;
+  gap: var(--base-size-4);
+  margin-top: var(--base-size-8);
+  padding: var(--base-size-12);
+  color: var(--fgColor-default);
+  background-color: var(--bgColor-attention-muted);
+  border: 1px solid color-mix(in srgb, var(--fgColor-attention) 55%, var(--borderColor-default));
+  border-radius: var(--borderRadius-medium);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
 /* --- 右側：播放清單 ------------------------------------------------------ */
 
 .Player__list {

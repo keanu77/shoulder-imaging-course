@@ -1503,6 +1503,12 @@ a:hover > .PlayBtn,
   border-left-color: var(--fgColor-attention);
 }
 
+.Drill__context--intervention {
+  color: var(--fgColor-default);
+  background: color-mix(in srgb, var(--fgColor-attention) 9%, transparent);
+  border-left-color: var(--fgColor-attention);
+}
+
 .Drill__trust,
 .VideoCard__trust {
   display: flex;
