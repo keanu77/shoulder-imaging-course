@@ -73,6 +73,40 @@ def parse_segment_ranges(text: str) -> list[tuple[int, int]] | None:
     return segments
 
 
+AI_CRAWLER_AGENTS = ("GPTBot", "ClaudeBot", "PerplexityBot", "Google-Extended")
+
+
+def check_ai_crawler_gate(dist_dir: Path, allow_indexing: bool) -> list[str]:
+    """簽核前 robots.txt 必須擋掉 AI 檢索器，否則回傳錯誤訊息。
+
+    noindex 只管搜尋索引，管不到 AI 語料擷取。未 approved 的醫療內容不應進入
+    訓練或檢索語料，所以這道檢查要機械化，不能只靠慣例與 code review。
+    """
+    if allow_indexing:
+        return []
+    robots_path = dist_dir / "robots.txt"
+    if not robots_path.exists():
+        return []
+    rules: dict[str, str] = {}
+    agent = None
+    for raw in robots_path.read_text(encoding="utf-8").splitlines():
+        line = raw.strip()
+        if line.lower().startswith("user-agent:"):
+            agent = line.split(":", 1)[1].strip()
+        elif agent and line.lower().startswith(("allow:", "disallow:")):
+            rules.setdefault(agent, line)
+    messages: list[str] = []
+    for name in AI_CRAWLER_AGENTS:
+        rule = rules.get(name)
+        if rule is None:
+            messages.append(f"robots.txt 未涵蓋 AI 檢索器 {name}：簽核前必須明確封鎖")
+        elif not rule.lower().replace(" ", "").startswith("disallow:/"):
+            messages.append(
+                f"allowIndexing=false 時 {name} 必須是 Disallow: /，實際為「{rule}」"
+            )
+    return messages
+
+
 def main() -> int:
     cfg = load(COURSE / "course.config.json")
     source_names = {chapter["source"] for chapter in cfg["chapters"]}
@@ -96,6 +130,9 @@ def main() -> int:
 
     errors: list[str] = []
     warnings: list[str] = []
+    errors.extend(
+        check_ai_crawler_gate(ROOT / "dist", bool(medical.get("allowIndexing", False)))
+    )
     unit_ids: set[str] = set()
     video_ids: set[str] = set()
     classic_count = 0
