@@ -37,6 +37,9 @@ audit: ## 離線稽核設定檔、配額、影片長度與實證深度（確定�
 	$(PY) src/build/audit.py
 	$(PY) src/build/audit_medical.py
 
+test: ## 執行介入診斷段落的安全性測試
+	$(PY) tests/test_segment_ranges.py
+
 verify: ## 重驗所有影片連結與 PubMed 引用（打真實 API，會跑一陣子）
 	$(PY) src/build/verify_links.py
 	$(PY) src/build/verify_refs.py
@@ -56,9 +59,9 @@ fmt: ## ruff 格式化
 	uv run ruff format .
 	uv run ruff check --fix .
 
-check: lint build audit ## 提交前跑這個（含離線稽核）
+check: lint test build audit ## 提交前跑這個（含安全性測試與離線稽核）
 
 clean: ## 清掉建置暫存
 	rm -rf .tmp .wrangler .ruff_cache dist **/__pycache__
 
-.PHONY: help build icons og meta counter audit verify serve deploy lint fmt check clean
+.PHONY: help build icons og meta counter audit test verify serve deploy lint fmt check clean

@@ -1503,6 +1503,12 @@ a:hover > .PlayBtn,
   border-left-color: var(--fgColor-attention);
 }
 
+.Drill__context--intervention {
+  color: var(--fgColor-default);
+  background: color-mix(in srgb, var(--fgColor-attention) 9%, transparent);
+  border-left-color: var(--fgColor-attention);
+}
+
 .Drill__trust,
 .VideoCard__trust {
   display: flex;
@@ -1803,6 +1809,7 @@ a:hover > .PlayBtn,
   .TabNav__item {
     gap: 4px;
     height: 56px;
+    min-width: 44px;
     padding-inline: 8px;
     font-size: 11px;
   }

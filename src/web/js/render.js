@@ -46,6 +46,25 @@ function dateMeta(v) {
   return `<span>· 日期待查</span>`;
 }
 
+/** 課程卡片與播放模式共用同一句介入範圍提醒。 */
+export function interventionNoticeText(v) {
+  if (v?.contains_intervention === true && v?.intervention_start_timestamp) {
+    return `本片自 ${v.intervention_start_timestamp} 起包含注射／介入操作示範。本課為診斷取向，僅涵蓋診斷段落；介入操作需另行接受合格督導訓練，不以本片作為操作依據。`;
+  }
+  if (v?.intervention_verification_status) {
+    return `介入內容查核待確認：${v.intervention_verification_status}`;
+  }
+  return "";
+}
+
+function interventionNotice(v) {
+  const notice = interventionNoticeText(v);
+  if (!notice) return "";
+  return `
+    <span class="Drill__context Drill__context--intervention" role="note"><strong>介入內容提醒</strong>${esc(notice)}</span>
+    ${v.diagnostic_segment_range ? `<span class="Drill__context"><strong>本課診斷段落</strong>${esc(v.diagnostic_segment_range)}</span>` : ""}`;
+}
+
 /* --- 影片 ---------------------------------------------------------------- */
 
 /** 觀看數縮寫：1038712 -> 104 萬 */
@@ -89,6 +108,7 @@ function videoCard(v) {
         </span>
         ${v.why ? `<span class="VideoCard__why">${esc(v.why)}</span>` : ""}
         ${v.scope_note ? `<span class="Drill__context"><strong>適用範圍</strong>${esc(v.scope_note)}</span>` : ""}
+        ${interventionNotice(v)}
         ${v.disclosure ? `<span class="Drill__context Drill__context--disclosure"><strong>來源揭露</strong>${esc(v.disclosure)}</span>` : ""}
         <span class="VideoCard__trust">
           ${v.source_authority ? `<span class="Label Label--neutral">${esc(v.source_authority)}</span>` : ""}
@@ -257,6 +277,7 @@ function drill(d) {
       </span>
       ${d.why ? `<span class="Drill__why">${esc(d.why)}</span>` : ""}
       ${d.scope_note ? `<span class="Drill__context"><strong>適用範圍</strong>${esc(d.scope_note)}</span>` : ""}
+      ${interventionNotice(d)}
       ${d.disclosure ? `<span class="Drill__context Drill__context--disclosure"><strong>來源揭露</strong>${esc(d.disclosure)}</span>` : ""}
       ${d.date_note ? `<span class="Drill__context"><strong>日期註記</strong>${esc(d.date_note)}</span>` : ""}
       <span class="Drill__trust">

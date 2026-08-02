@@ -114,15 +114,6 @@ body.is-resizing iframe {
   pointer-events: none;
 }
 
-.Player__crumb {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: var(--base-size-8);
-  font-size: 12px;
-  color: var(--fgColor-muted);
-}
-
 .Player__title {
   margin-top: var(--base-size-4);
   font-size: 18px;
@@ -158,6 +149,19 @@ body.is-resizing iframe {
   font-size: 13px;
   line-height: 1.65;
   color: var(--fgColor-muted);
+}
+
+.Player__interventionNotice {
+  display: grid;
+  gap: var(--base-size-4);
+  margin-top: var(--base-size-8);
+  padding: var(--base-size-12);
+  color: var(--fgColor-default);
+  background-color: var(--bgColor-attention-muted);
+  border: 1px solid color-mix(in srgb, var(--fgColor-attention) 55%, var(--borderColor-default));
+  border-radius: var(--borderRadius-medium);
+  font-size: 12px;
+  line-height: 1.6;
 }
 
 /* --- 右側：播放清單 ------------------------------------------------------ */
@@ -260,20 +264,6 @@ body.is-resizing iframe {
   border-radius: var(--borderRadius-full);
 }
 
-.PlaylistItem__dot--lesson {
-  background-color: var(--fgColor-accent);
-}
-.PlaylistItem__dot--release {
-  background-color: var(--fgColor-accent);
-  opacity: 0.55;
-}
-.PlaylistItem__dot--stretch {
-  background-color: var(--fgColor-success);
-}
-.PlaylistItem__dot--train {
-  background-color: var(--fgColor-danger);
-}
-
 .PlaylistItem__main {
   flex: 1;
   min-width: 0;
@@ -359,6 +349,20 @@ body[data-tab="player"] {
     width: 44px;
     height: 44px;
     min-width: 44px;
+    min-height: 44px;
+  }
+
+  /* 窄螢幕把資訊列的操作鈕拉到 44px 觸控高度；桌面版密度不受影響 */
+  .Player__actions .btn {
+    min-height: 44px;
+  }
+
+  .Player__actions .btn-icon {
+    width: 44px;
+    height: 44px;
+  }
+
+  .SearchBox--inline input {
     min-height: 44px;
   }
 

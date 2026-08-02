@@ -261,27 +261,38 @@ def write_sitemap() -> None:
     print("   sitemap.xml")
 
 
+AI_CRAWLERS = ("GPTBot", "ClaudeBot", "PerplexityBot", "Google-Extended")
+
+
 def write_robots() -> None:
+    """一般搜尋引擎放行＋noindex；AI 檢索器依醫療審查閘門切換。
+
+    搜尋引擎不用 Disallow：擋掉抓取會讓爬蟲讀不到 noindex，反而可能留下
+    URL-only 索引。但 noindex 管不到 AI 語料擷取，所以簽核前另行封鎖 AI 檢索器。
+    """
+    if ALLOW_INDEXING:
+        rule = "Allow: /"
+        note = "# AI 檢索器放行 —— 這門課的實證註記正是希望被引用到的內容"
+    else:
+        rule = "Disallow: /"
+        note = (
+            "# 醫療審查閘門：單元尚未經醫師簽核，AI 檢索器一律擋下。\n"
+            "# 搜尋引擎維持 Allow + noindex（擋抓取會讀不到 noindex，"
+            "反而可能留下 URL-only 索引）；\n"
+            "# 但 noindex 管不到語料擷取，故 AI 檢索器另行封鎖。"
+        )
+    blocks = "\n\n".join(f"User-agent: {agent}\n{rule}" for agent in AI_CRAWLERS)
     (PUB / "robots.txt").write_text(
         "User-agent: *\n"
         "Allow: /\n"
         "\n"
-        "# AI 檢索器一律放行 —— 這門課的實證註記正是希望被引用到的內容\n"
-        "User-agent: GPTBot\n"
-        "Allow: /\n"
-        "\n"
-        "User-agent: ClaudeBot\n"
-        "Allow: /\n"
-        "\n"
-        "User-agent: PerplexityBot\n"
-        "Allow: /\n"
-        "\n"
-        "User-agent: Google-Extended\n"
-        "Allow: /\n"
+        f"{note}\n"
+        f"{blocks}\n"
         "\n"
         f"Sitemap: {SITE}/sitemap.xml\n"
     )
-    print("   robots.txt")
+    state = "放行" if ALLOW_INDEXING else "封鎖"
+    print(f"   robots.txt  AI 檢索器={state}（medical-review gate）")
 
 
 def write_llms(course: dict) -> None:

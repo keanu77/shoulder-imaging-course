@@ -1,6 +1,6 @@
 // player.js — 上課模式：把整門課攤平成播放清單，左側嵌入播放
 import { icon } from "./icons.js";
-import { esc, KIND, TIER, UI } from "./render.js";
+import { esc, interventionNoticeText, KIND, TIER, UI } from "./render.js";
 import { button as discussButton, panel as discussPanel } from "./discuss.js";
 
 const $ = (s, r = document) => r.querySelector(s);
@@ -35,6 +35,10 @@ export function buildPlaylist(course) {
           url: les.url,
           why: les.why,
           assessment: u.assessment,
+          contains_intervention: les.contains_intervention,
+          intervention_start_timestamp: les.intervention_start_timestamp,
+          diagnostic_segment_range: les.diagnostic_segment_range,
+          intervention_verification_status: les.intervention_verification_status,
         });
       }
       for (const d of u.drills || []) {
@@ -63,6 +67,10 @@ export function buildPlaylist(course) {
           presenter_note: d.presenter_note,
           scope_note: d.scope_note,
           disclosure: d.disclosure,
+          contains_intervention: d.contains_intervention,
+          intervention_start_timestamp: d.intervention_start_timestamp,
+          diagnostic_segment_range: d.diagnostic_segment_range,
+          intervention_verification_status: d.intervention_verification_status,
         });
       }
     }
@@ -88,7 +96,7 @@ export function playlistItemMatches(it, { doneSet, query, onlyTodo, learningTier
   if (!q) return true;
 
   const tierLabel = TIER[it.learning_tier]?.label || it.learning_tier || "";
-  const hay = `${it.name} ${it.title || ""} ${it.channel || ""} ${it.unitName} ${it.chTitle} ${(it.facets || []).join(" ")} ${it.target || ""} ${tierLabel} ${it.presenter || ""} ${it.presenter_note || ""} ${it.scope_note || ""} ${it.disclosure || ""} ${it.original_content_date || ""} ${it.upload_date || ""}`;
+  const hay = `${it.name} ${it.title || ""} ${it.channel || ""} ${it.unitName} ${it.chTitle} ${(it.facets || []).join(" ")} ${it.target || ""} ${tierLabel} ${it.presenter || ""} ${it.presenter_note || ""} ${it.scope_note || ""} ${it.disclosure || ""} ${it.diagnostic_segment_range || ""} ${it.original_content_date || ""} ${it.upload_date || ""}`;
   return hay.toLowerCase().includes(q);
 }
 
@@ -165,6 +173,7 @@ export function play(item, { total }) {
       : item.upload_date
         ? `<span>· 上架 ${esc(item.upload_date)}</span>`
         : "";
+  const interventionNotice = interventionNoticeText(item);
 
   $("#playerInfo").innerHTML = `
     <div class="Player__bar">
@@ -194,6 +203,15 @@ export function play(item, { total }) {
         <a class="btn btn-icon" href="${esc(item.url)}" target="_blank" rel="noopener" title="${esc(UI.openExternal || "")}">${icon("external-link", 16)}</a>
       </div>
     </div>
+    ${
+      interventionNotice
+        ? `<div class="Player__interventionNotice" role="note" aria-live="polite" aria-atomic="true">
+             <strong>介入內容提醒</strong>
+             <span>${esc(interventionNotice)}</span>
+             ${item.diagnostic_segment_range ? `<span><strong>本課診斷段落：</strong>${esc(item.diagnostic_segment_range)}</span>` : ""}
+           </div>`
+        : ""
+    }
     ${
       item.why || item.scope_note || item.disclosure || item.date_note || item.assessment
         ? `<details class="Player__more">

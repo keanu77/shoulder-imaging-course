@@ -170,10 +170,6 @@
   color: var(--fgColor-muted);
 }
 
-.Stat__value .rating {
-  color: var(--fgColor-attention);
-}
-
 .Stat__label {
   font-size: 12px;
   color: var(--fgColor-muted);

@@ -22,6 +22,91 @@ def load(path: Path) -> dict:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+def parse_clock(value: object) -> int | None:
+    """將 MM:SS 或 HH:MM:SS 轉為秒；不接受超出 59 的秒／小時格式分鐘。"""
+    clock = str(value or "")
+    if re.fullmatch(r"(?:\d{1,2}:\d{2}|\d+:\d{2}:\d{2})", clock) is None:
+        return None
+    parts = clock.split(":")
+    numbers = [int(part) for part in parts]
+    if len(numbers) == 2:
+        minutes, seconds = numbers
+        return minutes * 60 + seconds if seconds < 60 else None
+    hours, minutes, seconds = numbers
+    return hours * 3600 + minutes * 60 + seconds if minutes < 60 and seconds < 60 else None
+
+
+SEGMENT_SPLIT_RE = re.compile(r"[、;,]")
+SEGMENT_RE = re.compile(
+    r"((?:\d{1,2}:)?\d{1,2}:\d{2})\s*[–-]\s*((?:\d{1,2}:)?\d{1,2}:\d{2})"
+)
+
+
+def format_clock(seconds: int) -> str:
+    """秒轉回 MM:SS 或 H:MM:SS，只用於錯誤訊息。"""
+    hours, rest = divmod(seconds, 3600)
+    minutes, secs = divmod(rest, 60)
+    return f"{hours}:{minutes:02d}:{secs:02d}" if hours else f"{minutes}:{secs:02d}"
+
+
+def parse_segment_ranges(text: str) -> list[tuple[int, int]] | None:
+    """解析一或多段診斷區間；格式錯、單段非遞增、或段間重疊時回 None。
+
+    多段以 、 ; , 分隔。允許段與段之間留空隙——介入內容就落在空隙裡——
+    但要求整體嚴格遞增且不重疊，避免打錯字造成錯誤框定。
+    """
+    parts = [part.strip() for part in SEGMENT_SPLIT_RE.split(text)]
+    if not parts or any(not part for part in parts):
+        return None
+    segments: list[tuple[int, int]] = []
+    for part in parts:
+        match = SEGMENT_RE.fullmatch(part)
+        if match is None:
+            return None
+        start = parse_clock(match.group(1))
+        end = parse_clock(match.group(2))
+        if start is None or end is None or start >= end:
+            return None
+        if segments and start <= segments[-1][1]:
+            return None
+        segments.append((start, end))
+    return segments
+
+
+AI_CRAWLER_AGENTS = ("GPTBot", "ClaudeBot", "PerplexityBot", "Google-Extended")
+
+
+def check_ai_crawler_gate(dist_dir: Path, allow_indexing: bool) -> list[str]:
+    """簽核前 robots.txt 必須擋掉 AI 檢索器，否則回傳錯誤訊息。
+
+    noindex 只管搜尋索引，管不到 AI 語料擷取。未 approved 的醫療內容不應進入
+    訓練或檢索語料，所以這道檢查要機械化，不能只靠慣例與 code review。
+    """
+    if allow_indexing:
+        return []
+    robots_path = dist_dir / "robots.txt"
+    if not robots_path.exists():
+        return []
+    rules: dict[str, str] = {}
+    agent = None
+    for raw in robots_path.read_text(encoding="utf-8").splitlines():
+        line = raw.strip()
+        if line.lower().startswith("user-agent:"):
+            agent = line.split(":", 1)[1].strip()
+        elif agent and line.lower().startswith(("allow:", "disallow:")):
+            rules.setdefault(agent, line)
+    messages: list[str] = []
+    for name in AI_CRAWLER_AGENTS:
+        rule = rules.get(name)
+        if rule is None:
+            messages.append(f"robots.txt 未涵蓋 AI 檢索器 {name}：簽核前必須明確封鎖")
+        elif not rule.lower().replace(" ", "").startswith("disallow:/"):
+            messages.append(
+                f"allowIndexing=false 時 {name} 必須是 Disallow: /，實際為「{rule}」"
+            )
+    return messages
+
+
 def main() -> int:
     cfg = load(COURSE / "course.config.json")
     source_names = {chapter["source"] for chapter in cfg["chapters"]}
@@ -45,6 +130,9 @@ def main() -> int:
 
     errors: list[str] = []
     warnings: list[str] = []
+    errors.extend(
+        check_ai_crawler_gate(ROOT / "dist", bool(medical.get("allowIndexing", False)))
+    )
     unit_ids: set[str] = set()
     video_ids: set[str] = set()
     classic_count = 0
@@ -160,6 +248,49 @@ def main() -> int:
                 except (TypeError, ValueError):
                     err(video_where, f"last_verified_at 日期格式錯誤：{verified!r}")
 
+                if "contains_intervention" not in video:
+                    err(video_where, "缺少 contains_intervention 布林欄位")
+                elif not isinstance(video.get("contains_intervention"), bool):
+                    err(video_where, "contains_intervention 必須是 true 或 false")
+
+                if video.get("contains_intervention") is True:
+                    intervention_start = parse_clock(video.get("intervention_start_timestamp"))
+                    if intervention_start is None:
+                        err(
+                            video_where,
+                            "含介入內容時 intervention_start_timestamp 必須是合法 MM:SS 或 HH:MM:SS",
+                        )
+
+                    range_text = str(video.get("diagnostic_segment_range") or "").strip()
+                    segments = parse_segment_ranges(range_text)
+                    if segments is None:
+                        err(
+                            video_where,
+                            "含介入內容時 diagnostic_segment_range 必須是遞增的合法時間範圍"
+                            "（多段以 、 或 ; 分隔，段間不得重疊）",
+                        )
+                    elif intervention_start is not None:
+                        for seg_start, seg_end in segments:
+                            if seg_start <= intervention_start <= seg_end:
+                                err(
+                                    video_where,
+                                    "診斷段落不得涵蓋介入起點："
+                                    f"{format_clock(seg_start)}–{format_clock(seg_end)}"
+                                    f" 含 {video.get('intervention_start_timestamp')}",
+                                )
+                                break
+
+                    duration = parse_clock(video.get("duration"))
+                    if duration is None:
+                        err(video_where, "含介入內容時必須提供合法 duration")
+                    elif intervention_start is not None and intervention_start >= duration:
+                        err(video_where, "介入起點必須早於影片結束")
+
+                    if not video.get("presenter"):
+                        err(video_where, "含介入內容的影片必須標示 presenter")
+                    if not video.get("qualification_evidence_url"):
+                        err(video_where, "含介入內容的影片必須提供 qualification_evidence_url")
+
                 content_date = original_date or upload_date
                 if not content_date:
                     if status != "pending-date-verification":
@@ -175,11 +306,19 @@ def main() -> int:
                     ):
                         err(video_where, "經典例外缺少 classic_exception_reason")
 
-                intervention_markers = ("injection", "needle", "介入注射", "導引注射")
+                intervention_markers = (
+                    "inject",
+                    "needle",
+                    "aspiration",
+                    "intervention",
+                    "介入",
+                    "穿刺",
+                    "抽吸",
+                )
                 title = f"{video.get('name', '')} {video.get('title', '')}".lower()
                 if medical.get("scope") == "diagnostic-only" and any(
                     marker in title for marker in intervention_markers
-                ):
+                ) and video.get("contains_intervention") is not True:
                     err(video_where, "診斷階段選片疑似含介入操作")
 
     if medical.get("primaryAudience") != "physicians":

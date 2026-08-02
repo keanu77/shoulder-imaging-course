@@ -212,4 +212,9 @@
   .Landing__h2 {
     font-size: 17px;
   }
+
+  /* 首頁 CTA 與立場入口鈕在窄螢幕拉到 44px 觸控高度 */
+  .Landing .btn {
+    min-height: 44px;
+  }
 }
