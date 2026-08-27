@@ -129,14 +129,19 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 20px;
-  height: 20px;
+  gap: var(--base-size-4);
+  min-width: 76px;
+  height: 26px;
+  padding: 0 var(--base-size-8);
   margin-top: 2px;
   flex-shrink: 0;
   border: 1px solid var(--borderColor-default);
   border-radius: var(--borderRadius-full);
   background-color: var(--bgColor-default);
-  color: transparent;
+  color: var(--fgColor-muted);
+  font-size: 11px;
+  font-weight: 650;
+  line-height: 1;
   transition: all 0.12s ease;
 }
 
@@ -148,6 +153,18 @@
   background-color: var(--fgColor-success);
   border-color: var(--fgColor-success);
   color: var(--fgColor-onEmphasis);
+}
+
+.Unit.is-learning .Unit__check {
+  color: var(--fgColor-accent);
+  background-color: var(--bgColor-accent-muted);
+  border-color: var(--borderColor-accent-emphasis);
+}
+
+.Unit.is-review .Unit__check {
+  color: var(--fgColor-danger);
+  background-color: var(--bgColor-danger-muted);
+  border-color: var(--fgColor-danger);
 }
 
 .Unit__main {
@@ -303,6 +320,15 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
+
+  /* 觸控目標下限 44px；桌面密度不動 */
+  .LessonBox__lang {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    min-height: 44px;
+  }
 }
 
 @media print {
@@ -367,4 +393,194 @@
   100% {
     box-shadow: 0 0 0 2px var(--borderColor-accent-emphasis);
   }
+}
+
+/* --- Phase1: 長文閱讀欄寬（68–76ch）------------------------------------ */
+#chapters p,
+#chapters li,
+.Landing p,
+.StancePage p,
+.StancePage li {
+  max-width: 76ch;
+}
+
+/* --- Phase 2: 雙語名詞表 ------------------------------------------------ */
+
+.GlossaryPanel {
+  margin-top: var(--base-size-16);
+  overflow: hidden;
+  background: rgb(255 255 255 / 4%);
+  border: 1px solid rgb(234 248 250 / 11%);
+  border-radius: 13px;
+}
+
+.GlossaryPanel__head {
+  display: flex;
+  align-items: center;
+  gap: var(--base-size-8);
+  width: 100%;
+  padding: var(--base-size-12);
+  color: rgb(234 248 250 / 62%);
+  text-align: left;
+  background: none;
+  border: 0;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.GlossaryPanel__head:hover {
+  color: #fff;
+  background: rgb(53 224 208 / 7%);
+}
+
+.GlossaryPanel__head > span:first-of-type {
+  flex: 1;
+}
+
+.GlossaryPanel__chevron {
+  display: inline-flex;
+  transition: transform 0.15s ease;
+}
+
+.GlossaryPanel.is-open .GlossaryPanel__chevron {
+  transform: rotate(90deg);
+}
+
+.GlossaryPanel__body {
+  display: none;
+  padding: 0 var(--base-size-12) var(--base-size-12);
+}
+
+.GlossaryPanel.is-open .GlossaryPanel__body {
+  display: block;
+}
+
+.GlossaryPanel__search {
+  display: flex;
+  align-items: center;
+  gap: var(--base-size-8);
+  padding: 7px 9px;
+  color: rgb(234 248 250 / 48%);
+  background: rgb(0 0 0 / 18%);
+  border: 1px solid rgb(234 248 250 / 13%);
+  border-radius: var(--borderRadius-medium);
+}
+
+.GlossaryPanel__search:focus-within {
+  color: var(--clinical-teal-bright, var(--fgColor-accent));
+  border-color: var(--clinical-teal-bright, var(--borderColor-accent-emphasis));
+}
+
+.GlossaryPanel__search input {
+  min-width: 0;
+  width: 100%;
+  padding: 0;
+  color: rgb(244 255 255 / 88%);
+  background: transparent;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  font-size: 12px;
+}
+
+.GlossaryPanel__search input::placeholder {
+  color: rgb(234 248 250 / 40%);
+}
+
+.GlossaryPanel__categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--base-size-4);
+  margin: var(--base-size-8) 0;
+}
+
+.GlossaryChip {
+  padding: 3px 7px;
+  color: rgb(234 248 250 / 68%);
+  background: rgb(0 0 0 / 16%);
+  border: 1px solid rgb(234 248 250 / 13%);
+  border-radius: var(--borderRadius-full);
+  font-family: var(--fontStack-mono);
+  font-size: 10px;
+  line-height: 16px;
+}
+
+.GlossaryChip:hover,
+.GlossaryChip.is-active {
+  color: #021f21;
+  background: var(--clinical-teal-bright, var(--fgColor-accent));
+  border-color: var(--clinical-teal-bright, var(--fgColor-accent));
+}
+
+.GlossaryPanel__list {
+  display: grid;
+  gap: var(--base-size-4);
+  max-height: 44vh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.GlossaryEntry {
+  display: block;
+  width: 100%;
+  padding: var(--base-size-8);
+  color: rgb(234 248 250 / 78%);
+  text-align: left;
+  background: rgb(0 0 0 / 13%);
+  border: 1px solid transparent;
+  border-radius: var(--borderRadius-medium);
+}
+
+.GlossaryEntry:hover,
+.GlossaryEntry:focus-visible {
+  background: rgb(53 224 208 / 7%);
+  border-color: rgb(53 224 208 / 28%);
+}
+
+.GlossaryEntry__names {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 3px var(--base-size-8);
+}
+
+.GlossaryEntry__names strong {
+  color: rgb(244 255 255 / 94%);
+  font-size: 12px;
+}
+
+.GlossaryEntry__names span {
+  color: var(--clinical-teal-bright, var(--fgColor-accent));
+  font-size: 10px;
+}
+
+.GlossaryEntry__definition {
+  display: block;
+  margin-top: 3px;
+  color: rgb(234 248 250 / 57%);
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.GlossaryPanel__empty {
+  margin: var(--base-size-16) 0;
+  color: rgb(234 248 250 / 52%);
+  font-size: 12px;
+  text-align: center;
+}
+
+@media (max-width: 1120px) {
+  .GlossaryPanel {
+    margin-top: 6px;
+  }
+}
+
+/* --- 燈箱圖譜 S：資料（時長/時間碼）一律 mono + tabular ------------------- */
+.PlaylistItem__dur,
+.Drill__meta,
+.Segment__time,
+time {
+  font-family: var(--fontStack-mono);
+  font-variant-numeric: tabular-nums;
+  font-size: 0.92em;
 }

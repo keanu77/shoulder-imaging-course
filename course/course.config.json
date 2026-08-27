@@ -36,7 +36,7 @@
   "medical": {
     "scope": "diagnostic-only",
     "primaryAudience": "physicians",
-    "contentCutoff": "2021-07-31",
+    "contentCutoff": "2021-08-28",
     "classicExceptionsRequireReason": true,
     "interventionalContentDeferred": true,
     "allowIndexing": false,
@@ -356,7 +356,8 @@
   },
   "footer": {
     "disclaimer": "<strong>專業教育聲明。</strong>本課程以醫師為主要學員，僅供教育用途，不取代實體 hands-on training、合格督導、機構 credentialing、完整病史理學檢查或正式影像判讀。第一階段不提供注射、穿刺或其他介入操作指引。",
-    "credits": "第三方影片的著作權屬原頻道，本站僅使用 YouTube 官方播放器嵌入並提供策展、課程脈絡與來源連結。"
+    "credits": "第三方影片的著作權屬原頻道，本站僅使用 YouTube 官方播放器嵌入並提供策展、課程脈絡與來源連結。",
+    "author": "製作者：<a href=\"https://sportsmedicine.tw\" target=\"_blank\" rel=\"noopener\">運動醫學科 吳易澄醫師</a>"
   },
   "llms": {
     "summary": "醫師導向的肩部肌肉骨骼超音波診斷課程，共 {units} 個單元，涵蓋標準掃描視圖、正常解剖、動態檢查、常見病理、報告與品質控管。",

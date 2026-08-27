@@ -54,7 +54,9 @@ def create_db() -> str | None:
 
 def main() -> int:
     if "counter" not in CFG:
-        print("✗ course.config.json 沒有 counter 區塊——這個功能是選用的，先加上再跑", file=sys.stderr)
+        print(
+            "✗ course.config.json 沒有 counter 區塊——這個功能是選用的，先加上再跑", file=sys.stderr
+        )
         return 1
 
     print(f"專案 {PROJECT} · 資料庫 {DB_NAME}")
@@ -71,7 +73,9 @@ def main() -> int:
         print(f"  ✓ 已建立 {db_id}")
 
     print("  · 套用 schema（CREATE TABLE IF NOT EXISTS，不會清掉既有數字）…")
-    proc = run(["d1", "execute", DB_NAME, "--file", "functions/schema.sql", "--remote", "-y"], cwd=ROOT)
+    proc = run(
+        ["d1", "execute", DB_NAME, "--file", "functions/schema.sql", "--remote", "-y"], cwd=ROOT
+    )
     if proc.returncode != 0:
         print((proc.stdout + proc.stderr).strip()[-600:], file=sys.stderr)
         return 1

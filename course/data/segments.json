@@ -1,0 +1,11 @@
+{
+  "_doc": [
+    "逐段筆記：把影片切成可直接跳播的教學段落，並以 video_url 對應 syllabus.json。",
+    "每支影片自帶 review_status；build.py 只輸出 approved 段落，未簽核內容不會上線。",
+    "段落必須來自實際字幕核對；不得自行擴充、編造醫療內容或影片 metadata。",
+    "含介入的影片，每一段都必須完整落在 diagnostic_segment_range 內。",
+    "簽核請使用 src/build/approve.py，並保留 reviewer 與 commit 追溯欄位。"
+  ],
+  "review_status": "draft",
+  "videos": {}
+}

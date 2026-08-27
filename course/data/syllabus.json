@@ -169,7 +169,11 @@
             "acr2022",
             "aium2023"
           ],
-          "drills": []
+          "drills": [],
+          "reviewed_by": null,
+          "reviewer_role": null,
+          "reviewed_at": null,
+          "reviewed_commit": null
         },
         {
           "id": "ch0-u2",
@@ -218,9 +222,19 @@
               "diagnostic_segment_range": "00:00–06:38",
               "source_authority": "academic-medical-center-peer-reviewed-companion",
               "curation_status": "provisional",
-              "last_verified_at": "2026-08-02"
+              "last_verified_at": "2026-08-02",
+              "classic_exception": null,
+              "embed_status": null,
+              "playback_status": null,
+              "disclosure": null,
+              "presenter_qualification": null,
+              "qualification_evidence_url": null
             }
-          ]
+          ],
+          "reviewed_by": null,
+          "reviewer_role": null,
+          "reviewed_at": null,
+          "reviewed_commit": null
         },
         {
           "id": "ch0-u3",
@@ -253,7 +267,11 @@
             "aium-cleaning2025",
             "aium-documentation2020"
           ],
-          "drills": []
+          "drills": [],
+          "reviewed_by": null,
+          "reviewer_role": null,
+          "reviewed_at": null,
+          "reviewed_commit": null
         }
       ]
     },
@@ -292,7 +310,11 @@
             "martinoli2010",
             "aium2023"
           ],
-          "drills": []
+          "drills": [],
+          "reviewed_by": null,
+          "reviewer_role": null,
+          "reviewed_at": null,
+          "reviewed_commit": null
         },
         {
           "id": "ch1-u2",
@@ -322,7 +344,11 @@
             "martinoli2010",
             "essr-shoulder"
           ],
-          "drills": []
+          "drills": [],
+          "reviewed_by": null,
+          "reviewer_role": null,
+          "reviewed_at": null,
+          "reviewed_commit": null
         },
         {
           "id": "ch1-u3",
@@ -374,7 +400,12 @@
               "curation_status": "provisional",
               "classic_exception": true,
               "classic_exception_reason": "難以取代的肩部掃描 protocol、anisotropy 與 pitfalls 經典示範，並有 RSNA 同儕審查文章配套。",
-              "last_verified_at": "2026-08-02"
+              "last_verified_at": "2026-08-02",
+              "embed_status": null,
+              "playback_status": null,
+              "disclosure": null,
+              "presenter_qualification": null,
+              "qualification_evidence_url": null
             },
             {
               "name": "肩部肌肉骨骼超音波入門總覽",
@@ -396,9 +427,18 @@
               "diagnostic_segment_range": "02:30–11:17、11:23–30:56、31:03–39:17、39:29–45:10",
               "source_authority": "specialist-training-provider",
               "curation_status": "provisional",
-              "last_verified_at": "2026-08-02"
+              "last_verified_at": "2026-08-02",
+              "classic_exception": null,
+              "embed_status": null,
+              "playback_status": null,
+              "disclosure": null,
+              "presenter_qualification": null
             }
-          ]
+          ],
+          "reviewed_by": null,
+          "reviewer_role": null,
+          "reviewed_at": null,
+          "reviewed_commit": null
         }
       ]
     },
@@ -459,7 +499,13 @@
               "diagnostic_segment_range": "00:00–09:08",
               "source_authority": "specialist-training-provider",
               "curation_status": "provisional",
-              "last_verified_at": "2026-08-02"
+              "last_verified_at": "2026-08-02",
+              "classic_exception": null,
+              "embed_status": null,
+              "playback_status": null,
+              "disclosure": null,
+              "presenter_qualification": null,
+              "qualification_evidence_url": null
             },
             {
               "name": "Buford：13-point 肩部超音波現場實作",
@@ -484,9 +530,17 @@
               "curation_status": "provisional",
               "classic_exception": true,
               "classic_exception_reason": "保留少見的連續 live workflow 示範；僅列延伸，並與本課程標準視圖逐項對照。",
-              "last_verified_at": "2026-08-02"
+              "last_verified_at": "2026-08-02",
+              "embed_status": null,
+              "playback_status": null,
+              "disclosure": null,
+              "presenter_qualification": null
             }
-          ]
+          ],
+          "reviewed_by": null,
+          "reviewer_role": null,
+          "reviewed_at": null,
+          "reviewed_commit": null
         },
         {
           "id": "ch2-u2",
@@ -516,7 +570,11 @@
             "acr2022",
             "aium2023"
           ],
-          "drills": []
+          "drills": [],
+          "reviewed_by": null,
+          "reviewer_role": null,
+          "reviewed_at": null,
+          "reviewed_commit": null
         },
         {
           "id": "ch2-u3",
@@ -569,9 +627,19 @@
               "diagnostic_segment_range": "00:00–11:41",
               "source_authority": "academic-medical-center",
               "curation_status": "provisional",
-              "last_verified_at": "2026-08-02"
+              "last_verified_at": "2026-08-02",
+              "classic_exception": null,
+              "embed_status": null,
+              "playback_status": null,
+              "disclosure": null,
+              "presenter_qualification": null,
+              "qualification_evidence_url": null
             }
-          ]
+          ],
+          "reviewed_by": null,
+          "reviewer_role": null,
+          "reviewed_at": null,
+          "reviewed_commit": null
         }
       ]
     },
@@ -630,9 +698,19 @@
               "diagnostic_segment_range": "00:00–14:47",
               "source_authority": "specialist-training-provider",
               "curation_status": "provisional",
-              "last_verified_at": "2026-08-02"
+              "last_verified_at": "2026-08-02",
+              "classic_exception": null,
+              "embed_status": null,
+              "playback_status": null,
+              "disclosure": null,
+              "presenter_qualification": null,
+              "qualification_evidence_url": null
             }
-          ]
+          ],
+          "reviewed_by": null,
+          "reviewer_role": null,
+          "reviewed_at": null,
+          "reviewed_commit": null
         },
         {
           "id": "ch3-u2",
@@ -688,9 +766,16 @@
               "curation_status": "provisional",
               "classic_exception": true,
               "classic_exception_reason": "近期短片少有同等長度的肩部骨科醫師連續示範；只列延伸並保留內容日期揭露。",
-              "last_verified_at": "2026-08-02"
+              "last_verified_at": "2026-08-02",
+              "embed_status": null,
+              "playback_status": null,
+              "presenter_qualification": null
             }
-          ]
+          ],
+          "reviewed_by": null,
+          "reviewer_role": null,
+          "reviewed_at": null,
+          "reviewed_commit": null
         },
         {
           "id": "ch3-u3",
@@ -740,9 +825,19 @@
               "diagnostic_segment_range": "00:00–03:52",
               "source_authority": "specialist-training-provider",
               "curation_status": "provisional",
-              "last_verified_at": "2026-08-02"
+              "last_verified_at": "2026-08-02",
+              "classic_exception": null,
+              "embed_status": null,
+              "playback_status": null,
+              "disclosure": null,
+              "presenter_qualification": null,
+              "qualification_evidence_url": null
             }
-          ]
+          ],
+          "reviewed_by": null,
+          "reviewer_role": null,
+          "reviewed_at": null,
+          "reviewed_commit": null
         }
       ]
     },
@@ -801,9 +896,18 @@
               "curation_status": "provisional",
               "classic_exception": true,
               "classic_exception_reason": "Prof. Carlo Martinoli 的代表性解剖示範，現有近五年公開影片未提供同等精簡且清楚的旋轉間隙說明。",
-              "last_verified_at": "2026-08-02"
+              "last_verified_at": "2026-08-02",
+              "embed_status": null,
+              "playback_status": null,
+              "disclosure": null,
+              "presenter_qualification": null,
+              "qualification_evidence_url": null
             }
-          ]
+          ],
+          "reviewed_by": null,
+          "reviewer_role": null,
+          "reviewed_at": null,
+          "reviewed_commit": null
         },
         {
           "id": "ch4-u2",
@@ -859,9 +963,17 @@
               "curation_status": "provisional",
               "classic_exception": true,
               "classic_exception_reason": "Prof. Carlo Martinoli 以超音波解剖方式呈現旋轉肌袖層次，屬本課程指定保留的經典大師內容。",
-              "last_verified_at": "2026-08-02"
+              "last_verified_at": "2026-08-02",
+              "embed_status": null,
+              "playback_status": null,
+              "disclosure": null,
+              "presenter_qualification": null
             }
-          ]
+          ],
+          "reviewed_by": null,
+          "reviewer_role": null,
+          "reviewed_at": null,
+          "reviewed_commit": null
         },
         {
           "id": "ch4-u3",
@@ -892,7 +1004,11 @@
             "acr2022",
             "usmsit2026"
           ],
-          "drills": []
+          "drills": [],
+          "reviewed_by": null,
+          "reviewer_role": null,
+          "reviewed_at": null,
+          "reviewed_commit": null
         }
       ]
     },
@@ -951,9 +1067,18 @@
               "diagnostic_segment_range": "00:00–03:27、03:36–03:47",
               "source_authority": "specialist-training-provider",
               "curation_status": "provisional",
-              "last_verified_at": "2026-08-02"
+              "last_verified_at": "2026-08-02",
+              "classic_exception": null,
+              "embed_status": null,
+              "playback_status": null,
+              "disclosure": null,
+              "presenter_qualification": null
             }
-          ]
+          ],
+          "reviewed_by": null,
+          "reviewer_role": null,
+          "reviewed_at": null,
+          "reviewed_commit": null
         },
         {
           "id": "ch5-u2",
@@ -1008,9 +1133,17 @@
               "diagnostic_segment_range": "05:06–49:21、56:05–58:01、01:00:44–01:06:45、01:07:13–01:07:33",
               "source_authority": "medical-device-education",
               "curation_status": "provisional",
-              "last_verified_at": "2026-08-02"
+              "last_verified_at": "2026-08-02",
+              "classic_exception": null,
+              "embed_status": null,
+              "playback_status": null,
+              "presenter_qualification": null
             }
-          ]
+          ],
+          "reviewed_by": null,
+          "reviewer_role": null,
+          "reviewed_at": null,
+          "reviewed_commit": null
         },
         {
           "id": "ch5-u3",
@@ -1067,9 +1200,18 @@
               "diagnostic_segment_range": "00:35–02:03、02:18–06:58",
               "source_authority": "expert-educator",
               "curation_status": "provisional",
-              "last_verified_at": "2026-08-02"
+              "last_verified_at": "2026-08-02",
+              "classic_exception": null,
+              "embed_status": null,
+              "playback_status": null,
+              "disclosure": null,
+              "presenter_qualification": null
             }
-          ]
+          ],
+          "reviewed_by": null,
+          "reviewer_role": null,
+          "reviewed_at": null,
+          "reviewed_commit": null
         }
       ]
     },
@@ -1129,9 +1271,19 @@
               "source_authority": "specialist-educator",
               "curation_status": "provisional",
               "medical_review_required": true,
-              "last_verified_at": "2026-08-02"
+              "last_verified_at": "2026-08-02",
+              "classic_exception": null,
+              "embed_status": null,
+              "playback_status": null,
+              "disclosure": null,
+              "presenter_qualification": null,
+              "qualification_evidence_url": null
             }
-          ]
+          ],
+          "reviewed_by": null,
+          "reviewer_role": null,
+          "reviewed_at": null,
+          "reviewed_commit": null
         },
         {
           "id": "ch6-u2",
@@ -1185,7 +1337,13 @@
               "diagnostic_segment_range": "00:00–02:41",
               "source_authority": "specialist-training-provider",
               "curation_status": "provisional",
-              "last_verified_at": "2026-08-02"
+              "last_verified_at": "2026-08-02",
+              "classic_exception": null,
+              "embed_status": null,
+              "playback_status": null,
+              "disclosure": null,
+              "presenter_qualification": null,
+              "qualification_evidence_url": null
             },
             {
               "name": "AIUM：旋轉肌腱病變與撕裂鑑別",
@@ -1210,7 +1368,10 @@
               "curation_status": "provisional",
               "classic_exception": true,
               "classic_exception_reason": "官方學會合作且公開病例演算法完整；僅列延伸並以現行報告標準校正。",
-              "last_verified_at": "2026-08-02"
+              "last_verified_at": "2026-08-02",
+              "embed_status": null,
+              "playback_status": null,
+              "presenter_qualification": null
             },
             {
               "name": "Sonosite：完整肩部診斷檢查 Part 2",
@@ -1235,9 +1396,16 @@
               "curation_status": "provisional",
               "classic_exception": true,
               "classic_exception_reason": "保留具名 MSK radiologist 的長篇診斷觀點；只列延伸並保留內容日期揭露。",
-              "last_verified_at": "2026-08-02"
+              "last_verified_at": "2026-08-02",
+              "embed_status": null,
+              "playback_status": null,
+              "presenter_qualification": null
             }
-          ]
+          ],
+          "reviewed_by": null,
+          "reviewer_role": null,
+          "reviewed_at": null,
+          "reviewed_commit": null
         },
         {
           "id": "ch6-u3",
@@ -1270,7 +1438,11 @@
             "acr2022",
             "dynamic2018"
           ],
-          "drills": []
+          "drills": [],
+          "reviewed_by": null,
+          "reviewer_role": null,
+          "reviewed_at": null,
+          "reviewed_commit": null
         }
       ]
     },
@@ -1310,7 +1482,11 @@
             "aium2023",
             "aium-documentation2020"
           ],
-          "drills": []
+          "drills": [],
+          "reviewed_by": null,
+          "reviewer_role": null,
+          "reviewed_at": null,
+          "reviewed_commit": null
         },
         {
           "id": "ch7-u2",
@@ -1341,7 +1517,11 @@
             "acr2022",
             "aium2023"
           ],
-          "drills": []
+          "drills": [],
+          "reviewed_by": null,
+          "reviewer_role": null,
+          "reviewed_at": null,
+          "reviewed_commit": null
         },
         {
           "id": "ch7-u3",
@@ -1373,7 +1553,11 @@
             "essr-shoulder",
             "usmsit2026"
           ],
-          "drills": []
+          "drills": [],
+          "reviewed_by": null,
+          "reviewer_role": null,
+          "reviewed_at": null,
+          "reviewed_commit": null
         }
       ]
     }

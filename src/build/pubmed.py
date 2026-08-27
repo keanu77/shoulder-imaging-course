@@ -38,7 +38,13 @@ def search(query: str, retmax: int = 12) -> None:
     data = json.loads(
         _get(
             "esearch.fcgi",
-            {"db": "pubmed", "retmode": "json", "term": query, "retmax": retmax, "sort": "relevance"},
+            {
+                "db": "pubmed",
+                "retmode": "json",
+                "term": query,
+                "retmax": retmax,
+                "sort": "relevance",
+            },
         )
     )
     ids = data["esearchresult"]["idlist"]
@@ -58,7 +64,8 @@ def search(query: str, retmax: int = 12) -> None:
 
 def abstracts(pmids: list[str]) -> None:
     text = _get(
-        "efetch.fcgi", {"db": "pubmed", "retmode": "xml", "rettype": "abstract", "id": ",".join(pmids)}
+        "efetch.fcgi",
+        {"db": "pubmed", "retmode": "xml", "rettype": "abstract", "id": ",".join(pmids)},
     )
     for chunk in text.split("<PubmedArticle>")[1:]:
         pmid = re.search(r"<PMID[^>]*>(\d+)</PMID>", chunk)

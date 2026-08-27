@@ -28,7 +28,7 @@
 
 .MuscleGrid {
   display: grid;
-  /* 同 StancePage__grid：窄視窗要能塌成單欄，不能被 220px 下限撐開 */
+  /* 同 Stance__grid：窄視窗要能塌成單欄，不能被 220px 下限撐開 */
   grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
   gap: var(--base-size-12);
   margin-top: var(--base-size-12);
@@ -260,6 +260,15 @@
   .Evidence__row {
     grid-template-columns: minmax(0, 1fr);
     gap: 2px;
+  }
+
+  /* 觸控目標下限 44px；桌面密度不動 */
+  .Evidence__header {
+    min-height: 44px;
+  }
+
+  .DrillEvCat > summary {
+    min-height: 44px;
   }
 }
 

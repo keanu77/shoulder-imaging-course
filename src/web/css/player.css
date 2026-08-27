@@ -67,11 +67,13 @@
 
 /* --- 影片資訊 ------------------------------------------------------------ */
 
-/* 資訊區永遠完整顯示、不捲動；空間不夠是影片讓步，不是資訊被切掉 */
+/* 資訊區吃掉影片以外的剩餘高度並自己捲動。逐段筆記可能很長，若讓它把 stage 撐高，
+   fitFrame() 反推出來的影片寬度會被壓到很小（實測 1440×900 下掉到 433px）。 */
 .Player__info {
   margin-top: var(--base-size-12);
-  flex: 0 0 auto;
-  overflow: visible;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
 }
 
 /* 收起播放清單，讓影片吃滿整個寬度 */
@@ -330,8 +332,10 @@ body[data-tab="player"] {
     max-width: calc(42dvh * 16 / 9);
   }
 
+  /* 窄螢幕仍要能捲到逐段筆記：.Player 是固定高度 + overflow hidden，
+     這裡若放成 visible，超出的段落會被裁掉且捲不到。 */
   .Player__info {
-    overflow: visible;
+    overflow-y: auto;
   }
 
   .Player__list {
@@ -352,17 +356,21 @@ body[data-tab="player"] {
     min-height: 44px;
   }
 
-  /* 窄螢幕把資訊列的操作鈕拉到 44px 觸控高度；桌面版密度不受影響 */
+  /* 資訊列的上一部／下一部／完成與圖示鈕預設只有 32px 高。 */
   .Player__actions .btn {
+    min-width: 44px;
     min-height: 44px;
+    justify-content: center;
   }
 
   .Player__actions .btn-icon {
     width: 44px;
     height: 44px;
+    min-width: 44px;
+    min-height: 44px;
   }
 
-  .SearchBox--inline input {
+  .Player__listHead .SearchBox--inline input {
     min-height: 44px;
   }
 
@@ -432,6 +440,18 @@ body[data-tab="player"] {
 
   .Player__bar .Player__title {
     white-space: normal;
+  }
+
+  /* 觸控目標下限 44px；桌面密度不動 */
+  .Player__more > summary {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+  }
+
+  .KeySheet__head .btn-icon {
+    min-width: 44px;
+    min-height: 44px;
   }
 }
 
@@ -586,4 +606,137 @@ body[data-tab="player"] {
 .Discuss__body .giscus,
 .Discuss__body .giscus-frame {
   width: 100%;
+}
+
+/* --- 逐段筆記 ------------------------------------------------------------ */
+
+/* 捲動交給 .Player__info；這裡不再自己開一個捲軸，避免兩層捲動互搶。 */
+.Segments {
+  margin-top: var(--base-size-12);
+  border: 1px solid var(--borderColor-default);
+  border-radius: var(--borderRadius-medium);
+  background-color: var(--bgColor-inset);
+}
+
+.Segments__head {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--base-size-8);
+  padding: var(--base-size-8) var(--base-size-12);
+  background-color: var(--bgColor-inset);
+  border-bottom: 1px solid var(--borderColor-muted);
+  font-size: 12px;
+}
+
+.Segments__head strong {
+  color: var(--fgColor-default);
+}
+
+.Segments__head span {
+  color: var(--fgColor-muted);
+}
+
+.Segments__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.Segment {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--base-size-12);
+  padding: var(--base-size-12);
+  border-bottom: 1px solid var(--borderColor-muted);
+}
+
+.Segment:last-child {
+  border-bottom: 0;
+}
+
+.Segment__jump {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--base-size-4);
+  align-self: start;
+  padding: var(--base-size-4) var(--base-size-8);
+  min-height: 32px;
+  font: inherit;
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  color: var(--fgColor-accent);
+  background-color: var(--bgColor-accent-muted);
+  border: 1px solid transparent;
+  border-radius: var(--borderRadius-medium);
+  cursor: pointer;
+}
+
+.Segment__jump:hover,
+.Segment__jump:focus-visible {
+  border-color: var(--borderColor-accent-emphasis);
+}
+
+.Segment__title {
+  margin: 0 0 var(--base-size-4);
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--fgColor-default);
+}
+
+.Segment__summary {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.65;
+  color: var(--fgColor-muted);
+}
+
+.Segment__detail {
+  margin-top: var(--base-size-8);
+}
+
+.Segment__detail > summary {
+  font-size: 12px;
+  color: var(--fgColor-accent);
+  cursor: pointer;
+  list-style: none;
+}
+
+.Segment__detail > summary::-webkit-details-marker {
+  display: none;
+}
+
+.Segment__detail > summary::after {
+  content: " ▸";
+  font-size: 10px;
+}
+
+.Segment__detail[open] > summary::after {
+  content: " ▾";
+}
+
+.Segment__detail ul {
+  margin: var(--base-size-8) 0 0;
+  padding-left: var(--base-size-16);
+  display: grid;
+  gap: var(--base-size-4);
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--fgColor-muted);
+}
+
+@media (max-width: 767px) {
+  .Segment {
+    grid-template-columns: 1fr;
+    gap: var(--base-size-8);
+  }
+
+  /* 模板是 32px，低於本站訂的觸控目標下限；跳播鈕在手機上是主要互動元件。 */
+  .Segment__jump {
+    min-height: 44px;
+  }
 }

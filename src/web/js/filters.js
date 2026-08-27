@@ -56,10 +56,11 @@ export function syncMuscleChips(selected) {
 
 /**
  * 依 state 顯示／隱藏章節、單元與動作。
- * state: { query, filter, learningTier, muscles:Set }
+ * state: { query, searchTerms, filter, learningTier, muscles:Set }
  */
 export function applyFilters(state, course) {
   const q = state.query.trim().toLowerCase();
+  const searchTerms = state.searchTerms?.length ? state.searchTerms : q ? [q] : [];
   const sel = state.muscles;
   let visibleUnits = 0;
   let visibleDrills = 0;
@@ -70,7 +71,8 @@ export function applyFilters(state, course) {
     $$(".Unit", chEl).forEach((unitEl) => {
       const unitMuscles = (unitEl.dataset.facets || "").split("|").filter(Boolean);
       const muscleOk = !sel.size || unitMuscles.some((m) => sel.has(m));
-      const textOk = !q || unitEl.textContent.toLowerCase().includes(q);
+      const unitText = unitEl.textContent.toLowerCase();
+      const textOk = !searchTerms.length || searchTerms.some((term) => unitText.includes(term));
       const match = muscleOk && textOk;
 
       unitEl.hidden = !match;

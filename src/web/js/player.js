@@ -38,7 +38,7 @@ export function buildPlaylist(course) {
           contains_intervention: les.contains_intervention,
           intervention_start_timestamp: les.intervention_start_timestamp,
           diagnostic_segment_range: les.diagnostic_segment_range,
-          intervention_verification_status: les.intervention_verification_status,
+          segments: les.segments,
         });
       }
       for (const d of u.drills || []) {
@@ -70,7 +70,7 @@ export function buildPlaylist(course) {
           contains_intervention: d.contains_intervention,
           intervention_start_timestamp: d.intervention_start_timestamp,
           diagnostic_segment_range: d.diagnostic_segment_range,
-          intervention_verification_status: d.intervention_verification_status,
+          segments: d.segments,
         });
       }
     }
@@ -87,6 +87,100 @@ function dur(s) {
   return s || "";
 }
 
+/* --- 逐段筆記與跳播 ------------------------------------------------------- */
+
+const EMBED_ORIGIN = "https://www.youtube-nocookie.com";
+let frameReady = false;
+let currentItem = null;
+
+/** MM:SS / HH:MM:SS -> 秒。格式不對回 null，呼叫端據此不產生跳播鈕。 */
+export function parseClock(text) {
+  const parts = String(text ?? "").split(":");
+  if (parts.length < 2 || parts.length > 3 || !parts.every((p) => /^\d+$/.test(p))) return null;
+  const n = parts.map(Number);
+  if (n[n.length - 1] >= 60) return null;
+  if (n.length === 3 && n[1] >= 60) return null;
+  return n.reduce((acc, part) => acc * 60 + part, 0);
+}
+
+function post(command, args = []) {
+  const frame = $("#ytFrame");
+  if (!frame?.contentWindow) return false;
+  frame.contentWindow.postMessage(
+    JSON.stringify({ event: "command", func: command, args }), EMBED_ORIGIN);
+  return true;
+}
+
+/** 播放器就緒才用 postMessage 跳播；否則直接以 start= 重載，不讓點擊靜默失效。 */
+export function seekTo(seconds) {
+  if (frameReady && post("seekTo", [seconds, true])) {
+    post("playVideo");
+    return;
+  }
+  if (!currentItem?.vid) return;
+  $("#playerFrame").innerHTML = frameHtml(currentItem, seconds);
+  listenToFrame();
+}
+
+/** iframe 的 JS API 要先送出 listening 才會回話；收到任何回話就視為可下指令。 */
+function listenToFrame() {
+  frameReady = false;
+  const frame = $("#ytFrame");
+  if (!frame) return;
+  frame.addEventListener("load", () => {
+    frame.contentWindow?.postMessage(JSON.stringify({ event: "listening" }), EMBED_ORIGIN);
+  });
+}
+
+addEventListener("message", (e) => {
+  if (e.origin === EMBED_ORIGIN) frameReady = true;
+});
+
+function frameHtml(item, startSeconds = null) {
+  const start = startSeconds == null ? "" : `&start=${startSeconds}`;
+  return `<iframe id="ytFrame" src="${EMBED}${esc(item.vid)}?rel=0&modestbranding=1&autoplay=1&enablejsapi=1${start}&origin=${encodeURIComponent(location.origin)}"
+            title="${esc(item.title || item.name)}"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen></iframe>`;
+}
+
+/** 逐段筆記軌。course.json 只會帶入已簽核的段落，未簽核的在建置階段就被擋掉。 */
+function segmentRail(item) {
+  const segments = (item.segments || [])
+    .map((s) => ({ ...s, seconds: parseClock(s.start) }))
+    .filter((s) => s.seconds !== null);
+  if (!segments.length) return "";
+
+  const rows = segments.map((s) => `
+      <li class="Segment">
+        <button class="Segment__jump" type="button" data-seek="${s.seconds}"
+                title="從 ${esc(s.start)} 開始播放">
+          ${icon("play", 11)}<span>${esc(s.start)}–${esc(s.end)}</span>
+        </button>
+        <div class="Segment__body">
+          <h4 class="Segment__title">${esc(s.title)}</h4>
+          <p class="Segment__summary">${esc(s.summary)}</p>
+          ${(s.detail || []).length
+            ? `<details class="Segment__detail">
+                 <summary>完整逐段詳解 · ${(s.detail || []).length} 項</summary>
+                 <ul>${(s.detail || []).map((d) => `<li>${esc(d)}</li>`).join("")}</ul>
+               </details>`
+            : ""}
+        </div>
+      </li>`).join("");
+
+  const framed = item.contains_intervention === true ? "；段落已框限在診斷範圍內" : "";
+  return `
+    <section class="Segments" aria-label="逐段筆記">
+      <div class="Segments__head">
+        <strong>逐段筆記</strong>
+        <span>${segments.length} 段 · 點時間碼直接跳播${framed}</span>
+      </div>
+      <ol class="Segments__list">${rows}</ol>
+    </section>`;
+}
+
 /** 播放清單的顯示、上一部／下一部共用同一套條件，避免操作到畫面上已隱藏的影片。 */
 export function playlistItemMatches(it, { doneSet, query, onlyTodo, learningTier }) {
   if (onlyTodo && doneSet.has(it.unitId)) return false;
@@ -96,7 +190,11 @@ export function playlistItemMatches(it, { doneSet, query, onlyTodo, learningTier
   if (!q) return true;
 
   const tierLabel = TIER[it.learning_tier]?.label || it.learning_tier || "";
-  const hay = `${it.name} ${it.title || ""} ${it.channel || ""} ${it.unitName} ${it.chTitle} ${(it.facets || []).join(" ")} ${it.target || ""} ${tierLabel} ${it.presenter || ""} ${it.presenter_note || ""} ${it.scope_note || ""} ${it.disclosure || ""} ${it.diagnostic_segment_range || ""} ${it.original_content_date || ""} ${it.upload_date || ""}`;
+  // 逐段筆記也要能被搜到：學員記得的往往是段落裡的字，不是影片標題
+  const segmentText = (it.segments || [])
+    .map((s) => `${s.title || ""} ${s.summary || ""} ${(s.detail || []).join(" ")}`)
+    .join(" ");
+  const hay = `${it.name} ${it.title || ""} ${it.channel || ""} ${it.unitName} ${it.chTitle} ${(it.facets || []).join(" ")} ${it.target || ""} ${tierLabel} ${it.presenter || ""} ${it.presenter_note || ""} ${it.scope_note || ""} ${it.disclosure || ""} ${it.diagnostic_segment_range || ""} ${it.original_content_date || ""} ${it.upload_date || ""} ${segmentText}`;
   return hay.toLowerCase().includes(q);
 }
 
@@ -149,12 +247,9 @@ export function renderPlaylist(items, { doneSet, currentIndex, query, onlyTodo, 
 export function play(item, { total }) {
   if (!item?.vid) return;
 
-  $("#playerFrame").innerHTML = `
-    <iframe id="ytFrame" src="${EMBED}${esc(item.vid)}?rel=0&modestbranding=1&autoplay=1&enablejsapi=1&origin=${encodeURIComponent(location.origin)}"
-            title="${esc(item.title || item.name)}"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen></iframe>`;
+  currentItem = item;
+  $("#playerFrame").innerHTML = frameHtml(item);
+  listenToFrame();
 
   const k = item.kind === "lesson" ? null : KIND[item.kind];
   const badge = k
@@ -208,7 +303,7 @@ export function play(item, { total }) {
         ? `<div class="Player__interventionNotice" role="note" aria-live="polite" aria-atomic="true">
              <strong>介入內容提醒</strong>
              <span>${esc(interventionNotice)}</span>
-             ${item.diagnostic_segment_range ? `<span><strong>本課診斷段落：</strong>${esc(item.diagnostic_segment_range)}</span>` : ""}
+             <span><strong>本課診斷段落：</strong>${esc(item.diagnostic_segment_range)}</span>
            </div>`
         : ""
     }
@@ -224,6 +319,7 @@ export function play(item, { total }) {
            </details>`
         : ""
     }
+    ${segmentRail(item)}
     ${discussPanel()}`;
 
   fitFrame();
@@ -237,9 +333,11 @@ export function fitFrame() {
   const info = $("#playerInfo");
   if (!stage || !frame) return;
 
-  // 用 scrollHeight：資訊區要完整放得下，影片才拿剩下的空間
-  const infoH = info ? Math.max(info.offsetHeight, info.scrollHeight) : 0;
-  const avail = stage.clientHeight - infoH - 12;
+  // 資訊區想要多高就給多高，但最多只讓它吃掉 45%——逐段筆記可以很長，
+  // 全額讓步會把影片壓到只剩幾百像素寬。超出的部分由 .Player__info 自己捲。
+  const wanted = info ? Math.max(info.offsetHeight, info.scrollHeight) : 0;
+  const reserved = Math.min(wanted, stage.clientHeight * 0.45);
+  const avail = stage.clientHeight - reserved - 12;
   if (avail <= 0) return;
   const byHeight = avail * (16 / 9);
   frame.style.setProperty("--frame-w", `${Math.floor(Math.min(stage.clientWidth, byHeight))}px`);
@@ -259,6 +357,8 @@ export function watchFrame() {
 export function stop() {
   const f = $("#playerFrame iframe");
   if (f) f.remove();
+  frameReady = false;
+  currentItem = null;
 }
 
 /* --- 播放清單寬度可拖曳 --------------------------------------------------- */

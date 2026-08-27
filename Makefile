@@ -37,8 +37,8 @@ audit: ## 離線稽核設定檔、配額、影片長度與實證深度（確定�
 	$(PY) src/build/audit.py
 	$(PY) src/build/audit_medical.py
 
-test: ## 執行介入診斷段落的安全性測試
-	$(PY) tests/test_segment_ranges.py
+test: ## 執行安全性測試（介入框限與逐段筆記）
+	@for t in tests/test_*.py; do echo "→ $$t"; $(PY) "$$t" || exit 1; done
 
 verify: ## 重驗所有影片連結與 PubMed 引用（打真實 API，會跑一陣子）
 	$(PY) src/build/verify_links.py
@@ -64,4 +64,4 @@ check: lint test build audit ## 提交前跑這個（含安全性測試與離線
 clean: ## 清掉建置暫存
 	rm -rf .tmp .wrangler .ruff_cache dist **/__pycache__
 
-.PHONY: help build icons og meta counter audit test verify serve deploy lint fmt check clean
+.PHONY: help build icons og meta counter audit verify serve deploy lint fmt check clean test

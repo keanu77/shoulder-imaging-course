@@ -470,6 +470,30 @@
   .AppHeader__brandName {
     display: none;
   }
+
+  /* 觸控目標下限 44px；桌面密度不動 */
+  .SearchBox.has-value .SearchBox__clear {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    right: 0;
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .ProgressPanel__reset {
+    min-height: 44px;
+  }
+
+  /* 收合頁尾高度參與 body padding 與側欄高度計算，
+     加高觸控列時必須同步改變數，內容才不會被固定頁尾遮住 */
+  :root {
+    --footer-height: 45px;
+  }
+
+  .AppFooter__summary {
+    min-height: 44px;
+  }
 }
 
 @media print {

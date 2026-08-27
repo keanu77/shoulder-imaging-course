@@ -154,8 +154,10 @@ def render_template(meta: dict) -> None:
         val = lookup(m.group(1))
         if val is None:
             return m.group(0)
-        return str(val).replace("{units}", str(meta["units"])).replace(
-            "{problems}", str(meta.get("problem_units", 0))
+        return (
+            str(val)
+            .replace("{units}", str(meta["units"]))
+            .replace("{problems}", str(meta.get("problem_units", 0)))
         )
 
     html, n = re.subn(r"\{\{([\w.]+)\}\}", sub, html)
@@ -212,7 +214,7 @@ def inject_meta(course: dict) -> None:
         robots=(
             "index, follow, max-image-preview:large, max-snippet:-1"
             if ALLOW_INDEXING
-            else "noindex, follow"
+            else "noindex, nofollow"
         ),
         name=NAME,
         title=TITLE,
@@ -236,12 +238,19 @@ def write_indexing_header() -> None:
     if ALLOW_INDEXING or not path.exists():
         return
     text = path.read_text()
-    text = text.replace("/*\n", "/*\n  X-Robots-Tag: noindex, follow\n", 1)
+    text = text.replace("/*\n", "/*\n  X-Robots-Tag: noindex, nofollow\n", 1)
     path.write_text(text)
     print("   _headers  X-Robots-Tag=noindex（medical-review gate）")
 
 
 def write_sitemap() -> None:
+    if not ALLOW_INDEXING:
+        (PUB / "sitemap.xml").write_text(
+            '<?xml version="1.0" encoding="UTF-8"?>\n'
+            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"></urlset>\n'
+        )
+        print("   sitemap.xml（medical-review gate：空清單）")
+        return
     (PUB / "sitemap.xml").write_text(
         '<?xml version="1.0" encoding="UTF-8"?>\n'
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n'
@@ -265,21 +274,15 @@ AI_CRAWLERS = ("GPTBot", "ClaudeBot", "PerplexityBot", "Google-Extended")
 
 
 def write_robots() -> None:
-    """一般搜尋引擎放行＋noindex；AI 檢索器依醫療審查閘門切換。
-
-    搜尋引擎不用 Disallow：擋掉抓取會讓爬蟲讀不到 noindex，反而可能留下
-    URL-only 索引。但 noindex 管不到 AI 語料擷取，所以簽核前另行封鎖 AI 檢索器。
-    """
+    """搜尋引擎以 noindex 治理；AI 檢索器依醫療簽核閘門切換。"""
     if ALLOW_INDEXING:
         rule = "Allow: /"
-        note = "# AI 檢索器放行 —— 這門課的實證註記正是希望被引用到的內容"
+        note = "# AI 檢索器放行：醫療內容已完成核准"
     else:
         rule = "Disallow: /"
         note = (
-            "# 醫療審查閘門：單元尚未經醫師簽核，AI 檢索器一律擋下。\n"
-            "# 搜尋引擎維持 Allow + noindex（擋抓取會讀不到 noindex，"
-            "反而可能留下 URL-only 索引）；\n"
-            "# 但 noindex 管不到語料擷取，故 AI 檢索器另行封鎖。"
+            "# 醫療審查閘門：單元尚未全部核准，AI 檢索器一律擋下。\n"
+            "# 一般搜尋引擎維持 Allow + noindex，確保爬蟲能讀取 noindex。"
         )
     blocks = "\n\n".join(f"User-agent: {agent}\n{rule}" for agent in AI_CRAWLERS)
     (PUB / "robots.txt").write_text(
