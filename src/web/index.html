@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-Hant">
+<html lang="zh-Hant-TW">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -16,7 +16,6 @@
     <link rel="stylesheet" href="css/layout.css" />
     <link rel="stylesheet" href="css/course.css" />
     <link rel="stylesheet" href="css/evidence.css" />
-    <link rel="stylesheet" href="css/stance.css" />
     <link rel="stylesheet" href="css/tabs.css" />
     <link rel="stylesheet" href="css/player.css" />
     <link rel="stylesheet" href="css/landing.css" />
@@ -36,7 +35,7 @@
     <a href="#main" class="visually-hidden">跳到主要內容</a>
 
     <header class="AppHeader">
-      <a class="AppHeader__brand" href="#" data-tab-link="home" aria-label="肩部超音波診斷課程首頁">
+      <a class="AppHeader__brand" href="#" data-tab-link="home" aria-label="{{site.name}}首頁">
         <span class="AppHeader__brandMark">
           <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-activity" /></svg>
           <span class="AppHeader__brandPulse"></span>
@@ -50,16 +49,11 @@
           <button class="TabNav__item is-selected" data-tab="course" type="button" aria-label="{{ui.tabs.course}}" aria-current="page">
             <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-layers" /></svg>
             <span class="TabNav__label">{{ui.tabs.course}}</span>
-            <span class="Counter" id="tabCourseCount">24</span>
+            <span class="Counter" id="tabCourseCount">0</span>
           </button>
           <button class="TabNav__item" data-tab="player" type="button" aria-label="{{ui.tabs.player}}">
             <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-play" /></svg>
             <span class="TabNav__label">{{ui.tabs.player}}</span>
-          </button>
-          <button class="TabNav__item" data-tab="stance" type="button" aria-label="{{ui.tabs.stance}}">
-            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-microscope" /></svg>
-            <span class="TabNav__label">{{ui.tabs.stance}}</span>
-            <span class="Counter" id="tabStanceCount">3</span>
           </button>
         </div>
       </nav>
@@ -134,26 +128,7 @@
             <p class="Hero__note" id="heroNote"></p>
           </div>
 
-          <div class="HeroScan" aria-hidden="true">
-            <div class="HeroScan__topbar">
-              <span><i></i> SHOULDER / B-MODE</span>
-              <span>DIAGNOSTIC</span>
-            </div>
-            <div class="HeroScan__screen">
-              <span class="HeroScan__depth">3.0<br />2.0<br />1.0</span>
-              <span class="HeroScan__sector"></span>
-              <span class="HeroScan__sweep"></span>
-              <span class="HeroScan__focus"></span>
-              <span class="HeroScan__label HeroScan__label--a">LHB</span>
-              <span class="HeroScan__label HeroScan__label--b">SSC</span>
-              <span class="HeroScan__label HeroScan__label--c">SSP</span>
-            </div>
-            <div class="HeroScan__readout">
-              <span><b>VIEW SET</b> STANDARD VIEW PATH</span>
-              <span><b>STATUS</b> REVIEW MODE</span>
-            </div>
-            <div class="HeroScan__wave"><span></span></div>
-          </div>
+          
         </div>
       </div>
     </section>
@@ -197,14 +172,12 @@
       </aside>
     </section>
 
-    <section class="StancePage" id="view-stance" hidden></section>
-
     <main class="Layout" id="main" data-view="course">
       <aside class="Layout__sidebar">
         <div class="RailHeader">
           <span class="RailHeader__eyebrow"><i></i> SCAN PATHWAY</span>
           <strong>章節導覽</strong>
-          <small id="railChapterCount">8 CHAPTERS · 24 UNITS</small>
+          <small id="railChapterCount">0 CHAPTERS · 0 UNITS</small>
         </div>
 
         <div class="ProgressPanel">
@@ -258,8 +231,8 @@
               <span class="ConsoleHeader__target"></span>
             </div>
             <div class="ConsoleHeader__monitorMeta">
-              <span id="consoleUnitCount">24 UNITS</span>
-              <span id="consoleVideoCount">13 VIDEOS</span>
+              <span id="consoleUnitCount">0 UNITS</span>
+              <span id="consoleVideoCount">0 VIDEOS</span>
             </div>
           </div>
         </section>

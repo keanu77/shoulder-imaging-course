@@ -1,7 +1,7 @@
 // app.js — 載入課程資料、渲染、互動與進度追蹤
 import { mountIcons, icon } from "./icons.js";
 import {
-  renderChapter, renderStance, renderHome, setDrillEvidence, setConfig, esc,
+  renderChapter, renderHome, setDrillEvidence, setConfig, esc,
 } from "./render.js";
 import { renderMusclePanel, syncMuscleChips, applyFilters as runFilters } from "./filters.js";
 import {
@@ -664,8 +664,6 @@ function setTab(tab) {
 
   $("#view-home").hidden = tab !== "home";
   $("#main").hidden = tab !== "course";
-  const stanceView = $("#view-stance");
-  if (stanceView) stanceView.hidden = tab !== "stance";
   $("#view-player").hidden = tab !== "player";
   scrollTo({ top: 0 });
 
@@ -1168,15 +1166,6 @@ async function init() {
     .map((ch) => renderChapter(ch, state.done, state.mastery))
     .join("");
 
-  const stanceView = $("#view-stance");
-  const stanceTab = $('.TabNav__item[data-tab="stance"]');
-  if (stanceView && data.stance?.length) {
-    stanceView.innerHTML = renderStance(data.stance);
-    $("#tabStanceCount").textContent = data.stance.length;
-  } else {
-    stanceView?.remove();
-    stanceTab?.remove();
-  }
 
   $("#tabCourseCount").textContent = data.meta.units;
 
@@ -1227,7 +1216,7 @@ async function init() {
   setTab(
     hashPlayIndex >= 0
       ? "player"
-      : ["home", "course", "player", "stance"].includes(wanted)
+      : ["home", "course", "player"].includes(wanted)
       ? wanted
       : load(STORE.tab, "home"),
   );
@@ -1243,9 +1232,9 @@ async function init() {
     playAt(state.playing);
   }
 
-  // 首次造訪展開觀念篇第一章，讓畫面不是一片收合
+  // 首次造訪展開第一章，讓畫面不是一片收合（不要硬編章節代碼，重編後會失效）
   if (load(STORE.open, null) === null) {
-    $('[data-chapter="CH0"]')?.classList.add("is-open");
+    $(".Chapter[data-chapter]")?.classList.add("is-open");
   }
 
   // 深連結：#ch5-u1 直接展開該單元

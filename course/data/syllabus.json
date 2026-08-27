@@ -277,8 +277,311 @@
   ],
   "chapters": [
     {
-      "chapter": "CH0",
-      "title": "課程定位、能力邊界與安全",
+      "chapter": "XR1",
+      "title": "X 光：照射位選擇與系統性判讀",
+      "units": [
+        {
+          "id": "ch8-u1",
+          "name": "肩部照射位選擇與技術",
+          "type": "protocol",
+          "level": "foundation",
+          "review_status": "draft",
+          "summary": "從臨床問題選擇 true AP／Grashey、axillary 或 Velpeau、scapular Y、outlet、Zanca、Stryker notch 與 West Point view，理解各投影的擺位、中心線方向與可回答的問題，並在活動受限時選擇不強迫患肢的替代位。",
+          "objectives": [
+            "說明 true AP 與 Grashey view 的幾何差異，並依盂肱關節間隙、骨折或退化評估目的選位。",
+            "在可外展與不可外展的病人間，安全選擇 axillary 或 Velpeau view。",
+            "說明 scapular Y、outlet、Zanca、Stryker notch 與 West Point view 的擺位、束角及主要適應症。"
+          ],
+          "required_views": [
+            "True AP：軀幹正對探測器；依目的取得肱骨外旋、中立或內旋，中心線對準盂肱關節。",
+            "Grashey：患側向探測器旋轉約 35–45 度，使肩胛面接近平行探測器並打開盂肱關節間隙。",
+            "Axillary：可耐受時肩外展約 70–90 度，中心線穿過腋窩；無法外展時改用不移動患肢、軀幹後傾的 Velpeau 投影。",
+            "Scapular Y 與 outlet：將肩胛骨調成側位；outlet 在 Y view 基礎上加約 10–15 度尾側束角以觀察肩峰下出口。",
+            "Zanca：以較低曝射條件與約 10–15 度頭側束角顯示肩鎖關節。",
+            "Stryker notch：仰臥、患側手置頭頂或後方，中心線約向頭側 10 度，用於顯示肱骨頭後外側壓陷。",
+            "West Point：俯臥、肩外展約 90 度，中心線約向內側與尾側各 25 度，用於前下盂緣骨性缺損；實際角度依設備與機構 protocol 調整。"
+          ],
+          "key_points": [
+            "單一 AP 投影不足以可靠判斷盂肱對位；正交或替代軸向投影可補足前後方向資訊。",
+            "Grashey 的目標是讓關節盂切線化並打開盂肱關節間隙，不是把一般 AP 任意旋轉後重新命名。",
+            "創傷後疑似脫位或骨折時，不應為取得標準 axillary view 強迫肩外展；Velpeau 可在患肢維持保護姿勢下提供軸向資訊。",
+            "特殊投影回答的是特定問題：Zanca 看肩鎖關節、outlet 看肩峰下出口、Stryker notch 看 Hill-Sachs、West Point 看前下盂緣。"
+          ],
+          "pitfalls": [
+            "把 true AP 與 Grashey 視為可互換，未檢查關節盂是否真正切線化。",
+            "在急性疼痛或疑似骨折時為追求標準 axillary view 強迫外展。",
+            "只寫投影名稱而未核對旋轉、中心線與涵蓋範圍，導致影像看似完整卻無法回答臨床問題。",
+            "以特殊投影的單一陰性結果排除不穩定或骨缺損，而未與完整創傷系列及進階影像對照。"
+          ],
+          "assessment": "給四個情境：非創傷性肩痛、疑似前方脫位、無法外展的急性創傷、局部肩鎖關節壓痛。學員需為每例開立最小但足夠的投影組合，口述擺位與束角，並指出每一投影要回答的問題及無法安全取得時的替代方案。",
+          "reference_ids": [
+            "acr-acute2025",
+            "acr-chronic2023",
+            "xr-mr-correlation2019"
+          ],
+          "drills": [
+            {
+              "name": "AMSSM 肩部 X 光照射位入門",
+              "kind": "radiograph-demo",
+              "learning_tier": "core",
+              "target": "AP、Grashey、scapular Y 與 axillary 的選位目的",
+              "title": "Shoulder | MSK Radiology: X-Ray Educational Modules for Primary Care Residents",
+              "channel": "The AMSSM",
+              "url": "https://www.youtube.com/watch?v=tIz43v5vvf8",
+              "duration": "10:12",
+              "why": "以短篇幅建立標準肩部系列的用途，讓學員先能把投影名稱連到盂肱對位、脫位與肩峰形態，再進入特殊投影細節。",
+              "original_content_date": null,
+              "upload_date": "2024-04-04",
+              "date_note": "原始錄製日期未另行實查；以主編用 yt-dlp 實查的 YouTube 上架日 2024-04-04 記錄。",
+              "presenter": "Kristen Lafferty, DO",
+              "presenter_qualification": "Primary Care Sports Medicine physician, OhioHealth Physician Group；clinical faculty, Riverside Sports Medicine Fellowship；team physician for Ohio Wesleyan University",
+              "qualification_evidence_url": "https://www.owu.edu/about/offices-services-directory/athletic-training/team-physicians/",
+              "scope_note": "本單元只取照射位選擇與影像判讀；影片提及的病理作為投影用途示例，不據此取代完整創傷或慢性肩痛評估。",
+              "contains_intervention": false,
+              "intervention_start_timestamp": null,
+              "diagnostic_segment_range": "00:00–10:12",
+              "source_authority": "professional-society-education",
+              "curation_status": "provisional",
+              "last_verified_at": "2026-08-27",
+              "classic_exception": false,
+              "embed_status": "embeddable",
+              "playback_status": "public",
+              "disclosure": null
+            }
+          ],
+          "reviewed_by": null,
+          "reviewer_role": null,
+          "reviewed_at": null,
+          "reviewed_commit": null
+        },
+        {
+          "id": "ch8-u2",
+          "name": "系統性判讀與影像選擇決策",
+          "type": "orientation",
+          "level": "foundation",
+          "review_status": "draft",
+          "summary": "以對位→骨質與皮質→關節間隙→軟組織的固定順序判讀肩部 X 光，並用 ACR Appropriateness Criteria 將急性或慢性臨床問題轉成「該不該照、先照什麼、何時升級」的影像路徑。",
+          "objectives": [
+            "用固定順序完成肩部 X 光判讀，不因第一個明顯病灶停止搜尋。",
+            "分別以急性創傷與慢性肩痛情境，說明初始 X 光與後續 CT、MRI 或超音波的角色。",
+            "辨認影像品質、投影不足與臨床資訊缺漏，並在結論中明確揭露限制。"
+          ],
+          "required_views": [
+            "至少兩個可判斷前後方向的正交或替代投影，逐一核對盂肱、肩鎖與肩胛胸廓對位。",
+            "全片骨皮質與骨小樑搜尋，包括肱骨頭、解剖頸／外科頸、大小結節、關節盂、肩峰、喙突與鎖骨遠端。",
+            "盂肱與肩鎖關節間隙、肩峰肱骨間距及周邊軟組織鈣化、腫脹或積氣的檢核。",
+            "有義肢時另核對組件位置、周圍骨質與既往影像變化，並依 ACR 路徑決定是否升級。"
+          ],
+          "key_points": [
+            "急性肩痛與慢性肩痛的初始影像問題不同；開單前先寫清楚創傷機轉、側別、活動受限與欲排除的病灶。",
+            "固定順序是防止 satisfaction of search 的工具：先對位，再看骨質／皮質、關節間隙，最後查看軟組織。",
+            "X 光陰性不代表軟組織、隱匿性骨折或盂唇病灶已被排除；是否升級取決於臨床疑慮與初始影像結果。",
+            "影像適切性是決策框架，不是把所有可用模態一次開齊。"
+          ],
+          "pitfalls": [
+            "看到明顯退化或鈣化後停止搜尋，漏掉脫位、骨折或第二個病灶。",
+            "把技術不良或投影不足寫成陰性檢查，而沒有提出補拍或替代位。",
+            "未區分前方與後方脫位，只寫『肩關節脫位』。",
+            "把 ACR 建議當成不需結合病史與理學檢查的自動開單規則。"
+          ],
+          "assessment": "給一組三投影肩部 X 光與一段臨床摘要，學員需依對位→骨質／皮質→關節間隙→軟組織逐項口述，列出檢查品質限制，並依急性或慢性 ACR 路徑說明是否需要補拍或進階影像；答案不得以『X 光正常』直接結案。",
+          "reference_ids": [
+            "acr-acute2025",
+            "acr-chronic2023",
+            "acr-arthroplasty2022",
+            "xr-mr-correlation2019"
+          ],
+          "drills": [
+            {
+              "name": "創傷醫師的肩部投影與判讀框架",
+              "kind": "radiograph-demo",
+              "learning_tier": "extension",
+              "target": "Grashey、scapular Y、axillary 與創傷對位",
+              "title": "Shoulder Radiographic Evaluation",
+              "channel": "Yelena Bogdan, MD - Orthopaedic Trauma",
+              "url": "https://www.youtube.com/watch?v=AAm493BgSH8",
+              "duration": "22:43",
+              "why": "從骨科創傷角度把投影幾何連到脫位、Hill-Sachs 與近端肱骨骨折，適合在入門短片後練習為何多投影不可省略。",
+              "original_content_date": null,
+              "upload_date": "2019-07-13",
+              "date_note": "Cutoff 之前的創傷放射經典課：以骨科創傷醫師視角逐一示範 Grashey、scapular Y、axillary 為何必要，並接到後脫位、Hill-Sachs 與近端肱骨骨折。近五年幾乎沒有同等長度、可嵌入、具名專家原頻道的肩部標準位向課可取代。",
+              "presenter": "Yelena Bogdan, MD",
+              "presenter_qualification": "Board-certified orthopaedic trauma surgeon；Associate Professor of Orthopaedic Surgery, Albert Einstein College of Medicine；Director of Orthopaedic Education, Jacobi Medical Center；Hospital for Special Surgery Orthopaedic Trauma fellowship",
+              "qualification_evidence_url": "https://pubmed.ncbi.nlm.nih.gov/35700075/",
+              "scope_note": "作為投影與創傷判讀的延伸教材；疾病分類與處置不由單一影片決定，且本課不涵蓋任何介入操作。 Einstein faculty 頁受 bot 防護無法程式驗證，改用可經 PubMed eutils 驗證的作者證據（JBJS Am 2022〈What's New in Orthopaedic Trauma〉）。",
+              "contains_intervention": false,
+              "intervention_start_timestamp": null,
+              "diagnostic_segment_range": "00:00–22:43",
+              "source_authority": "named-specialist-clinician-channel",
+              "curation_status": "provisional",
+              "last_verified_at": "2026-08-27",
+              "classic_exception": true,
+              "classic_exception_reason": "Cutoff 之前的創傷放射經典課：以骨科創傷醫師視角逐一示範 Grashey、scapular Y、axillary 為何必要，並接到後脫位、Hill-Sachs 與近端肱骨骨折。近五年幾乎沒有同等長度、可嵌入、具名專家原頻道的肩部標準位向課可取代。",
+              "embed_status": "embeddable",
+              "playback_status": "public",
+              "disclosure": null
+            }
+          ],
+          "reviewed_by": null,
+          "reviewer_role": null,
+          "reviewed_at": null,
+          "reviewed_commit": null
+        }
+      ]
+    },
+    {
+      "chapter": "XR2",
+      "title": "X 光：常見病理與判讀陷阱",
+      "units": [
+        {
+          "id": "ch9-u1",
+          "name": "鈣化、肩鎖關節與退化性變化",
+          "type": "pathology",
+          "level": "intermediate",
+          "review_status": "draft",
+          "summary": "辨認鈣化性肌腱炎、肩鎖與盂肱關節退化、肩峰形態及 acromiohumeral distance 的影像表現，同時避免把常見結構或量測異常直接等同症狀來源。",
+          "objectives": [
+            "依位置與形態描述旋轉肌袖區鈣化，並列出可能的重疊與鑑別。",
+            "分開描述肩鎖關節與盂肱關節的骨刺、關節間隙、軟骨下硬化與囊腫。",
+            "評估肩峰形態與 acromiohumeral distance 時，同時記錄投影、旋轉與技術限制。"
+          ],
+          "required_views": [
+            "AP／Grashey：鈣化位置、盂肱關節間隙、骨刺與肱骨頭上移。",
+            "Outlet：肩峰下出口與肩峰形態，但需辨認投影依賴性。",
+            "Zanca：肩鎖關節間隙、骨贅、遠端鎖骨與對位。",
+            "可比較的標準 AP：量測 acromiohumeral distance，並註明旋轉與中心線是否合格。"
+          ],
+          "key_points": [
+            "鈣化性肌腱病的沉積多位於旋轉肌袖區，但需以解剖位置、形態及其他投影避免與骨片或其他軟組織鈣化混淆。",
+            "肩鎖關節退化與肩峰骨刺常見；報告應描述所見，不應僅憑 X 光宣告其為症狀來源。",
+            "Acromiohumeral distance 受投影、姿勢與旋轉影響；明顯縮小可提示慢性旋轉肌袖功能失衡，但不是單獨診斷撕裂的工具。",
+            "肩峰形態分類存在觀察者差異，應避免以單一形態直接推論病因。"
+          ],
+          "pitfalls": [
+            "把鈣化投影重疊在肱骨大結節上誤認為骨折片。",
+            "將肩鎖關節骨贅或彎曲肩峰直接寫成夾擠症候群。",
+            "在非標準 AP 或肱骨旋轉不一致時比較 acromiohumeral distance。",
+            "以退化性變化的嚴重度直接推定疼痛嚴重度。"
+          ],
+          "assessment": "給三組影像：旋轉肌袖區鈣化、肩鎖關節退化與疑似肱骨頭上移。學員需依投影品質描述位置與形態、完成可重複量測、列出至少一項替代解釋，並把『影像所見』與『症狀來源』分成兩句陳述。",
+          "reference_ids": [
+            "calcific-imaging2021",
+            "acr-chronic2023",
+            "xr-mr-correlation2019"
+          ],
+          "drills": [
+            {
+              "name": "高產出肩部與鎖骨 X 光清單",
+              "kind": "radiograph-demo",
+              "learning_tier": "core",
+              "target": "退化、鈣化、肩鎖關節與常見病理搜尋清單",
+              "title": "High-Yield X-Ray Series: Shoulder, Clavicle and Elbow | Fellow Online Lecture Series",
+              "channel": "The AMSSM",
+              "url": "https://www.youtube.com/watch?v=SCJkbHht-wg",
+              "duration": "1:00:25",
+              "why": "以完整長講提供肩部與鎖骨的高產出判讀清單，適合把鈣化、退化與肩鎖關節所見放回系統性搜尋流程。",
+              "original_content_date": null,
+              "upload_date": "2024-10-17",
+              "date_note": "原始錄製日期未另行實查；以主編用 yt-dlp 實查的 YouTube 上架日 2024-10-17 記錄。",
+              "presenter": "Robert D. Boutin, MD",
+              "presenter_qualification": "Clinical Professor of Radiology and Director of the Musculoskeletal Imaging Fellowship, Stanford University；musculoskeletal radiologist；American Board of Radiology certified in Diagnostic Radiology；President, Society of Academic Bone Radiologists",
+              "qualification_evidence_url": "https://profiles.stanford.edu/robert-boutin",
+              "scope_note": "影片同時涵蓋鎖骨與肘部；本單元聚焦肩部、肩鎖關節及相關 X 光判讀，肘部內容不列入學習目標。",
+              "contains_intervention": false,
+              "intervention_start_timestamp": null,
+              "diagnostic_segment_range": "00:00–1:00:25",
+              "source_authority": "professional-society-education",
+              "curation_status": "provisional",
+              "last_verified_at": "2026-08-27",
+              "classic_exception": false,
+              "embed_status": "embeddable",
+              "playback_status": "public",
+              "disclosure": null
+            }
+          ],
+          "reviewed_by": null,
+          "reviewer_role": null,
+          "reviewed_at": null,
+          "reviewed_commit": null
+        },
+        {
+          "id": "ch9-u2",
+          "name": "創傷：脫位、骨缺損與近端肱骨骨折",
+          "type": "pathology",
+          "level": "intermediate",
+          "review_status": "draft",
+          "summary": "以多投影區分前方與後方脫位，搜尋 Hill-Sachs、reverse Hill-Sachs 與 bony Bankart，並用標準語言描述近端肱骨骨折的節段、位移與關節面關係，不由單一投影或單一分類取代完整評估。",
+          "objectives": [
+            "在 AP、scapular Y 與 axillary／Velpeau 上判斷肱骨頭相對關節盂的前後方向。",
+            "區分 anterior instability 常見的 Hill-Sachs／前下盂緣損傷與 posterior instability 的 reverse Hill-Sachs／後盂緣損傷。",
+            "以近端肱骨四個解剖節段描述骨折，並說明分類與進一步 CT 評估的限制。"
+          ],
+          "required_views": [
+            "AP／Grashey：肱骨頭對位、大小結節、解剖頸與外科頸。",
+            "Scapular Y：肱骨頭相對 Y 交會點的前後移位。",
+            "Axillary 或 Velpeau：直接確認前方或後方脫位及盂緣骨片。",
+            "疑似 anterior instability 時檢視肱骨頭後外側 Hill-Sachs 與前下盂緣 bony Bankart；疑似 posterior instability 時搜尋肱骨頭前內側 reverse Hill-Sachs。",
+            "骨折複雜、關節面或盂緣骨缺損量化會改變決策時，依臨床路徑考慮 CT。"
+          ],
+          "key_points": [
+            "前方脫位最常見，肱骨頭位於關節盂前下方；後方脫位較易在 AP 漏診，需軸向或可靠替代投影確認。",
+            "Hill-Sachs 是 anterior dislocation 造成的肱骨頭後外側壓陷；reverse Hill-Sachs 位於前內側並支持 posterior dislocation 機轉。",
+            "Bony Bankart 位於前下盂緣，需與後盂緣損傷方向明確區分。",
+            "Neer 分類以肱骨頭、大小結節與肱骨幹四個節段及位移關係溝通，但報告仍應逐項描述，不只給分類名稱。"
+          ],
+          "pitfalls": [
+            "只靠 AP 將後方脫位誤判為技術性內旋。",
+            "把 anterior dislocation 的 Hill-Sachs 寫到肱骨頭前內側，或把 reverse Hill-Sachs 與前方脫位混用。",
+            "復位後只確認對位，未搜尋盂緣與肱骨頭壓陷性骨缺損。",
+            "只報 Neer 類別而未描述節段、位移、關節面與影像限制。"
+          ],
+          "assessment": "給前方脫位、後方脫位與近端肱骨骨折三組多投影影像。學員需逐例指出肱骨頭相對關節盂的方向、標記相符的肱骨頭與盂緣骨缺損位置，並以四節段語言描述骨折；若投影不足，必須明確提出補拍或 CT 理由。",
+          "reference_ids": [
+            "acr-acute2025",
+            "posterior-instability2024",
+            "xr-mr-correlation2019"
+          ],
+          "drills": [
+            {
+              "name": "Neer 近端肱骨骨折分類圖解",
+              "kind": "radiograph-demo",
+              "learning_tier": "extension",
+              "target": "四節段與一至四部分骨折的分類語言",
+              "title": "Proximal Humerus Fractures classification - Everything You Need To Know - Dr. Nabil Ebraheim",
+              "channel": "nabil ebraheim",
+              "url": "https://www.youtube.com/watch?v=IXCD_BcbgOw",
+              "duration": "2:55",
+              "why": "用短圖解補足近端肱骨四個節段與 Neer 分類詞彙，讓學員能在完整描述後使用一致分類語言。",
+              "original_content_date": null,
+              "upload_date": "2011-12-09",
+              "date_note": "影片集中講解至今仍廣泛使用的 Neer 近端肱骨骨折分類，包括四個 segment、位移與角度門檻；概念穩定且正好填補 X2 的分類缺口。",
+              "presenter": "Nabil A. Ebraheim, MD",
+              "presenter_qualification": "Professor and Chair, Department of Orthopaedic Surgery, University of Toledo；orthopaedic surgeon and orthopaedic residency director（UToledo 2015 官方資料所載）",
+              "qualification_evidence_url": "https://news.utoledo.edu/index.php/10_21_2015/ut-health-orthopaedic-surgeon-scores-in-100th-percentile-on-board-recertification",
+              "scope_note": "只取骨折分類與描述語言；分類不取代多投影、CT 評估或個別病人的處置決策。",
+              "contains_intervention": false,
+              "intervention_start_timestamp": null,
+              "diagnostic_segment_range": "00:00–2:55",
+              "source_authority": "named-specialist-clinician-channel",
+              "curation_status": "provisional",
+              "last_verified_at": "2026-08-27",
+              "classic_exception": true,
+              "classic_exception_reason": "影片集中講解至今仍廣泛使用的 Neer 近端肱骨骨折分類，包括四個 segment、位移與角度門檻；概念穩定且正好填補 X2 的分類缺口。",
+              "embed_status": "embeddable",
+              "playback_status": "public",
+              "disclosure": null
+            }
+          ],
+          "reviewed_by": null,
+          "reviewer_role": null,
+          "reviewed_at": null,
+          "reviewed_commit": null
+        }
+      ]
+    },
+    {
+      "chapter": "US1",
+      "title": "超音波基礎：診斷範圍、安全與影像最佳化",
       "units": [
         {
           "id": "ch0-u1",
@@ -408,13 +711,7 @@
           "reviewer_role": null,
           "reviewed_at": null,
           "reviewed_commit": null
-        }
-      ]
-    },
-    {
-      "chapter": "CH1",
-      "title": "影像最佳化與基本技術",
-      "units": [
+        },
         {
           "id": "ch1-u1",
           "name": "探頭、B-mode 與 Doppler 最佳化",
@@ -579,8 +876,8 @@
       ]
     },
     {
-      "chapter": "CH2",
-      "title": "標準肩部掃描流程",
+      "chapter": "US2",
+      "title": "超音波前側：標準流程、肱二頭肌與肩胛下肌",
       "units": [
         {
           "id": "ch2-u1",
@@ -776,13 +1073,7 @@
           "reviewer_role": null,
           "reviewed_at": null,
           "reviewed_commit": null
-        }
-      ]
-    },
-    {
-      "chapter": "CH3",
-      "title": "前側肩部：肱二頭肌與肩胛下肌",
-      "units": [
+        },
         {
           "id": "ch3-u1",
           "name": "肱二頭肌長頭與肌腱溝",
@@ -978,8 +1269,8 @@
       ]
     },
     {
-      "chapter": "CH4",
-      "title": "上外側肩部：旋轉間隙與棘上肌",
+      "chapter": "US3",
+      "title": "超音波上外側與後側：旋轉間隙、棘上肌與動態檢查",
       "units": [
         {
           "id": "ch4-u1",
@@ -1145,13 +1436,7 @@
           "reviewer_role": null,
           "reviewed_at": null,
           "reviewed_commit": null
-        }
-      ]
-    },
-    {
-      "chapter": "CH5",
-      "title": "後側肩部與動態檢查",
-      "units": [
+        },
         {
           "id": "ch5-u1",
           "name": "棘下肌、小圓肌與後側關節",
@@ -1352,8 +1637,8 @@
       ]
     },
     {
-      "chapter": "CH6",
-      "title": "常見病理判讀",
+      "chapter": "US4",
+      "title": "超音波判讀、報告與品質",
       "units": [
         {
           "id": "ch6-u1",
@@ -1579,13 +1864,7 @@
           "reviewer_role": null,
           "reviewed_at": null,
           "reviewed_commit": null
-        }
-      ]
-    },
-    {
-      "chapter": "CH7",
-      "title": "報告、品質與病例整合",
-      "units": [
+        },
         {
           "id": "ch7-u1",
           "name": "結構化報告與最低紀錄",
@@ -1698,310 +1977,7 @@
       ]
     },
     {
-      "chapter": "CH8",
-      "title": "X 光：照射位選擇與系統性判讀",
-      "units": [
-        {
-          "id": "ch8-u1",
-          "name": "肩部照射位選擇與技術",
-          "type": "protocol",
-          "level": "foundation",
-          "review_status": "draft",
-          "summary": "從臨床問題選擇 true AP／Grashey、axillary 或 Velpeau、scapular Y、outlet、Zanca、Stryker notch 與 West Point view，理解各投影的擺位、中心線方向與可回答的問題，並在活動受限時選擇不強迫患肢的替代位。",
-          "objectives": [
-            "說明 true AP 與 Grashey view 的幾何差異，並依盂肱關節間隙、骨折或退化評估目的選位。",
-            "在可外展與不可外展的病人間，安全選擇 axillary 或 Velpeau view。",
-            "說明 scapular Y、outlet、Zanca、Stryker notch 與 West Point view 的擺位、束角及主要適應症。"
-          ],
-          "required_views": [
-            "True AP：軀幹正對探測器；依目的取得肱骨外旋、中立或內旋，中心線對準盂肱關節。",
-            "Grashey：患側向探測器旋轉約 35–45 度，使肩胛面接近平行探測器並打開盂肱關節間隙。",
-            "Axillary：可耐受時肩外展約 70–90 度，中心線穿過腋窩；無法外展時改用不移動患肢、軀幹後傾的 Velpeau 投影。",
-            "Scapular Y 與 outlet：將肩胛骨調成側位；outlet 在 Y view 基礎上加約 10–15 度尾側束角以觀察肩峰下出口。",
-            "Zanca：以較低曝射條件與約 10–15 度頭側束角顯示肩鎖關節。",
-            "Stryker notch：仰臥、患側手置頭頂或後方，中心線約向頭側 10 度，用於顯示肱骨頭後外側壓陷。",
-            "West Point：俯臥、肩外展約 90 度，中心線約向內側與尾側各 25 度，用於前下盂緣骨性缺損；實際角度依設備與機構 protocol 調整。"
-          ],
-          "key_points": [
-            "單一 AP 投影不足以可靠判斷盂肱對位；正交或替代軸向投影可補足前後方向資訊。",
-            "Grashey 的目標是讓關節盂切線化並打開盂肱關節間隙，不是把一般 AP 任意旋轉後重新命名。",
-            "創傷後疑似脫位或骨折時，不應為取得標準 axillary view 強迫肩外展；Velpeau 可在患肢維持保護姿勢下提供軸向資訊。",
-            "特殊投影回答的是特定問題：Zanca 看肩鎖關節、outlet 看肩峰下出口、Stryker notch 看 Hill-Sachs、West Point 看前下盂緣。"
-          ],
-          "pitfalls": [
-            "把 true AP 與 Grashey 視為可互換，未檢查關節盂是否真正切線化。",
-            "在急性疼痛或疑似骨折時為追求標準 axillary view 強迫外展。",
-            "只寫投影名稱而未核對旋轉、中心線與涵蓋範圍，導致影像看似完整卻無法回答臨床問題。",
-            "以特殊投影的單一陰性結果排除不穩定或骨缺損，而未與完整創傷系列及進階影像對照。"
-          ],
-          "assessment": "給四個情境：非創傷性肩痛、疑似前方脫位、無法外展的急性創傷、局部肩鎖關節壓痛。學員需為每例開立最小但足夠的投影組合，口述擺位與束角，並指出每一投影要回答的問題及無法安全取得時的替代方案。",
-          "reference_ids": [
-            "acr-acute2025",
-            "acr-chronic2023",
-            "xr-mr-correlation2019"
-          ],
-          "drills": [
-            {
-              "name": "AMSSM 肩部 X 光照射位入門",
-              "kind": "radiograph-demo",
-              "learning_tier": "core",
-              "target": "AP、Grashey、scapular Y 與 axillary 的選位目的",
-              "title": "Shoulder | MSK Radiology: X-Ray Educational Modules for Primary Care Residents",
-              "channel": "The AMSSM",
-              "url": "https://www.youtube.com/watch?v=tIz43v5vvf8",
-              "duration": "10:12",
-              "why": "以短篇幅建立標準肩部系列的用途，讓學員先能把投影名稱連到盂肱對位、脫位與肩峰形態，再進入特殊投影細節。",
-              "original_content_date": null,
-              "upload_date": "2024-04-04",
-              "date_note": "原始錄製日期未另行實查；以主編用 yt-dlp 實查的 YouTube 上架日 2024-04-04 記錄。",
-              "presenter": "Kristen Lafferty, DO",
-              "presenter_qualification": "Primary Care Sports Medicine physician, OhioHealth Physician Group；clinical faculty, Riverside Sports Medicine Fellowship；team physician for Ohio Wesleyan University",
-              "qualification_evidence_url": "https://www.owu.edu/about/offices-services-directory/athletic-training/team-physicians/",
-              "scope_note": "本單元只取照射位選擇與影像判讀；影片提及的病理作為投影用途示例，不據此取代完整創傷或慢性肩痛評估。",
-              "contains_intervention": false,
-              "intervention_start_timestamp": null,
-              "diagnostic_segment_range": "00:00–10:12",
-              "source_authority": "professional-society-education",
-              "curation_status": "provisional",
-              "last_verified_at": "2026-08-27",
-              "classic_exception": false,
-              "embed_status": "embeddable",
-              "playback_status": "public",
-              "disclosure": null
-            }
-          ],
-          "reviewed_by": null,
-          "reviewer_role": null,
-          "reviewed_at": null,
-          "reviewed_commit": null
-        },
-        {
-          "id": "ch8-u2",
-          "name": "系統性判讀與影像選擇決策",
-          "type": "orientation",
-          "level": "foundation",
-          "review_status": "draft",
-          "summary": "以對位→骨質與皮質→關節間隙→軟組織的固定順序判讀肩部 X 光，並用 ACR Appropriateness Criteria 將急性或慢性臨床問題轉成「該不該照、先照什麼、何時升級」的影像路徑。",
-          "objectives": [
-            "用固定順序完成肩部 X 光判讀，不因第一個明顯病灶停止搜尋。",
-            "分別以急性創傷與慢性肩痛情境，說明初始 X 光與後續 CT、MRI 或超音波的角色。",
-            "辨認影像品質、投影不足與臨床資訊缺漏，並在結論中明確揭露限制。"
-          ],
-          "required_views": [
-            "至少兩個可判斷前後方向的正交或替代投影，逐一核對盂肱、肩鎖與肩胛胸廓對位。",
-            "全片骨皮質與骨小樑搜尋，包括肱骨頭、解剖頸／外科頸、大小結節、關節盂、肩峰、喙突與鎖骨遠端。",
-            "盂肱與肩鎖關節間隙、肩峰肱骨間距及周邊軟組織鈣化、腫脹或積氣的檢核。",
-            "有義肢時另核對組件位置、周圍骨質與既往影像變化，並依 ACR 路徑決定是否升級。"
-          ],
-          "key_points": [
-            "急性肩痛與慢性肩痛的初始影像問題不同；開單前先寫清楚創傷機轉、側別、活動受限與欲排除的病灶。",
-            "固定順序是防止 satisfaction of search 的工具：先對位，再看骨質／皮質、關節間隙，最後查看軟組織。",
-            "X 光陰性不代表軟組織、隱匿性骨折或盂唇病灶已被排除；是否升級取決於臨床疑慮與初始影像結果。",
-            "影像適切性是決策框架，不是把所有可用模態一次開齊。"
-          ],
-          "pitfalls": [
-            "看到明顯退化或鈣化後停止搜尋，漏掉脫位、骨折或第二個病灶。",
-            "把技術不良或投影不足寫成陰性檢查，而沒有提出補拍或替代位。",
-            "未區分前方與後方脫位，只寫『肩關節脫位』。",
-            "把 ACR 建議當成不需結合病史與理學檢查的自動開單規則。"
-          ],
-          "assessment": "給一組三投影肩部 X 光與一段臨床摘要，學員需依對位→骨質／皮質→關節間隙→軟組織逐項口述，列出檢查品質限制，並依急性或慢性 ACR 路徑說明是否需要補拍或進階影像；答案不得以『X 光正常』直接結案。",
-          "reference_ids": [
-            "acr-acute2025",
-            "acr-chronic2023",
-            "acr-arthroplasty2022",
-            "xr-mr-correlation2019"
-          ],
-          "drills": [
-            {
-              "name": "創傷醫師的肩部投影與判讀框架",
-              "kind": "radiograph-demo",
-              "learning_tier": "extension",
-              "target": "Grashey、scapular Y、axillary 與創傷對位",
-              "title": "Shoulder Radiographic Evaluation",
-              "channel": "Yelena Bogdan, MD - Orthopaedic Trauma",
-              "url": "https://www.youtube.com/watch?v=AAm493BgSH8",
-              "duration": "22:43",
-              "why": "從骨科創傷角度把投影幾何連到脫位、Hill-Sachs 與近端肱骨骨折，適合在入門短片後練習為何多投影不可省略。",
-              "original_content_date": null,
-              "upload_date": "2019-07-13",
-              "date_note": "Cutoff 之前的創傷放射經典課：以骨科創傷醫師視角逐一示範 Grashey、scapular Y、axillary 為何必要，並接到後脫位、Hill-Sachs 與近端肱骨骨折。近五年幾乎沒有同等長度、可嵌入、具名專家原頻道的肩部標準位向課可取代。",
-              "presenter": "Yelena Bogdan, MD",
-              "presenter_qualification": "Board-certified orthopaedic trauma surgeon；Associate Professor of Orthopaedic Surgery, Albert Einstein College of Medicine；Director of Orthopaedic Education, Jacobi Medical Center；Hospital for Special Surgery Orthopaedic Trauma fellowship",
-              "qualification_evidence_url": "https://pubmed.ncbi.nlm.nih.gov/35700075/",
-              "scope_note": "作為投影與創傷判讀的延伸教材；疾病分類與處置不由單一影片決定，且本課不涵蓋任何介入操作。 Einstein faculty 頁受 bot 防護無法程式驗證，改用可經 PubMed eutils 驗證的作者證據（JBJS Am 2022〈What's New in Orthopaedic Trauma〉）。",
-              "contains_intervention": false,
-              "intervention_start_timestamp": null,
-              "diagnostic_segment_range": "00:00–22:43",
-              "source_authority": "named-specialist-clinician-channel",
-              "curation_status": "provisional",
-              "last_verified_at": "2026-08-27",
-              "classic_exception": true,
-              "classic_exception_reason": "Cutoff 之前的創傷放射經典課：以骨科創傷醫師視角逐一示範 Grashey、scapular Y、axillary 為何必要，並接到後脫位、Hill-Sachs 與近端肱骨骨折。近五年幾乎沒有同等長度、可嵌入、具名專家原頻道的肩部標準位向課可取代。",
-              "embed_status": "embeddable",
-              "playback_status": "public",
-              "disclosure": null
-            }
-          ],
-          "reviewed_by": null,
-          "reviewer_role": null,
-          "reviewed_at": null,
-          "reviewed_commit": null
-        }
-      ]
-    },
-    {
-      "chapter": "CH9",
-      "title": "X 光：常見病理與判讀陷阱",
-      "units": [
-        {
-          "id": "ch9-u1",
-          "name": "鈣化、肩鎖關節與退化性變化",
-          "type": "pathology",
-          "level": "intermediate",
-          "review_status": "draft",
-          "summary": "辨認鈣化性肌腱炎、肩鎖與盂肱關節退化、肩峰形態及 acromiohumeral distance 的影像表現，同時避免把常見結構或量測異常直接等同症狀來源。",
-          "objectives": [
-            "依位置與形態描述旋轉肌袖區鈣化，並列出可能的重疊與鑑別。",
-            "分開描述肩鎖關節與盂肱關節的骨刺、關節間隙、軟骨下硬化與囊腫。",
-            "評估肩峰形態與 acromiohumeral distance 時，同時記錄投影、旋轉與技術限制。"
-          ],
-          "required_views": [
-            "AP／Grashey：鈣化位置、盂肱關節間隙、骨刺與肱骨頭上移。",
-            "Outlet：肩峰下出口與肩峰形態，但需辨認投影依賴性。",
-            "Zanca：肩鎖關節間隙、骨贅、遠端鎖骨與對位。",
-            "可比較的標準 AP：量測 acromiohumeral distance，並註明旋轉與中心線是否合格。"
-          ],
-          "key_points": [
-            "鈣化性肌腱病的沉積多位於旋轉肌袖區，但需以解剖位置、形態及其他投影避免與骨片或其他軟組織鈣化混淆。",
-            "肩鎖關節退化與肩峰骨刺常見；報告應描述所見，不應僅憑 X 光宣告其為症狀來源。",
-            "Acromiohumeral distance 受投影、姿勢與旋轉影響；明顯縮小可提示慢性旋轉肌袖功能失衡，但不是單獨診斷撕裂的工具。",
-            "肩峰形態分類存在觀察者差異，應避免以單一形態直接推論病因。"
-          ],
-          "pitfalls": [
-            "把鈣化投影重疊在肱骨大結節上誤認為骨折片。",
-            "將肩鎖關節骨贅或彎曲肩峰直接寫成夾擠症候群。",
-            "在非標準 AP 或肱骨旋轉不一致時比較 acromiohumeral distance。",
-            "以退化性變化的嚴重度直接推定疼痛嚴重度。"
-          ],
-          "assessment": "給三組影像：旋轉肌袖區鈣化、肩鎖關節退化與疑似肱骨頭上移。學員需依投影品質描述位置與形態、完成可重複量測、列出至少一項替代解釋，並把『影像所見』與『症狀來源』分成兩句陳述。",
-          "reference_ids": [
-            "calcific-imaging2021",
-            "acr-chronic2023",
-            "xr-mr-correlation2019"
-          ],
-          "drills": [
-            {
-              "name": "高產出肩部與鎖骨 X 光清單",
-              "kind": "radiograph-demo",
-              "learning_tier": "core",
-              "target": "退化、鈣化、肩鎖關節與常見病理搜尋清單",
-              "title": "High-Yield X-Ray Series: Shoulder, Clavicle and Elbow | Fellow Online Lecture Series",
-              "channel": "The AMSSM",
-              "url": "https://www.youtube.com/watch?v=SCJkbHht-wg",
-              "duration": "1:00:25",
-              "why": "以完整長講提供肩部與鎖骨的高產出判讀清單，適合把鈣化、退化與肩鎖關節所見放回系統性搜尋流程。",
-              "original_content_date": null,
-              "upload_date": "2024-10-17",
-              "date_note": "原始錄製日期未另行實查；以主編用 yt-dlp 實查的 YouTube 上架日 2024-10-17 記錄。",
-              "presenter": "Robert D. Boutin, MD",
-              "presenter_qualification": "Clinical Professor of Radiology and Director of the Musculoskeletal Imaging Fellowship, Stanford University；musculoskeletal radiologist；American Board of Radiology certified in Diagnostic Radiology；President, Society of Academic Bone Radiologists",
-              "qualification_evidence_url": "https://profiles.stanford.edu/robert-boutin",
-              "scope_note": "影片同時涵蓋鎖骨與肘部；本單元聚焦肩部、肩鎖關節及相關 X 光判讀，肘部內容不列入學習目標。",
-              "contains_intervention": false,
-              "intervention_start_timestamp": null,
-              "diagnostic_segment_range": "00:00–1:00:25",
-              "source_authority": "professional-society-education",
-              "curation_status": "provisional",
-              "last_verified_at": "2026-08-27",
-              "classic_exception": false,
-              "embed_status": "embeddable",
-              "playback_status": "public",
-              "disclosure": null
-            }
-          ],
-          "reviewed_by": null,
-          "reviewer_role": null,
-          "reviewed_at": null,
-          "reviewed_commit": null
-        },
-        {
-          "id": "ch9-u2",
-          "name": "創傷：脫位、骨缺損與近端肱骨骨折",
-          "type": "pathology",
-          "level": "intermediate",
-          "review_status": "draft",
-          "summary": "以多投影區分前方與後方脫位，搜尋 Hill-Sachs、reverse Hill-Sachs 與 bony Bankart，並用標準語言描述近端肱骨骨折的節段、位移與關節面關係，不由單一投影或單一分類取代完整評估。",
-          "objectives": [
-            "在 AP、scapular Y 與 axillary／Velpeau 上判斷肱骨頭相對關節盂的前後方向。",
-            "區分 anterior instability 常見的 Hill-Sachs／前下盂緣損傷與 posterior instability 的 reverse Hill-Sachs／後盂緣損傷。",
-            "以近端肱骨四個解剖節段描述骨折，並說明分類與進一步 CT 評估的限制。"
-          ],
-          "required_views": [
-            "AP／Grashey：肱骨頭對位、大小結節、解剖頸與外科頸。",
-            "Scapular Y：肱骨頭相對 Y 交會點的前後移位。",
-            "Axillary 或 Velpeau：直接確認前方或後方脫位及盂緣骨片。",
-            "疑似 anterior instability 時檢視肱骨頭後外側 Hill-Sachs 與前下盂緣 bony Bankart；疑似 posterior instability 時搜尋肱骨頭前內側 reverse Hill-Sachs。",
-            "骨折複雜、關節面或盂緣骨缺損量化會改變決策時，依臨床路徑考慮 CT。"
-          ],
-          "key_points": [
-            "前方脫位最常見，肱骨頭位於關節盂前下方；後方脫位較易在 AP 漏診，需軸向或可靠替代投影確認。",
-            "Hill-Sachs 是 anterior dislocation 造成的肱骨頭後外側壓陷；reverse Hill-Sachs 位於前內側並支持 posterior dislocation 機轉。",
-            "Bony Bankart 位於前下盂緣，需與後盂緣損傷方向明確區分。",
-            "Neer 分類以肱骨頭、大小結節與肱骨幹四個節段及位移關係溝通，但報告仍應逐項描述，不只給分類名稱。"
-          ],
-          "pitfalls": [
-            "只靠 AP 將後方脫位誤判為技術性內旋。",
-            "把 anterior dislocation 的 Hill-Sachs 寫到肱骨頭前內側，或把 reverse Hill-Sachs 與前方脫位混用。",
-            "復位後只確認對位，未搜尋盂緣與肱骨頭壓陷性骨缺損。",
-            "只報 Neer 類別而未描述節段、位移、關節面與影像限制。"
-          ],
-          "assessment": "給前方脫位、後方脫位與近端肱骨骨折三組多投影影像。學員需逐例指出肱骨頭相對關節盂的方向、標記相符的肱骨頭與盂緣骨缺損位置，並以四節段語言描述骨折；若投影不足，必須明確提出補拍或 CT 理由。",
-          "reference_ids": [
-            "acr-acute2025",
-            "posterior-instability2024",
-            "xr-mr-correlation2019"
-          ],
-          "drills": [
-            {
-              "name": "Neer 近端肱骨骨折分類圖解",
-              "kind": "radiograph-demo",
-              "learning_tier": "extension",
-              "target": "四節段與一至四部分骨折的分類語言",
-              "title": "Proximal Humerus Fractures classification - Everything You Need To Know - Dr. Nabil Ebraheim",
-              "channel": "nabil ebraheim",
-              "url": "https://www.youtube.com/watch?v=IXCD_BcbgOw",
-              "duration": "2:55",
-              "why": "用短圖解補足近端肱骨四個節段與 Neer 分類詞彙，讓學員能在完整描述後使用一致分類語言。",
-              "original_content_date": null,
-              "upload_date": "2011-12-09",
-              "date_note": "影片集中講解至今仍廣泛使用的 Neer 近端肱骨骨折分類，包括四個 segment、位移與角度門檻；概念穩定且正好填補 X2 的分類缺口。",
-              "presenter": "Nabil A. Ebraheim, MD",
-              "presenter_qualification": "Professor and Chair, Department of Orthopaedic Surgery, University of Toledo；orthopaedic surgeon and orthopaedic residency director（UToledo 2015 官方資料所載）",
-              "qualification_evidence_url": "https://news.utoledo.edu/index.php/10_21_2015/ut-health-orthopaedic-surgeon-scores-in-100th-percentile-on-board-recertification",
-              "scope_note": "只取骨折分類與描述語言；分類不取代多投影、CT 評估或個別病人的處置決策。",
-              "contains_intervention": false,
-              "intervention_start_timestamp": null,
-              "diagnostic_segment_range": "00:00–2:55",
-              "source_authority": "named-specialist-clinician-channel",
-              "curation_status": "provisional",
-              "last_verified_at": "2026-08-27",
-              "classic_exception": true,
-              "classic_exception_reason": "影片集中講解至今仍廣泛使用的 Neer 近端肱骨骨折分類，包括四個 segment、位移與角度門檻；概念穩定且正好填補 X2 的分類缺口。",
-              "embed_status": "embeddable",
-              "playback_status": "public",
-              "disclosure": null
-            }
-          ],
-          "reviewed_by": null,
-          "reviewer_role": null,
-          "reviewed_at": null,
-          "reviewed_commit": null
-        }
-      ]
-    },
-    {
-      "chapter": "CH10",
+      "chapter": "MR1",
       "title": "MRI：序列邏輯與正常解剖",
       "units": [
         {
@@ -2149,7 +2125,7 @@
       ]
     },
     {
-      "chapter": "CH11",
+      "chapter": "MR2",
       "title": "MRI：旋轉肌袖與證據邊界",
       "units": [
         {
@@ -2298,7 +2274,7 @@
       ]
     },
     {
-      "chapter": "CH12",
+      "chapter": "MR3",
       "title": "MRI：盂唇、不穩定與常見陷阱",
       "units": [
         {
