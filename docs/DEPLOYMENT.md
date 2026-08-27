@@ -48,3 +48,25 @@
 - 原始內容日期、YouTube 上架日期、適用範圍及廠商揭露顯示正常
 - 搜尋、章節展開、進度、明暗模式及 320/390px 行動版正常
 - Console 無 JavaScript error、404 或 mixed content
+
+## 時區地雷：`last_verified_at` 不得用台北日期
+
+Cloudflare Pages 的建置伺服器跑在 **UTC**。`audit_medical.py` 會檢查
+`last_verified_at` 不得晚於「今天」，而那個「今天」是**建置機的 UTC 日期**。
+
+台北是 UTC+8，所以在**台北時間 00:00–08:00 之間**，本機的今天已經是隔一天，
+UTC 還停在前一天。此時把 `last_verified_at` 填成台北日期，本機 `make audit` 全綠，
+推上去 CF **一定 build failure**，錯誤訊息是每支片各一行「`last_verified_at` 不得晚於今天」。
+
+2026-08-28 實際踩過：13 支新片全被擋，preview 部署 `f713b1a1` 失敗。
+
+**做法**：`last_verified_at` 一律填**實查當下的 UTC 日期**。要驗證就加 `TZ=UTC` 模擬建置環境：
+
+```bash
+COURSE=course DIST=/tmp/dist-cf TZ=UTC python3 src/build/build.py
+COURSE=course DIST=/tmp/dist-cf TZ=UTC python3 src/build/audit.py
+COURSE=course DIST=/tmp/dist-cf TZ=UTC python3 src/build/audit_medical.py
+```
+
+注意 CF 的 build command 用的是**純 `python3`（僅標準函式庫）**，不是 `uv run`；
+本機用 `uv` 跑得過不代表 CF 過得了，這兩件事要分開驗。
