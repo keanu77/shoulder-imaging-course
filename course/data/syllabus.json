@@ -66,6 +66,142 @@
       "type": "peer-reviewed-protocol",
       "year": 2021,
       "url": "https://pubmed.ncbi.nlm.nih.gov/34725606/"
+    },
+    "acr-acute2025": {
+      "pmid": "40409888",
+      "title": "ACR Appropriateness Criteria® Acute Shoulder Pain: 2024 Update",
+      "year": 2025,
+      "journal": "Journal of the American College of Radiology",
+      "type": "practice guideline",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40409888/"
+    },
+    "acr-chronic2023": {
+      "pmid": "37236752",
+      "title": "ACR Appropriateness Criteria® Chronic Shoulder Pain: 2022 Update",
+      "year": 2023,
+      "journal": "Journal of the American College of Radiology",
+      "type": "practice guideline",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37236752/"
+    },
+    "acr-arthroplasty2022": {
+      "pmid": "35550805",
+      "title": "ACR Appropriateness Criteria® Imaging After Shoulder Arthroplasty: 2021 Update",
+      "year": 2022,
+      "journal": "Journal of the American College of Radiology",
+      "type": "practice guideline",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35550805/"
+    },
+    "xr-mr-correlation2019": {
+      "pmid": "31575394",
+      "title": "Radiographic/MR Imaging Correlation of the Shoulder",
+      "year": 2019,
+      "journal": "Magnetic Resonance Imaging Clinics of North America",
+      "type": "review",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31575394/"
+    },
+    "posterior-instability2024": {
+      "pmid": "38605219",
+      "title": "Radiographic and Advanced Imaging Evaluation of Posterior Shoulder Instability",
+      "year": 2024,
+      "journal": "Current Reviews in Musculoskeletal Medicine",
+      "type": "review",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38605219/"
+    },
+    "calcific-imaging2021": {
+      "pmid": "33151457",
+      "title": "Imaging of calcific tendinopathy around the shoulder: usual and unusual presentations and common pitfalls",
+      "year": 2021,
+      "journal": "La Radiologia Medica",
+      "type": "review",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33151457/"
+    },
+    "cuff-tear-patterns2024": {
+      "pmid": "38411840",
+      "title": "Rotator cuff tear patterns: MRI appearance and its surgical relevance",
+      "year": 2024,
+      "journal": "Insights into Imaging",
+      "type": "review",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38411840/"
+    },
+    "cuff-muscles-mri2025": {
+      "pmid": "40326869",
+      "title": "Assessment of the Rotator Cuff Muscles: State-of-the-Art MRI and Clinical Implications",
+      "year": 2025,
+      "journal": "Radiology",
+      "type": "review",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40326869/"
+    },
+    "delaminated2023": {
+      "pmid": "36980441",
+      "title": "Delaminated Tears of the Rotator Cuff: MRI Interpretation with Clinical Correlation",
+      "year": 2023,
+      "journal": "Diagnostics",
+      "type": "review",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36980441/"
+    },
+    "mri-vs-mra2020": {
+      "pmid": "32195972",
+      "title": "Comparison of MRI and MRA for the diagnosis of rotator cuff tears: A meta-analysis",
+      "year": 2020,
+      "journal": "Medicine",
+      "type": "meta-analysis",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32195972/"
+    },
+    "postop-instability2022": {
+      "pmid": "36243507",
+      "title": "Postoperative MRI of Shoulder Instability",
+      "year": 2022,
+      "journal": "Magnetic Resonance Imaging Clinics of North America",
+      "type": "review",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36243507/"
+    },
+    "bone-loss-mri-ct2026": {
+      "pmid": "40952518",
+      "title": "MRI versus CT for glenoid bone loss in shoulder instability: a systematic review and meta-analysis",
+      "year": 2026,
+      "journal": "Skeletal Radiology",
+      "type": "systematic review",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40952518/"
+    },
+    "adhesive-imaging2019": {
+      "pmid": "30607455",
+      "title": "Adhesive capsulitis: review of imaging findings, pathophysiology, clinical presentation, and treatment options",
+      "year": 2019,
+      "journal": "Skeletal Radiology",
+      "type": "review",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30607455/"
+    },
+    "frozen-staging2024": {
+      "pmid": "39157226",
+      "title": "Can magnetic resonance imaging distinguish clinical stages of frozen shoulder? A state-of-the-art review",
+      "year": 2024,
+      "journal": "JSES Reviews, Reports, and Techniques",
+      "type": "review",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39157226/"
+    },
+    "asymptomatic-cuff2025": {
+      "pmid": "41308021",
+      "title": "Rotator Cuff Imaging Abnormalities in Asymptomatic Shoulders: A Systematic Review",
+      "year": 2025,
+      "journal": "Journal of Orthopaedic and Sports Physical Therapy",
+      "type": "systematic review",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41308021/"
+    },
+    "asymptomatic-shoulder2024": {
+      "pmid": "38876437",
+      "title": "Systematic Review of Shoulder Imaging Abnormalities in Asymptomatic Adult Shoulders",
+      "year": 2024,
+      "journal": "Osteoarthritis and Cartilage",
+      "type": "systematic review",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38876437/"
+    },
+    "shoulder-mri-7min2025": {
+      "pmid": "39964270",
+      "title": "Seven-minute MRI Protocol of the Shoulder: Ready for Routine Use",
+      "year": 2025,
+      "journal": "Radiology",
+      "type": "original research",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39964270/"
     }
   },
   "stance": [
@@ -227,8 +363,8 @@
               "embed_status": null,
               "playback_status": null,
               "disclosure": null,
-              "presenter_qualification": null,
-              "qualification_evidence_url": null
+              "presenter_qualification": "Mass General Brigham 急診超音波部門暨 Harvard Emergency Ultrasound Fellowship，具臨床、研究及超音波師資培訓能力。",
+              "qualification_evidence_url": "https://research.massgeneralbrigham.org/en/education-and-training/graduate-medical-education/emergency-medicine/mgb-fellowship-program-in-emergency-ultrasound"
             }
           ],
           "reviewed_by": null,
@@ -404,8 +540,8 @@
               "embed_status": null,
               "playback_status": null,
               "disclosure": null,
-              "presenter_qualification": null,
-              "qualification_evidence_url": null
+              "presenter_qualification": "密西根大學醫學院放射學臨床教授、fellowship-trained 肌肉骨骼放射科醫師及肌肉骨骼超音波教育者。",
+              "qualification_evidence_url": "https://medschool.umich.edu/profile/2474/jon-jacobson"
             },
             {
               "name": "肩部肌肉骨骼超音波入門總覽",
@@ -432,7 +568,7 @@
               "embed_status": null,
               "playback_status": null,
               "disclosure": null,
-              "presenter_qualification": null
+              "presenter_qualification": "Stuart Wildman 為 NHS 進階執業物理治療師與顧問級 MSK sonographer；David Baker 為 NHS 進階執業物理治療師、MSK sonographer、注射治療師及講師。"
             }
           ],
           "reviewed_by": null,
@@ -504,8 +640,8 @@
               "embed_status": null,
               "playback_status": null,
               "disclosure": null,
-              "presenter_qualification": null,
-              "qualification_evidence_url": null
+              "presenter_qualification": "Sports Medicine Ultrasound Group 為英國 MSK 超音波教育機構，提供 competency-based training、PGCert 及 mentorship programmes。",
+              "qualification_evidence_url": "https://www.ultrasoundtraining.co.uk/"
             },
             {
               "name": "Buford：13-point 肩部超音波現場實作",
@@ -534,7 +670,7 @@
               "embed_status": null,
               "playback_status": null,
               "disclosure": null,
-              "presenter_qualification": null
+              "presenter_qualification": "Texas Orthobiologics 創辦人，並擔任 OSET 肌肉骨骼超音波工作坊共同主席及 13-point shoulder ultrasound 講師。"
             }
           ],
           "reviewed_by": null,
@@ -632,8 +768,8 @@
               "embed_status": null,
               "playback_status": null,
               "disclosure": null,
-              "presenter_qualification": null,
-              "qualification_evidence_url": null
+              "presenter_qualification": "臺大醫院肌肉骨骼超音波中心為教學醫院層級單位，提供肌肉骨骼超音波檢查及超音波導引注射等診斷與介入服務。",
+              "qualification_evidence_url": "https://www.ntuh.gov.tw/PMR-MSK/Fpage.action?fid=4355&muid=4333"
             }
           ],
           "reviewed_by": null,
@@ -703,8 +839,8 @@
               "embed_status": null,
               "playback_status": null,
               "disclosure": null,
-              "presenter_qualification": null,
-              "qualification_evidence_url": null
+              "presenter_qualification": "Sports Medicine Ultrasound Group 為英國 MSK 超音波教育機構，提供 competency-based training、PGCert 及 mentorship programmes。",
+              "qualification_evidence_url": "https://www.ultrasoundtraining.co.uk/"
             }
           ],
           "reviewed_by": null,
@@ -756,7 +892,7 @@
               "original_content_date": "2015-02-13",
               "upload_date": "2023-03-20",
               "presenter": "Benjamin DuBois, MD",
-              "qualification_evidence_url": "https://www.sonositeinstitute.com/webinars/diagnostic-shoulder-ultrasound-exam-part-1-5058",
+              "qualification_evidence_url": "https://www.sharp.com/doctors/benjamin-dubois",
               "disclosure": "Sonosite 醫療器材教育平台；內容錄於廠商 webinar。",
               "scope_note": "2015 年內容於 2023 年重上架；須以逐段審閱後的時間點學習，並以本課程更新 pulley、rotator interval 與報告術語。本課只學 00:00–00:54、01:06–01:43、01:55–06:28、06:40–21:26、21:34–27:12、27:32–29:24、29:42–38:52、40:36–48:45、49:48–50:58 的診斷掃描與病理判讀；其餘注射目標、進針、針具與 lidocaine 片段均不作本課操作依據。",
               "contains_intervention": true,
@@ -769,7 +905,7 @@
               "last_verified_at": "2026-08-02",
               "embed_status": null,
               "playback_status": null,
-              "presenter_qualification": null
+              "presenter_qualification": "Sharp Grossmont Hospital affiliated、board-certified 骨科醫師，專門治療肩部疾病、肩關節置換及旋轉肌袖損傷。"
             }
           ],
           "reviewed_by": null,
@@ -830,8 +966,8 @@
               "embed_status": null,
               "playback_status": null,
               "disclosure": null,
-              "presenter_qualification": null,
-              "qualification_evidence_url": null
+              "presenter_qualification": "The Ultrasound Site 為由正式受訓之進階執業物理治療師與顧問級 MSK sonographer 執教的肌肉骨骼超音波訓練機構。",
+              "qualification_evidence_url": "https://theultrasoundsite.co.uk/ultrasound-training-courses/introductory-msk-ultrasound-course/"
             }
           ],
           "reviewed_by": null,
@@ -900,8 +1036,8 @@
               "embed_status": null,
               "playback_status": null,
               "disclosure": null,
-              "presenter_qualification": null,
-              "qualification_evidence_url": null
+              "presenter_qualification": "義大利 University of Genoa 健康科學系診斷影像與放射治療正教授、專科學校主任。",
+              "qualification_evidence_url": "https://rubrica.unige.it/personale/UEZOW14%3D"
             }
           ],
           "reviewed_by": null,
@@ -967,7 +1103,7 @@
               "embed_status": null,
               "playback_status": null,
               "disclosure": null,
-              "presenter_qualification": null
+              "presenter_qualification": "義大利 University of Genoa 健康科學系診斷影像與放射治療正教授、專科學校主任。"
             }
           ],
           "reviewed_by": null,
@@ -1072,7 +1208,7 @@
               "embed_status": null,
               "playback_status": null,
               "disclosure": null,
-              "presenter_qualification": null
+              "presenter_qualification": "SMUG Faculty Lead、進階執業物理治療師、註冊整骨師及 MSK sonographer，並為 Complete Physio Clinical Director。"
             }
           ],
           "reviewed_by": null,
@@ -1125,7 +1261,7 @@
               "upload_date": "2023-07-20",
               "date_note": "YouTube 頁面時區日期為 2023-07-19，yt-dlp 依 UTC 正規化為 2023-07-20。",
               "presenter": "Marc Schmitz, MSc",
-              "qualification_evidence_url": "https://clarius.com/webinar/pragmatic-msk-ultrasound-dynamic-assessment-of-the-shoulder/",
+              "qualification_evidence_url": "https://www.sonoskills.com/team/marc-schmitz/",
               "disclosure": "Clarius 廠商教育平台；影片示範其手持式超音波設備。",
               "scope_note": "講者為 SonoSkills 教育者而非醫師；限用於影像取得與動態描述，不以影片單獨診斷 impingement syndrome 或推定疼痛來源。本課只學 05:06–49:21、56:05–58:01、01:00:44–01:06:45、01:07:13–01:07:33 的診斷掃描與動態描述；其餘介入自述、產品程序說明、注射、nerve block 與 barbotage 問答均不在本課範圍。",
               "contains_intervention": true,
@@ -1137,7 +1273,7 @@
               "classic_exception": null,
               "embed_status": null,
               "playback_status": null,
-              "presenter_qualification": null
+              "presenter_qualification": "SonoSkills 創辦人兼講師，具 Vrije Universiteit Brussel 醫學與藥學院 MSc 背景，長期開發及教授 MSK 超音波課程。"
             }
           ],
           "reviewed_by": null,
@@ -1205,7 +1341,7 @@
               "embed_status": null,
               "playback_status": null,
               "disclosure": null,
-              "presenter_qualification": null
+              "presenter_qualification": "復健醫學與物理醫學專科醫師、Bilbao ARS Médica 復健中心主任，並任西班牙復健與物理醫學學會超音波教師。"
             }
           ],
           "reviewed_by": null,
@@ -1342,8 +1478,8 @@
               "embed_status": null,
               "playback_status": null,
               "disclosure": null,
-              "presenter_qualification": null,
-              "qualification_evidence_url": null
+              "presenter_qualification": "Sports Medicine Ultrasound Group 為英國 MSK 超音波教育機構，提供 competency-based training、PGCert 及 mentorship programmes。",
+              "qualification_evidence_url": "https://www.ultrasoundtraining.co.uk/"
             },
             {
               "name": "AIUM：旋轉肌腱病變與撕裂鑑別",
@@ -1371,7 +1507,7 @@
               "last_verified_at": "2026-08-02",
               "embed_status": null,
               "playback_status": null,
-              "presenter_qualification": null
+              "presenter_qualification": "A.T. Still University 課程資料所載之物理治療師、ABPTS 骨科專科、ARDMS RMSK，並任該校骨科物理治療與 DPT 課程兼任教師。"
             },
             {
               "name": "Sonosite：完整肩部診斷檢查 Part 2",
@@ -1399,7 +1535,7 @@
               "last_verified_at": "2026-08-02",
               "embed_status": null,
               "playback_status": null,
-              "presenter_qualification": null
+              "presenter_qualification": "PubMed 收錄論文所載之 Henry Ford Hospital 肌肉骨骼影像部門作者及肌肉骨骼超音波放射醫學專業人員。"
             }
           ],
           "reviewed_by": null,
@@ -1554,6 +1690,846 @@
             "usmsit2026"
           ],
           "drills": [],
+          "reviewed_by": null,
+          "reviewer_role": null,
+          "reviewed_at": null,
+          "reviewed_commit": null
+        }
+      ]
+    },
+    {
+      "chapter": "CH8",
+      "title": "X 光：照射位選擇與系統性判讀",
+      "units": [
+        {
+          "id": "ch8-u1",
+          "name": "肩部照射位選擇與技術",
+          "type": "protocol",
+          "level": "foundation",
+          "review_status": "draft",
+          "summary": "從臨床問題選擇 true AP／Grashey、axillary 或 Velpeau、scapular Y、outlet、Zanca、Stryker notch 與 West Point view，理解各投影的擺位、中心線方向與可回答的問題，並在活動受限時選擇不強迫患肢的替代位。",
+          "objectives": [
+            "說明 true AP 與 Grashey view 的幾何差異，並依盂肱關節間隙、骨折或退化評估目的選位。",
+            "在可外展與不可外展的病人間，安全選擇 axillary 或 Velpeau view。",
+            "說明 scapular Y、outlet、Zanca、Stryker notch 與 West Point view 的擺位、束角及主要適應症。"
+          ],
+          "required_views": [
+            "True AP：軀幹正對探測器；依目的取得肱骨外旋、中立或內旋，中心線對準盂肱關節。",
+            "Grashey：患側向探測器旋轉約 35–45 度，使肩胛面接近平行探測器並打開盂肱關節間隙。",
+            "Axillary：可耐受時肩外展約 70–90 度，中心線穿過腋窩；無法外展時改用不移動患肢、軀幹後傾的 Velpeau 投影。",
+            "Scapular Y 與 outlet：將肩胛骨調成側位；outlet 在 Y view 基礎上加約 10–15 度尾側束角以觀察肩峰下出口。",
+            "Zanca：以較低曝射條件與約 10–15 度頭側束角顯示肩鎖關節。",
+            "Stryker notch：仰臥、患側手置頭頂或後方，中心線約向頭側 10 度，用於顯示肱骨頭後外側壓陷。",
+            "West Point：俯臥、肩外展約 90 度，中心線約向內側與尾側各 25 度，用於前下盂緣骨性缺損；實際角度依設備與機構 protocol 調整。"
+          ],
+          "key_points": [
+            "單一 AP 投影不足以可靠判斷盂肱對位；正交或替代軸向投影可補足前後方向資訊。",
+            "Grashey 的目標是讓關節盂切線化並打開盂肱關節間隙，不是把一般 AP 任意旋轉後重新命名。",
+            "創傷後疑似脫位或骨折時，不應為取得標準 axillary view 強迫肩外展；Velpeau 可在患肢維持保護姿勢下提供軸向資訊。",
+            "特殊投影回答的是特定問題：Zanca 看肩鎖關節、outlet 看肩峰下出口、Stryker notch 看 Hill-Sachs、West Point 看前下盂緣。"
+          ],
+          "pitfalls": [
+            "把 true AP 與 Grashey 視為可互換，未檢查關節盂是否真正切線化。",
+            "在急性疼痛或疑似骨折時為追求標準 axillary view 強迫外展。",
+            "只寫投影名稱而未核對旋轉、中心線與涵蓋範圍，導致影像看似完整卻無法回答臨床問題。",
+            "以特殊投影的單一陰性結果排除不穩定或骨缺損，而未與完整創傷系列及進階影像對照。"
+          ],
+          "assessment": "給四個情境：非創傷性肩痛、疑似前方脫位、無法外展的急性創傷、局部肩鎖關節壓痛。學員需為每例開立最小但足夠的投影組合，口述擺位與束角，並指出每一投影要回答的問題及無法安全取得時的替代方案。",
+          "reference_ids": [
+            "acr-acute2025",
+            "acr-chronic2023",
+            "xr-mr-correlation2019"
+          ],
+          "drills": [
+            {
+              "name": "AMSSM 肩部 X 光照射位入門",
+              "kind": "radiograph-demo",
+              "learning_tier": "core",
+              "target": "AP、Grashey、scapular Y 與 axillary 的選位目的",
+              "title": "Shoulder | MSK Radiology: X-Ray Educational Modules for Primary Care Residents",
+              "channel": "The AMSSM",
+              "url": "https://www.youtube.com/watch?v=tIz43v5vvf8",
+              "duration": "10:12",
+              "why": "以短篇幅建立標準肩部系列的用途，讓學員先能把投影名稱連到盂肱對位、脫位與肩峰形態，再進入特殊投影細節。",
+              "original_content_date": null,
+              "upload_date": "2024-04-04",
+              "date_note": "原始錄製日期未另行實查；以主編用 yt-dlp 實查的 YouTube 上架日 2024-04-04 記錄。",
+              "presenter": "Kristen Lafferty, DO",
+              "presenter_qualification": "Primary Care Sports Medicine physician, OhioHealth Physician Group；clinical faculty, Riverside Sports Medicine Fellowship；team physician for Ohio Wesleyan University",
+              "qualification_evidence_url": "https://www.owu.edu/about/offices-services-directory/athletic-training/team-physicians/",
+              "scope_note": "本單元只取照射位選擇與影像判讀；影片提及的病理作為投影用途示例，不據此取代完整創傷或慢性肩痛評估。",
+              "contains_intervention": false,
+              "intervention_start_timestamp": null,
+              "diagnostic_segment_range": "00:00–10:12",
+              "source_authority": "professional-society-education",
+              "curation_status": "provisional",
+              "last_verified_at": "2026-08-28",
+              "classic_exception": false,
+              "embed_status": "embeddable",
+              "playback_status": "public",
+              "disclosure": null
+            }
+          ],
+          "reviewed_by": null,
+          "reviewer_role": null,
+          "reviewed_at": null,
+          "reviewed_commit": null
+        },
+        {
+          "id": "ch8-u2",
+          "name": "系統性判讀與影像選擇決策",
+          "type": "orientation",
+          "level": "foundation",
+          "review_status": "draft",
+          "summary": "以對位→骨質與皮質→關節間隙→軟組織的固定順序判讀肩部 X 光，並用 ACR Appropriateness Criteria 將急性或慢性臨床問題轉成「該不該照、先照什麼、何時升級」的影像路徑。",
+          "objectives": [
+            "用固定順序完成肩部 X 光判讀，不因第一個明顯病灶停止搜尋。",
+            "分別以急性創傷與慢性肩痛情境，說明初始 X 光與後續 CT、MRI 或超音波的角色。",
+            "辨認影像品質、投影不足與臨床資訊缺漏，並在結論中明確揭露限制。"
+          ],
+          "required_views": [
+            "至少兩個可判斷前後方向的正交或替代投影，逐一核對盂肱、肩鎖與肩胛胸廓對位。",
+            "全片骨皮質與骨小樑搜尋，包括肱骨頭、解剖頸／外科頸、大小結節、關節盂、肩峰、喙突與鎖骨遠端。",
+            "盂肱與肩鎖關節間隙、肩峰肱骨間距及周邊軟組織鈣化、腫脹或積氣的檢核。",
+            "有義肢時另核對組件位置、周圍骨質與既往影像變化，並依 ACR 路徑決定是否升級。"
+          ],
+          "key_points": [
+            "急性肩痛與慢性肩痛的初始影像問題不同；開單前先寫清楚創傷機轉、側別、活動受限與欲排除的病灶。",
+            "固定順序是防止 satisfaction of search 的工具：先對位，再看骨質／皮質、關節間隙，最後查看軟組織。",
+            "X 光陰性不代表軟組織、隱匿性骨折或盂唇病灶已被排除；是否升級取決於臨床疑慮與初始影像結果。",
+            "影像適切性是決策框架，不是把所有可用模態一次開齊。"
+          ],
+          "pitfalls": [
+            "看到明顯退化或鈣化後停止搜尋，漏掉脫位、骨折或第二個病灶。",
+            "把技術不良或投影不足寫成陰性檢查，而沒有提出補拍或替代位。",
+            "未區分前方與後方脫位，只寫『肩關節脫位』。",
+            "把 ACR 建議當成不需結合病史與理學檢查的自動開單規則。"
+          ],
+          "assessment": "給一組三投影肩部 X 光與一段臨床摘要，學員需依對位→骨質／皮質→關節間隙→軟組織逐項口述，列出檢查品質限制，並依急性或慢性 ACR 路徑說明是否需要補拍或進階影像；答案不得以『X 光正常』直接結案。",
+          "reference_ids": [
+            "acr-acute2025",
+            "acr-chronic2023",
+            "acr-arthroplasty2022",
+            "xr-mr-correlation2019"
+          ],
+          "drills": [
+            {
+              "name": "創傷醫師的肩部投影與判讀框架",
+              "kind": "radiograph-demo",
+              "learning_tier": "extension",
+              "target": "Grashey、scapular Y、axillary 與創傷對位",
+              "title": "Shoulder Radiographic Evaluation",
+              "channel": "Yelena Bogdan, MD - Orthopaedic Trauma",
+              "url": "https://www.youtube.com/watch?v=AAm493BgSH8",
+              "duration": "22:43",
+              "why": "從骨科創傷角度把投影幾何連到脫位、Hill-Sachs 與近端肱骨骨折，適合在入門短片後練習為何多投影不可省略。",
+              "original_content_date": null,
+              "upload_date": "2019-07-13",
+              "date_note": "Cutoff 之前的創傷放射經典課：以骨科創傷醫師視角逐一示範 Grashey、scapular Y、axillary 為何必要，並接到後脫位、Hill-Sachs 與近端肱骨骨折。近五年幾乎沒有同等長度、可嵌入、具名專家原頻道的肩部標準位向課可取代。",
+              "presenter": "Yelena Bogdan, MD",
+              "presenter_qualification": "Board-certified orthopaedic trauma surgeon；Associate Professor of Orthopaedic Surgery, Albert Einstein College of Medicine；Director of Orthopaedic Education, Jacobi Medical Center；Hospital for Special Surgery Orthopaedic Trauma fellowship",
+              "qualification_evidence_url": "https://pubmed.ncbi.nlm.nih.gov/35700075/",
+              "scope_note": "作為投影與創傷判讀的延伸教材；疾病分類與處置不由單一影片決定，且本課不涵蓋任何介入操作。 Einstein faculty 頁受 bot 防護無法程式驗證，改用可經 PubMed eutils 驗證的作者證據（JBJS Am 2022〈What's New in Orthopaedic Trauma〉）。",
+              "contains_intervention": false,
+              "intervention_start_timestamp": null,
+              "diagnostic_segment_range": "00:00–22:43",
+              "source_authority": "named-specialist-clinician-channel",
+              "curation_status": "provisional",
+              "last_verified_at": "2026-08-28",
+              "classic_exception": true,
+              "classic_exception_reason": "Cutoff 之前的創傷放射經典課：以骨科創傷醫師視角逐一示範 Grashey、scapular Y、axillary 為何必要，並接到後脫位、Hill-Sachs 與近端肱骨骨折。近五年幾乎沒有同等長度、可嵌入、具名專家原頻道的肩部標準位向課可取代。",
+              "embed_status": "embeddable",
+              "playback_status": "public",
+              "disclosure": null
+            }
+          ],
+          "reviewed_by": null,
+          "reviewer_role": null,
+          "reviewed_at": null,
+          "reviewed_commit": null
+        }
+      ]
+    },
+    {
+      "chapter": "CH9",
+      "title": "X 光：常見病理與判讀陷阱",
+      "units": [
+        {
+          "id": "ch9-u1",
+          "name": "鈣化、肩鎖關節與退化性變化",
+          "type": "pathology",
+          "level": "intermediate",
+          "review_status": "draft",
+          "summary": "辨認鈣化性肌腱炎、肩鎖與盂肱關節退化、肩峰形態及 acromiohumeral distance 的影像表現，同時避免把常見結構或量測異常直接等同症狀來源。",
+          "objectives": [
+            "依位置與形態描述旋轉肌袖區鈣化，並列出可能的重疊與鑑別。",
+            "分開描述肩鎖關節與盂肱關節的骨刺、關節間隙、軟骨下硬化與囊腫。",
+            "評估肩峰形態與 acromiohumeral distance 時，同時記錄投影、旋轉與技術限制。"
+          ],
+          "required_views": [
+            "AP／Grashey：鈣化位置、盂肱關節間隙、骨刺與肱骨頭上移。",
+            "Outlet：肩峰下出口與肩峰形態，但需辨認投影依賴性。",
+            "Zanca：肩鎖關節間隙、骨贅、遠端鎖骨與對位。",
+            "可比較的標準 AP：量測 acromiohumeral distance，並註明旋轉與中心線是否合格。"
+          ],
+          "key_points": [
+            "鈣化性肌腱病的沉積多位於旋轉肌袖區，但需以解剖位置、形態及其他投影避免與骨片或其他軟組織鈣化混淆。",
+            "肩鎖關節退化與肩峰骨刺常見；報告應描述所見，不應僅憑 X 光宣告其為症狀來源。",
+            "Acromiohumeral distance 受投影、姿勢與旋轉影響；明顯縮小可提示慢性旋轉肌袖功能失衡，但不是單獨診斷撕裂的工具。",
+            "肩峰形態分類存在觀察者差異，應避免以單一形態直接推論病因。"
+          ],
+          "pitfalls": [
+            "把鈣化投影重疊在肱骨大結節上誤認為骨折片。",
+            "將肩鎖關節骨贅或彎曲肩峰直接寫成夾擠症候群。",
+            "在非標準 AP 或肱骨旋轉不一致時比較 acromiohumeral distance。",
+            "以退化性變化的嚴重度直接推定疼痛嚴重度。"
+          ],
+          "assessment": "給三組影像：旋轉肌袖區鈣化、肩鎖關節退化與疑似肱骨頭上移。學員需依投影品質描述位置與形態、完成可重複量測、列出至少一項替代解釋，並把『影像所見』與『症狀來源』分成兩句陳述。",
+          "reference_ids": [
+            "calcific-imaging2021",
+            "acr-chronic2023",
+            "xr-mr-correlation2019"
+          ],
+          "drills": [
+            {
+              "name": "高產出肩部與鎖骨 X 光清單",
+              "kind": "radiograph-demo",
+              "learning_tier": "core",
+              "target": "退化、鈣化、肩鎖關節與常見病理搜尋清單",
+              "title": "High-Yield X-Ray Series: Shoulder, Clavicle and Elbow | Fellow Online Lecture Series",
+              "channel": "The AMSSM",
+              "url": "https://www.youtube.com/watch?v=SCJkbHht-wg",
+              "duration": "1:00:25",
+              "why": "以完整長講提供肩部與鎖骨的高產出判讀清單，適合把鈣化、退化與肩鎖關節所見放回系統性搜尋流程。",
+              "original_content_date": null,
+              "upload_date": "2024-10-17",
+              "date_note": "原始錄製日期未另行實查；以主編用 yt-dlp 實查的 YouTube 上架日 2024-10-17 記錄。",
+              "presenter": "Robert D. Boutin, MD",
+              "presenter_qualification": "Clinical Professor of Radiology and Director of the Musculoskeletal Imaging Fellowship, Stanford University；musculoskeletal radiologist；American Board of Radiology certified in Diagnostic Radiology；President, Society of Academic Bone Radiologists",
+              "qualification_evidence_url": "https://profiles.stanford.edu/robert-boutin",
+              "scope_note": "影片同時涵蓋鎖骨與肘部；本單元聚焦肩部、肩鎖關節及相關 X 光判讀，肘部內容不列入學習目標。",
+              "contains_intervention": false,
+              "intervention_start_timestamp": null,
+              "diagnostic_segment_range": "00:00–1:00:25",
+              "source_authority": "professional-society-education",
+              "curation_status": "provisional",
+              "last_verified_at": "2026-08-28",
+              "classic_exception": false,
+              "embed_status": "embeddable",
+              "playback_status": "public",
+              "disclosure": null
+            }
+          ],
+          "reviewed_by": null,
+          "reviewer_role": null,
+          "reviewed_at": null,
+          "reviewed_commit": null
+        },
+        {
+          "id": "ch9-u2",
+          "name": "創傷：脫位、骨缺損與近端肱骨骨折",
+          "type": "pathology",
+          "level": "intermediate",
+          "review_status": "draft",
+          "summary": "以多投影區分前方與後方脫位，搜尋 Hill-Sachs、reverse Hill-Sachs 與 bony Bankart，並用標準語言描述近端肱骨骨折的節段、位移與關節面關係，不由單一投影或單一分類取代完整評估。",
+          "objectives": [
+            "在 AP、scapular Y 與 axillary／Velpeau 上判斷肱骨頭相對關節盂的前後方向。",
+            "區分 anterior instability 常見的 Hill-Sachs／前下盂緣損傷與 posterior instability 的 reverse Hill-Sachs／後盂緣損傷。",
+            "以近端肱骨四個解剖節段描述骨折，並說明分類與進一步 CT 評估的限制。"
+          ],
+          "required_views": [
+            "AP／Grashey：肱骨頭對位、大小結節、解剖頸與外科頸。",
+            "Scapular Y：肱骨頭相對 Y 交會點的前後移位。",
+            "Axillary 或 Velpeau：直接確認前方或後方脫位及盂緣骨片。",
+            "疑似 anterior instability 時檢視肱骨頭後外側 Hill-Sachs 與前下盂緣 bony Bankart；疑似 posterior instability 時搜尋肱骨頭前內側 reverse Hill-Sachs。",
+            "骨折複雜、關節面或盂緣骨缺損量化會改變決策時，依臨床路徑考慮 CT。"
+          ],
+          "key_points": [
+            "前方脫位最常見，肱骨頭位於關節盂前下方；後方脫位較易在 AP 漏診，需軸向或可靠替代投影確認。",
+            "Hill-Sachs 是 anterior dislocation 造成的肱骨頭後外側壓陷；reverse Hill-Sachs 位於前內側並支持 posterior dislocation 機轉。",
+            "Bony Bankart 位於前下盂緣，需與後盂緣損傷方向明確區分。",
+            "Neer 分類以肱骨頭、大小結節與肱骨幹四個節段及位移關係溝通，但報告仍應逐項描述，不只給分類名稱。"
+          ],
+          "pitfalls": [
+            "只靠 AP 將後方脫位誤判為技術性內旋。",
+            "把 anterior dislocation 的 Hill-Sachs 寫到肱骨頭前內側，或把 reverse Hill-Sachs 與前方脫位混用。",
+            "復位後只確認對位，未搜尋盂緣與肱骨頭壓陷性骨缺損。",
+            "只報 Neer 類別而未描述節段、位移、關節面與影像限制。"
+          ],
+          "assessment": "給前方脫位、後方脫位與近端肱骨骨折三組多投影影像。學員需逐例指出肱骨頭相對關節盂的方向、標記相符的肱骨頭與盂緣骨缺損位置，並以四節段語言描述骨折；若投影不足，必須明確提出補拍或 CT 理由。",
+          "reference_ids": [
+            "acr-acute2025",
+            "posterior-instability2024",
+            "xr-mr-correlation2019"
+          ],
+          "drills": [
+            {
+              "name": "Neer 近端肱骨骨折分類圖解",
+              "kind": "radiograph-demo",
+              "learning_tier": "extension",
+              "target": "四節段與一至四部分骨折的分類語言",
+              "title": "Proximal Humerus Fractures classification - Everything You Need To Know - Dr. Nabil Ebraheim",
+              "channel": "nabil ebraheim",
+              "url": "https://www.youtube.com/watch?v=IXCD_BcbgOw",
+              "duration": "2:55",
+              "why": "用短圖解補足近端肱骨四個節段與 Neer 分類詞彙，讓學員能在完整描述後使用一致分類語言。",
+              "original_content_date": null,
+              "upload_date": "2011-12-09",
+              "date_note": "影片集中講解至今仍廣泛使用的 Neer 近端肱骨骨折分類，包括四個 segment、位移與角度門檻；概念穩定且正好填補 X2 的分類缺口。",
+              "presenter": "Nabil A. Ebraheim, MD",
+              "presenter_qualification": "Professor and Chair, Department of Orthopaedic Surgery, University of Toledo；orthopaedic surgeon and orthopaedic residency director（UToledo 2015 官方資料所載）",
+              "qualification_evidence_url": "https://news.utoledo.edu/index.php/10_21_2015/ut-health-orthopaedic-surgeon-scores-in-100th-percentile-on-board-recertification",
+              "scope_note": "只取骨折分類與描述語言；分類不取代多投影、CT 評估或個別病人的處置決策。",
+              "contains_intervention": false,
+              "intervention_start_timestamp": null,
+              "diagnostic_segment_range": "00:00–2:55",
+              "source_authority": "named-specialist-clinician-channel",
+              "curation_status": "provisional",
+              "last_verified_at": "2026-08-28",
+              "classic_exception": true,
+              "classic_exception_reason": "影片集中講解至今仍廣泛使用的 Neer 近端肱骨骨折分類，包括四個 segment、位移與角度門檻；概念穩定且正好填補 X2 的分類缺口。",
+              "embed_status": "embeddable",
+              "playback_status": "public",
+              "disclosure": null
+            }
+          ],
+          "reviewed_by": null,
+          "reviewer_role": null,
+          "reviewed_at": null,
+          "reviewed_commit": null
+        }
+      ]
+    },
+    {
+      "chapter": "CH10",
+      "title": "MRI：序列邏輯與正常解剖",
+      "units": [
+        {
+          "id": "ch10-u1",
+          "name": "肩部 MRI protocol 與序列用途",
+          "type": "foundation",
+          "level": "foundation",
+          "review_status": "draft",
+          "summary": "以斜冠狀、斜矢狀與軸向多平面 protocol 建立肩部 MRI 的序列邏輯，區分非脂肪抑制 T1、PD／T2 與流體敏感脂肪抑制序列的用途，並僅從影像資訊角度說明 MR arthrography 的適應症與判讀差異。",
+          "objectives": [
+            "說明常規三平面肩部 MRI 的定位方式與各序列主要對比。",
+            "以 T1、非脂肪抑制 PD 與流體敏感脂肪抑制序列回答骨髓、肌腱、肌肉、盂唇與關節液問題。",
+            "說明 MR arthrography 對盂唇、關節囊與部分關節面側病灶提供的影像資訊，不描述任何注入步驟。"
+          ],
+          "required_views": [
+            "斜冠狀位沿棘上肌腱長軸：旋轉肌袖、肩峰下－三角肌下滑囊、肱二頭肌長頭與骨髓。",
+            "斜矢狀位垂直於棘上肌長軸：旋轉肌袖肌腹、肩峰形態、rotator interval 與肌肉容積。",
+            "軸向位：肩胛下肌、棘下肌／小圓肌、肱二頭肌溝、盂唇與盂肱韌帶。",
+            "至少一組非脂肪抑制 T1 或相近解剖序列，以及多平面流體敏感脂肪抑制序列。",
+            "若為 MR arthrography，依檢查標示辨認關節腔擴張後的盂唇、囊韌帶輪廓與可能外溢；不推論檢查執行技術。"
+          ],
+          "key_points": [
+            "序列名稱會因廠牌與機構不同；判讀先辨認影像對比與平面，再確認縮寫。",
+            "T1 有助骨髓與脂肪解剖；流體敏感脂肪抑制序列有助水腫、液體與多數肌腱病灶；短 TE 序列較容易出現 magic angle。",
+            "MR arthrography 可藉關節腔擴張與對比勾勒盂唇、囊韌帶及部分關節面側病灶，但是否需要須依年齡、臨床問題及既有影像決定。",
+            "加速 protocol 的可行性不等於每個病例都能刪除同一序列；品質、涵蓋範圍與診斷問題仍需逐案確認。"
+          ],
+          "pitfalls": [
+            "只看一個流體敏感序列，忽略 T1 對骨髓置換、脂肪浸潤與慢性變化的資訊。",
+            "把不同廠牌的序列縮寫當作固定組織對比，未先看脂肪與液體實際訊號。",
+            "提到 MR arthrography 時延伸描述注入或進針操作；本課只處理檢查提供的影像資訊。",
+            "因掃描時間縮短就假定影像品質與所有診斷任務均等同完整 protocol。"
+          ],
+          "assessment": "給一組去識別化肩部 MRI 序列縮圖，學員需辨認三個平面與主要對比，為骨髓、肌腱、肌肉脂肪浸潤及盂唇各選一個首要序列並說明理由；另比較常規 MRI 與 MRA 可提供的影像資訊，禁止描述任何注入步驟。",
+          "reference_ids": [
+            "shoulder-mri-7min2025",
+            "mri-vs-mra2020",
+            "acr-chronic2023"
+          ],
+          "drills": [
+            {
+              "name": "肩部 MRI 與 MRA protocol 檢核表",
+              "kind": "mri-demo",
+              "learning_tier": "core",
+              "target": "常規 protocol、MRA 適應症與系統性搜尋順序",
+              "title": "How to Read a Shoulder MRI",
+              "channel": "J.P. Haas, MD",
+              "url": "https://www.youtube.com/watch?v=zkhIYmlPgNk",
+              "duration": "41:18",
+              "why": "以住院醫師導向清單串起常規 protocol、MRA 的影像適應症與旋轉肌袖、盂唇、滑囊的判讀順序，適合作為本章主幹。",
+              "original_content_date": null,
+              "upload_date": "2023-04-18",
+              "date_note": "原始錄製日期未另行實查；以主編用 yt-dlp 實查的 YouTube 上架日 2023-04-18 記錄。",
+              "presenter": "John P. (J.P.) Haas, MD",
+              "presenter_qualification": "Associate Professor of Radiology and Diagnostic Radiology Residency Program Director, University of Nebraska Medical Center；Mayo Clinic Musculoskeletal Radiology fellowship",
+              "qualification_evidence_url": "https://www.unmc.edu/radiology/faculty/haas.html",
+              "scope_note": "僅觀看主編框限的診斷段落；02:43–02:47 的顯影劑注入說明不納入課程，MRA 只討論影像資訊與判讀差異。",
+              "contains_intervention": true,
+              "intervention_start_timestamp": "02:43",
+              "diagnostic_segment_range": "00:00–02:42、02:50–41:18",
+              "source_authority": "named-specialist-clinician-channel",
+              "curation_status": "provisional",
+              "last_verified_at": "2026-08-28",
+              "classic_exception": false,
+              "embed_status": "embeddable",
+              "playback_status": "public",
+              "disclosure": null
+            }
+          ],
+          "reviewed_by": null,
+          "reviewer_role": null,
+          "reviewed_at": null,
+          "reviewed_commit": null
+        },
+        {
+          "id": "ch10-u2",
+          "name": "三平面正常解剖對應",
+          "type": "anatomy",
+          "level": "foundation",
+          "review_status": "draft",
+          "summary": "在斜冠狀、斜矢狀與軸向三平面追蹤旋轉肌袖、肱二頭肌長頭、盂唇、關節囊與骨性地標，建立可重複的正常解剖搜尋順序，並確認棘上肌位於上方、棘下肌位於後方等方向關係。",
+          "objectives": [
+            "在三個平面連續追蹤棘上肌、棘下肌、肩胛下肌與小圓肌的肌腹、肌腱及附著。",
+            "辨認肱二頭肌長頭、rotator interval、盂唇與盂肱韌帶在各平面的正常位置。",
+            "用至少兩個平面確認可疑高訊號或輪廓改變，避免單切面過度判讀。"
+          ],
+          "required_views": [
+            "斜冠狀：棘上肌腱由肌腱交界至大結節、棘下肌後方纖維、肱二頭肌 anchor、滑囊與盂肱關節。",
+            "斜矢狀：肩胛骨 Y view 層面的棘上窩、棘下窩與肩胛下窩肌肉容積，以及更外側的旋轉肌袖腱板。",
+            "軸向：前方肩胛下肌、結節間溝內肱二頭肌長頭、後方棘下肌與小圓肌、前後盂唇及關節囊。",
+            "骨性地標：肱骨頭、大小結節、關節盂、肩峰、喙突與肩鎖關節在相鄰切面的連續性。"
+          ],
+          "key_points": [
+            "棘上肌位於肩胛棘上方並走向大結節上方 footprint；棘下肌位於肩胛棘下方且主要在後方，兩者不可因斜切面而互換命名。",
+            "肩胛下肌位於前方並附著小結節；小圓肌位於後下方，軸向與斜矢狀位最適合確認其方向。",
+            "正常盂唇呈低訊號三角形或圓鈍結構，但形態隨位置與正常變異而變；單一高訊號線不等同撕裂。",
+            "三平面互證包含位置、形態與連續性，不只是找到同名結構。"
+          ],
+          "pitfalls": [
+            "把斜冠狀後方切面中的棘下肌纖維誤標為棘上肌。",
+            "在軸向位把小圓肌與棘下肌、或肱二頭肌長頭與前方盂唇混淆。",
+            "將部分容積、magic angle 或血管訊號在單一切面判成撕裂。",
+            "未檢查定位影像與斜切角度，卻以不標準平面做精確解剖判斷。"
+          ],
+          "assessment": "以一套正常肩部 MRI 完成口頭導覽：每個平面至少標出六個結構，連續追蹤四條旋轉肌袖肌腱與肱二頭肌長頭，並用第二平面確認兩個容易混淆的結構。合格答案必須正確說明棘上肌在上方、棘下肌在後方及肩胛下肌在前方。",
+          "reference_ids": [
+            "xr-mr-correlation2019",
+            "shoulder-mri-7min2025"
+          ],
+          "drills": [
+            {
+              "name": "系統性肩部 MRI 解剖與判讀方法",
+              "kind": "mri-demo",
+              "learning_tier": "extension",
+              "target": "三平面搜尋順序與正常結構對照",
+              "title": "How to Read Shoulder MRI: Anatomy & Approach",
+              "channel": "Navigating Radiology",
+              "url": "https://www.youtube.com/watch?v=wqVvVegpBdE",
+              "duration": "43:00",
+              "why": "以較完整的系統性方法整合 protocol、三平面解剖與常見病理詞彙，供完成核心解剖巡覽後練習連續搜尋。",
+              "original_content_date": null,
+              "upload_date": "2026-05-07",
+              "date_note": "原始錄製日期未另行實查；以主編用 yt-dlp 實查的 YouTube 上架日 2026-05-07 記錄。",
+              "presenter": "Rajesh Bhayana, MD",
+              "presenter_qualification": "Assistant Professor of Radiology, University of Toronto；Abdominal Radiologist and Tech Lead, Joint Department of Medical Imaging",
+              "qualification_evidence_url": "https://universitymedicalimagingtoronto.ca/people/rajesh-bhayana/",
+              "scope_note": "內容橫跨後續撕裂與盂唇單元；本單元只要求三平面定位與正常結構，病理結論需回到對應章節與文獻。",
+              "contains_intervention": false,
+              "intervention_start_timestamp": null,
+              "diagnostic_segment_range": "00:00–43:00",
+              "source_authority": "specialist-training-provider",
+              "curation_status": "provisional",
+              "last_verified_at": "2026-08-28",
+              "classic_exception": false,
+              "embed_status": "embeddable",
+              "playback_status": "public",
+              "disclosure": "此片由獨立影像教育頻道發布；頻道可能提供商業教育服務，本站僅策展診斷內容，不構成背書。"
+            }
+          ],
+          "reviewed_by": null,
+          "reviewer_role": null,
+          "reviewed_at": null,
+          "reviewed_commit": null
+        }
+      ]
+    },
+    {
+      "chapter": "CH11",
+      "title": "MRI：旋轉肌袖與證據邊界",
+      "units": [
+        {
+          "id": "ch11-u1",
+          "name": "旋轉肌袖病變與撕裂型態",
+          "type": "pathology",
+          "level": "intermediate",
+          "review_status": "draft",
+          "summary": "區分肌腱病、部分厚度與全層撕裂，依肌腱、關節面側／滑囊面側／腱內位置、前後範圍、回縮與 delamination 描述病灶，並以三平面確認液體訊號與纖維連續性。",
+          "objectives": [
+            "用形態、訊號與纖維連續性區分肌腱病、部分厚度及全層撕裂。",
+            "描述撕裂涉及的肌腱、表面、前後範圍、內外側尺寸與回縮位置。",
+            "辨認 delamination 的層間分離與不同層回縮，避免只用單一尺寸概括。"
+          ],
+          "required_views": [
+            "斜冠狀流體敏感序列：關節面至滑囊面的纖維連續性、內外側尺寸與回縮。",
+            "斜矢狀：前後範圍、涉及肌腱數目與 rotator cable／crescent 區域關係。",
+            "軸向：肩胛下肌、棘下肌與小圓肌，並確認肱二頭肌長頭位置。",
+            "短 TE 與長 TE 序列對照，以降低 magic angle 對肌腱高訊號的誤判。"
+          ],
+          "key_points": [
+            "肌腱病可見增厚或訊號改變但纖維仍連續；部分厚度撕裂只涉及部分腱厚；全層撕裂形成關節面至滑囊面的完整缺損。",
+            "部分厚度撕裂需標明關節面側、滑囊面側或腱內，以及深度與前後範圍；不可只寫『partial tear』。",
+            "回縮應以可辨認的解剖地標描述，並在正交平面確認，避免斜切造成假性短縮。",
+            "Delamination 是腱內層間分離且各層可能不同程度回縮，應在斜冠狀與斜矢狀位共同追蹤。"
+          ],
+          "pitfalls": [
+            "把短 TE 上約 55 度取向造成的 magic angle 高訊號判為肌腱病或部分撕裂。",
+            "只以液體訊號存在判斷全層撕裂，未確認缺損是否真正跨越全厚度。",
+            "把棘上肌與棘下肌交界的斜切或部分容積誤判為撕裂延伸。",
+            "只報最大尺寸，漏掉受累肌腱、表面、回縮與 delamination。"
+          ],
+          "assessment": "給肌腱病、關節面側部分厚度撕裂、全層撕裂合併回縮及 delamination 四組影像。學員需在至少兩平面指出纖維連續性，依肌腱、表面、尺寸與回縮完成結構化描述，並說明如何用長 TE 序列排除 magic angle。",
+          "reference_ids": [
+            "cuff-tear-patterns2024",
+            "delaminated2023",
+            "mri-vs-mra2020"
+          ],
+          "drills": [
+            {
+              "name": "旋轉肌袖 bridging sign 與複合撕裂",
+              "kind": "mri-demo",
+              "learning_tier": "extension",
+              "target": "複合全層撕裂的範圍、回縮與 bridging sign",
+              "title": "The Bridging Sign In Rotator Cuff Tears on Shoulder MRI",
+              "channel": "Dr Christoph Agten",
+              "url": "https://www.youtube.com/watch?v=AFIehgVaIFk",
+              "duration": "12:58",
+              "why": "以單一特定徵象深化棘上肌合併肩胛下肌撕裂的範圍判讀，補充一般總覽較少展開的複合 tear pattern。",
+              "original_content_date": null,
+              "upload_date": "2023-04-28",
+              "date_note": "原始錄製日期未另行實查；以主編用 yt-dlp 實查的 YouTube 上架日 2023-04-28 記錄。",
+              "presenter": "Christoph Agten, PD Dr. med.",
+              "presenter_qualification": "PD Dr. med.；Oberarzt, Radiologie, Universitätsklinik Balgrist（Balgrist 2020 年報所載）",
+              "qualification_evidence_url": "https://jahresbericht.balgrist.ch/jahresbericht-2020/organisation",
+              "scope_note": "這是特定徵象的延伸教材，不能取代完整四條旋轉肌袖與肌肉品質評估。",
+              "contains_intervention": false,
+              "intervention_start_timestamp": null,
+              "diagnostic_segment_range": "00:00–12:58",
+              "source_authority": "named-specialist-clinician-channel",
+              "curation_status": "provisional",
+              "last_verified_at": "2026-08-28",
+              "classic_exception": false,
+              "embed_status": "embeddable",
+              "playback_status": "public",
+              "disclosure": "具名專業教育頻道可能連結自有課程或服務；本站僅策展診斷內容，不構成背書。"
+            }
+          ],
+          "reviewed_by": null,
+          "reviewer_role": null,
+          "reviewed_at": null,
+          "reviewed_commit": null
+        },
+        {
+          "id": "ch11-u2",
+          "name": "肌肉品質、病例整合與證據邊界",
+          "type": "case",
+          "level": "intermediate",
+          "review_status": "draft",
+          "summary": "在病例中整合旋轉肌袖撕裂、肌肉萎縮與脂肪浸潤分級，同時明確維持證據邊界：無症狀族群也有高比例的旋轉肌袖影像異常，影像所見不等於症狀來源。",
+          "objectives": [
+            "在標準斜矢狀位比較肌肉容積並描述萎縮。",
+            "以 0–4 級脂肪浸潤概念描述旋轉肌袖肌肉品質，並揭露切面與方法限制。",
+            "引用無症狀族群系統性回顧，將撕裂、肌腱病與退化所見放回年齡、病史、理學檢查與功能脈絡。"
+          ],
+          "required_views": [
+            "斜矢狀 T1、接近肩胛骨 Y view 的可重複切面：四條旋轉肌袖肌肉容積與脂肪比例。",
+            "斜冠狀與軸向：撕裂範圍、回縮、delamination 及對應肌肉。",
+            "雙側或既往影像若可取得：只作脈絡比較，不把對稱直接視為正常。",
+            "臨床對照表：年齡、創傷時間、疼痛部位、力量、活動度與功能限制。"
+          ],
+          "key_points": [
+            "脂肪浸潤常以 0–4 級描述：0 無脂肪、1 少量脂肪線、2 肌肉多於脂肪、3 肌肉與脂肪約相當、4 脂肪多於肌肉；需註明採用方法與切面。",
+            "肌肉萎縮與脂肪浸潤相關但不是同一概念，應分開描述並對應正確肌腱。",
+            "asymptomatic-cuff2025 與 asymptomatic-shoulder2024 兩篇系統性回顧均顯示：無症狀成人可有相當比例的旋轉肌袖及其他肩部影像異常。",
+            "證據邊界必須直接寫入結論：無症狀族群也有高比例的旋轉肌袖影像異常，影像所見不等於症狀來源；需與病史、理學檢查及功能限制對照。"
+          ],
+          "pitfalls": [
+            "用非標準或過外側斜矢狀切面評分脂肪浸潤，造成肌腹比例偏差。",
+            "把脂肪浸潤、肌肉萎縮與肌腱回縮合成一個模糊的『慢性』標籤。",
+            "在無急性外傷或臨床不吻合時，僅因 MRI 有撕裂就斷言它是疼痛來源。",
+            "以單一病例影片取代無症狀族群的盛行率證據。"
+          ],
+          "assessment": "給一名有肩痛者與一名無症狀成人的 MRI。學員需分別描述撕裂型態、回縮、肌肉萎縮與脂肪浸潤，列出支持或不支持症狀相關性的臨床資訊，並在結論逐字表達『影像所見不等於症狀來源』，同時引用 asymptomatic-cuff2025 與 asymptomatic-shoulder2024。",
+          "reference_ids": [
+            "cuff-muscles-mri2025",
+            "cuff-tear-patterns2024",
+            "asymptomatic-cuff2025",
+            "asymptomatic-shoulder2024"
+          ],
+          "drills": [
+            {
+              "name": "SSR 肩部 MRI 病例整合",
+              "kind": "mri-demo",
+              "learning_tier": "core",
+              "target": "旋轉肌袖撕裂、回縮與肌肉品質的病例推理",
+              "title": "SSR Resident Education Club - MRI of the Shoulder, A Case Based Review",
+              "channel": "Society of Skeletal Radiology",
+              "url": "https://www.youtube.com/watch?v=gXRiTm5EWm4",
+              "duration": "51:38",
+              "why": "以多病例把旋轉肌袖、肱二頭肌長頭與撕裂形態放進完整讀片流程，適合練習描述後再與無症狀盛行率證據分開判斷臨床相關性。",
+              "original_content_date": null,
+              "upload_date": "2022-09-19",
+              "date_note": "原始錄製日期未另行實查；以主編用 yt-dlp 實查的 YouTube 上架日 2022-09-19 記錄。",
+              "presenter": "Navid Faraji, MD",
+              "presenter_qualification": "Associate Professor of Radiology and Assistant Professor of Anatomy, Case Western Reserve University；Associate Program Director, Diagnostic Radiology Residency, University Hospitals Cleveland Medical Center",
+              "qualification_evidence_url": "https://case.edu/medicine/ccir/faculty/navid-faraji",
+              "scope_note": "僅觀看 00:00–45:11 診斷段落；45:12 後 Q&A 的注射配方與進針位置不納入。病例影像不能取代兩篇無症狀者系統性回顧。",
+              "contains_intervention": true,
+              "intervention_start_timestamp": "45:12",
+              "diagnostic_segment_range": "00:00–45:11",
+              "source_authority": "professional-society-education",
+              "curation_status": "provisional",
+              "last_verified_at": "2026-08-28",
+              "classic_exception": false,
+              "embed_status": "embeddable",
+              "playback_status": "public",
+              "disclosure": null
+            }
+          ],
+          "reviewed_by": null,
+          "reviewer_role": null,
+          "reviewed_at": null,
+          "reviewed_commit": null
+        }
+      ]
+    },
+    {
+      "chapter": "CH12",
+      "title": "MRI：盂唇、不穩定與常見陷阱",
+      "units": [
+        {
+          "id": "ch12-u1",
+          "name": "盂唇、不穩定與骨缺損",
+          "type": "pathology",
+          "level": "advanced",
+          "review_status": "draft",
+          "summary": "依盂唇時鐘位置與損傷方向辨認 SLAP、Bankart、ALPSA、Perthes、GLAD 與 HAGL，將 anterior instability 的 Hill-Sachs／前下盂骨缺損與 posterior instability 的反向病灶分開，並用可重複方法量測 glenoid bone loss。",
+          "objectives": [
+            "以位置、是否移位、骨膜與軟骨關係區分 SLAP、Bankart、ALPSA、Perthes 與 GLAD。",
+            "辨認 HAGL 為下盂肱韌帶複合體在肱骨側的撕脫，並避免與正常腋囊形態混淆。",
+            "描述 Hill-Sachs 的位置與尺寸，並以 en face 盂面方法量測 glenoid bone loss，註明成像模態、重建與量測方法。"
+          ],
+          "required_views": [
+            "軸向：前下與後下盂唇、盂肱韌帶、Hill-Sachs 或 reverse Hill-Sachs 的方向。",
+            "斜冠狀：上盂唇－肱二頭肌 anchor、下盂肱韌帶與腋囊。",
+            "斜矢狀或重建 en face 盂面：以完整後下盂緣擬合 best-fit circle，再量測缺損寬度或面積並註明方法。",
+            "至少兩平面確認盂唇訊號是否到達關節面、是否有移位及相鄰軟骨或骨膜變化。"
+          ],
+          "key_points": [
+            "Bankart 是 anterior instability 相關的前下盂唇－骨膜損傷；ALPSA 的前下盂唇骨膜袖向內側移位，Perthes 則保留但剝離完整的骨膜。",
+            "GLAD 結合前下盂唇損傷與相鄰關節軟骨缺損；SLAP 位於上盂唇並涉及肱二頭肌 anchor 前後方向。",
+            "HAGL 位於下盂肱韌帶複合體肱骨側，需在冠狀與軸向位追蹤，不可只憑腋囊外形命名。",
+            "Anterior instability 常見肱骨頭後外側 Hill-Sachs 與前下盂骨缺損；posterior instability 可見前內側 reverse Hill-Sachs 與後盂唇／後盂緣損傷。",
+            "系統性回顧顯示 MRI 與 CT 的 glenoid bone loss 量測整體可具可比性；報告仍須寫明模態、2D／3D 重建與線性／面積法，讓數值可追溯。"
+          ],
+          "pitfalls": [
+            "把 sublabral recess、sublabral foramen 或 Buford complex 誤報為 SLAP／前上盂唇撕裂。",
+            "把 Hill-Sachs 方向寫反，或未區分前方與後方不穩定的對撞病灶。",
+            "在非 en face、傾斜或涵蓋不足的影像上量測 glenoid bone loss，卻未揭露限制。",
+            "看到盂唇高訊號就命名變異型損傷，未描述位置、關節面延伸、移位與骨膜。"
+          ],
+          "assessment": "給 anterior instability 與 posterior instability 各一組 MRI／MRA。學員需用時鐘位置描述盂唇病灶、從 Bankart／ALPSA／Perthes／GLAD／HAGL 中提出最相符者及理由，正確指出 Hill-Sachs 或 reverse Hill-Sachs 的方向，並完成一個註明方法與限制的盂骨缺損量測。",
+          "reference_ids": [
+            "posterior-instability2024",
+            "bone-loss-mri-ct2026",
+            "postop-instability2022"
+          ],
+          "drills": [
+            {
+              "name": "SSR 盂唇與盂肱韌帶專題",
+              "kind": "mri-demo",
+              "learning_tier": "core",
+              "target": "盂唇、盂肱韌帶與不穩定病灶",
+              "title": "SSR REC - Unlocking the Complexities of the Glenohumeral Joint: Imaging the Labrum and Key Ligaments",
+              "channel": "Society of Skeletal Radiology",
+              "url": "https://www.youtube.com/watch?v=UFXRpfK1gHA",
+              "duration": "42:43",
+              "why": "以近年的學會長講整合盂唇與關鍵韌帶，適合建立 Bankart 系列、HAGL 與穩定結構的主幹。",
+              "original_content_date": null,
+              "upload_date": "2025-05-08",
+              "date_note": "原始錄製日期未另行實查；以主編用 yt-dlp 實查的 YouTube 上架日 2025-05-08 記錄。",
+              "presenter": "Maryam Soltanolkotabi, MD",
+              "presenter_qualification": "Associate Professor of Radiology and Imaging Sciences and musculoskeletal radiologist, University of Utah；American Board of Radiology certified in Diagnostic Radiology；University of Utah MSK Imaging fellowship",
+              "qualification_evidence_url": "https://healthcare.utah.edu/find-a-doctor/maryam-soltanolkotabi",
+              "scope_note": "只觀看主編指定的四段診斷範圍；所有 MRA 進針、打藥與靜脈注入討論均排除，不作介入教學。",
+              "contains_intervention": true,
+              "intervention_start_timestamp": "08:54",
+              "diagnostic_segment_range": "00:00–08:53、09:20–35:11、36:10–40:24、40:40–42:43",
+              "source_authority": "professional-society-education",
+              "curation_status": "provisional",
+              "last_verified_at": "2026-08-28",
+              "classic_exception": false,
+              "embed_status": "embeddable",
+              "playback_status": "public",
+              "disclosure": null
+            },
+            {
+              "name": "依位置判讀盂唇損傷",
+              "kind": "mri-demo",
+              "learning_tier": "extension",
+              "target": "Bankart、Perthes、ALPSA、SLAP 與正常變異",
+              "title": "Stanford Radiology: \"Glenoid Labrum: Location matters\" by Michelle Nguyen, MD",
+              "channel": "Stanford Radiology",
+              "url": "https://www.youtube.com/watch?v=xspeQczm_mY",
+              "duration": "26:22",
+              "why": "以盂唇位置為組織軸，補強前下、後下與上方病灶的方向性分類，適合和較新的 SSR 專題交叉練習。",
+              "original_content_date": null,
+              "upload_date": "2020-05-18",
+              "date_note": "大學放射科原頻道的盂唇經典課，依位置系統講 Bankart、Perthes、ALPSA、reverse Bankart、SLAP 與正常變異。近五年公開可嵌入片鮮少同等結構完整，故破例收作 M3 主幹。",
+              "presenter": "Michelle M. Nguyen, MD",
+              "presenter_qualification": "Clinical Associate Professor of Radiology, Stanford University",
+              "qualification_evidence_url": "https://profiles.stanford.edu/130589",
+              "scope_note": "僅觀看 00:00–03:20 與 03:45–26:22；03:21–03:38 的 MRA 注入劑量與體積說明排除。",
+              "contains_intervention": true,
+              "intervention_start_timestamp": "03:21",
+              "diagnostic_segment_range": "00:00–03:20、03:45–26:22",
+              "source_authority": "academic-medical-center",
+              "curation_status": "provisional",
+              "last_verified_at": "2026-08-28",
+              "classic_exception": true,
+              "classic_exception_reason": "大學放射科原頻道的盂唇經典課，依位置系統講 Bankart、Perthes、ALPSA、reverse Bankart、SLAP 與正常變異。近五年公開可嵌入片鮮少同等結構完整，故破例收作 M3 主幹。",
+              "embed_status": "embeddable",
+              "playback_status": "public",
+              "disclosure": null
+            }
+          ],
+          "reviewed_by": null,
+          "reviewer_role": null,
+          "reviewed_at": null,
+          "reviewed_commit": null
+        },
+        {
+          "id": "ch12-u2",
+          "name": "正常變異、偽影與結構化報告",
+          "type": "reporting",
+          "level": "advanced",
+          "review_status": "draft",
+          "summary": "區分 sublabral foramen／recess、Buford complex 與真正盂唇撕裂，辨認 magic angle 及部分容積偽影，並以適應症、技術、逐結構所見、量測、限制與結論完成肩部 MRI 報告；沾黏性關節囊炎影像僅作需臨床對照的常見鑑別。",
+          "objectives": [
+            "依位置、邊緣、方向與相鄰結構區分 sublabral recess、sublabral foramen、Buford complex 及盂唇撕裂。",
+            "以長 TE 序列與正交平面辨認 magic angle、部分容積及其他假性高訊號。",
+            "寫出包含 protocol、側別、肌腱、肌肉、肱二頭肌、盂唇／韌帶、骨軟骨、滑囊及限制的結構化報告。"
+          ],
+          "required_views": [
+            "上盂唇－肱二頭肌 anchor：斜冠狀與軸向對照 sublabral recess 的方向與範圍。",
+            "前上盂唇：軸向追蹤 sublabral foramen；若前上盂唇缺如，同時確認粗大的中盂肱韌帶以支持 Buford complex。",
+            "短 TE 與長 TE 對照：肌腱高訊號若在長 TE 消退且無纖維中斷，優先考慮 magic angle。",
+            "Rotator interval、喙肱韌帶與腋囊：描述增厚或水腫等影像線索，但沾黏性關節囊炎仍需臨床活動度對照。",
+            "報告品質檢核：適應症、技術／是否 MRA、側別、比較影像、系統性所見、量測方法、限制與結論。"
+          ],
+          "key_points": [
+            "Sublabral recess 多位於上盂唇並沿盂緣平順走向；sublabral foramen 位於前上方；Buford complex 為前上盂唇缺如合併粗大中盂肱韌帶。",
+            "正常變異的邊緣與走向通常平順且位置典型；不典型延伸、粗糙邊緣、旁盂囊腫或相鄰損傷會提高撕裂可能，但仍需多平面判讀。",
+            "Magic angle 常影響與主磁場約 55 度的肌腱並在短 TE 較明顯；長 TE 仍持續高訊號或纖維中斷才更支持病理。",
+            "沾黏性關節囊炎可有 rotator interval、喙肱韌帶與腋囊等 MRI 線索，但它以臨床疼痛與主被動活動受限為核心，影像不應單獨確立症狀來源。",
+            "結論應回答臨床問題、排序重要所見並標示不確定性；正常變異與技術限制需在正文中留下推理線索。"
+          ],
+          "pitfalls": [
+            "把前上盂唇正常缺如報成撕裂，卻漏看粗大的中盂肱韌帶。",
+            "把 sublabral recess 的平順上方裂隙誤報為 SLAP，或把真正不規則撕裂降級為變異。",
+            "在短 TE 上看到棘上肌腱高訊號便診斷肌腱病，未以長 TE 與纖維形態核對。",
+            "用『可能』堆疊整份報告而不說明依據、限制與下一個最有價值的影像問題。",
+            "將沾黏性關節囊炎的 MRI 線索寫成不需臨床活動度對照的確定診斷。"
+          ],
+          "assessment": "給五組影像：sublabral recess、sublabral foramen、Buford complex、magic angle 與疑似沾黏性關節囊炎。學員需逐例寫出支持變異、偽影或病理的多平面依據，再完成一份結構化報告；報告必須標明 MRA 與否、量測方法、限制及需要臨床對照之處。",
+          "reference_ids": [
+            "mri-vs-mra2020",
+            "posterior-instability2024",
+            "adhesive-imaging2019",
+            "frozen-staging2024"
+          ],
+          "drills": [
+            {
+              "name": "MRA 盂唇判讀與正常變異",
+              "kind": "mri-demo",
+              "learning_tier": "core",
+              "target": "sublabral recess／foramen、Buford complex 與不穩定變異",
+              "title": "MRI Shoulder Arthrography Interpretation and Variants",
+              "channel": "URMC MSK",
+              "url": "https://www.youtube.com/watch?v=R1kG9Mu1at4",
+              "duration": "44:05",
+              "why": "直接涵蓋 MRA 正常變異、盂唇撕裂與不穩定病灶，是本單元區分變異與病理的核心影像圖譜。",
+              "original_content_date": null,
+              "upload_date": "2020-07-11",
+              "date_note": "醫院 MSK 組原頻道的 MRA 判讀與變異經典課，章節直接覆蓋 sublabral recess／foramen、Buford complex、GLAD、ALPSA、HAGL／BHAGL、Hill-Sachs on-track／off-track。同系列另有注射操作片未收。近五年少有同等變異圖譜可嵌入。",
+              "presenter": "Scott Schiffman, MD",
+              "presenter_qualification": "Assistant Professor of Clinical Imaging Sciences, University of Rochester Medical Center；American Board of Radiology certified in Diagnostic Radiology",
+              "qualification_evidence_url": "https://www.urmc.rochester.edu/people/112360903-scott-schiffman",
+              "scope_note": "僅觀看 00:00–38:34 與 38:45–44:05；38:35–38:40 的顯影劑量不足情境排除。全單元只談 MRA 影像資訊，不談執行方式。",
+              "contains_intervention": true,
+              "intervention_start_timestamp": "38:35",
+              "diagnostic_segment_range": "00:00–38:34、38:45–44:05",
+              "source_authority": "academic-medical-center",
+              "curation_status": "provisional",
+              "last_verified_at": "2026-08-28",
+              "classic_exception": true,
+              "classic_exception_reason": "醫院 MSK 組原頻道的 MRA 判讀與變異經典課，章節直接覆蓋 sublabral recess／foramen、Buford complex、GLAD、ALPSA、HAGL／BHAGL、Hill-Sachs on-track／off-track。同系列另有注射操作片未收。近五年少有同等變異圖譜可嵌入。",
+              "embed_status": "embeddable",
+              "playback_status": "public",
+              "disclosure": null
+            },
+            {
+              "name": "沾黏性關節囊炎 MRI 病例與陷阱",
+              "kind": "mri-demo",
+              "learning_tier": "extension",
+              "target": "rotator interval、喙肱韌帶與腋囊線索",
+              "title": "How to Diagnose Adhesive Capsulitis on MRI",
+              "channel": "Michigan Medicine",
+              "url": "https://www.youtube.com/watch?v=M8xGUNSK3MU",
+              "duration": "9:17",
+              "why": "用病例影像呈現常被總覽略過的沾黏性關節囊炎線索，適合練習在報告中保留臨床活動度對照與診斷邊界。",
+              "original_content_date": null,
+              "upload_date": "2025-04-03",
+              "date_note": "原始錄製日期未另行實查；以主編用 yt-dlp 實查的 YouTube 上架日 2025-04-03 記錄。",
+              "presenter": "Samer Soussahn, MD",
+              "presenter_qualification": "Clinical Assistant Professor of Radiology, University of Michigan；musculoskeletal radiologist；fellowship-trained in Musculoskeletal Imaging；board-certified in Diagnostic Radiology",
+              "qualification_evidence_url": "https://pubmed.ncbi.nlm.nih.gov/41557041/",
+              "scope_note": "僅觀看 00:00–07:33 與 07:45–09:17；07:34–07:40 的類固醇注射治療陳述排除。本單元不教授治療。 UofM Health 頁受 Cloudflare challenge 擋下無法程式驗證，改用可經 PubMed eutils 驗證的作者證據（Skeletal Radiology 2026，與 Morag Y、Jacobson J 共同署名）。",
+              "contains_intervention": true,
+              "intervention_start_timestamp": "07:34",
+              "diagnostic_segment_range": "00:00–07:33、07:45–09:17",
+              "source_authority": "academic-medical-center",
+              "curation_status": "provisional",
+              "last_verified_at": "2026-08-28",
+              "classic_exception": false,
+              "embed_status": "embeddable",
+              "playback_status": "public",
+              "disclosure": null
+            },
+            {
+              "name": "Frozen shoulder MRI 線索短講",
+              "kind": "mri-demo",
+              "learning_tier": "extension",
+              "target": "沾黏性關節囊炎影像線索與臨床限定",
+              "title": "How Frozen shoulder looks on MRI",
+              "channel": "Dr Christoph Agten",
+              "url": "https://www.youtube.com/watch?v=VLKFpKpCjgQ",
+              "duration": "10:15",
+              "why": "以短講補充 rotator interval、腋囊與喙肱韌帶等線索，並用來強化『影像需與臨床活動度對照』的報告語言。",
+              "original_content_date": null,
+              "upload_date": "2020-04-03",
+              "date_note": "具名 MSK 專家原頻道、仍被廣泛引用的沾黏性關節囊炎 MRI 短講：rotator interval、腋囊厚度、喙肱韌帶。近五年合格可嵌入片幾乎沒有專講此主題，故破例。",
+              "presenter": "Christoph Agten, PD Dr. med.",
+              "presenter_qualification": "PD Dr. med.；Oberarzt, Radiologie, Universitätsklinik Balgrist（Balgrist 2020 年報所載）",
+              "qualification_evidence_url": "https://jahresbericht.balgrist.ch/jahresbericht-2020/organisation",
+              "scope_note": "全片限診斷影像；沾黏性關節囊炎仍以臨床表現為核心，影片不作治療或介入指引。",
+              "contains_intervention": false,
+              "intervention_start_timestamp": null,
+              "diagnostic_segment_range": "00:00–10:15",
+              "source_authority": "named-specialist-clinician-channel",
+              "curation_status": "provisional",
+              "last_verified_at": "2026-08-28",
+              "classic_exception": true,
+              "classic_exception_reason": "具名 MSK 專家原頻道、仍被廣泛引用的沾黏性關節囊炎 MRI 短講：rotator interval、腋囊厚度、喙肱韌帶。近五年合格可嵌入片幾乎沒有專講此主題，故破例。",
+              "embed_status": "embeddable",
+              "playback_status": "public",
+              "disclosure": "具名專業教育頻道可能連結自有課程或服務；本站僅策展診斷內容，不構成背書。"
+            }
+          ],
           "reviewed_by": null,
           "reviewer_role": null,
           "reviewed_at": null,

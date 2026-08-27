@@ -154,6 +154,16 @@
       "id": "classic",
       "label": "經典大師",
       "tone": "attention"
+    },
+    {
+      "id": "radiograph-demo",
+      "label": "X 光判讀",
+      "tone": "success"
+    },
+    {
+      "id": "mri-demo",
+      "label": "MRI 判讀",
+      "tone": "attention"
     }
   ],
   "learningTiers": [
@@ -216,6 +226,21 @@
       "chapters": [
         "CH6",
         "CH7"
+      ]
+    },
+    {
+      "title": "X 光判讀",
+      "chapters": [
+        "CH8",
+        "CH9"
+      ]
+    },
+    {
+      "title": "MRI 判讀",
+      "chapters": [
+        "CH10",
+        "CH11",
+        "CH12"
       ]
     }
   ],
@@ -283,6 +308,46 @@
       "source": "syllabus",
       "units": 3,
       "drills": 0
+    },
+    {
+      "code": "CH8",
+      "title": "X 光：照射位選擇與系統性判讀",
+      "icon": "scan-line",
+      "source": "syllabus",
+      "units": 2,
+      "drills": 2
+    },
+    {
+      "code": "CH9",
+      "title": "X 光：常見病理與判讀陷阱",
+      "icon": "microscope",
+      "source": "syllabus",
+      "units": 2,
+      "drills": 2
+    },
+    {
+      "code": "CH10",
+      "title": "MRI：序列邏輯與正常解剖",
+      "icon": "layers",
+      "source": "syllabus",
+      "units": 2,
+      "drills": 2
+    },
+    {
+      "code": "CH11",
+      "title": "MRI：旋轉肌袖與證據邊界",
+      "icon": "microscope",
+      "source": "syllabus",
+      "units": 2,
+      "drills": 2
+    },
+    {
+      "code": "CH12",
+      "title": "MRI：盂唇、不穩定與常見陷阱",
+      "icon": "layers",
+      "source": "syllabus",
+      "units": 2,
+      "drills": 5
     }
   ],
   "audit": {
@@ -301,7 +366,7 @@
     "metaCoverage": 1,
     "drillsPerUnit": {
       "min": 1,
-      "max": 4
+      "max": 12
     },
     "maxSharedVideos": 2,
     "requireAssessment": [
@@ -350,7 +415,7 @@
     ],
     "stanceTitle": "開始前先知道",
     "stanceLede": "這是一門醫師專業教育課程，不是認證、credentialing 或個別病人的醫療建議。",
-    "chaptersTitle": "八個章節，從標準化到臨床整合",
+    "chaptersTitle": "十三個章節，從標準化到多模態影像整合",
     "ctaTitle": "從課程定位開始",
     "ctaLede": "目前共有 {units} 個單元與 {videos} 個已建檔影片欄位；影片清單會在醫療審閱與嵌入驗證後持續擴充。"
   },
