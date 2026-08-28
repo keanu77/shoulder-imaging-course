@@ -1,0 +1,4 @@
+# 同一人在不同機器上用過三組 git user.name，統一顯示。
+# .mailmap 只影響 git log/shortlog 的顯示與 GitHub 的貢獻者聚合，不改寫歷史。
+keanu77 <keanu.firefox@gmail.com> Ethan <keanu.firefox@gmail.com>
+keanu77 <keanu.firefox@gmail.com> keanuwu <keanu.firefox@gmail.com>
