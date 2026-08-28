@@ -49,7 +49,7 @@ make check      # lint + jscheck + test + build + audit
 
 ## Fork 與改作
 
-MIT 授權涵蓋程式碼，**不涵蓋第三方影片、學會指引與論文**（見 `LICENSE` 與 `README.md`）。
+MIT 授權涵蓋程式碼，**不涵蓋第三方影片、學會指引與論文**（見 [`NOTICE.md`](NOTICE.md)）。
 
 fork 去做自己部位的課程站時，**必須移除所有審閱紀錄**
 （`reviewed_by` / `reviewer_role` / `reviewed_at` / `reviewed_commit`），

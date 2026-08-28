@@ -93,8 +93,9 @@ Cloudflare Pages 採 GitHub integration，設定與索引閘門見 [部署文件
 
 參考 [keanu77/online-course](https://github.com/keanu77/online-course) 的資料驅動靜態課程架構重新建置。
 
-程式碼採 MIT License。**第三方影片、學會指引及論文不包含在此授權內**——
+程式碼採 [MIT License](LICENSE)。**第三方影片、學會指引及論文不包含在此授權內**——
 本站只儲存連結與書目中繼資料，影片由 YouTube 官方播放器提供，不重製也不代管。
 
-審閱紀錄（`reviewed_by` / `reviewer_role` / `reviewed_at`）**不隨授權轉移**。
-fork 或改作時必須移除這些欄位，不得聲稱原策展人為改作內容背書。
+授權範圍、第三方內容清單與「審閱紀錄不隨授權轉移」的完整說明見 [`NOTICE.md`](NOTICE.md)。
+fork 或改作時必須移除 `reviewed_by` / `reviewer_role` / `reviewed_at` / `reviewed_commit`，
+並把 `review_status` 改回 `draft`，不得聲稱原策展人為改作內容背書。
