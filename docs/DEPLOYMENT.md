@@ -56,6 +56,10 @@ https://shoulder-ultrasound.sportsmedicine.tw/* https://shoulder-imaging.sportsm
 在 advanced redirects 表格中把 **Domain-level redirects 標為 ❌**，
 來源欄只接受**檔案路徑**，不接受絕對 URL。
 
+**不要用 `curl /_redirects` 判斷檔案在不在。** CF Pages 會把 `_headers` 與 `_redirects`
+消耗掉，兩個路徑都回 **200 + SPA fallback 的 index.html**——檔案存在或不存在，
+回應長得一模一樣。2026-08-28 曾據此誤判成「CF 沒把 `_redirects` 當設定檔消化」。
+
 診斷方法（值得記著，因為兩個檔的行為不同）：
 - `_headers` 的規則**有生效**（`curl -D-` 看得到 `x-content-type-options` 等三個標頭）
   → 證明 CF 確實有讀這兩個設定檔，問題不在部署或路徑
