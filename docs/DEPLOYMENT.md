@@ -37,7 +37,12 @@
 
 先確認 `shoulder-ultrasound-course.pages.dev`（CF 專案名，非 repo 名）的 production deployment 正常，再到 Pages 專案的 Custom domains 加入：
 
-`shoulder-ultrasound.sportsmedicine.tw`
+`shoulder-imaging.sportsmedicine.tw`（2026-08-28 起的正式網址）
+
+**舊網域 `shoulder-ultrasound.sportsmedicine.tw` 仍掛在同一個 Pages 專案上，不要拔掉。**
+它在改名前已被搜尋引擎索引，直接移除會留下死連結。`src/web/_redirects` 有一條
+301 把舊網域轉到新網域；即使該規則不生效，HTML 的 `<link rel="canonical">` 也已指向
+新網址，搜尋引擎仍會把權重收斂過去。
 
 母網域已由 Cloudflare 管理時，應由 Pages 的 Custom domains 流程自動建立 DNS；不要先手動建立 CNAME，以免自訂網域驗證或回源設定不一致。
 

@@ -1,0 +1,6 @@
+# 舊網域轉址：repo 與網域於 2026-08-28 由 shoulder-ultrasound 改為 shoulder-imaging。
+# 舊網域在改名前已被搜尋引擎索引，不能直接拔掉，否則留下死連結。
+# 兩個自訂網域都指向同一個 Pages 專案，靠這條規則把舊網域的請求 301 到新網域。
+# 注意：HTML 的 <link rel="canonical"> 已指向新網址，即使這條規則不生效，
+# 搜尋引擎仍會把權重收斂到新網域——轉址是加分不是唯一手段。
+https://shoulder-ultrasound.sportsmedicine.tw/* https://shoulder-imaging.sportsmedicine.tw/:splat 301

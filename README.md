@@ -1,23 +1,65 @@
-# 肩部超音波診斷課程
+# 肩部影像診斷課程
 
-以醫師為主要學員的繁體中文肩部肌肉骨骼超音波課程。第一階段聚焦診斷掃描：儀器最佳化、標準切面、正常解剖、動態檢查、常見病理與報告品質；介入注射延後處理。
+以醫師為主要學員的繁體中文肩部影像判讀課程，涵蓋 **X 光、肌肉骨骼超音波與 MRI** 三種模態。
+全課為診斷判讀，不含注射、穿刺或其他影像導引介入操作的教學。
 
-正式站預定網址：<https://shoulder-ultrasound.sportsmedicine.tw>
+正式站：<https://shoulder-imaging.sportsmedicine.tw>
 
-> 目前內容狀態為 `medical-review`。網站可供版型與課綱審閱，但不代表醫療內容已核准，也不取代實體 hands-on training、合格督導或機構 credentialing。審閱範圍與剩餘簽核見 [醫療內容審閱紀錄](docs/MEDICAL_REVIEW.md)。
+**9 章 · 34 個教學單元 · 34 支精選公開影片 · 16 小時 6 分**
 
-## 首輪範圍
+> **這是策展彙編，不是醫療背書。** 影片來自各原始頻道，著作權與臨床內容責任屬原發布單位與講者。
+> 策展人負責的是篩選、範圍框限、來源與講者資格查證、文獻對應與課程編排。
+> 本課不是 credentialing，也不取代實體 hands-on training、合格督導或正式影像判讀報告。
 
-- 8 章、24 個教學單元、18 支精選公開影片
-- 5 支「核心必看」建立最短學習路徑，13 支「延伸學習」補充完整流程、病理與不同專家觀點
-- 近五年影片優先；具不可替代教學價值者可列為「經典例外」
-- 核心納入 Jon Jacobson、Marc Schmitz、SMUG，並保留 Prof. Carlo Martinoli 的兩部解剖示範
-- 以 ACR/AIUM、AIUM、ESSR、USMSIT/NMUSIT 與同儕審查文獻建立掃描框架
-- 每單元具備學習目標、必備視圖、操作重點、常見陷阱、評量與審閱狀態
+## 課程結構
 
-詳細資料見 [課程結構](docs/CURRICULUM.md)、[選片規則](docs/VIDEO_CURATION.md)、[版型設計](docs/DESIGN_SYSTEM.md) 與 [建置計畫](docs/BUILD_PLAN.md)。
+依 **X 光 → 超音波 → MRI** 三大主軸編排：
 
-Cloudflare Pages 採 GitHub integration，設定與醫療索引閘門見 [部署文件](docs/DEPLOYMENT.md)。
+| 章 | 主題 | 單元 |
+| --- | --- | ---: |
+| `XR1` | X 光：照射位選擇與系統性判讀 | 2 |
+| `XR2` | X 光：常見病理與判讀陷阱 | 2 |
+| `US1` | 超音波基礎：診斷範圍、安全與影像最佳化 | 6 |
+| `US2` | 超音波前側：標準流程、肱二頭肌與肩胛下肌 | 6 |
+| `US3` | 超音波上外側與後側：旋轉間隙、棘上肌與動態檢查 | 6 |
+| `US4` | 超音波判讀、報告與品質 | 6 |
+| `MR1` | MRI：序列邏輯與正常解剖 | 2 |
+| `MR2` | MRI：旋轉肌袖與證據邊界 | 2 |
+| `MR3` | MRI：盂唇、不穩定與常見陷阱 | 2 |
+
+每個單元具備學習目標、必備視圖、操作重點、常見陷阱、評量與審閱狀態。
+詳見 [課程結構](docs/CURRICULUM.md)。
+
+## 這個 repo 有什麼值得參考
+
+課程內容本身是策展成果，**真正可以借用的是治理機制**——如何在大量引用第三方影片的前提下，
+維持可追溯、可稽核、且不誇大的醫學教育內容。
+
+**審閱閘門**
+`draft → medical-review → approved`。只有 `approved` 的內容會進入 `course.json`。
+單元、逐段筆記、知識檢核與名詞表各有獨立狀態，新增內容一律從 `draft` 開始，
+不影響既有審閱。`reviewer_role` 是「課程策展人」而非醫療專科職稱——
+**審閱確認的是範圍框限與來源資格，不是對第三方臨床內容的背書**。
+
+**影片可追溯性**
+每支影片有約 26 個 provenance 欄位：原始頻道、具名講者、**可驗證的第三方資格證據 URL**
+（大學／醫院 faculty 頁、學會講者頁、PubMed 作者頁）、來源權威層級、可嵌入與公開狀態、
+實查日期。缺欄位會被 `src/build/audit_medical.py` 擋下。
+
+**介入內容框限**
+課程是 `diagnostic-only`。影片若含介入段落，以 `intervention_start_timestamp` 與
+`diagnostic_segment_range` 切出可播範圍，逐段筆記也止於框限。
+框限由字幕關鍵字掃描（`tools/scan_intervention.py`）定位、再逐字核對前後文裁定——
+自動字幕會把肌腱 **insertion（止點）** 誤辨成 injection，直接信關鍵字會產生假警報。
+
+**文獻驗證**
+`reference_catalog` 的每一筆都以 PubMed eutils 實查過 PMID、標題與年份。
+`make verify` 會打真 API 重驗所有影片連結與文獻來源。
+
+**策展決策留痕**
+[`docs/VIDEO_CURATION.md`](docs/VIDEO_CURATION.md) 記錄每一輪策展的**拒絕清單與理由**、
+早於內容 cutoff 的破例理由、介入框限的裁定依據，以及被否決的建議。
+未來要回答「為什麼沒收這支」時，答案在那裡。
 
 ## 本機建置
 
@@ -25,28 +67,34 @@ Cloudflare Pages 採 GitHub integration，設定與醫療索引閘門見 [部署
 
 ```bash
 uv sync
-make check
-make serve
+make check      # lint + jscheck + test + build + audit
+make serve      # http://localhost:8899
+make verify     # 打真實 API 重驗影片連結與 PubMed 引用
 ```
 
-開啟 <http://localhost:8899>。若要驗證外部影片及文獻連結，另執行：
+`make audit` 執行框架稽核與醫療內容結構閘門。**通過只代表資料結構完整，不等於內容正確。**
 
-```bash
-make verify
-```
-
-`make audit` 會同時執行框架稽核與醫療內容結構閘門。通過只代表資料結構完整，不等於醫療核准。
+Cloudflare Pages 採 GitHub integration，設定與索引閘門見 [部署文件](docs/DEPLOYMENT.md)。
 
 ## 內容維護
 
-- `course/course.config.json`：網站、章節、配額、稽核與醫療範圍設定
-- `course/data/syllabus.json`：課綱、單元、參考來源與策展影片
-- `course/data/video-meta.json`：影片 ID、頻道、長度、觀看數及上架日期驗證中繼資料
-- `src/web/`：靜態前端
-- `src/build/`：建置、SEO、連結與醫療內容稽核
-
-審閱狀態採 `draft` → `medical-review` → `approved`。任何醫療內容變更都應回到 `medical-review`，不得只改畫面而保留既有核准狀態。
+| 路徑 | 內容 |
+| --- | --- |
+| `course/course.config.json` | 網站文案、章節、配額、稽核與醫療範圍設定 |
+| `course/data/syllabus.json` | 課綱、單元、參考文獻與策展影片 |
+| `course/data/{segments,questions,glossary}.json` | 逐段筆記、知識檢核、名詞表 |
+| `course/data/video-meta.json` | 影片實查中繼資料 |
+| `course/research/` | 策展原始輸出與字幕訛誤對照表 |
+| `src/web/` | 靜態前端 |
+| `src/build/` | 建置、SEO、連結與醫療內容稽核 |
+| `tools/` | 策展工作腳本（實查、框限掃描、逐字稿裁切、字幕訛誤預篩） |
 
 ## 來源與授權
 
-本專案參考 [keanu77/online-course](https://github.com/keanu77/online-course) 的資料驅動靜態課程架構重新建置。程式碼採 MIT License；第三方影片、學會指引及論文不包含在此授權內。本站只儲存連結與書目中繼資料，影片由 YouTube 官方播放器提供，不重製或代管。
+參考 [keanu77/online-course](https://github.com/keanu77/online-course) 的資料驅動靜態課程架構重新建置。
+
+程式碼採 MIT License。**第三方影片、學會指引及論文不包含在此授權內**——
+本站只儲存連結與書目中繼資料，影片由 YouTube 官方播放器提供，不重製也不代管。
+
+審閱紀錄（`reviewed_by` / `reviewer_role` / `reviewed_at`）**不隨授權轉移**。
+fork 或改作時必須移除這些欄位，不得聲稱原策展人為改作內容背書。
