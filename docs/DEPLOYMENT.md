@@ -4,8 +4,14 @@
 
 ## Pages 設定
 
-- Repository：`keanu77/shoulder-ultrasound-course`
+- Repository：`keanu77/shoulder-imaging-course`
+  （2026-08-28 由 `shoulder-ultrasound-course` 改名；GitHub 舊名轉址仍可用，
+  但本地 remote 已 `git remote set-url` 指向新名）
 - Project name：`shoulder-ultrasound-course`
+  **CF Pages 專案名不會跟著 repo 改名，維持原值。** 這個名字同時是
+  `course.config.json` 的 `site.project`，並驅動瀏覽計數器的 D1 資料庫名
+  `shoulder-ultrasound-course-hits`——**改了會讓現有資料庫變孤兒**。
+  CF Pages 以 `repo_id` 綁定 GitHub，改名不影響自動部署（膝部站與本站均已實測）。
 - Production branch：`main`
 - Root directory：repository root
 - Build command：
@@ -29,7 +35,7 @@
 
 ## 自訂網域
 
-先確認 `shoulder-ultrasound-course.pages.dev` 的 production deployment 正常，再到 Pages 專案的 Custom domains 加入：
+先確認 `shoulder-ultrasound-course.pages.dev`（CF 專案名，非 repo 名）的 production deployment 正常，再到 Pages 專案的 Custom domains 加入：
 
 `shoulder-ultrasound.sportsmedicine.tw`
 
