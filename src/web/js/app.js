@@ -6,7 +6,7 @@ import {
 import { renderMusclePanel, syncMuscleChips, applyFilters as runFilters } from "./filters.js";
 import {
   buildPlaylist, renderPlaylist, playlistItemMatches, play, stop, fitFrame, watchFrame,
-  initResizer, setLanguages,,
+  initResizer, setLanguages,
   refreshSegments,
 } from "./player.js";
 import { bindKeys, listen as ytListen } from "./keys.js";
