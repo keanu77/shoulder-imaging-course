@@ -1,0 +1,2133 @@
+{
+  "_doc": "字幕自動辨識訛誤對照表。機械預篩（字典＋詞形還原）→ 本地 qwen3.8:27b-mlx 判定 → 主編抽驗更正。逐段筆記階段用來校正解剖名詞，並寫進各影片的 note 欄位作為可信度證據。",
+  "generated_at": "2026-08-28",
+  "model": "qwen3.8:27b-mlx（本地 ollama，零 API 成本）",
+  "reviewed_overrides": {
+    "pathak": "本地 LLM 判為 Parker，實為 pathologic（\"no Pathak findings\"＝\"no pathologic findings\"）",
+    "intra": "剔除——斷字產物（intra substance／intra muscle），非單詞訛誤",
+    "musculus": "剔除——拉丁解剖詞，上下文不足以判定為訛誤",
+    "nmr": "改為 MR 而非 MRI（原文為 \"NMR arthrogram\"＝MR arthrogram）"
+  },
+  "corrections": {
+    "versa": {
+      "correct": "bursa",
+      "count": 64,
+      "videos": [
+        "n45q8fNv4oE",
+        "WzkiVfEg3qw",
+        "7_0epksK8BY"
+      ],
+      "source": "local-llm"
+    },
+    "supinatus": {
+      "correct": "supraspinatus",
+      "count": 46,
+      "videos": [
+        "eglplbWaqxA",
+        "fhrbY81YRN0",
+        "oSMful3J4gQ"
+      ],
+      "source": "local-llm"
+    },
+    "suppinatus": {
+      "correct": "supraspinatus",
+      "count": 40,
+      "videos": [
+        "juUSIoplk1k",
+        "Us_8gKPbrdk",
+        "WzCnmptsMQ8"
+      ],
+      "source": "local-llm"
+    },
+    "fassett": {
+      "correct": "facet",
+      "count": 36,
+      "videos": [
+        "WzkiVfEg3qw",
+        "7_0epksK8BY"
+      ],
+      "source": "local-llm"
+    },
+    "infraspanatus": {
+      "correct": "infraspinatus",
+      "count": 30,
+      "videos": [
+        "WzCnmptsMQ8",
+        "juUSIoplk1k"
+      ],
+      "source": "local-llm"
+    },
+    "hummeral": {
+      "correct": "humeral",
+      "count": 28,
+      "videos": [
+        "juUSIoplk1k",
+        "-sVLoelvpQs",
+        "Us_8gKPbrdk"
+      ],
+      "source": "local-llm"
+    },
+    "spinatus": {
+      "correct": "supraspinatus",
+      "count": 16,
+      "videos": [
+        "eglplbWaqxA",
+        "E_ydH_Slt2o",
+        "n45q8fNv4oE"
+      ],
+      "source": "local-llm"
+    },
+    "bsa": {
+      "correct": "bursa",
+      "count": 16,
+      "videos": [
+        "n45q8fNv4oE"
+      ],
+      "source": "local-llm"
+    },
+    "bersa": {
+      "correct": "bursa",
+      "count": 14,
+      "videos": [
+        "juUSIoplk1k"
+      ],
+      "source": "local-llm"
+    },
+    "superspinatus": {
+      "correct": "supraspinatus",
+      "count": 12,
+      "videos": [
+        "7_0epksK8BY",
+        "oSMful3J4gQ"
+      ],
+      "source": "local-llm"
+    },
+    "hyperacolic": {
+      "correct": "hyperechoic",
+      "count": 12,
+      "videos": [
+        "E_ydH_Slt2o"
+      ],
+      "source": "local-llm"
+    },
+    "aoic": {
+      "correct": "echoic",
+      "count": 12,
+      "videos": [
+        "eglplbWaqxA"
+      ],
+      "source": "local-llm"
+    },
+    "acromium": {
+      "correct": "acromion",
+      "count": 12,
+      "videos": [
+        "oSMful3J4gQ",
+        "eglplbWaqxA",
+        "n45q8fNv4oE"
+      ],
+      "source": "local-llm"
+    },
+    "subcoracoidal": {
+      "correct": "subcoracoid",
+      "count": 11,
+      "videos": [
+        "24Y2UY_YPvg"
+      ],
+      "source": "local-llm"
+    },
+    "subsc": {
+      "correct": "subscapularis",
+      "count": 10,
+      "videos": [
+        "mezZ0x5-D3s",
+        "7_0epksK8BY",
+        "oSMful3J4gQ"
+      ],
+      "source": "local-llm"
+    },
+    "humorris": {
+      "correct": "humeral",
+      "count": 10,
+      "videos": [
+        "Us_8gKPbrdk",
+        "WzCnmptsMQ8"
+      ],
+      "source": "local-llm"
+    },
+    "corocoid": {
+      "correct": "coracoid",
+      "count": 8,
+      "videos": [
+        "juUSIoplk1k",
+        "-sVLoelvpQs",
+        "Us_8gKPbrdk"
+      ],
+      "source": "local-llm"
+    },
+    "coroumeral": {
+      "correct": "coracohumeral",
+      "count": 8,
+      "videos": [
+        "Us_8gKPbrdk",
+        "juUSIoplk1k"
+      ],
+      "source": "local-llm"
+    },
+    "muscularkeeletal": {
+      "correct": "musculoskeletal",
+      "count": 8,
+      "videos": [
+        "juUSIoplk1k"
+      ],
+      "source": "local-llm"
+    },
+    "subscale": {
+      "correct": "subscapularis",
+      "count": 7,
+      "videos": [
+        "mezZ0x5-D3s"
+      ],
+      "source": "local-llm"
+    },
+    "tubicle": {
+      "correct": "tubercle",
+      "count": 6,
+      "videos": [
+        "Us_8gKPbrdk",
+        "-sVLoelvpQs"
+      ],
+      "source": "local-llm"
+    },
+    "bicepto": {
+      "correct": "bicipital",
+      "count": 6,
+      "videos": [
+        "E_ydH_Slt2o"
+      ],
+      "source": "local-llm"
+    },
+    "humorus": {
+      "correct": "humerus",
+      "count": 6,
+      "videos": [
+        "Us_8gKPbrdk",
+        "oSMful3J4gQ"
+      ],
+      "source": "local-llm"
+    },
+    "sinovial": {
+      "correct": "synovial",
+      "count": 6,
+      "videos": [
+        "juUSIoplk1k"
+      ],
+      "source": "local-llm"
+    },
+    "subac": {
+      "correct": "subacromial",
+      "count": 6,
+      "videos": [
+        "n45q8fNv4oE"
+      ],
+      "source": "local-llm"
+    },
+    "gleenoid": {
+      "correct": "glenoid",
+      "count": 4,
+      "videos": [
+        "-sVLoelvpQs",
+        "WzCnmptsMQ8"
+      ],
+      "source": "local-llm"
+    },
+    "anotropy": {
+      "correct": "anisotropy",
+      "count": 4,
+      "videos": [
+        "-sVLoelvpQs",
+        "Us_8gKPbrdk"
+      ],
+      "source": "local-llm"
+    },
+    "hyperacoic": {
+      "correct": "hyperechoic",
+      "count": 4,
+      "videos": [
+        "-sVLoelvpQs",
+        "E_ydH_Slt2o"
+      ],
+      "source": "local-llm"
+    },
+    "nmr": {
+      "correct": "MR",
+      "count": 4,
+      "videos": [
+        "7_0epksK8BY",
+        "WzkiVfEg3qw"
+      ],
+      "source": "local-llm+主編更正"
+    },
+    "pathak": {
+      "correct": "pathologic",
+      "count": 4,
+      "videos": [
+        "7_0epksK8BY"
+      ],
+      "source": "local-llm+主編更正"
+    },
+    "aibee": {
+      "correct": "abduction",
+      "count": 4,
+      "videos": [
+        "7_0epksK8BY"
+      ],
+      "source": "local-llm"
+    },
+    "rachii": {
+      "correct": "brachii",
+      "count": 4,
+      "videos": [
+        "E_ydH_Slt2o"
+      ],
+      "source": "local-llm"
+    },
+    "tubelacity": {
+      "correct": "tuberosity",
+      "count": 4,
+      "videos": [
+        "E_ydH_Slt2o"
+      ],
+      "source": "local-llm"
+    },
+    "bicepter": {
+      "correct": "bicipital",
+      "count": 4,
+      "videos": [
+        "E_ydH_Slt2o"
+      ],
+      "source": "local-llm"
+    },
+    "brachi": {
+      "correct": "brachii",
+      "count": 4,
+      "videos": [
+        "E_ydH_Slt2o"
+      ],
+      "source": "local-llm"
+    },
+    "hypoicolic": {
+      "correct": "hypoechoic",
+      "count": 4,
+      "videos": [
+        "E_ydH_Slt2o"
+      ],
+      "source": "local-llm"
+    },
+    "binetus": {
+      "correct": "biceps",
+      "count": 4,
+      "videos": [
+        "E_ydH_Slt2o"
+      ],
+      "source": "local-llm"
+    },
+    "infrastrinated": {
+      "correct": "infraspinatus",
+      "count": 4,
+      "videos": [
+        "E_ydH_Slt2o"
+      ],
+      "source": "local-llm"
+    },
+    "supraspanatus": {
+      "correct": "supraspinatus",
+      "count": 4,
+      "videos": [
+        "Us_8gKPbrdk",
+        "WzCnmptsMQ8"
+      ],
+      "source": "local-llm"
+    },
+    "bersal": {
+      "correct": "bursal",
+      "count": 4,
+      "videos": [
+        "Us_8gKPbrdk",
+        "juUSIoplk1k"
+      ],
+      "source": "local-llm"
+    },
+    "labreum": {
+      "correct": "labrum",
+      "count": 4,
+      "videos": [
+        "WzCnmptsMQ8",
+        "juUSIoplk1k"
+      ],
+      "source": "local-llm"
+    },
+    "humours": {
+      "correct": "humerus",
+      "count": 4,
+      "videos": [
+        "WzkiVfEg3qw"
+      ],
+      "source": "local-llm"
+    },
+    "glenna": {
+      "correct": "glenoid",
+      "count": 4,
+      "videos": [
+        "WzkiVfEg3qw"
+      ],
+      "source": "local-llm"
+    },
+    "coro": {
+      "correct": "coracoid",
+      "count": 4,
+      "videos": [
+        "eglplbWaqxA",
+        "n45q8fNv4oE"
+      ],
+      "source": "local-llm"
+    },
+    "supanat": {
+      "correct": "supraspinatus",
+      "count": 4,
+      "videos": [
+        "eglplbWaqxA"
+      ],
+      "source": "local-llm"
+    },
+    "chromian": {
+      "correct": "coracoid",
+      "count": 4,
+      "videos": [
+        "eglplbWaqxA"
+      ],
+      "source": "local-llm"
+    },
+    "physiootherapy": {
+      "correct": "physiotherapy",
+      "count": 4,
+      "videos": [
+        "juUSIoplk1k"
+      ],
+      "source": "local-llm"
+    },
+    "berscitis": {
+      "correct": "bursitis",
+      "count": 4,
+      "videos": [
+        "juUSIoplk1k"
+      ],
+      "source": "local-llm"
+    },
+    "sceal": {
+      "correct": "scapula",
+      "count": 4,
+      "videos": [
+        "juUSIoplk1k"
+      ],
+      "source": "local-llm"
+    },
+    "conjooint": {
+      "correct": "common",
+      "count": 4,
+      "videos": [
+        "juUSIoplk1k"
+      ],
+      "source": "local-llm"
+    },
+    "eusion": {
+      "correct": "effusion",
+      "count": 4,
+      "videos": [
+        "juUSIoplk1k"
+      ],
+      "source": "local-llm"
+    },
+    "hypoacoic": {
+      "correct": "hypoechoic",
+      "count": 4,
+      "videos": [
+        "juUSIoplk1k"
+      ],
+      "source": "local-llm"
+    },
+    "goumeral": {
+      "correct": "glenohumeral",
+      "count": 4,
+      "videos": [
+        "juUSIoplk1k"
+      ],
+      "source": "local-llm"
+    },
+    "subchromial": {
+      "correct": "subacromial",
+      "count": 4,
+      "videos": [
+        "juUSIoplk1k"
+      ],
+      "source": "local-llm"
+    },
+    "selto": {
+      "correct": "subacromial",
+      "count": 4,
+      "videos": [
+        "n45q8fNv4oE"
+      ],
+      "source": "local-llm"
+    },
+    "calis": {
+      "correct": "coraco",
+      "count": 4,
+      "videos": [
+        "n45q8fNv4oE"
+      ],
+      "source": "local-llm"
+    },
+    "coralis": {
+      "correct": "coraco",
+      "count": 4,
+      "videos": [
+        "n45q8fNv4oE"
+      ],
+      "source": "local-llm"
+    },
+    "humal": {
+      "correct": "humeral",
+      "count": 4,
+      "videos": [
+        "n45q8fNv4oE"
+      ],
+      "source": "local-llm"
+    },
+    "pacipal": {
+      "correct": "bicipital",
+      "count": 4,
+      "videos": [
+        "oSMful3J4gQ"
+      ],
+      "source": "local-llm"
+    },
+    "rosty": {
+      "correct": "rotator",
+      "count": 4,
+      "videos": [
+        "oSMful3J4gQ"
+      ],
+      "source": "local-llm"
+    },
+    "supereninoid": {
+      "correct": "supraglenoid",
+      "count": 2,
+      "videos": [
+        "-sVLoelvpQs"
+      ],
+      "source": "local-llm"
+    },
+    "antiflexion": {
+      "correct": "anti-flexion",
+      "count": 2,
+      "videos": [
+        "24Y2UY_YPvg"
+      ],
+      "source": "local-llm"
+    },
+    "condral": {
+      "correct": "chondral",
+      "count": 2,
+      "videos": [
+        "24Y2UY_YPvg"
+      ],
+      "source": "local-llm"
+    },
+    "pos": {
+      "correct": "posterior",
+      "count": 2,
+      "videos": [
+        "24Y2UY_YPvg"
+      ],
+      "source": "local-llm"
+    },
+    "attendin": {
+      "correct": "tendinopathy",
+      "count": 2,
+      "videos": [
+        "7_0epksK8BY"
+      ],
+      "source": "local-llm"
+    },
+    "materia": {
+      "correct": "infraspinatus",
+      "count": 2,
+      "videos": [
+        "7_0epksK8BY"
+      ],
+      "source": "local-llm"
+    },
+    "arcsine": {
+      "correct": "arc sign",
+      "count": 2,
+      "videos": [
+        "7_0epksK8BY"
+      ],
+      "source": "local-llm"
+    },
+    "jena": {
+      "correct": "linear",
+      "count": 2,
+      "videos": [
+        "7_0epksK8BY"
+      ],
+      "source": "local-llm"
+    },
+    "tanana": {
+      "correct": "Tendinosis",
+      "count": 2,
+      "videos": [
+        "7_0epksK8BY"
+      ],
+      "source": "local-llm"
+    },
+    "padilla": {
+      "correct": "Padilla",
+      "count": 2,
+      "videos": [
+        "7_0epksK8BY"
+      ],
+      "source": "local-llm"
+    },
+    "tendonosis": {
+      "correct": "tendinosis",
+      "count": 2,
+      "videos": [
+        "7_0epksK8BY"
+      ],
+      "source": "local-llm"
+    },
+    "marsden": {
+      "correct": "margin",
+      "count": 2,
+      "videos": [
+        "7_0epksK8BY"
+      ],
+      "source": "local-llm"
+    },
+    "barroso": {
+      "correct": "Bartholomew",
+      "count": 2,
+      "videos": [
+        "7_0epksK8BY"
+      ],
+      "source": "local-llm"
+    },
+    "accom": {
+      "correct": "Radiopaedia",
+      "count": 2,
+      "videos": [
+        "7_0epksK8BY"
+      ],
+      "source": "local-llm"
+    },
+    "tynan": {
+      "correct": "Tendinosis",
+      "count": 2,
+      "videos": [
+        "7_0epksK8BY"
+      ],
+      "source": "local-llm"
+    },
+    "natus": {
+      "correct": "tear",
+      "count": 2,
+      "videos": [
+        "7_0epksK8BY"
+      ],
+      "source": "local-llm"
+    },
+    "maduk": {
+      "correct": "marker",
+      "count": 2,
+      "videos": [
+        "7_0epksK8BY"
+      ],
+      "source": "local-llm"
+    },
+    "co-broker": {
+      "correct": "coraco",
+      "count": 2,
+      "videos": [
+        "7_0epksK8BY"
+      ],
+      "source": "local-llm"
+    },
+    "corocut": {
+      "correct": "coraco",
+      "count": 2,
+      "videos": [
+        "7_0epksK8BY"
+      ],
+      "source": "local-llm"
+    },
+    "spinosus": {
+      "correct": "supraspinatus",
+      "count": 2,
+      "videos": [
+        "7_0epksK8BY"
+      ],
+      "source": "local-llm"
+    },
+    "krabs": {
+      "correct": "crab",
+      "count": 2,
+      "videos": [
+        "7_0epksK8BY"
+      ],
+      "source": "local-llm"
+    },
+    "procs": {
+      "correct": "process",
+      "count": 2,
+      "videos": [
+        "7_0epksK8BY"
+      ],
+      "source": "local-llm"
+    },
+    "ecoegg": {
+      "correct": "echoic",
+      "count": 2,
+      "videos": [
+        "7_0epksK8BY"
+      ],
+      "source": "local-llm"
+    },
+    "hyperichoic": {
+      "correct": "hyperechoic",
+      "count": 2,
+      "videos": [
+        "E_ydH_Slt2o"
+      ],
+      "source": "local-llm"
+    },
+    "hyperactoic": {
+      "correct": "hyperechoic",
+      "count": 2,
+      "videos": [
+        "E_ydH_Slt2o"
+      ],
+      "source": "local-llm"
+    },
+    "tubosity": {
+      "correct": "tuberosity",
+      "count": 2,
+      "videos": [
+        "E_ydH_Slt2o"
+      ],
+      "source": "local-llm"
+    },
+    "subcaracoid": {
+      "correct": "subcoracoid",
+      "count": 2,
+      "videos": [
+        "E_ydH_Slt2o"
+      ],
+      "source": "local-llm"
+    },
+    "subclassation": {
+      "correct": "subluxation",
+      "count": 2,
+      "videos": [
+        "E_ydH_Slt2o"
+      ],
+      "source": "local-llm"
+    },
+    "subcapularis": {
+      "correct": "subscapularis",
+      "count": 2,
+      "videos": [
+        "E_ydH_Slt2o"
+      ],
+      "source": "local-llm"
+    },
+    "hypoicoic": {
+      "correct": "hypoechoic",
+      "count": 2,
+      "videos": [
+        "E_ydH_Slt2o"
+      ],
+      "source": "local-llm"
+    },
+    "hypoicoid": {
+      "correct": "hypoechoic",
+      "count": 2,
+      "videos": [
+        "E_ydH_Slt2o"
+      ],
+      "source": "local-llm"
+    },
+    "hyperekoic": {
+      "correct": "hyperechoic",
+      "count": 2,
+      "videos": [
+        "E_ydH_Slt2o"
+      ],
+      "source": "local-llm"
+    },
+    "weight-shaped": {
+      "correct": "wedge-shaped",
+      "count": 2,
+      "videos": [
+        "E_ydH_Slt2o"
+      ],
+      "source": "local-llm"
+    },
+    "separacromial": {
+      "correct": "subacromial",
+      "count": 2,
+      "videos": [
+        "E_ydH_Slt2o"
+      ],
+      "source": "local-llm"
+    },
+    "interlateral": {
+      "correct": "interosseous",
+      "count": 2,
+      "videos": [
+        "E_ydH_Slt2o"
+      ],
+      "source": "local-llm"
+    },
+    "sucrospinatus": {
+      "correct": "supraspinatus",
+      "count": 2,
+      "videos": [
+        "E_ydH_Slt2o"
+      ],
+      "source": "local-llm"
+    },
+    "subtotoid": {
+      "correct": "subdeltoid",
+      "count": 2,
+      "videos": [
+        "E_ydH_Slt2o"
+      ],
+      "source": "local-llm"
+    },
+    "hyperact": {
+      "correct": "hyperechoic",
+      "count": 2,
+      "videos": [
+        "E_ydH_Slt2o"
+      ],
+      "source": "local-llm"
+    },
+    "ics": {
+      "correct": "thickness",
+      "count": 2,
+      "videos": [
+        "E_ydH_Slt2o"
+      ],
+      "source": "local-llm"
+    },
+    "extapation": {
+      "correct": "extensor",
+      "count": 2,
+      "videos": [
+        "E_ydH_Slt2o"
+      ],
+      "source": "local-llm"
+    },
+    "infrast": {
+      "correct": "infraspinatus",
+      "count": 2,
+      "videos": [
+        "E_ydH_Slt2o"
+      ],
+      "source": "local-llm"
+    },
+    "hypoallic": {
+      "correct": "hypoechoic",
+      "count": 2,
+      "videos": [
+        "E_ydH_Slt2o"
+      ],
+      "source": "local-llm"
+    },
+    "glanohumeral": {
+      "correct": "glenohumeral",
+      "count": 2,
+      "videos": [
+        "E_ydH_Slt2o"
+      ],
+      "source": "local-llm"
+    },
+    "gallina": {
+      "correct": "glenoid",
+      "count": 2,
+      "videos": [
+        "E_ydH_Slt2o"
+      ],
+      "source": "local-llm"
+    },
+    "supraleenoid": {
+      "correct": "supraglenoid",
+      "count": 2,
+      "videos": [
+        "Us_8gKPbrdk"
+      ],
+      "source": "local-llm"
+    },
+    "gleen": {
+      "correct": "glenohumeral",
+      "count": 2,
+      "videos": [
+        "Us_8gKPbrdk"
+      ],
+      "source": "local-llm"
+    },
+    "coroco": {
+      "correct": "coracohumeral",
+      "count": 2,
+      "videos": [
+        "Us_8gKPbrdk"
+      ],
+      "source": "local-llm"
+    },
+    "berscal": {
+      "correct": "bursal",
+      "count": 2,
+      "videos": [
+        "Us_8gKPbrdk"
+      ],
+      "source": "local-llm"
+    },
+    "superleenoid": {
+      "correct": "supraglenoid",
+      "count": 2,
+      "videos": [
+        "Us_8gKPbrdk"
+      ],
+      "source": "local-llm"
+    },
+    "annisotropy": {
+      "correct": "anisotropy",
+      "count": 2,
+      "videos": [
+        "Us_8gKPbrdk"
+      ],
+      "source": "local-llm"
+    },
+    "implanatus": {
+      "correct": "infraspinatus",
+      "count": 2,
+      "videos": [
+        "WzCnmptsMQ8"
+      ],
+      "source": "local-llm"
+    },
+    "spogenoid": {
+      "correct": "supraglenoid",
+      "count": 2,
+      "videos": [
+        "WzCnmptsMQ8"
+      ],
+      "source": "local-llm"
+    },
+    "infasminatus": {
+      "correct": "infraspinatus",
+      "count": 2,
+      "videos": [
+        "WzCnmptsMQ8"
+      ],
+      "source": "local-llm"
+    },
+    "hetogenous": {
+      "correct": "heterogeneous",
+      "count": 2,
+      "videos": [
+        "WzCnmptsMQ8"
+      ],
+      "source": "local-llm"
+    },
+    "spendin": {
+      "correct": "subscapularis",
+      "count": 2,
+      "videos": [
+        "WzkiVfEg3qw"
+      ],
+      "source": "local-llm"
+    },
+    "superspar": {
+      "correct": "supraspinatus",
+      "count": 2,
+      "videos": [
+        "WzkiVfEg3qw"
+      ],
+      "source": "local-llm"
+    },
+    "tir": {
+      "correct": "TIR",
+      "count": 2,
+      "videos": [
+        "WzkiVfEg3qw"
+      ],
+      "source": "local-llm"
+    },
+    "women": {
+      "correct": "width",
+      "count": 2,
+      "videos": [
+        "WzkiVfEg3qw"
+      ],
+      "source": "local-llm"
+    },
+    "carla": {
+      "correct": "cortex",
+      "count": 2,
+      "videos": [
+        "WzkiVfEg3qw"
+      ],
+      "source": "local-llm"
+    },
+    "oshima": {
+      "correct": "acromion",
+      "count": 2,
+      "videos": [
+        "WzkiVfEg3qw"
+      ],
+      "source": "local-llm"
+    },
+    "atco": {
+      "correct": "echo",
+      "count": 2,
+      "videos": [
+        "WzkiVfEg3qw"
+      ],
+      "source": "local-llm"
+    },
+    "coit": {
+      "correct": "echo",
+      "count": 2,
+      "videos": [
+        "WzkiVfEg3qw"
+      ],
+      "source": "local-llm"
+    },
+    "highline": {
+      "correct": "highline",
+      "count": 2,
+      "videos": [
+        "WzkiVfEg3qw"
+      ],
+      "source": "local-llm"
+    },
+    "condom": {
+      "correct": "tendon",
+      "count": 2,
+      "videos": [
+        "WzkiVfEg3qw"
+      ],
+      "source": "local-llm"
+    },
+    "hypochromic": {
+      "correct": "hypoechogenic",
+      "count": 2,
+      "videos": [
+        "WzkiVfEg3qw"
+      ],
+      "source": "local-llm"
+    },
+    "hammond": {
+      "correct": "highline",
+      "count": 2,
+      "videos": [
+        "WzkiVfEg3qw"
+      ],
+      "source": "local-llm"
+    },
+    "trulia": {
+      "correct": "trabecular",
+      "count": 2,
+      "videos": [
+        "WzkiVfEg3qw"
+      ],
+      "source": "local-llm"
+    },
+    "endon": {
+      "correct": "tendon",
+      "count": 2,
+      "videos": [
+        "WzkiVfEg3qw"
+      ],
+      "source": "local-llm"
+    },
+    "croma": {
+      "correct": "acromion",
+      "count": 2,
+      "videos": [
+        "WzkiVfEg3qw"
+      ],
+      "source": "local-llm"
+    },
+    "nagy": {
+      "correct": "notch",
+      "count": 2,
+      "videos": [
+        "WzkiVfEg3qw"
+      ],
+      "source": "local-llm"
+    },
+    "cassette": {
+      "correct": "cuff",
+      "count": 2,
+      "videos": [
+        "WzkiVfEg3qw"
+      ],
+      "source": "local-llm"
+    },
+    "ganyan": {
+      "correct": "ganglion",
+      "count": 2,
+      "videos": [
+        "WzkiVfEg3qw"
+      ],
+      "source": "local-llm"
+    },
+    "glaber": {
+      "correct": "glenoid",
+      "count": 2,
+      "videos": [
+        "WzkiVfEg3qw"
+      ],
+      "source": "local-llm"
+    },
+    "glennon": {
+      "correct": "glenoid",
+      "count": 2,
+      "videos": [
+        "WzkiVfEg3qw"
+      ],
+      "source": "local-llm"
+    },
+    "penate": {
+      "correct": "pendant",
+      "count": 2,
+      "videos": [
+        "WzkiVfEg3qw"
+      ],
+      "source": "local-llm"
+    },
+    "unep": {
+      "correct": "unipennate",
+      "count": 2,
+      "videos": [
+        "WzkiVfEg3qw"
+      ],
+      "source": "local-llm"
+    },
+    "began": {
+      "correct": "biceps",
+      "count": 2,
+      "videos": [
+        "WzkiVfEg3qw"
+      ],
+      "source": "local-llm"
+    },
+    "fibro": {
+      "correct": "fascial",
+      "count": 2,
+      "videos": [
+        "WzkiVfEg3qw"
+      ],
+      "source": "local-llm"
+    },
+    "glenorie": {
+      "correct": "glenoid",
+      "count": 2,
+      "videos": [
+        "WzkiVfEg3qw"
+      ],
+      "source": "local-llm"
+    },
+    "paniculata": {
+      "correct": "panniculus",
+      "count": 2,
+      "videos": [
+        "WzkiVfEg3qw"
+      ],
+      "source": "local-llm"
+    },
+    "faccia": {
+      "correct": "fascia",
+      "count": 2,
+      "videos": [
+        "WzkiVfEg3qw"
+      ],
+      "source": "local-llm"
+    },
+    "inator": {
+      "correct": "intact",
+      "count": 2,
+      "videos": [
+        "WzkiVfEg3qw"
+      ],
+      "source": "local-llm"
+    },
+    "hypoallergenic": {
+      "correct": "hypoechogenic",
+      "count": 2,
+      "videos": [
+        "WzkiVfEg3qw"
+      ],
+      "source": "local-llm"
+    },
+    "bodie": {
+      "correct": "biceps",
+      "count": 2,
+      "videos": [
+        "WzkiVfEg3qw"
+      ],
+      "source": "local-llm"
+    },
+    "codependent": {
+      "correct": "echogenic",
+      "count": 2,
+      "videos": [
+        "WzkiVfEg3qw"
+      ],
+      "source": "local-llm"
+    },
+    "comeon": {
+      "correct": "coracoid",
+      "count": 2,
+      "videos": [
+        "WzkiVfEg3qw"
+      ],
+      "source": "local-llm"
+    },
+    "muslims": {
+      "correct": "muscles",
+      "count": 2,
+      "videos": [
+        "WzkiVfEg3qw"
+      ],
+      "source": "local-llm"
+    },
+    "ligand": {
+      "correct": "ligament",
+      "count": 2,
+      "videos": [
+        "WzkiVfEg3qw"
+      ],
+      "source": "local-llm"
+    },
+    "chromeo": {
+      "correct": "acromioclavicular",
+      "count": 2,
+      "videos": [
+        "WzkiVfEg3qw"
+      ],
+      "source": "local-llm"
+    },
+    "uhler": {
+      "correct": "ulnar",
+      "count": 2,
+      "videos": [
+        "WzkiVfEg3qw"
+      ],
+      "source": "local-llm"
+    },
+    "mcvicar": {
+      "correct": "cyst",
+      "count": 2,
+      "videos": [
+        "WzkiVfEg3qw"
+      ],
+      "source": "local-llm"
+    },
+    "blanchard": {
+      "correct": "linear",
+      "count": 2,
+      "videos": [
+        "WzkiVfEg3qw"
+      ],
+      "source": "local-llm"
+    },
+    "ultraseven": {
+      "correct": "ultrasound",
+      "count": 2,
+      "videos": [
+        "WzkiVfEg3qw"
+      ],
+      "source": "local-llm"
+    },
+    "compazine": {
+      "correct": "cuff",
+      "count": 2,
+      "videos": [
+        "WzkiVfEg3qw"
+      ],
+      "source": "local-llm"
+    },
+    "altra": {
+      "correct": "ultrasound",
+      "count": 2,
+      "videos": [
+        "WzkiVfEg3qw"
+      ],
+      "source": "local-llm"
+    },
+    "soundtrack": {
+      "correct": "outcomes",
+      "count": 2,
+      "videos": [
+        "WzkiVfEg3qw"
+      ],
+      "source": "local-llm"
+    },
+    "ardms": {
+      "correct": "ARMS",
+      "count": 2,
+      "videos": [
+        "WzkiVfEg3qw"
+      ],
+      "source": "local-llm"
+    },
+    "dms": {
+      "correct": "ARMS",
+      "count": 2,
+      "videos": [
+        "WzkiVfEg3qw"
+      ],
+      "source": "local-llm"
+    },
+    "pinkman": {
+      "correct": "further",
+      "count": 2,
+      "videos": [
+        "_PrcLweY_X0"
+      ],
+      "source": "local-llm"
+    },
+    "ealer": {
+      "correct": "linear",
+      "count": 2,
+      "videos": [
+        "_PrcLweY_X0"
+      ],
+      "source": "local-llm"
+    },
+    "amo": {
+      "correct": "more",
+      "count": 2,
+      "videos": [
+        "_PrcLweY_X0"
+      ],
+      "source": "local-llm"
+    },
+    "penet": {
+      "correct": "penetrating",
+      "count": 2,
+      "videos": [
+        "_PrcLweY_X0"
+      ],
+      "source": "local-llm"
+    },
+    "larico": {
+      "correct": "linear",
+      "count": 2,
+      "videos": [
+        "_PrcLweY_X0"
+      ],
+      "source": "local-llm"
+    },
+    "dep": {
+      "correct": "deep",
+      "count": 2,
+      "videos": [
+        "_PrcLweY_X0"
+      ],
+      "source": "local-llm"
+    },
+    "reflexion": {
+      "correct": "reflection",
+      "count": 2,
+      "videos": [
+        "_PrcLweY_X0"
+      ],
+      "source": "local-llm"
+    },
+    "illa": {
+      "correct": "linear",
+      "count": 2,
+      "videos": [
+        "_PrcLweY_X0"
+      ],
+      "source": "local-llm"
+    },
+    "middleton": {
+      "correct": "modified",
+      "count": 2,
+      "videos": [
+        "_PrcLweY_X0"
+      ],
+      "source": "local-llm"
+    },
+    "pasti": {
+      "correct": "posteriorly",
+      "count": 2,
+      "videos": [
+        "_PrcLweY_X0"
+      ],
+      "source": "local-llm"
+    },
+    "bodi": {
+      "correct": "body",
+      "count": 2,
+      "videos": [
+        "_PrcLweY_X0"
+      ],
+      "source": "local-llm"
+    },
+    "perico": {
+      "correct": "pericapsular",
+      "count": 2,
+      "videos": [
+        "_PrcLweY_X0"
+      ],
+      "source": "local-llm"
+    },
+    "sep": {
+      "correct": "separate",
+      "count": 2,
+      "videos": [
+        "_PrcLweY_X0"
+      ],
+      "source": "local-llm"
+    },
+    "humoris": {
+      "correct": "humerus",
+      "count": 2,
+      "videos": [
+        "eglplbWaqxA"
+      ],
+      "source": "local-llm"
+    },
+    "ttin": {
+      "correct": "tendon",
+      "count": 2,
+      "videos": [
+        "eglplbWaqxA"
+      ],
+      "source": "local-llm"
+    },
+    "typee": {
+      "correct": "type",
+      "count": 2,
+      "videos": [
+        "eglplbWaqxA"
+      ],
+      "source": "local-llm"
+    },
+    "corco": {
+      "correct": "coraco",
+      "count": 2,
+      "videos": [
+        "eglplbWaqxA"
+      ],
+      "source": "local-llm"
+    },
+    "subc": {
+      "correct": "subacromial",
+      "count": 2,
+      "videos": [
+        "eglplbWaqxA"
+      ],
+      "source": "local-llm"
+    },
+    "supinat": {
+      "correct": "supraspinatus",
+      "count": 2,
+      "videos": [
+        "eglplbWaqxA"
+      ],
+      "source": "local-llm"
+    },
+    "non-display": {
+      "correct": "non-displaced",
+      "count": 2,
+      "videos": [
+        "eglplbWaqxA"
+      ],
+      "source": "local-llm"
+    },
+    "spinus": {
+      "correct": "supraspinatus",
+      "count": 2,
+      "videos": [
+        "eglplbWaqxA"
+      ],
+      "source": "local-llm"
+    },
+    "delto": {
+      "correct": "deltoid",
+      "count": 2,
+      "videos": [
+        "eglplbWaqxA"
+      ],
+      "source": "local-llm"
+    },
+    "chromal": {
+      "correct": "subacromial",
+      "count": 2,
+      "videos": [
+        "eglplbWaqxA"
+      ],
+      "source": "local-llm"
+    },
+    "moreel": {
+      "correct": "more",
+      "count": 2,
+      "videos": [
+        "eglplbWaqxA"
+      ],
+      "source": "local-llm"
+    },
+    "postor": {
+      "correct": "posterior",
+      "count": 2,
+      "videos": [
+        "eglplbWaqxA"
+      ],
+      "source": "local-llm"
+    },
+    "anatom": {
+      "correct": "anatomy",
+      "count": 2,
+      "videos": [
+        "eglplbWaqxA"
+      ],
+      "source": "local-llm"
+    },
+    "sagal": {
+      "correct": "sagittal",
+      "count": 2,
+      "videos": [
+        "eglplbWaqxA"
+      ],
+      "source": "local-llm"
+    },
+    "disl": {
+      "correct": "distal",
+      "count": 2,
+      "videos": [
+        "eglplbWaqxA"
+      ],
+      "source": "local-llm"
+    },
+    "cenm": {
+      "correct": "cm",
+      "count": 2,
+      "videos": [
+        "eglplbWaqxA"
+      ],
+      "source": "local-llm"
+    },
+    "curbal": {
+      "correct": "curved",
+      "count": 2,
+      "videos": [
+        "eglplbWaqxA"
+      ],
+      "source": "local-llm"
+    },
+    "laboral": {
+      "correct": "labral",
+      "count": 2,
+      "videos": [
+        "eglplbWaqxA"
+      ],
+      "source": "local-llm"
+    },
+    "haar": {
+      "correct": "tear",
+      "count": 2,
+      "videos": [
+        "eglplbWaqxA"
+      ],
+      "source": "local-llm"
+    },
+    "atus": {
+      "correct": "supraspinatus",
+      "count": 2,
+      "videos": [
+        "fhrbY81YRN0"
+      ],
+      "source": "local-llm"
+    },
+    "vide": {
+      "correct": "video",
+      "count": 2,
+      "videos": [
+        "fhrbY81YRN0"
+      ],
+      "source": "local-llm"
+    },
+    "scanny": {
+      "correct": "scanning",
+      "count": 2,
+      "videos": [
+        "fhrbY81YRN0",
+        "oSMful3J4gQ"
+      ],
+      "source": "local-llm"
+    },
+    "pocock": {
+      "correct": "hyperechoic",
+      "count": 2,
+      "videos": [
+        "jjzMYgbYwTg"
+      ],
+      "source": "local-llm"
+    },
+    "decorah": {
+      "correct": "coraco",
+      "count": 2,
+      "videos": [
+        "jjzMYgbYwTg"
+      ],
+      "source": "local-llm"
+    },
+    "paranal": {
+      "correct": "patellar",
+      "count": 2,
+      "videos": [
+        "juUSIoplk1k"
+      ],
+      "source": "local-llm"
+    },
+    "tus": {
+      "correct": "tuberosity",
+      "count": 2,
+      "videos": [
+        "juUSIoplk1k"
+      ],
+      "source": "local-llm"
+    },
+    "facicicular": {
+      "correct": "fascicular",
+      "count": 2,
+      "videos": [
+        "juUSIoplk1k"
+      ],
+      "source": "local-llm"
+    },
+    "cellus": {
+      "correct": "soleus",
+      "count": 2,
+      "videos": [
+        "juUSIoplk1k"
+      ],
+      "source": "local-llm"
+    },
+    "enttrapment": {
+      "correct": "entrapment",
+      "count": 2,
+      "videos": [
+        "juUSIoplk1k"
+      ],
+      "source": "local-llm"
+    },
+    "corochromial": {
+      "correct": "calcaneofibular",
+      "count": 2,
+      "videos": [
+        "juUSIoplk1k"
+      ],
+      "source": "local-llm"
+    },
+    "calccania": {
+      "correct": "calcaneofibular",
+      "count": 2,
+      "videos": [
+        "juUSIoplk1k"
+      ],
+      "source": "local-llm"
+    },
+    "anizotropy": {
+      "correct": "anisotropy",
+      "count": 2,
+      "videos": [
+        "juUSIoplk1k"
+      ],
+      "source": "local-llm"
+    },
+    "cmters": {
+      "correct": "centimeters",
+      "count": 2,
+      "videos": [
+        "juUSIoplk1k"
+      ],
+      "source": "local-llm"
+    },
+    "bural": {
+      "correct": "bursal",
+      "count": 2,
+      "videos": [
+        "juUSIoplk1k"
+      ],
+      "source": "local-llm"
+    },
+    "rotenic": {
+      "correct": "rotator",
+      "count": 2,
+      "videos": [
+        "juUSIoplk1k"
+      ],
+      "source": "local-llm"
+    },
+    "supcapular": {
+      "correct": "suprascapular",
+      "count": 2,
+      "videos": [
+        "juUSIoplk1k"
+      ],
+      "source": "local-llm"
+    },
+    "burcitis": {
+      "correct": "bursitis",
+      "count": 2,
+      "videos": [
+        "juUSIoplk1k"
+      ],
+      "source": "local-llm"
+    },
+    "cataric": {
+      "correct": "cartilaginous",
+      "count": 2,
+      "videos": [
+        "juUSIoplk1k"
+      ],
+      "source": "local-llm"
+    },
+    "acromian": {
+      "correct": "acromion",
+      "count": 2,
+      "videos": [
+        "juUSIoplk1k"
+      ],
+      "source": "local-llm"
+    },
+    "nizotropy": {
+      "correct": "anisotropy",
+      "count": 2,
+      "videos": [
+        "juUSIoplk1k"
+      ],
+      "source": "local-llm"
+    },
+    "bersided": {
+      "correct": "bursal",
+      "count": 2,
+      "videos": [
+        "juUSIoplk1k"
+      ],
+      "source": "local-llm"
+    },
+    "infraspan": {
+      "correct": "infraspinatus",
+      "count": 2,
+      "videos": [
+        "juUSIoplk1k"
+      ],
+      "source": "local-llm"
+    },
+    "scal": {
+      "correct": "skeletal",
+      "count": 2,
+      "videos": [
+        "juUSIoplk1k"
+      ],
+      "source": "local-llm"
+    },
+    "gle": {
+      "correct": "glenohumeral",
+      "count": 2,
+      "videos": [
+        "juUSIoplk1k"
+      ],
+      "source": "local-llm"
+    },
+    "corticular": {
+      "correct": "cortical",
+      "count": 2,
+      "videos": [
+        "juUSIoplk1k"
+      ],
+      "source": "local-llm"
+    },
+    "anacoic": {
+      "correct": "anechoic",
+      "count": 2,
+      "videos": [
+        "juUSIoplk1k"
+      ],
+      "source": "local-llm"
+    },
+    "gleoid": {
+      "correct": "glenoid",
+      "count": 2,
+      "videos": [
+        "juUSIoplk1k"
+      ],
+      "source": "local-llm"
+    },
+    "terra": {
+      "correct": "teres",
+      "count": 2,
+      "videos": [
+        "juUSIoplk1k"
+      ],
+      "source": "local-llm"
+    },
+    "terraas": {
+      "correct": "teres",
+      "count": 2,
+      "videos": [
+        "juUSIoplk1k"
+      ],
+      "source": "local-llm"
+    },
+    "post-t": {
+      "correct": "post-traumatic",
+      "count": 2,
+      "videos": [
+        "juUSIoplk1k"
+      ],
+      "source": "local-llm"
+    },
+    "subcoroid": {
+      "correct": "subcoracoid",
+      "count": 2,
+      "videos": [
+        "juUSIoplk1k"
+      ],
+      "source": "local-llm"
+    },
+    "subcorocoid": {
+      "correct": "subcoracoid",
+      "count": 2,
+      "videos": [
+        "juUSIoplk1k"
+      ],
+      "source": "local-llm"
+    },
+    "pasta": {
+      "correct": "PASTA",
+      "count": 2,
+      "videos": [
+        "juUSIoplk1k"
+      ],
+      "source": "local-llm"
+    },
+    "synographer": {
+      "correct": "sonographer",
+      "count": 2,
+      "videos": [
+        "juUSIoplk1k"
+      ],
+      "source": "local-llm"
+    },
+    "btw": {
+      "correct": "biceps",
+      "count": 2,
+      "videos": [
+        "mezZ0x5-D3s"
+      ],
+      "source": "local-llm"
+    },
+    "spinetta": {
+      "correct": "supraspinatus",
+      "count": 2,
+      "videos": [
+        "mezZ0x5-D3s"
+      ],
+      "source": "local-llm"
+    },
+    "multiversal": {
+      "correct": "musculoskeletal",
+      "count": 2,
+      "videos": [
+        "mezZ0x5-D3s"
+      ],
+      "source": "local-llm"
+    },
+    "osis": {
+      "correct": "tendinosis",
+      "count": 2,
+      "videos": [
+        "mezZ0x5-D3s"
+      ],
+      "source": "local-llm"
+    },
+    "bility": {
+      "correct": "subscapularis",
+      "count": 2,
+      "videos": [
+        "mezZ0x5-D3s"
+      ],
+      "source": "local-llm"
+    },
+    "tively": {
+      "correct": "subscapularis",
+      "count": 2,
+      "videos": [
+        "mezZ0x5-D3s"
+      ],
+      "source": "local-llm"
+    },
+    "tific": {
+      "correct": "calcific",
+      "count": 2,
+      "videos": [
+        "mezZ0x5-D3s"
+      ],
+      "source": "local-llm"
+    },
+    "anti-assad": {
+      "correct": "antecubital",
+      "count": 2,
+      "videos": [
+        "mezZ0x5-D3s"
+      ],
+      "source": "local-llm"
+    },
+    "intendin": {
+      "correct": "tendinous",
+      "count": 2,
+      "videos": [
+        "mezZ0x5-D3s"
+      ],
+      "source": "local-llm"
+    },
+    "versy": {
+      "correct": "bursa",
+      "count": 2,
+      "videos": [
+        "n45q8fNv4oE"
+      ],
+      "source": "local-llm"
+    },
+    "subal": {
+      "correct": "subacromial",
+      "count": 2,
+      "videos": [
+        "n45q8fNv4oE"
+      ],
+      "source": "local-llm"
+    },
+    "sca": {
+      "correct": "subscapular",
+      "count": 2,
+      "videos": [
+        "n45q8fNv4oE"
+      ],
+      "source": "local-llm"
+    },
+    "subet": {
+      "correct": "subacromial",
+      "count": 2,
+      "videos": [
+        "n45q8fNv4oE"
+      ],
+      "source": "local-llm"
+    },
+    "bps": {
+      "correct": "biceps",
+      "count": 2,
+      "videos": [
+        "n45q8fNv4oE"
+      ],
+      "source": "local-llm"
+    },
+    "corob": {
+      "correct": "coracoid",
+      "count": 2,
+      "videos": [
+        "n45q8fNv4oE"
+      ],
+      "source": "local-llm"
+    },
+    "structur": {
+      "correct": "structures",
+      "count": 2,
+      "videos": [
+        "n45q8fNv4oE"
+      ],
+      "source": "local-llm"
+    },
+    "pch": {
+      "correct": "pouch",
+      "count": 2,
+      "videos": [
+        "n45q8fNv4oE"
+      ],
+      "source": "local-llm"
+    },
+    "subo": {
+      "correct": "subcoracoid",
+      "count": 2,
+      "videos": [
+        "n45q8fNv4oE"
+      ],
+      "source": "local-llm"
+    },
+    "gleno": {
+      "correct": "glenohumeral",
+      "count": 2,
+      "videos": [
+        "n45q8fNv4oE"
+      ],
+      "source": "local-llm"
+    },
+    "gloal": {
+      "correct": "glenoid",
+      "count": 2,
+      "videos": [
+        "n45q8fNv4oE"
+      ],
+      "source": "local-llm"
+    },
+    "vers": {
+      "correct": "bursa",
+      "count": 2,
+      "videos": [
+        "n45q8fNv4oE"
+      ],
+      "source": "local-llm"
+    },
+    "grooove": {
+      "correct": "groove",
+      "count": 2,
+      "videos": [
+        "oSMful3J4gQ"
+      ],
+      "source": "local-llm"
+    },
+    "tuos": {
+      "correct": "tuberosity",
+      "count": 2,
+      "videos": [
+        "oSMful3J4gQ"
+      ],
+      "source": "local-llm"
+    },
+    "fibler": {
+      "correct": "fibrillar",
+      "count": 2,
+      "videos": [
+        "oSMful3J4gQ"
+      ],
+      "source": "local-llm"
+    },
+    "subcis": {
+      "correct": "subscapularis",
+      "count": 2,
+      "videos": [
+        "oSMful3J4gQ"
+      ],
+      "source": "local-llm"
+    },
+    "tendis": {
+      "correct": "tendinous",
+      "count": 2,
+      "videos": [
+        "oSMful3J4gQ"
+      ],
+      "source": "local-llm"
+    },
+    "capar": {
+      "correct": "capar",
+      "count": 2,
+      "videos": [
+        "oSMful3J4gQ"
+      ],
+      "source": "local-llm"
+    },
+    "bpal": {
+      "correct": "bicipital",
+      "count": 2,
+      "videos": [
+        "oSMful3J4gQ"
+      ],
+      "source": "local-llm"
+    },
+    "bical": {
+      "correct": "bicipital",
+      "count": 2,
+      "videos": [
+        "oSMful3J4gQ"
+      ],
+      "source": "local-llm"
+    },
+    "biceptual": {
+      "correct": "bicipital",
+      "count": 2,
+      "videos": [
+        "oSMful3J4gQ"
+      ],
+      "source": "local-llm"
+    },
+    "ation": {
+      "correct": "orientation",
+      "count": 2,
+      "videos": [
+        "oSMful3J4gQ"
+      ],
+      "source": "local-llm"
+    },
+    "propin": {
+      "correct": "probe",
+      "count": 2,
+      "videos": [
+        "oSMful3J4gQ"
+      ],
+      "source": "local-llm"
+    },
+    "labram": {
+      "correct": "labrum",
+      "count": 2,
+      "videos": [
+        "oSMful3J4gQ"
+      ],
+      "source": "local-llm"
+    },
+    "gleo": {
+      "correct": "glenoid",
+      "count": 2,
+      "videos": [
+        "oSMful3J4gQ"
+      ],
+      "source": "local-llm"
+    },
+    "fessel": {
+      "correct": "vessel",
+      "count": 2,
+      "videos": [
+        "oSMful3J4gQ"
+      ],
+      "source": "local-llm"
+    },
+    "spinat": {
+      "correct": "spinatus",
+      "count": 2,
+      "videos": [
+        "oSMful3J4gQ"
+      ],
+      "source": "local-llm"
+    }
+  }
+}
