@@ -11,6 +11,10 @@
 | `clean_vtt.py` | VTT → `[MM:SS] 文字`，去自動字幕的 rolling 重複、解 HTML 實體，**並依 `diagnostic_segment_range` 裁切**。逐段筆記派工前先跑這支，比事後刪段可靠 |
 | `find_garbled.py` | 機械預篩字幕訛誤候選：字典比對＋詞形還原，把數十萬字縮到數百個候選詞 |
 | `local_correct.py` | 把候選詞交本地 ollama（零 API 成本）判定是訛誤還是正常詞，輸出對照表 |
+| `scan_caption_density.py` | 掃字幕密度（字元÷秒），**派逐段筆記工之前先跑**。正常片落在 19–35 字元/秒；離群低值代表主體講解沒有字幕軌，做出來沒有教學價值 |
+| `validate_segments.py` | 本地驗初稿：時間戳合法、嚴格遞增不重疊、完整落在框限內、欄位長度。規則與 `audit_medical.check_segments` 對齊，在派工端就擋掉，不必等 build |
+| `merge_segments.py` | 把初稿併入 `segments.json`，補 `transcript_verified_at`（UTC）與 `transcript_source`，狀態一律寫 `draft` |
+| `segment_draft_prompt.md` | 逐段筆記派工的 prompt 模板（硬性規則、段落切法、輸出 JSON 格式） |
 
 ## 典型流程
 
@@ -39,3 +43,29 @@ python3 tools/local_correct.py candidates.json verdicts.json
 **主編抽驗抓到的錯**都記在該檔的 `reviewed_overrides`：本地 LLM 把 `pathak` 誤判為
 "Parker"（實為 pathologic）、`intra` 是斷字產物不是訛誤。另有一則 ESSR 影片的
 `rejection`／`injection` 實為肌腱 **insertion** 的誤辨，記在 `docs/VIDEO_CURATION.md`。
+
+## 逐段筆記的完整流程（2026-08-28 實跑 34 支）
+
+```bash
+# 1. 抓字幕（34/34 成功）
+while read -r u; do yt-dlp --skip-download --write-auto-subs --write-subs \
+  --sub-langs "en.*" --sub-format vtt -o "%(id)s.%(ext)s" "$u"; done < urls.txt
+
+# 2. 清理並依框限裁切
+python3 tools/clean_vtt.py /tmp/sh-subs course/data/syllabus.json /tmp/sh-transcripts
+
+# 3. 先掃密度，剔除沒有有效字幕的片（省下派工成本）
+python3 tools/scan_caption_density.py /tmp/sh-transcripts course/data/syllabus.json
+
+# 4. 派工（codex，6–8 路並行；背景執行務必加 < /dev/null）
+#    prompt 用 tools/segment_draft_prompt.md ＋ 該片逐字稿
+
+# 5. 機械驗證 → 主編抽驗 → 併檔
+python3 tools/validate_segments.py /tmp/sh-drafts/*.json
+python3 tools/merge_segments.py
+```
+
+**第 5 步的主編抽驗不可省**。本輪 33 支全部通過機械驗證，但抽驗才抓到
+`R1kG9Mu1at4` 影片本身把 on-track／off-track 的風險講反（見 `docs/VIDEO_CURATION.md`）。
+撰稿 agent 標為「敘述前後有疑義」的段落**一律回讀原文**——它的標註常是對的，
+但歸因未必對（本例它歸給「字幕不清」，實際是影片講錯）。
