@@ -289,3 +289,43 @@
     justify-content: center;
   }
 }
+
+/* --- 使用須知 -----------------------------------------------------------
+   收錄規則與能力邊界要常駐可見，不放收合區——這是讀者判斷可信度的依據。 */
+
+.Notices {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.Notice {
+  padding: 16px 18px;
+  border: 1px solid var(--borderColor-default);
+  border-left: 2px solid var(--fgColor-accent);
+  border-radius: 3px;
+  background: var(--bgColor-default);
+}
+
+.Notice__title {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin: 0 0 7px;
+  color: var(--fgColor-default);
+  font-size: 14px;
+  font-weight: 650;
+}
+
+.Notice__title svg {
+  flex: none;
+  color: var(--fgColor-accent);
+}
+
+.Notice__body {
+  margin: 0;
+  color: var(--fgColor-muted);
+  font-size: 13.5px;
+  line-height: 1.75;
+}

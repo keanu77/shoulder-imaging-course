@@ -168,3 +168,62 @@ grok 這輪 12 支全部通過實查，沒有編造任何影片。
 2. 同一 agent 為 `WzkiVfEg3qw` 的 J. Antonio Bouffard 提供 PubMed 證據，但引用的是
    一篇**膝部**超音波論文。改用同作者的肩部論文（PMID 10994687
    《Ultrasonography of the shoulder》），對題且同樣可機器驗證。
+
+---
+
+## 第三輪策展：學會與官方來源（2026-08-28）
+
+使用者提供了一個外部參考站（陳昱傑醫師的「疼痛注射 × 肌骨神經超音波課程庫」）作為片源線索。
+該站是**介入導向**，本課是 `diagnostic-only`，因此只能取其中的診斷內容；
+其逐段筆記與課程結構屬對方著作，本課**只把它當作公開 YouTube 片源的指路牌**，未取用任何內容。
+
+### 方法
+
+該站是 Next.js 客戶端渲染，`?video=` 參數不影響伺服器輸出，`curl` 只拿得到首頁那一區。
+改用瀏覽器（CDP）載入後點開「肩膀」區，取得完整 10 支清單與各自的影片 ID，再逐支實查。
+同時派 codex 與 grok 從指定學會頻道（ESSR／EFSUMB／GCU／Philips／PMC）獨立策展。
+
+### 結果：對方站肩膀區 10 支的裁決
+
+| 影片 | 來源 | 判定 |
+|---|---|---|
+| `2sLrqeVOL_k` ESSR Shoulder Part 1（20:57） | ESSR 官方 | **採用** → US2 |
+| `brxQ1WqIVRo` ESSR Shoulder Part 2（13:27） | ESSR 官方 | **採用** → US3 |
+| `b-mrSITJeSU` AMSSM Mederic Hall 肩部（34:54） | AMSSM 官方 | **採用** → US4（破例，2020-06-19） |
+| `x7Ds0hGEMb8` AMSSM 投擲者後肩痛（39:54） | AMSSM 官方 | **採用** → US4 |
+| `9iMNnvT69CQ` AMSSM 近端肱骨骨骺分離（37:29） | AMSSM 官方 | **採用** → US4 |
+| `ha_cBjCR4zc` RA-UK Interscalene Block（5:50） | RA-UK | **拒絕**：肌間溝臂叢阻滯是介入操作，整片不在診斷課範圍 |
+| `5y2s2Z15_pA` AMSSM Orthobiologics（1:02:21） | AMSSM 官方 | **拒絕**：主題即為 orthobiologics 與影像導引介入操作 |
+| `-6_TK6qLXIo` AMSSM MSK 超音波基礎（58:18） | AMSSM 官方 | **拒絕**：跨部位基礎課（含髖、膝、髕骨），非肩部專屬；且 29 處介入提及散布全片，框限後所剩不多 |
+| `BwSJCkTBN0c` Radiology Nation 肩部／旋轉肌袖（9:05） | 非學會官方 | **拒絕**：對方站標為「ASRA Pain Medicine Best」，但那是 ASRA 的**選片清單**不是發布單位；實際頻道為 Radiology Nation，且說明欄載明與 Canon Medical Systems 商業合作。原始頻道資格不符，內容深度亦不及既有 18 支超音波片 |
+| `hGM7zAktKOQ` EFSUMB Webinar Sess 3 Todorov（22:15） | EFSUMB 官方 | **暫不收**：字幕全片無介入命中，但該場次官方標題為「MSK joint pathologies, paediatric applications and **guided procedures**」，主題橫跨肩與膝且僅 89 次觀看；相關性與範圍待醫師裁決 |
+
+### ESSR 兩支的 unlisted 問題（**需要簽核者裁決**）
+
+`2sLrqeVOL_k` 與 `brxQ1WqIVRo` 在 YouTube 上是 **`unlisted`**（不公開列出，但可嵌入播放）。
+本課現有其他 31 支全部是 `public`，這兩支是唯二例外。
+
+支持收錄：ESSR 是歐洲肌肉骨骼放射學會，這是其超音波小組委員會的官方教育影片；
+講者 Athena Plagou 是 **EFSUMB 肌肉骨骼超音波指引共同作者**（PMID 34734404）；
+學會以 unlisted 發布教育影片是常見做法，影片也確實被第三方教育網站嵌入引用。
+
+反對收錄：unlisted 內容不在公開索引中，發布者較容易在無預警下改為私人；
+且與本課「只收可公開播放內容」的既有標準有出入。
+
+兩支的 `playback_status` 已誠實標為 `unlisted`，並在 `disclosure` 欄寫明，簽核時請一併裁決。
+`audit_medical.py` 不檢查此欄位，所以**閘門不會替你擋，必須人工決定**。
+
+### 一個字幕訛誤造成的假警報
+
+`2sLrqeVOL_k` 的介入關鍵字掃描在 09:48–09:53 命中三次 `rejection`／`injection`。
+主編逐字核對前後文後確認：該段在講喙突上各肌腱的 **insertion（止點）**——
+「the different tendinous **insertions**」「the **insertion** of the coracobrachialis muscle」
+「the **insertion** of the pectoralis minor muscle」，被自動字幕誤辨。
+**全片為純診斷掃描，不需框限。** 這一則已併入字幕訛誤對照表。
+
+### 雙路策展的結果
+
+codex 從指定學會頻道獨立跑，只找出同樣的 ESSR 兩支（並獨立確認了 Part 2 的影片 ID），
+沒有為了湊數編造其他來源；grok 只回了進度敘述、未產出結構化結果。
+兩路都沒有在 EFSUMB／GCU／Philips／PMC 找到符合硬性資格的**肩部診斷**新片——
+這是誠實的空手而歸，不是遺漏。

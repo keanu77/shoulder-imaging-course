@@ -262,7 +262,7 @@
       "icon": "scan-line",
       "source": "syllabus",
       "units": 6,
-      "drills": 6
+      "drills": 7
     },
     {
       "code": "US3",
@@ -270,7 +270,7 @@
       "icon": "layers",
       "source": "syllabus",
       "units": 6,
-      "drills": 5
+      "drills": 6
     },
     {
       "code": "US4",
@@ -278,7 +278,7 @@
       "icon": "clipboard-list",
       "source": "syllabus",
       "units": 6,
-      "drills": 4
+      "drills": 7
     },
     {
       "code": "MR1",
@@ -370,7 +370,41 @@
     ],
     "stanceTitle": "開始前先知道",
     "stanceLede": "這是一門醫師專業教育課程，不是認證、credentialing 或個別病人的醫療建議。",
-    "chaptersTitle": "十三個章節，從標準化到多模態影像整合",
+    "noticeTitle": "使用須知",
+    "noticeLede": "這門課的收錄規則與能力邊界都寫在這裡，內容與影片都照這些規則篩選。",
+    "notices": [
+      {
+        "icon": "users",
+        "title": "適用對象",
+        "body": "醫師、住院醫師，以及在合格督導下接受肌肉骨骼影像訓練的醫療專業人員。預設已熟悉標準解剖、探頭方向與基本機器設定，內容不重複初階操作。本課不是 credentialing，也不取代實體 hands-on training 與合格督導。"
+      },
+      {
+        "icon": "clipboard-check",
+        "title": "影片收錄規則",
+        "body": "只收原始頻道發布、可公開嵌入播放、講者與資格可查證、且有英文字幕的影片。每一支都以 yt-dlp 與 YouTube oEmbed 實查過頻道歸屬、片長、上架日與可嵌入狀態；查不到資格證據或不可嵌入的一律不收，拒絕理由逐支記在策展文件。"
+      },
+      {
+        "icon": "shield-check",
+        "title": "診斷限定",
+        "body": "全課為影像判讀，不含注射、穿刺、水分離或其他影像導引介入操作的教學。影片若含介入段落，一律以診斷框限切出可播範圍，逐段筆記也止於框限。"
+      },
+      {
+        "icon": "book-open",
+        "title": "文獻依問題分流",
+        "body": "掃描策略與照射位看技術指南，診斷準確度看診斷研究，治療效益看比較研究，安全與能力邊界看專業指引。每一筆引用都以 PubMed 實查過 PMID、標題與年份，不憑印象撰寫。"
+      },
+      {
+        "icon": "microscope",
+        "title": "證據邊界",
+        "body": "影像所見不等於症狀來源。無症狀族群同樣有相當比例的影像異常，判讀結論一律回到病史、理學檢查與功能表現。證據尚未完備的主題會標示出來，不因此刪減內容。"
+      },
+      {
+        "icon": "check",
+        "title": "審閱與簽核",
+        "body": "單元、逐段筆記、知識檢核與名詞表各有獨立的審閱狀態，只有具資格醫師簽核為 approved 的內容才會出現在課程中。新增內容一律從 draft 開始，不影響既有簽核。"
+      }
+    ],
+    "chaptersTitle": "九個章節，從 X 光到超音波與 MRI 的判讀路徑",
     "ctaTitle": "從課程定位開始",
     "ctaLede": "目前共有 {units} 個單元與 {videos} 個已建檔影片欄位；影片清單會在醫療審閱與嵌入驗證後持續擴充。"
   },

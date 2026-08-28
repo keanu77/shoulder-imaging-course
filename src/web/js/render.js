@@ -713,6 +713,24 @@ ${esc(L.stanceLede || "")}
       <div class="Landing__stance">${stanceCards}</div>
     </section>
 
+    ${(L.notices || []).length
+      ? `<section class="Landing__section">
+           <h2 class="Landing__h2">${icon("info", 20)} ${esc(L.noticeTitle || "")}</h2>
+           ${L.noticeLede ? `<p class="Landing__lede">${esc(L.noticeLede)}</p>` : ""}
+           <div class="Notices">
+             ${(L.notices || [])
+               .map(
+                 (n) => `
+               <article class="Notice">
+                 <h3 class="Notice__title">${icon(n.icon || "info", 15)} ${esc(n.title)}</h3>
+                 <p class="Notice__body">${esc(n.body)}</p>
+               </article>`,
+               )
+               .join("")}
+           </div>
+         </section>`
+      : ""}
+
     <section class="Landing__section">
       <h2 class="Landing__h2">${icon("layers", 20)} ${esc(L.chaptersTitle || "")}</h2>
       <div class="ChapterGrid">${chapterCards}</div>
