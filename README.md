@@ -87,7 +87,7 @@ Cloudflare Pages 採 GitHub integration，設定與索引閘門見 [部署文件
 | `course/research/` | 策展原始輸出與字幕訛誤對照表 |
 | `src/web/` | 靜態前端 |
 | `src/build/` | 建置、SEO、連結與醫療內容稽核 |
-| `tools/` | 策展工作腳本（實查、框限掃描、逐字稿裁切、字幕訛誤預篩） |
+| `tools/` | 策展與逐段筆記的工作腳本（實查、框限掃描、逐字稿裁切、字幕密度與訛誤預篩、初稿驗證與併檔）——見 [`tools/README.md`](tools/README.md) |
 
 ## 來源與授權
 
