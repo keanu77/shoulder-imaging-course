@@ -40,11 +40,43 @@
 `shoulder-imaging.sportsmedicine.tw`（2026-08-28 起的正式網址）
 
 **舊網域 `shoulder-ultrasound.sportsmedicine.tw` 仍掛在同一個 Pages 專案上，不要拔掉。**
-它在改名前已被搜尋引擎索引，直接移除會留下死連結。`src/web/_redirects` 有一條
-301 把舊網域轉到新網域；即使該規則不生效，HTML 的 `<link rel="canonical">` 也已指向
-新網址，搜尋引擎仍會把權重收斂過去。
+它在改名前已被搜尋引擎索引，直接移除會留下死連結。兩個網域都指向同一個 Pages 專案，
+內容相同，且 HTML 的 `<link rel="canonical">` 已指向新網址——搜尋引擎會把權重收斂過去。
 
-母網域已由 Cloudflare 管理時，應由 Pages 的 Custom domains 流程自動建立 DNS；不要先手動建立 CNAME，以免自訂網域驗證或回源設定不一致。
+### ⚠️ `_redirects` 做不到舊網域轉新網域（2026-08-28 實測確認）
+
+本專案曾在 `src/web/_redirects` 放過這條規則：
+
+```
+https://shoulder-ultrasound.sportsmedicine.tw/* https://shoulder-imaging.sportsmedicine.tw/:splat 301
+```
+
+**它永遠不會生效，檔案已移除。** Cloudflare Pages 的 `_redirects`
+[官方文件](https://developers.cloudflare.com/pages/configuration/redirects/)
+在 advanced redirects 表格中把 **Domain-level redirects 標為 ❌**，
+來源欄只接受**檔案路徑**，不接受絕對 URL。
+
+診斷方法（值得記著，因為兩個檔的行為不同）：
+- `_headers` 的規則**有生效**（`curl -D-` 看得到 `x-content-type-options` 等三個標頭）
+  → 證明 CF 確實有讀這兩個設定檔，問題不在部署或路徑
+- 舊網域根路徑回 **200 而不是 301** → 規則被讀了但不適用
+- `/checklist.html` 回 308 是 **CF Pages 內建的去副檔名轉址**，不是我們的規則，別誤判成成功
+
+**真的要轉址就用 zone 層級的 Redirect Rule**（不在 Pages 專案裡）：
+Cloudflare dashboard → 選 `sportsmedicine.tw` → Rules → Redirect Rules → Create rule
+- 條件：`Hostname` equals `shoulder-ultrasound.sportsmedicine.tw`
+- 動作：Dynamic redirect，Expression `concat("https://shoulder-imaging.sportsmedicine.tw", http.request.uri.path)`
+- 狀態碼 301，勾 Preserve query string
+
+規模大時改用 Bulk Redirects。**wrangler 的 OAuth token 做不到**——它沒有 zone 權限
+（2026-08-28 實測連 `GET /zones` 都回 `Invalid access token`），只能由使用者在 dashboard 操作。
+
+### DNS
+
+**自訂網域的 CNAME 要使用者手動到 dashboard 加**（2026-08-28 實測）。
+在 Pages 專案 `POST .../domains` 加了自訂網域之後，狀態會停在 `pending`，
+**DNS 紀錄不會自動長出來**；手動加完 CNAME（`<子網域>` → `<CF專案名>.pages.dev`，Proxied）
+約 80 秒就會從 522 轉成 200。
 
 ## 上線 smoke test
 
