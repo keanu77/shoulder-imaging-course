@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""approve.py — 醫師簽核工具：segments（逐段筆記）、questions（知識檢核）、glossary（名詞表）。
+"""approve.py — 策展審閱工具：segments（逐段筆記）、questions（知識檢核）、glossary（名詞表）。
 
 用法：
   uv run python src/build/approve.py segments <youtube-id-或-url> --by 姓名 --role 職稱
