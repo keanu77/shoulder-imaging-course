@@ -740,3 +740,62 @@ body[data-tab="player"] {
     min-height: 44px;
   }
 }
+
+/* --- 逐段筆記搜尋命中 ----------------------------------------------------
+   搜尋命中的段落要能一眼看到，而且預設收斂到命中那幾段——
+   搜尋的人要的是那一段，不是重新捲六十段。 */
+
+.Segments__hits {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--bgColor-accent-muted, rgba(27, 107, 115, 0.12));
+  color: var(--fgColor-accent);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.Segments__only {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--fgColor-muted);
+  cursor: pointer;
+  user-select: none;
+}
+
+.Segments__only input {
+  accent-color: var(--fgColor-accent);
+  cursor: pointer;
+}
+
+.Segment.is-hit {
+  border-left: 2px solid var(--fgColor-accent);
+  background: var(--bgColor-accent-muted, rgba(27, 107, 115, 0.07));
+}
+
+/* 只看命中：非命中段落收起來，但不從 DOM 移除，取消勾選要能立刻還原 */
+.Segments.is-onlyHits .Segment:not(.is-hit) {
+  display: none;
+}
+
+.Hit {
+  padding: 0 1px;
+  border-radius: 2px;
+  background: var(--bgColor-attention-muted, rgba(224, 176, 0, 0.28));
+  color: inherit;
+  font-weight: 600;
+}
+
+.PlaylistItem__hit {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  margin-top: 2px;
+  color: var(--fgColor-accent);
+  font-size: 11px;
+  font-weight: 600;
+}

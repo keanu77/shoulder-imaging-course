@@ -6,7 +6,8 @@ import {
 import { renderMusclePanel, syncMuscleChips, applyFilters as runFilters } from "./filters.js";
 import {
   buildPlaylist, renderPlaylist, playlistItemMatches, play, stop, fitFrame, watchFrame,
-  initResizer, setLanguages,
+  initResizer, setLanguages,,
+  refreshSegments,
 } from "./player.js";
 import { bindKeys, listen as ytListen } from "./keys.js";
 import { mountPictograms } from "./pictograms.js";
@@ -731,7 +732,7 @@ function playAt(i) {
   if (i < 0 || i >= state.playlist.length) return;
   state.playing = i;
   savePlaying();
-  play(state.playlist[i], { total: state.playlist.length });
+  play(state.playlist[i], { total: state.playlist.length, query: state.playlistQuery });
   setTimeout(ytListen, 900); // iframe 載入後才收得到 infoDelivery
   if (load(STORE.wide, false)) {
     $(".Player").classList.add("is-wide");
@@ -885,6 +886,12 @@ function bindEvents() {
     if (item) playAt(+item.dataset.play);
   });
 
+  // 「只看命中的 N 段」：checkbox 每次搜尋都會被重繪，所以用委派而非直接綁定
+  $("#playerInfo").addEventListener("change", (e) => {
+    if (e.target.id !== "segmentOnlyHits") return;
+    e.target.closest(".Segments")?.classList.toggle("is-onlyHits", e.target.checked);
+  });
+
   $("#playerInfo").addEventListener("click", (e) => {
     const step = e.target.closest("[data-step]");
     if (step) return stepPlaylist(+step.dataset.step);
@@ -927,7 +934,11 @@ function bindEvents() {
   $("#playlistSearch").addEventListener("input", (e) => {
     state.playlistQuery = e.target.value;
     clearTimeout(plDebounce);
-    plDebounce = setTimeout(refreshPlaylist, 120);
+    plDebounce = setTimeout(() => {
+      refreshPlaylist();
+      // 逐段筆記要跟著標亮；不能重跑 play()，否則影片會從頭播
+      refreshSegments(state.playlist[state.playing], state.playlistQuery);
+    }, 120);
   });
 
   $("#playlistOnlyTodo").addEventListener("click", (e) => {

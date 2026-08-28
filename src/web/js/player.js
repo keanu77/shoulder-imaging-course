@@ -2,6 +2,7 @@
 import { icon } from "./icons.js";
 import { esc, interventionNoticeText, KIND, TIER, UI } from "./render.js";
 import { button as discussButton, panel as discussPanel } from "./discuss.js";
+import { highlight, segmentHaystack, segmentHitCount, segmentMatches } from "./segment-search.js";
 
 const $ = (s, r = document) => r.querySelector(s);
 
@@ -146,36 +147,49 @@ function frameHtml(item, startSeconds = null) {
 }
 
 /** 逐段筆記軌。course.json 只會帶入已簽核的段落，未簽核的在建置階段就被擋掉。 */
-function segmentRail(item) {
+function segmentRail(item, query = "") {
   const segments = (item.segments || [])
     .map((s) => ({ ...s, seconds: parseClock(s.start) }))
     .filter((s) => s.seconds !== null);
   if (!segments.length) return "";
 
-  const rows = segments.map((s) => `
-      <li class="Segment">
+  const hits = segmentHitCount(segments, query);
+  const rows = segments.map((s) => {
+    const hit = segmentMatches(s, query);
+    return `
+      <li class="Segment${hit ? " is-hit" : ""}">
         <button class="Segment__jump" type="button" data-seek="${s.seconds}"
                 title="從 ${esc(s.start)} 開始播放">
           ${icon("play", 11)}<span>${esc(s.start)}–${esc(s.end)}</span>
         </button>
         <div class="Segment__body">
-          <h4 class="Segment__title">${esc(s.title)}</h4>
-          <p class="Segment__summary">${esc(s.summary)}</p>
+          <h4 class="Segment__title">${highlight(s.title, query)}</h4>
+          <p class="Segment__summary">${highlight(s.summary, query)}</p>
           ${(s.detail || []).length
-            ? `<details class="Segment__detail">
+            ? `<details class="Segment__detail"${hit ? " open" : ""}>
                  <summary>完整逐段詳解 · ${(s.detail || []).length} 項</summary>
-                 <ul>${(s.detail || []).map((d) => `<li>${esc(d)}</li>`).join("")}</ul>
+                 <ul>${(s.detail || []).map((d) => `<li>${highlight(d, query)}</li>`).join("")}</ul>
                </details>`
             : ""}
         </div>
-      </li>`).join("");
+      </li>`;
+  }).join("");
 
   const framed = item.contains_intervention === true ? "；段落已框限在診斷範圍內" : "";
+  // 命中時預設只顯示命中段落：搜尋的人要的是那一段，不是重新捲 60 段
+  const hitBar = hits
+    ? `<label class="Segments__only">
+         <input type="checkbox" id="segmentOnlyHits" checked />
+         只看命中的 ${hits} 段
+       </label>`
+    : "";
   return `
-    <section class="Segments" aria-label="逐段筆記">
+    <section class="Segments${hits ? " has-hits is-onlyHits" : ""}" aria-label="逐段筆記">
       <div class="Segments__head">
         <strong>逐段筆記</strong>
         <span>${segments.length} 段 · 點時間碼直接跳播${framed}</span>
+        ${hits ? `<span class="Segments__hits">${icon("search", 11)} ${hits} 段命中「${esc(query.trim())}」</span>` : ""}
+        ${hitBar}
       </div>
       <ol class="Segments__list">${rows}</ol>
     </section>`;
@@ -191,9 +205,7 @@ export function playlistItemMatches(it, { doneSet, query, onlyTodo, learningTier
 
   const tierLabel = TIER[it.learning_tier]?.label || it.learning_tier || "";
   // 逐段筆記也要能被搜到：學員記得的往往是段落裡的字，不是影片標題
-  const segmentText = (it.segments || [])
-    .map((s) => `${s.title || ""} ${s.summary || ""} ${(s.detail || []).join(" ")}`)
-    .join(" ");
+  const segmentText = (it.segments || []).map(segmentHaystack).join(" ");
   const hay = `${it.name} ${it.title || ""} ${it.channel || ""} ${it.unitName} ${it.chTitle} ${(it.facets || []).join(" ")} ${it.target || ""} ${tierLabel} ${it.presenter || ""} ${it.presenter_note || ""} ${it.scope_note || ""} ${it.disclosure || ""} ${it.diagnostic_segment_range || ""} ${it.original_content_date || ""} ${it.upload_date || ""} ${segmentText}`;
   return hay.toLowerCase().includes(q);
 }
@@ -228,6 +240,7 @@ export function renderPlaylist(items, { doneSet, currentIndex, query, onlyTodo, 
         <span class="PlaylistItem__main">
           <span class="PlaylistItem__name">${esc(it.kind === "lesson" ? `${UI.lessonLabel || ""} · ${it.name}` : it.name)}</span>
           <span class="PlaylistItem__meta">${tier ? esc(tier.label) + " · " : ""}${k ? esc(k.label) + " · " : ""}${it.lang ? esc(LANG[it.lang] || it.lang) + " · " : ""}${esc(it.channel || "")}</span>
+          ${segmentHitCount(it.segments, query) ? `<span class="PlaylistItem__hit">${icon("search", 10)} 筆記 ${segmentHitCount(it.segments, query)} 段命中</span>` : ""}
         </span>
         <span class="PlaylistItem__dur">${esc(dur(it.duration))}</span>
       </button>`);
@@ -244,7 +257,7 @@ export function renderPlaylist(items, { doneSet, currentIndex, query, onlyTodo, 
 
 /* --- 播放 ---------------------------------------------------------------- */
 
-export function play(item, { total }) {
+export function play(item, { total, query = "" }) {
   if (!item?.vid) return;
 
   currentItem = item;
@@ -319,10 +332,25 @@ export function play(item, { total }) {
            </details>`
         : ""
     }
-    ${segmentRail(item)}
+    ${segmentRail(item, query)}
     ${discussPanel()}`;
 
   fitFrame();
+}
+
+/**
+ * 只重繪逐段筆記區。搜尋時不能走 play()——那會重設 iframe src，影片會從頭播。
+ * 找不到既有的 .Segments 就不動（該片沒有已簽核的段落）。
+ */
+export function refreshSegments(item, query = "") {
+  const host = document.querySelector("#playerInfo .Segments");
+  if (!host || !item) return;
+  const html = segmentRail(item, query);
+  if (!html) return host.remove();
+  const holder = document.createElement("div");
+  holder.innerHTML = html;
+  const next = holder.firstElementChild;
+  if (next) host.replaceWith(next);
 }
 
 /** 依實際可用高度算出影片寬度，讓它吃滿又不變形。
