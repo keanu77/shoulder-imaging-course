@@ -41,7 +41,7 @@
     "contentCutoff": "2021-08-28",
     "classicExceptionsRequireReason": true,
     "interventionalContentDeferred": true,
-    "allowIndexing": false,
+    "allowIndexing": true,
     "reviewStatuses": [
       "draft",
       "medical-review",
@@ -262,7 +262,7 @@
       "icon": "scan-line",
       "source": "syllabus",
       "units": 6,
-      "drills": 7
+      "drills": 6
     },
     {
       "code": "US3",
