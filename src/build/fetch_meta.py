@@ -82,9 +82,7 @@ def fetch(vid: str) -> tuple[str, dict]:
     if seconds <= 0 or title.startswith("youtube video #"):
         return vid, {"status": "ERROR", "note": "incomplete YouTube metadata"}
     upload_date = (
-        f"{upload[:4]}-{upload[4:6]}-{upload[6:8]}"
-        if re.fullmatch(r"\d{8}", upload)
-        else None
+        f"{upload[:4]}-{upload[4:6]}-{upload[6:8]}" if re.fullmatch(r"\d{8}", upload) else None
     )
     if upload_date is None:
         return vid, {"status": "ERROR", "note": "missing YouTube upload_date"}
@@ -106,9 +104,7 @@ def main() -> int:
     todo = [
         v
         for v in ids
-        if v not in meta
-        or meta[v].get("status") != "OK"
-        or not meta[v].get("upload_date")
+        if v not in meta or meta[v].get("status") != "OK" or not meta[v].get("upload_date")
     ]
     print(f"影片 {len(ids)} 支，需抓取 {len(todo)} 支")
 
@@ -116,7 +112,9 @@ def main() -> int:
         for i, (vid, info) in enumerate(pool.map(fetch, todo), 1):
             meta[vid] = info
             flag = "✓" if info["status"] == "OK" else "✗"
-            print(f"  {flag} [{i}/{len(todo)}] {vid} {info.get('title', info.get('note', ''))[:60]}")
+            print(
+                f"  {flag} [{i}/{len(todo)}] {vid} {info.get('title', info.get('note', ''))[:60]}"
+            )
 
     # 只留還在用的，避免舊資料殘留
     meta = {v: meta[v] for v in ids if v in meta}
@@ -124,7 +122,9 @@ def main() -> int:
 
     ok = sum(1 for v in meta.values() if v.get("status") == "OK")
     total_s = sum(v.get("seconds") or 0 for v in meta.values() if v.get("status") == "OK")
-    print(f"→ {META.relative_to(ROOT)}  {ok}/{len(meta)} OK，合計 {total_s // 3600}h {total_s % 3600 // 60}m")
+    print(
+        f"→ {META.relative_to(ROOT)}  {ok}/{len(meta)} OK，合計 {total_s // 3600}h {total_s % 3600 // 60}m"
+    )
     return 0 if ok == len(meta) else 1
 
 

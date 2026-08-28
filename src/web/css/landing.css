@@ -213,8 +213,119 @@
     font-size: 17px;
   }
 
-  /* 首頁 CTA 與立場入口鈕在窄螢幕拉到 44px 觸控高度 */
-  .Landing .btn {
+  /* CTA 與區塊按鈕預設 32px 高，低於觸控下限。 */
+  .Landing__ctaBtns .btn,
+  .Landing__section > .btn {
+    min-width: 44px;
     min-height: 44px;
+    justify-content: center;
   }
+}
+
+/* --- 繼續學習 ------------------------------------------------------------ */
+
+.ContinueCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--base-size-24);
+  margin-top: var(--base-size-24);
+  padding: var(--base-size-24);
+  background-color: var(--bgColor-accent-muted);
+  border: 1px solid var(--borderColor-accent-emphasis);
+  border-radius: var(--borderRadius-large);
+  box-shadow: var(--shadow-resting-small);
+}
+
+.ContinueCard__main {
+  width: min(640px, 100%);
+}
+
+.ContinueCard__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: var(--base-size-8);
+  font-family: var(--fontStack-mono);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--fgColor-accent);
+  letter-spacing: 0.08em;
+}
+
+.ContinueCard__title {
+  margin-top: var(--base-size-8);
+  font-size: 18px;
+  line-height: 1.45;
+}
+
+.ContinueCard__progressHead {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--base-size-16);
+  margin: var(--base-size-16) 0 var(--base-size-8);
+  font-size: 12px;
+  color: var(--fgColor-muted);
+}
+
+.ContinueCard__progressHead strong {
+  color: var(--fgColor-default);
+}
+
+.ContinueCard__action {
+  flex-shrink: 0;
+}
+
+@media (max-width: 767px) {
+  .ContinueCard {
+    align-items: stretch;
+    flex-direction: column;
+    gap: var(--base-size-16);
+    margin-top: var(--base-size-16);
+    padding: var(--base-size-16);
+  }
+
+  .ContinueCard__action {
+    min-height: 44px;
+    justify-content: center;
+  }
+}
+
+/* --- 使用須知 -----------------------------------------------------------
+   收錄規則與能力邊界要常駐可見，不放收合區——這是讀者判斷可信度的依據。 */
+
+.Notices {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.Notice {
+  padding: 16px 18px;
+  border: 1px solid var(--borderColor-default);
+  border-left: 2px solid var(--fgColor-accent);
+  border-radius: 3px;
+  background: var(--bgColor-default);
+}
+
+.Notice__title {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin: 0 0 7px;
+  color: var(--fgColor-default);
+  font-size: 14px;
+  font-weight: 650;
+}
+
+.Notice__title svg {
+  flex: none;
+  color: var(--fgColor-accent);
+}
+
+.Notice__body {
+  margin: 0;
+  color: var(--fgColor-muted);
+  font-size: 13.5px;
+  line-height: 1.75;
 }

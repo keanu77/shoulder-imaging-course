@@ -33,12 +33,20 @@ meta: ## 用 yt-dlp 補齊 video-meta.json（長度、觀看數、頻道、上�
 counter: ## 建立瀏覽次數用的 D1 資料庫並寫出 wrangler 綁定（冪等，可重跑）
 	$(PY) src/build/setup_counter.py
 
+jscheck: ## 以 ES module 解析檢查前端 JS 語法（node --check 對 .js 會走 CommonJS，抓不到 import 的錯）
+	@set -e; tmp=$$(mktemp -d); \
+	for f in src/web/js/*.js; do cp "$$f" "$$tmp/$$(basename $$f .js).mjs"; done; \
+	fail=0; for f in $$tmp/*.mjs; do node --check "$$f" || fail=1; done; \
+	rm -rf "$$tmp"; \
+	if [ $$fail -ne 0 ]; then echo "✗ 前端 JS 語法錯誤"; exit 1; fi; \
+	echo "✓ 前端 JS 以 ES module 解析全部通過"
+
 audit: ## 離線稽核設定檔、配額、影片長度與實證深度（確定性，不打網路）
 	$(PY) src/build/audit.py
 	$(PY) src/build/audit_medical.py
 
-test: ## 執行介入診斷段落的安全性測試
-	$(PY) tests/test_segment_ranges.py
+test: ## 執行安全性測試（介入框限與逐段筆記）
+	@for t in tests/test_*.py; do echo "→ $$t"; $(PY) "$$t" || exit 1; done
 
 verify: ## 重驗所有影片連結與 PubMed 引用（打真實 API，會跑一陣子）
 	$(PY) src/build/verify_links.py
@@ -59,9 +67,9 @@ fmt: ## ruff 格式化
 	uv run ruff format .
 	uv run ruff check --fix .
 
-check: lint test build audit ## 提交前跑這個（含安全性測試與離線稽核）
+check: lint jscheck test build audit ## 提交前跑這個（含安全性測試與離線稽核）
 
 clean: ## 清掉建置暫存
 	rm -rf .tmp .wrangler .ruff_cache dist **/__pycache__
 
-.PHONY: help build icons og meta counter audit test verify serve deploy lint fmt check clean
+.PHONY: help jscheck build icons og meta counter audit verify serve deploy lint fmt check clean test

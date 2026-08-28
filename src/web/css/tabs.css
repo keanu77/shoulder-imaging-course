@@ -297,6 +297,9 @@ a:hover > .PlayBtn,
   .TabNav__item {
     padding: 0 10px;
     gap: 0;
+    /* 標籤隱藏後只剩圖示，寬度會掉到 38px；補到 44px 觸控下限。 */
+    min-width: 44px;
+    justify-content: center;
   }
 
   .TabNav__label {
@@ -312,5 +315,26 @@ a:hover > .PlayBtn,
 
   .StancePage__intro h2 {
     font-size: 19px;
+  }
+
+  /* 觸控目標下限 44px；桌面密度不動 */
+  .MusclePanel__head {
+    min-height: 48px;
+  }
+
+  .MuscleChip {
+    min-width: 44px;
+    min-height: 44px;
+    justify-content: center;
+  }
+
+  .MusclePanel__clear {
+    min-height: 44px;
+  }
+
+  .Label--muscle {
+    min-width: 44px;
+    min-height: 44px;
+    justify-content: center;
   }
 }

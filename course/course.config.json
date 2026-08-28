@@ -2,28 +2,30 @@
   "$schema": "../src/build/course.schema.json",
   "site": {
     "project": "shoulder-ultrasound-course",
-    "name": "肩部超音波診斷課程",
+    "name": "肩部影像診斷課程",
     "url": "https://shoulder-ultrasound.sportsmedicine.tw",
-    "locale": "zh-Hant",
+    "locale": "zh-Hant-TW",
     "ogLocale": "zh_TW",
     "brandIcon": "scan-line",
-    "title": "肩部超音波診斷課程｜醫師的系統化掃描與判讀路徑",
-    "description": "以醫師為主要學員的肩部肌肉骨骼超音波自學課程，從儀器設定、標準掃描視圖、正常解剖到常見病理與報告紀錄，依 ACR、AIUM、ESSR 與台灣 USMSIT/NMUSIT 指引組織。",
-    "ogDescription": "醫師導向的肩部超音波診斷課程：24 個教學單元、標準掃描視圖、正常與異常判讀、常見陷阱及經驗證的專家影片。",
+    "title": "肩部影像診斷課程｜超音波、X 光與 MRI 的系統化判讀路徑",
+    "description": "以醫師為主要學員的肩部影像自學課程，涵蓋肌肉骨骼超音波、X 光與 MRI 三種模態，依 ACR、AIUM、ESSR 與台灣 USMSIT/NMUSIT 等專業指引建立標準掃描與照射位、序列判讀、常見病理與報告品質的學習路徑。",
+    "ogDescription": "醫師導向的肩部影像診斷課程：超音波標準掃描、X 光照射位、MRI 序列判讀、常見陷阱與經驗證的專家影片。",
     "keywords": [
       "肩部超音波",
-      "肌肉骨骼超音波",
+      "肩部X光",
+      "肩部MRI",
+      "肌肉骨骼影像",
       "旋轉肌袖",
       "肩關節",
-      "診斷超音波",
+      "影像判讀",
       "醫師教育"
     ],
     "audience": "醫師、住院醫師及在合格督導下接受肌肉骨骼超音波訓練的醫療專業人員",
     "about": [
       "肩部肌肉骨骼超音波",
-      "標準化掃描",
-      "旋轉肌袖",
-      "動態超音波",
+      "肩部 X 光判讀",
+      "肩部 MRI 判讀",
+      "標準化掃描與照射位",
       "影像判讀"
     ],
     "learningResourceType": [
@@ -36,10 +38,10 @@
   "medical": {
     "scope": "diagnostic-only",
     "primaryAudience": "physicians",
-    "contentCutoff": "2021-07-31",
+    "contentCutoff": "2021-08-28",
     "classicExceptionsRequireReason": true,
     "interventionalContentDeferred": true,
-    "allowIndexing": false,
+    "allowIndexing": true,
     "reviewStatuses": [
       "draft",
       "medical-review",
@@ -47,16 +49,15 @@
     ]
   },
   "hero": {
-    "eyebrow": "醫師專業自學課程・第一階段",
-    "heading": "把肩部超音波掃描變成可重複的臨床流程",
-    "lede": "全課規劃 {units} 個單元，從影像最佳化、標準視圖與動態檢查，到旋轉肌袖及常見病理判讀。每個單元都列出<strong>必備視圖、操作重點、常見陷阱、文獻依據與內容審閱狀態</strong>。"
+    "eyebrow": "醫師專業自學課程・診斷階段",
+    "heading": "肩部影像判讀的系統化路徑",
+    "lede": "全課規劃 {units} 個單元，依 <strong>X 光 → 超音波 → MRI</strong> 三大影像主軸編排：從照射位與系統性判讀，到超音波標準掃描、旋轉肌袖與動態檢查，再到 MRI 序列邏輯、盂唇與不穩定判讀。每個單元都列出必備視圖、操作重點、常見陷阱、文獻依據與內容審閱狀態。"
   },
   "ui": {
     "searchPlaceholder": "搜尋結構、病灶、掃描視圖或專家…",
     "tabs": {
       "course": "課程內容",
-      "player": "影片學習",
-      "stance": "課程標準"
+      "player": "影片學習"
     },
     "progressLabel": "學習進度",
     "facetLabel": "依解剖區域篩選",
@@ -154,6 +155,16 @@
       "id": "classic",
       "label": "經典大師",
       "tone": "attention"
+    },
+    {
+      "id": "radiograph-demo",
+      "label": "X 光判讀",
+      "tone": "success"
+    },
+    {
+      "id": "mri-demo",
+      "label": "MRI 判讀",
+      "tone": "attention"
     }
   ],
   "learningTiers": [
@@ -196,93 +207,102 @@
   },
   "nav": [
     {
-      "title": "基礎與標準",
+      "title": "X 光判讀",
       "chapters": [
-        "CH0",
-        "CH1",
-        "CH2"
+        "XR1",
+        "XR2"
       ]
     },
     {
-      "title": "區域掃描",
+      "title": "超音波",
       "chapters": [
-        "CH3",
-        "CH4",
-        "CH5"
+        "US1",
+        "US2",
+        "US3",
+        "US4"
       ]
     },
     {
-      "title": "判讀與整合",
+      "title": "MRI 判讀",
       "chapters": [
-        "CH6",
-        "CH7"
+        "MR1",
+        "MR2",
+        "MR3"
       ]
     }
   ],
   "chapters": [
     {
-      "code": "CH0",
-      "title": "課程定位、能力邊界與安全",
-      "icon": "shield-check",
-      "source": "syllabus",
-      "units": 3,
-      "drills": 1
-    },
-    {
-      "code": "CH1",
-      "title": "影像最佳化與基本技術",
-      "icon": "activity",
-      "source": "syllabus",
-      "units": 3,
-      "drills": 2
-    },
-    {
-      "code": "CH2",
-      "title": "標準肩部掃描流程",
+      "code": "XR1",
+      "title": "X 光：照射位選擇與系統性判讀",
       "icon": "scan-line",
       "source": "syllabus",
-      "units": 3,
-      "drills": 3
-    },
-    {
-      "code": "CH3",
-      "title": "前側肩部：肱二頭肌與肩胛下肌",
-      "icon": "target",
-      "source": "syllabus",
-      "units": 3,
-      "drills": 3
-    },
-    {
-      "code": "CH4",
-      "title": "上外側肩部：旋轉間隙與棘上肌",
-      "icon": "layers",
-      "source": "syllabus",
-      "units": 3,
+      "units": 2,
       "drills": 2
     },
     {
-      "code": "CH5",
-      "title": "後側肩部與動態檢查",
-      "icon": "move-diagonal",
-      "source": "syllabus",
-      "units": 3,
-      "drills": 3
-    },
-    {
-      "code": "CH6",
-      "title": "常見病理判讀",
+      "code": "XR2",
+      "title": "X 光：常見病理與判讀陷阱",
       "icon": "microscope",
       "source": "syllabus",
-      "units": 3,
-      "drills": 4
+      "units": 2,
+      "drills": 2
     },
     {
-      "code": "CH7",
-      "title": "報告、品質與病例整合",
+      "code": "US1",
+      "title": "超音波基礎：診斷範圍、安全與影像最佳化",
+      "icon": "shield-check",
+      "source": "syllabus",
+      "units": 6,
+      "drills": 2
+    },
+    {
+      "code": "US2",
+      "title": "超音波前側：標準流程、肱二頭肌與肩胛下肌",
+      "icon": "scan-line",
+      "source": "syllabus",
+      "units": 6,
+      "drills": 6
+    },
+    {
+      "code": "US3",
+      "title": "超音波上外側與後側：旋轉間隙、棘上肌與動態檢查",
+      "icon": "layers",
+      "source": "syllabus",
+      "units": 6,
+      "drills": 6
+    },
+    {
+      "code": "US4",
+      "title": "超音波判讀、報告與品質",
       "icon": "clipboard-list",
       "source": "syllabus",
-      "units": 3,
-      "drills": 0
+      "units": 6,
+      "drills": 7
+    },
+    {
+      "code": "MR1",
+      "title": "MRI：序列邏輯與正常解剖",
+      "icon": "layers",
+      "source": "syllabus",
+      "units": 2,
+      "drills": 2
+    },
+    {
+      "code": "MR2",
+      "title": "MRI：旋轉肌袖與證據邊界",
+      "icon": "microscope",
+      "source": "syllabus",
+      "units": 2,
+      "drills": 2
+    },
+    {
+      "code": "MR3",
+      "title": "MRI：盂唇、不穩定與常見陷阱",
+      "icon": "layers",
+      "source": "syllabus",
+      "units": 2,
+      "drills": 5
     }
   ],
   "audit": {
@@ -301,7 +321,7 @@
     "metaCoverage": 1,
     "drillsPerUnit": {
       "min": 1,
-      "max": 4
+      "max": 12
     },
     "maxSharedVideos": 2,
     "requireAssessment": [
@@ -350,13 +370,48 @@
     ],
     "stanceTitle": "開始前先知道",
     "stanceLede": "這是一門醫師專業教育課程，不是認證、credentialing 或個別病人的醫療建議。",
-    "chaptersTitle": "八個章節，從標準化到臨床整合",
+    "noticeTitle": "使用須知",
+    "noticeLede": "這門課的收錄規則與能力邊界都寫在這裡，內容與影片都照這些規則篩選。",
+    "notices": [
+      {
+        "icon": "users",
+        "title": "適用對象",
+        "body": "醫師、住院醫師，以及在合格督導下接受肌肉骨骼影像訓練的醫療專業人員。預設已熟悉標準解剖、探頭方向與基本機器設定，內容不重複初階操作。本課不是 credentialing，也不取代實體 hands-on training 與合格督導。"
+      },
+      {
+        "icon": "clipboard-check",
+        "title": "影片收錄規則",
+        "body": "只收原始頻道發布、可公開嵌入播放、講者與資格可查證、且有英文字幕的影片。每一支都以 yt-dlp 與 YouTube oEmbed 實查過頻道歸屬、片長、上架日與可嵌入狀態；查不到資格證據或不可嵌入的一律不收，拒絕理由逐支記在策展文件。"
+      },
+      {
+        "icon": "shield-check",
+        "title": "診斷限定",
+        "body": "全課為影像判讀，不含注射、穿刺、水分離或其他影像導引介入操作的教學。影片若含介入段落，一律以診斷框限切出可播範圍，逐段筆記也止於框限。"
+      },
+      {
+        "icon": "book-open",
+        "title": "文獻依問題分流",
+        "body": "掃描策略與照射位看技術指南，診斷準確度看診斷研究，治療效益看比較研究，安全與能力邊界看專業指引。每一筆引用都以 PubMed 實查過 PMID、標題與年份，不憑印象撰寫。"
+      },
+      {
+        "icon": "microscope",
+        "title": "證據邊界",
+        "body": "影像所見不等於症狀來源。無症狀族群同樣有相當比例的影像異常，判讀結論一律回到病史、理學檢查與功能表現。證據尚未完備的主題會標示出來，不因此刪減內容。"
+      },
+      {
+        "icon": "check",
+        "title": "策展與審閱",
+        "body": "本站是策展彙編：影片來自各原始頻道，著作權與內容責任屬原發布單位與講者。策展人負責的是篩選、範圍框限、來源與資格查證、文獻對應與課程編排，不對第三方影片的臨床內容做醫療背書。單元、逐段筆記、知識檢核與名詞表各有獨立審閱狀態，通過策展審閱的內容才會出現在課程中；新增內容一律從 draft 開始。"
+      }
+    ],
+    "chaptersTitle": "九個章節，從 X 光到超音波與 MRI 的判讀路徑",
     "ctaTitle": "從課程定位開始",
-    "ctaLede": "目前共有 {units} 個單元與 {videos} 個已建檔影片欄位；影片清單會在醫療審閱與嵌入驗證後持續擴充。"
+    "ctaLede": "目前共有 {units} 個單元與 {videos} 個已建檔影片欄位；影片清單會在策展審閱與嵌入驗證後持續擴充。"
   },
   "footer": {
-    "disclaimer": "<strong>專業教育聲明。</strong>本課程以醫師為主要學員，僅供教育用途，不取代實體 hands-on training、合格督導、機構 credentialing、完整病史理學檢查或正式影像判讀。第一階段不提供注射、穿刺或其他介入操作指引。",
-    "credits": "第三方影片的著作權屬原頻道，本站僅使用 YouTube 官方播放器嵌入並提供策展、課程脈絡與來源連結。"
+    "disclaimer": "<strong>專業教育聲明。</strong>本課程以醫師為主要學員，僅供教育用途，不取代實體 hands-on training、合格督導、機構 credentialing、完整病史理學檢查或正式影像判讀報告。診斷階段不提供注射、穿刺或其他影像導引介入操作指引。",
+    "credits": "第三方影片的著作權屬原頻道，本站僅使用 YouTube 官方播放器嵌入並提供策展、課程脈絡與來源連結；策展人不對第三方影片的臨床內容做醫療背書，內容責任屬原發布單位與講者。",
+    "author": "製作者：<a href=\"https://sportsmedicine.tw\" target=\"_blank\" rel=\"noopener\">運動醫學科 吳易澄醫師</a>"
   },
   "llms": {
     "summary": "醫師導向的肩部肌肉骨骼超音波診斷課程，共 {units} 個單元，涵蓋標準掃描視圖、正常解剖、動態檢查、常見病理、報告與品質控管。",

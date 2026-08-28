@@ -87,6 +87,57 @@ def collect_alt_lessons() -> dict:
     return out
 
 
+def collect_segments() -> tuple[dict, int]:
+    """url -> 已簽核的逐段筆記；回傳（對照表、被擋下的未簽核影片數）。
+
+    只有 review_status == approved 的影片會進 course.json。逐段筆記是新的教學內容，
+    未通過策展審閱就不該出現在上線站，開放搜尋索引之後更是如此。
+    """
+    blob = load_json(DATA / "segments.json")
+    if not blob:
+        return {}, 0
+    approved, held = {}, 0
+    for entry in blob.get("videos", []):
+        url = entry.get("url") or entry.get("video_url")
+        if not url or not entry.get("segments"):
+            continue
+        if entry.get("review_status") == "approved":
+            approved[url] = entry["segments"]
+        else:
+            held += 1
+    return approved, held
+
+
+def collect_questions() -> tuple[dict, int]:
+    """unit id -> 已簽核的知識檢核題組；回傳（對照表、被擋下的未簽核題組數）。
+
+    與 collect_segments 同一治理：只有 review_status == approved 的題組進 course.json。
+    """
+    blob = load_json(DATA / "questions.json")
+    if not blob:
+        return {}, 0
+    approved, held = {}, 0
+    for uid, entry in (blob.get("units") or {}).items():
+        if not entry.get("questions"):
+            continue
+        if entry.get("review_status") == "approved":
+            approved[uid] = entry["questions"]
+        else:
+            held += 1
+    return approved, held
+
+
+def collect_glossary() -> tuple[list, int, bool]:
+    """回傳（可輸出的名詞、名詞總數、是否已簽核）。
+
+    名詞表採整份簽核；只有頂層 review_status == approved 時才可進 course.json。
+    """
+    blob = load_json(DATA / "glossary.json")
+    terms = (blob or {}).get("terms") or []
+    approved = isinstance(blob, dict) and blob.get("review_status") == "approved"
+    return (terms if approved else []), len(terms), approved
+
+
 def collect_drill_evidence() -> dict:
     """合併各 agent 產出的動作類別文獻。"""
     out = {}
@@ -226,6 +277,10 @@ def main() -> int:
     within_unit = Counter()  # (unit_id, url) -> 次數，同單元重複才是真問題
 
     vmeta = load_json(DATA / "video-meta.json") or {}
+    segments_by_url, segments_held = collect_segments()
+    questions_by_unit, questions_held = collect_questions()
+    glossary, glossary_count, glossary_approved = collect_glossary()
+    segment_urls: set[str] = set()
     drill_ev = collect_drill_evidence()
     alt_lessons = collect_alt_lessons()
     multilang = [0]
@@ -280,12 +335,16 @@ def main() -> int:
             u.setdefault("id", f"{code.lower()}-u{units.index(u) + 1}")
             ref_ids = u.get("reference_ids") or []
             u["references"] = [reference_catalog[r] for r in ref_ids if r in reference_catalog]
+            if u["id"] in questions_by_unit:
+                u["questions"] = questions_by_unit[u["id"]]
             ev_key = EVIDENCE_ALIAS.get(u["id"], u["id"])
             if ev_key in evidence:
                 u["evidence"] = evidence[ev_key]
 
             # 單元層級的肌群：緊繃 + 無力兩側都算涉及
-            u["facets"] = facets.extract(*(u.get("tight") or []), *(u.get("weak") or [])) if facets else []
+            u["facets"] = (
+                facets.extract(*(u.get("tight") or []), *(u.get("weak") or [])) if facets else []
+            )
 
             # 主課可以有多語言版本，第一支為預設
             if u.get("lesson"):
@@ -314,6 +373,10 @@ def main() -> int:
                     bad_urls.append(f"{u['id']}: {url}")
                 seen_urls[url] += 1
                 within_unit[(u["id"], url)] += 1
+
+                if url in segments_by_url:
+                    v["segments"] = segments_by_url[url]
+                    segment_urls.add(url)
 
                 # 時長與頻道以 YouTube 實際 metadata 為準，策展資料僅作後備
                 info = vmeta.get(video_id(url) or "")
@@ -378,9 +441,19 @@ def main() -> int:
     muscle_index.sort(key=lambda x: (group_order.index(x["group"]), -x["count"]))
 
     ui_keys = (
-        "site", "hero", "ui", "kinds", "learningTiers", "grades", "languages",
-        "nav", "stance", "landing", "footer",
-        "discussions", "counter",
+        "site",
+        "hero",
+        "ui",
+        "kinds",
+        "learningTiers",
+        "grades",
+        "languages",
+        "nav",
+        "stance",
+        "landing",
+        "footer",
+        "discussions",
+        "counter",
     )
     course = {
         "config": {k: CFG[k] for k in ui_keys if k in CFG},
@@ -394,8 +467,7 @@ def main() -> int:
             "lesson_units": unit_total,
             "drill_units": drill_total,
             "drill_tier_counts": {
-                tier["id"]: learning_tiers[tier["id"]]
-                for tier in CFG.get("learningTiers", [])
+                tier["id"]: learning_tiers[tier["id"]] for tier in CFG.get("learningTiers", [])
             },
             # 影片：有連結的主課 + 輔助影片 + 多語言替代版本
             "alt_lessons": alt_count[0],
@@ -413,13 +485,25 @@ def main() -> int:
                 if u.get("type") == (CFG.get("ui", {}).get("problemType") or "posture")
             ),
             "evidence_checked": len(evidence),
+            # 逐段筆記：只計已簽核的；未簽核的不進產物，但數量要看得見
+            "segment_videos": len(segment_urls),
+            "segment_count": sum(len(segments_by_url[u]) for u in segment_urls),
+            "segment_videos_held": segments_held,
+            "question_units": len(questions_by_unit),
+            "question_count": sum(len(v) for v in questions_by_unit.values()),
+            "question_units_held": questions_held,
         },
         "chapters": chapters,
     }
+    if glossary_approved:
+        course["glossary"] = glossary
 
     sync_web()
     OUT.write_text(json.dumps(course, ensure_ascii=False, indent=1))
     version_web_assets()
+
+    import checklist as _checklist
+    _checklist.generate(DIST)
 
     try:
         out_label = OUT.relative_to(ROOT)
@@ -431,8 +515,7 @@ def main() -> int:
     print(
         "   "
         + " / ".join(
-            f"{tier['label']} {learning_tiers[tier['id']]}"
-            for tier in CFG.get("learningTiers", [])
+            f"{tier['label']} {learning_tiers[tier['id']]}" for tier in CFG.get("learningTiers", [])
         )
     )
     print(
@@ -449,6 +532,22 @@ def main() -> int:
         f" · 肌群索引 {len(muscle_index)} 項"
         f" · 動作類別 {len(cat_counts)} 類（文獻 {len(drill_ev)} 類）"
     )
+    if questions_by_unit or questions_held:
+        print(
+            f"   知識檢核 {len(questions_by_unit)} 個單元題組 · "
+            f"{sum(len(v) for v in questions_by_unit.values())} 題已簽核並輸出"
+            + (f" · {questions_held} 組未簽核未輸出" if questions_held else "")
+        )
+    print(
+        f"   名詞表 {glossary_count} 條"
+        + ("已簽核並輸出" if glossary_approved else "未簽核未輸出")
+    )
+    if segment_urls or segments_held:
+        print(
+            f"   逐段筆記 {len(segment_urls)} 支影片 · "
+            f"{sum(len(segments_by_url[u]) for u in segment_urls)} 段已簽核並輸出"
+            + (f" · {segments_held} 支未簽核未輸出" if segments_held else "")
+        )
     if uncategorised:
         print(
             f"   ⚠ 未分類動作 {len(uncategorised)}：{'、'.join(x for x in uncategorised[:5] if x)}"

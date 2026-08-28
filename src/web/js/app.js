@@ -1,14 +1,16 @@
 // app.js — 載入課程資料、渲染、互動與進度追蹤
 import { mountIcons, icon } from "./icons.js";
 import {
-  renderChapter, renderStance, renderHome, setDrillEvidence, setConfig, esc,
+  renderChapter, renderHome, setDrillEvidence, setConfig, esc,
 } from "./render.js";
 import { renderMusclePanel, syncMuscleChips, applyFilters as runFilters } from "./filters.js";
 import {
   buildPlaylist, renderPlaylist, playlistItemMatches, play, stop, fitFrame, watchFrame,
   initResizer, setLanguages,
+  refreshSegments,
 } from "./player.js";
 import { bindKeys, listen as ytListen } from "./keys.js";
+import { mountPictograms } from "./pictograms.js";
 import * as discuss from "./discuss.js";
 
 let LESSON_NOUN = "堂主課";
@@ -19,10 +21,14 @@ const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
 
 const STORE = {
   done: "susc:done",
+  mastery: "susc:mastery",
+  masteryRestore: "susc:mastery-restore",
+  quiz: "susc:quiz",
   theme: "susc:theme",
   open: "susc:open",
   tab: "susc:tab",
   playing: "susc:playing",
+  lastUnit: "susc:lastUnit",
   wide: "susc:wide",
   listW: "susc:listW",
 };
@@ -33,13 +39,18 @@ const urlIndex = new Map();
 const state = {
   course: null,
   done: new Set(),
+  mastery: new Map(),
+  masteryRestore: {},
+  quiz: {},
   filter: "all",
   learningTier: "all",
   query: "",
+  searchTerms: [],
   muscles: new Set(),
   tab: "course",
   playlist: [],
   playing: -1,
+  lastUnit: null,
   playlistQuery: "",
   onlyTodo: false,
 };
@@ -76,6 +87,108 @@ function save(key, value) {
   }
 }
 
+const MASTERY = {
+  "not-started": { icon: "circle-dot", label: "未開始" },
+  learning: { icon: "book-open", label: "學習中" },
+  done: { icon: "check", label: "已完成" },
+  review: { icon: "triangle-alert", label: "待複習" },
+};
+
+function masteryOf(unitId) {
+  return state.mastery.get(unitId) || "not-started";
+}
+
+function saveMastery() {
+  save(STORE.mastery, Object.fromEntries(state.mastery));
+}
+
+function applyMasteryToUnit(unitId) {
+  const el = $(`[data-unit="${CSS.escape(unitId)}"]`);
+  if (!el) return;
+
+  const status = masteryOf(unitId);
+  const view = MASTERY[status];
+  for (const key of Object.keys(MASTERY)) el.classList.toggle(`is-${key}`, key === status);
+  const control = $(".Unit__check", el);
+  if (!control) return;
+  control.innerHTML = `${icon(view.icon, 13)}<span class="Unit__checkLabel">${view.label}</span>`;
+  control.setAttribute("aria-checked", String(status === "done"));
+  control.setAttribute("aria-label", `掌握度：${view.label}`);
+  control.title = `掌握度：${view.label}`;
+}
+
+function setMastery(unitId, status) {
+  if (!MASTERY[status] || masteryOf(unitId) === status) return;
+  if (status === "not-started") state.mastery.delete(unitId);
+  else state.mastery.set(unitId, status);
+
+  if (status === "done") state.done.add(unitId);
+  else state.done.delete(unitId);
+  saveMastery();
+  applyMasteryToUnit(unitId);
+  renderProgress();
+  renderNav();
+  updateChapterMeta();
+  renderLanding();
+}
+
+function markLearning(unitId) {
+  if (masteryOf(unitId) === "not-started") setMastery(unitId, "learning");
+}
+
+function loadLearningState(data) {
+  const unitIds = new Set(data.chapters.flatMap((chapter) => chapter.units.map((unit) => unit.id)));
+  const storedMastery = load(STORE.mastery, null);
+  const source =
+    storedMastery && typeof storedMastery === "object" && !Array.isArray(storedMastery)
+      ? storedMastery
+      : null;
+
+  state.mastery = new Map();
+  if (source) {
+    for (const [unitId, status] of Object.entries(source)) {
+      if (unitIds.has(unitId) && MASTERY[status] && status !== "not-started") {
+        state.mastery.set(unitId, status);
+      }
+    }
+  } else {
+    // 舊版只有完成 Set；mastery key 一旦寫入，後續啟動就不再讀取舊資料。
+    const legacyDone = load(STORE.done, []);
+    for (const unitId of Array.isArray(legacyDone) ? legacyDone : []) {
+      if (unitIds.has(unitId)) state.mastery.set(unitId, "done");
+    }
+    saveMastery();
+  }
+  state.done = new Set(
+    [...state.mastery].filter(([, status]) => status === "done").map(([unitId]) => unitId),
+  );
+
+  const storedRestore = load(STORE.masteryRestore, {});
+  state.masteryRestore =
+    storedRestore && typeof storedRestore === "object" && !Array.isArray(storedRestore)
+      ? Object.fromEntries(
+          Object.entries(storedRestore).filter(
+            ([unitId, status]) => unitIds.has(unitId) && ["learning", "done"].includes(status),
+          ),
+        )
+      : {};
+
+  const questionIds = new Set(
+    data.chapters.flatMap((chapter) =>
+      chapter.units.flatMap((unit) => (unit.questions || []).map((question) => question.id)),
+    ),
+  );
+  const storedQuiz = load(STORE.quiz, {});
+  state.quiz =
+    storedQuiz && typeof storedQuiz === "object" && !Array.isArray(storedQuiz)
+      ? Object.fromEntries(
+          Object.entries(storedQuiz).filter(
+            ([questionId, record]) => questionIds.has(questionId) && Array.isArray(record?.answered),
+          ),
+        )
+      : {};
+}
+
 /** 把 course.config.json 的文案寫進 header、Hero 與頁尾 */
 function applyChrome(data) {
   const c = data.config || {};
@@ -86,7 +199,7 @@ function applyChrome(data) {
   };
 
   document.title = site.title || site.name || document.title;
-  document.documentElement.lang = site.locale || "zh-Hant";
+  document.documentElement.lang = site.locale || "zh-Hant-TW";
   LESSON_NOUN = c.ui?.lessonNoun || LESSON_NOUN;
   DRILL_NOUN = c.ui?.drillNoun || DRILL_NOUN;
   set(".AppHeader__brandName", esc(site.name || ""));
@@ -127,6 +240,8 @@ function applyChrome(data) {
       .replace("{problems}", data.meta.problem_units),
   );
   set(".AppFooter__disclaimer", c.footer?.disclaimer || "");
+  // author 含使用者自訂連結，與 disclaimer 同樣以原樣注入（來源是自家設定檔）
+  set("#headerAuthor", c.footer?.author || "");
   set(".AppFooter__credits", esc(c.footer?.credits || ""));
   set("#railChapterCount", `${data.chapters?.length || 0} CHAPTERS · ${data.meta?.units || 0} UNITS`);
   set("#consoleUnitCount", `${data.meta?.units || 0} UNITS`);
@@ -240,20 +355,34 @@ function renderProgress() {
   $("#progressFill").style.width = total ? `${(done / total) * 100}%` : "0%";
 }
 
-function toggleDone(unitId) {
-  state.done.has(unitId) ? state.done.delete(unitId) : state.done.add(unitId);
-  save(STORE.done, [...state.done]);
+function renderLanding() {
+  if (!state.course) return;
+  $("#landingBody").innerHTML = renderHome(state.course, {
+    doneSet: state.done,
+    lastUnit: state.lastUnit,
+  });
+}
 
-  const el = $(`[data-unit="${CSS.escape(unitId)}"]`);
-  if (el) {
-    const done = state.done.has(unitId);
-    el.classList.toggle("is-done", done);
-    $(".Unit__check", el)?.setAttribute("aria-checked", String(done));
+function rememberUnit(unitId) {
+  if (!state.course.chapters.some((ch) => ch.units.some((unit) => unit.id === unitId))) {
+    return;
+  }
+  state.lastUnit = { id: unitId, timestamp: Date.now() };
+  save(STORE.lastUnit, state.lastUnit);
+  renderLanding();
+}
+
+function toggleDone(unitId) {
+  const current = masteryOf(unitId);
+  if (current === "review") {
+    const el = $(`[data-unit="${CSS.escape(unitId)}"]`);
+    el?.classList.add("is-open");
+    $(".Quiz", el)?.scrollIntoView({ block: "center" });
+    return;
   }
 
-  renderProgress();
-  renderNav();
-  updateChapterMeta();
+  rememberUnit(unitId);
+  setMastery(unitId, current === "done" ? "learning" : "done");
 }
 
 function updateChapterMeta() {
@@ -269,11 +398,240 @@ function updateChapterMeta() {
   });
 }
 
+/* --- 知識檢核 ------------------------------------------------------------ */
+
+function questionsForUnit(unitId) {
+  for (const chapter of state.course.chapters) {
+    const unit = chapter.units.find((item) => item.id === unitId);
+    if (unit) return Array.isArray(unit.questions) ? unit.questions : [];
+  }
+  return [];
+}
+
+function answeredIndexes(questionEl) {
+  return $$('input[type="radio"], input[type="checkbox"]', questionEl)
+    .filter((input) => input.checked)
+    .map((input) => Number(input.value))
+    .filter(Number.isInteger)
+    .sort((a, b) => a - b);
+}
+
+function answerIsCorrect(question, answered) {
+  const expected = (question.options || [])
+    .map((option, index) => (option.correct ? index : -1))
+    .filter((index) => index >= 0);
+  return expected.length === answered.length && expected.every((index, i) => index === answered[i]);
+}
+
+function gradeQuiz(form, questions, records) {
+  let score = 0;
+  form.classList.add("is-graded");
+
+  for (const question of questions) {
+    const questionEl = $(`[data-question="${CSS.escape(question.id)}"]`, form);
+    if (!questionEl) continue;
+    const answered = new Set(records[question.id]?.answered || []);
+    const correct = answerIsCorrect(question, [...answered].sort((a, b) => a - b));
+    if (correct) score++;
+    questionEl.classList.toggle("is-correct", correct);
+    questionEl.classList.toggle("is-incorrect", !correct);
+    questionEl.classList.remove("needs-answer");
+
+    $$("input", questionEl).forEach((input) => {
+      const optionIndex = Number(input.value);
+      input.checked = answered.has(optionIndex);
+      input.disabled = true;
+      const optionEl = input.closest(".QuizOption");
+      optionEl?.classList.toggle("is-correct", question.options?.[optionIndex]?.correct === true);
+      optionEl?.classList.toggle(
+        "is-incorrect",
+        answered.has(optionIndex) && question.options?.[optionIndex]?.correct !== true,
+      );
+    });
+  }
+
+  $('[data-action="submit-quiz"]', form).hidden = true;
+  $('[data-action="retry-quiz"]', form).hidden = false;
+  $(".Quiz__result", form).textContent = `答對 ${score}/${questions.length}`;
+  return score;
+}
+
+function resetQuizForm(form) {
+  form.classList.remove("is-graded");
+  $$(".QuizQuestion", form).forEach((questionEl) => {
+    questionEl.classList.remove("is-correct", "is-incorrect", "needs-answer");
+  });
+  $$(".QuizOption", form).forEach((optionEl) => {
+    optionEl.classList.remove("is-correct", "is-incorrect");
+  });
+  $$("input", form).forEach((input) => {
+    input.checked = false;
+    input.disabled = false;
+  });
+  $('[data-action="submit-quiz"]', form).hidden = false;
+  $('[data-action="retry-quiz"]', form).hidden = true;
+  $(".Quiz__result", form).textContent = "";
+}
+
+function submitQuiz(form) {
+  const unitId = form.closest("[data-quiz-unit]")?.dataset.quizUnit;
+  const questions = questionsForUnit(unitId);
+  if (!unitId || !questions.length) return;
+
+  markLearning(unitId);
+  const answers = {};
+  let unanswered = 0;
+  for (const question of questions) {
+    const questionEl = $(`[data-question="${CSS.escape(question.id)}"]`, form);
+    const answered = questionEl ? answeredIndexes(questionEl) : [];
+    answers[question.id] = answered;
+    questionEl?.classList.toggle("needs-answer", !answered.length);
+    if (!answered.length) unanswered++;
+  }
+
+  if (unanswered) {
+    $(".Quiz__result", form).textContent = `尚有 ${unanswered} 題未作答`;
+    $(".QuizQuestion.needs-answer input", form)?.focus();
+    return;
+  }
+
+  const now = Date.now();
+  const records = {};
+  for (const question of questions) {
+    const correct = answerIsCorrect(question, answers[question.id]);
+    records[question.id] = { answered: answers[question.id], correctAt: correct ? now : null };
+    state.quiz[question.id] = records[question.id];
+  }
+  save(STORE.quiz, state.quiz);
+
+  const score = gradeQuiz(form, questions, records);
+  if (score < questions.length) {
+    if (masteryOf(unitId) !== "review") {
+      state.masteryRestore[unitId] = masteryOf(unitId) === "done" ? "done" : "learning";
+      save(STORE.masteryRestore, state.masteryRestore);
+    }
+    setMastery(unitId, "review");
+  } else if (masteryOf(unitId) === "review") {
+    const restored = ["learning", "done"].includes(state.masteryRestore[unitId])
+      ? state.masteryRestore[unitId]
+      : "learning";
+    delete state.masteryRestore[unitId];
+    save(STORE.masteryRestore, state.masteryRestore);
+    setMastery(unitId, restored);
+  }
+}
+
+function retryQuiz(form) {
+  const unitId = form.closest("[data-quiz-unit]")?.dataset.quizUnit;
+  for (const question of questionsForUnit(unitId)) delete state.quiz[question.id];
+  save(STORE.quiz, state.quiz);
+  resetQuizForm(form);
+  $("input", form)?.focus();
+}
+
+function restoreQuizzes() {
+  $$(".Quiz__form").forEach((form) => {
+    const unitId = form.closest("[data-quiz-unit]")?.dataset.quizUnit;
+    const questions = questionsForUnit(unitId);
+    if (questions.length && questions.every((question) => state.quiz[question.id])) {
+      gradeQuiz(form, questions, state.quiz);
+    }
+  });
+}
+
 /* --- 搜尋與篩選（實作在 filters.js） -------------------------------------- */
 
+function expandedSearchTerms(query, glossary) {
+  const q = query.trim().toLowerCase();
+  if (!q) return [];
+
+  const terms = new Set([q]);
+  for (const entry of glossary || []) {
+    const candidates = [entry.en, entry.zh, ...(entry.aliases || [])]
+      .filter(Boolean)
+      .map((value) => value.toLowerCase());
+    if (candidates.some((value) => value.includes(q))) {
+      if (entry.zh) terms.add(entry.zh.toLowerCase());
+      if (entry.en) terms.add(entry.en.toLowerCase());
+    }
+  }
+  return [...terms];
+}
+
 function applyFilters() {
+  state.searchTerms = expandedSearchTerms(state.query, state.course?.glossary);
   runFilters(state, state.course);
   syncMuscleChips(state.muscles);
+}
+
+/* --- 名詞表 -------------------------------------------------------------- */
+
+const GLOSSARY_CATEGORIES = ["anatomy", "pathology", "technique", "classification", "sign"];
+let glossaryQuery = "";
+let glossaryCategory = "";
+
+function glossaryMatches(entry) {
+  const categoryOk = !glossaryCategory || entry.category === glossaryCategory;
+  if (!categoryOk) return false;
+  const q = glossaryQuery.trim().toLowerCase();
+  if (!q) return true;
+  return [entry.zh, entry.en, entry.definition, ...(entry.aliases || [])]
+    .filter(Boolean)
+    .some((value) => value.toLowerCase().includes(q));
+}
+
+function renderGlossaryList() {
+  const host = $("#glossaryList");
+  if (!host) return;
+  const terms = (state.course?.glossary || []).filter(glossaryMatches);
+  host.innerHTML = terms.length
+    ? terms
+        .map(
+          (entry) => `
+            <button class="GlossaryEntry" type="button" data-glossary-id="${esc(entry.id)}">
+              <span class="GlossaryEntry__names">
+                <strong>${esc(entry.zh)}</strong>
+                <span lang="en">${esc(entry.en)}</span>
+              </span>
+              <span class="GlossaryEntry__definition">${esc(entry.definition)}</span>
+            </button>`,
+        )
+        .join("")
+    : `<p class="GlossaryPanel__empty">找不到符合的名詞</p>`;
+}
+
+function renderGlossaryPanel(course) {
+  const terms = course.glossary;
+  if (!Array.isArray(terms)) return;
+
+  const html = `
+    <section class="GlossaryPanel" id="glossaryPanel">
+      <button class="GlossaryPanel__head" id="glossaryToggle" type="button" aria-expanded="false" aria-controls="glossaryBody">
+        ${icon("book-open", 16)}
+        <span>名詞表</span>
+        <span class="Counter">${terms.length}</span>
+        <span class="GlossaryPanel__chevron">${icon("chevron-right", 14)}</span>
+      </button>
+      <div class="GlossaryPanel__body" id="glossaryBody">
+        <label class="GlossaryPanel__search">
+          ${icon("search", 14)}
+          <span class="visually-hidden">搜尋名詞表</span>
+          <input type="search" id="glossarySearch" placeholder="搜尋名詞…" autocomplete="off" />
+        </label>
+        <div class="GlossaryPanel__categories" role="group" aria-label="名詞分類">
+          ${GLOSSARY_CATEGORIES.map(
+            (category) =>
+              `<button class="GlossaryChip" type="button" data-glossary-category="${category}" aria-pressed="false">${category}</button>`,
+          ).join("")}
+        </div>
+        <div class="GlossaryPanel__list" id="glossaryList"></div>
+      </div>
+    </section>`;
+
+  const musclePanel = $("#musclePanel");
+  if (musclePanel) musclePanel.insertAdjacentHTML("afterend", html);
+  else $(".Layout__sidebar")?.insertAdjacentHTML("beforeend", html);
+  renderGlossaryList();
 }
 
 function syncTierControls() {
@@ -307,7 +665,6 @@ function setTab(tab) {
 
   $("#view-home").hidden = tab !== "home";
   $("#main").hidden = tab !== "course";
-  $("#view-stance").hidden = tab !== "stance";
   $("#view-player").hidden = tab !== "player";
   scrollTo({ top: 0 });
 
@@ -361,16 +718,21 @@ function alignPlayingToVisible() {
     playAt(next);
   } else {
     state.playing = next;
-    save(STORE.playing, next);
+    savePlaying();
     refreshPlaylist();
   }
+}
+
+function savePlaying() {
+  const id = state.playlist[state.playing]?.vid;
+  if (id) save(STORE.playing, id);
 }
 
 function playAt(i) {
   if (i < 0 || i >= state.playlist.length) return;
   state.playing = i;
-  save(STORE.playing, i);
-  play(state.playlist[i], { total: state.playlist.length });
+  savePlaying();
+  play(state.playlist[i], { total: state.playlist.length, query: state.playlistQuery });
   setTimeout(ytListen, 900); // iframe 載入後才收得到 infoDelivery
   if (load(STORE.wide, false)) {
     $(".Player").classList.add("is-wide");
@@ -390,6 +752,48 @@ function stepPlaylist(delta) {
       return;
     }
   }
+}
+
+function goToUnit(unitId, updateHash = true) {
+  const el = $(`[data-unit="${CSS.escape(unitId)}"]`);
+  if (!el) return;
+  setTab("course");
+  el.classList.add("is-open");
+  el.closest(".Chapter")?.classList.add("is-open");
+  markLearning(unitId);
+  rememberUnit(unitId);
+  if (updateHash && location.hash !== `#${unitId}`) location.hash = unitId;
+  el.scrollIntoView({ block: "center" });
+}
+
+function stepChapter(delta) {
+  if (state.tab !== "course") setTab("course");
+  const headings = $$(".Chapter__header");
+  if (!headings.length) return;
+
+  const headerHeight = parseFloat(
+    getComputedStyle(document.documentElement).getPropertyValue("--header-height"),
+  ) || 56;
+  const line = headerHeight + 16;
+  let current = -1;
+  headings.forEach((heading, i) => {
+    if (heading.getBoundingClientRect().top <= line) current = i;
+  });
+  const aligned =
+    current >= 0 && Math.abs(headings[current].getBoundingClientRect().top - line) < 40;
+  const wanted = delta > 0 ? current + 1 : aligned ? current - 1 : current;
+  headings[Math.max(0, Math.min(headings.length - 1, wanted))]
+    ?.scrollIntoView({ block: "start" });
+}
+
+function videoIdFromHash() {
+  let hashValue = "";
+  try {
+    hashValue = decodeURIComponent(location.hash.slice(1));
+  } catch {
+    hashValue = location.hash.slice(1);
+  }
+  return { hashValue, videoId: /^play=([\w-]{11})$/.exec(hashValue)?.[1] || null };
 }
 
 /* --- 事件 ---------------------------------------------------------------- */
@@ -413,7 +817,10 @@ function bindEvents() {
       const el = $(`[data-chapter="${CSS.escape(goCh.dataset.gotoChapter)}"]`);
       el?.classList.add("is-open");
       el?.scrollIntoView({ block: "start" });
+      return;
     }
+    const resume = e.target.closest("[data-continue-unit]");
+    if (resume) goToUnit(resume.dataset.continueUnit);
   });
 
   // 肌群篩選：側欄 chip 與動作內的標籤共用同一組 data-muscle
@@ -438,10 +845,51 @@ function bindEvents() {
     applyFilters();
   });
 
+  $("#glossaryToggle")?.addEventListener("click", () => {
+    const panel = $("#glossaryPanel");
+    const open = panel.classList.toggle("is-open");
+    $("#glossaryToggle").setAttribute("aria-expanded", String(open));
+  });
+
+  $("#glossarySearch")?.addEventListener("input", (e) => {
+    glossaryQuery = e.currentTarget.value;
+    renderGlossaryList();
+  });
+
+  $(".GlossaryPanel__categories")?.addEventListener("click", (e) => {
+    const chip = e.target.closest("[data-glossary-category]");
+    if (!chip) return;
+    glossaryCategory = glossaryCategory === chip.dataset.glossaryCategory
+      ? ""
+      : chip.dataset.glossaryCategory;
+    $$("[data-glossary-category]").forEach((button) => {
+      const active = button.dataset.glossaryCategory === glossaryCategory;
+      button.classList.toggle("is-active", active);
+      button.setAttribute("aria-pressed", String(active));
+    });
+    renderGlossaryList();
+  });
+
+  $("#glossaryList")?.addEventListener("click", (e) => {
+    const entryButton = e.target.closest("[data-glossary-id]");
+    if (!entryButton) return;
+    const entry = state.course.glossary.find((term) => term.id === entryButton.dataset.glossaryId);
+    if (!entry) return;
+    searchInput.value = entry.zh;
+    searchInput.dispatchEvent(new Event("input", { bubbles: true }));
+    searchInput.focus();
+  });
+
   // 播放清單
   $("#playlist").addEventListener("click", (e) => {
     const item = e.target.closest("[data-play]");
     if (item) playAt(+item.dataset.play);
+  });
+
+  // 「只看命中的 N 段」：checkbox 每次搜尋都會被重繪，所以用委派而非直接綁定
+  $("#playerInfo").addEventListener("change", (e) => {
+    if (e.target.id !== "segmentOnlyHits") return;
+    e.target.closest(".Segments")?.classList.toggle("is-onlyHits", e.target.checked);
   });
 
   $("#playerInfo").addEventListener("click", (e) => {
@@ -479,21 +927,18 @@ function bindEvents() {
     }
 
     const goto = e.target.closest("[data-goto-unit]");
-    if (goto) {
-      e.preventDefault();
-      setTab("course");
-      const el = $(`[data-unit="${CSS.escape(goto.dataset.gotoUnit)}"]`);
-      el?.classList.add("is-open");
-      el?.closest(".Chapter")?.classList.add("is-open");
-      el?.scrollIntoView({ block: "center" });
-    }
+    if (goto) return e.preventDefault(), goToUnit(goto.dataset.gotoUnit);
   });
 
   let plDebounce;
   $("#playlistSearch").addEventListener("input", (e) => {
     state.playlistQuery = e.target.value;
     clearTimeout(plDebounce);
-    plDebounce = setTimeout(refreshPlaylist, 120);
+    plDebounce = setTimeout(() => {
+      refreshPlaylist();
+      // 逐段筆記要跟著標亮；不能重跑 play()，否則影片會從頭播
+      refreshSegments(state.playlist[state.playing], state.playlistQuery);
+    }, 120);
   });
 
   $("#playlistOnlyTodo").addEventListener("click", (e) => {
@@ -536,6 +981,19 @@ function bindEvents() {
     });
   });
 
+  // 知識檢核提交與重作
+  $("#chapters").addEventListener("submit", (e) => {
+    const form = e.target.closest(".Quiz__form");
+    if (!form) return;
+    e.preventDefault();
+    submitQuiz(form);
+  });
+
+  $("#chapters").addEventListener("click", (e) => {
+    const retry = e.target.closest('[data-action="retry-quiz"]');
+    if (retry) retryQuiz(retry.closest(".Quiz__form"));
+  });
+
   // 展開／收合 + 完成標記，統一走事件委派
   $("#chapters").addEventListener("click", (e) => {
     const check = e.target.closest('[data-action="toggle-done"]');
@@ -555,7 +1013,12 @@ function bindEvents() {
         : kind === "unit"
           ? toggle.closest(".Unit")
           : toggle.closest(".Evidence"); // evidence 與 drillev 共用 .Evidence 外框
+    const opening = !host.classList.contains("is-open");
     host.classList.toggle("is-open");
+    if (kind === "unit" && opening) {
+      markLearning(host.dataset.unit);
+      rememberUnit(host.dataset.unit);
+    }
   });
 
   // 完成標記的鍵盤操作
@@ -586,17 +1049,6 @@ function bindEvents() {
     searchInput.focus();
   });
 
-  // "/" 聚焦搜尋
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "/" && !/^(INPUT|TEXTAREA)$/.test(document.activeElement.tagName)) {
-      e.preventDefault();
-      searchInput.focus();
-    }
-    if (e.key === "Escape" && document.activeElement === searchInput) {
-      searchInput.blur();
-    }
-  });
-
   // 類型篩選
   $$(".FilterBar__btn").forEach((btn) => {
     btn.addEventListener("click", () => {
@@ -616,17 +1068,24 @@ function bindEvents() {
 
   // 重設進度
   $("#resetProgress").addEventListener("click", () => {
-    if (!state.done.size) return;
-    if (!confirm(`確定要清除 ${state.done.size} 個單元的完成紀錄嗎？`)) return;
+    const progressCount = state.mastery.size;
+    const quizCount = Object.keys(state.quiz).length;
+    if (!progressCount && !quizCount) return;
+    if (!confirm(`確定要清除 ${progressCount} 個單元的學習進度與知識檢核紀錄嗎？`)) return;
+    const affectedUnits = [...state.mastery.keys()];
+    state.mastery.clear();
     state.done.clear();
-    save(STORE.done, []);
-    $$(".Unit").forEach((u) => {
-      u.classList.remove("is-done");
-      $(".Unit__check", u)?.setAttribute("aria-checked", "false");
-    });
+    state.masteryRestore = {};
+    state.quiz = {};
+    saveMastery();
+    save(STORE.masteryRestore, state.masteryRestore);
+    save(STORE.quiz, state.quiz);
+    affectedUnits.forEach(applyMasteryToUnit);
+    $$(".Quiz__form").forEach(resetQuizForm);
     renderProgress();
     renderNav();
     updateChapterMeta();
+    renderLanding();
   });
 
   // 主題
@@ -685,6 +1144,7 @@ function syncThemeIcon() {
 
 async function init() {
   mountIcons();
+  mountPictograms();
   syncThemeIcon();
 
   let data;
@@ -703,7 +1163,8 @@ async function init() {
   }
 
   state.course = data;
-  state.done = new Set(load(STORE.done, []));
+  loadLearningState(data);
+  state.lastUnit = load(STORE.lastUnit, null);
 
   setConfig(data.config);
   setLanguages(data.config?.languages);
@@ -713,29 +1174,30 @@ async function init() {
   setDrillEvidence(data.drillEvidence);
 
   $("#chapters").innerHTML = data.chapters
-    .map((ch) => renderChapter(ch, state.done))
+    .map((ch) => renderChapter(ch, state.done, state.mastery))
     .join("");
 
-  const stanceEl = $("#view-stance");
-  if (data.stance?.length) {
-    stanceEl.innerHTML = renderStance(data.stance);
-    $("#tabStanceCount").textContent = data.stance.length;
-  } else {
-    stanceEl.remove();
-    $('.TabNav__item[data-tab="stance"]')?.remove();
-  }
 
   $("#tabCourseCount").textContent = data.meta.units;
 
   state.playlist = buildPlaylist(data);
   state.playlist.forEach((it, i) => urlIndex.set(it.url, i));
-  state.playing = load(STORE.playing, -1);
+  const storedPlaying = load(STORE.playing, -1);
+  if (typeof storedPlaying === "number") {
+    state.playing = state.playlist[storedPlaying] ? storedPlaying : -1;
+    // 舊版存的是 index；成功還原一次後立刻遷移成穩定的 YouTube id。
+    if (state.playing >= 0) savePlaying();
+  } else {
+    state.playing = state.playlist.findIndex((item) => item.vid === storedPlaying);
+  }
 
-  $("#landingBody").innerHTML = renderHome(data);
+  renderLanding();
   renderStats();
   renderNav();
   renderMusclePanel(data);
+  renderGlossaryPanel(data);
   renderProgress();
+  restoreQuizzes();
   bindEvents();
   watchFrame();
   initResizer(load(STORE.listW, 0), (w) => save(STORE.listW, w));
@@ -749,21 +1211,31 @@ async function init() {
       stepPlaylist(-1);
     },
     isPlayerTab: () => state.tab === "player",
+    nextChapter: () => stepChapter(1),
+    prevChapter: () => stepChapter(-1),
   });
   applyFilters();
   syncTierControls();
 
-  // ?tab=player&play=12 可直接開到指定分頁與影片，也方便分享連結
+  // 舊的 ?tab=player&play=12 仍可用；新的 #play=<ytid> 不受清單排序影響。
   const params = new URLSearchParams(location.search);
   const wanted = params.get("tab");
+  const { hashValue, videoId: hashPlay } = videoIdFromHash();
+  const hashPlayIndex = hashPlay
+    ? state.playlist.findIndex((item) => item.vid === hashPlay)
+    : -1;
   setTab(
-    ["home", "course", "player", "stance"].includes(wanted)
+    hashPlayIndex >= 0
+      ? "player"
+      : ["home", "course", "player"].includes(wanted)
       ? wanted
       : load(STORE.tab, "home"),
   );
 
-  const deepPlay = Number(params.get("play"));
-  if (state.tab === "player" && Number.isInteger(deepPlay) && state.playlist[deepPlay]) {
+  const deepPlay = params.has("play") ? Number(params.get("play")) : NaN;
+  if (hashPlayIndex >= 0) {
+    state.playing = hashPlayIndex;
+  } else if (state.tab === "player" && Number.isInteger(deepPlay) && state.playlist[deepPlay]) {
     state.playing = deepPlay;
   }
   // 還原上次看到哪，但不自動播放，回來時先看到資訊就好
@@ -771,22 +1243,32 @@ async function init() {
     playAt(state.playing);
   }
 
-  // 首次造訪展開觀念篇第一章，讓畫面不是一片收合
+  // 首次造訪展開第一章，讓畫面不是一片收合（不要硬編章節代碼，重編後會失效）
   if (load(STORE.open, null) === null) {
-    $('[data-chapter="CH0"]')?.classList.add("is-open");
+    $(".Chapter[data-chapter]")?.classList.add("is-open");
   }
 
   // 深連結：#ch5-u1 直接展開該單元
-  if (location.hash) {
-    const target = $(CSS.escape(location.hash.slice(1)) ? location.hash : "");
+  if (hashValue && !hashPlay) {
+    const target = document.getElementById(hashValue);
     if (target?.classList.contains("Unit")) {
       target.classList.add("is-open");
       target.closest(".Chapter")?.classList.add("is-open");
+      markLearning(target.dataset.unit);
       target.scrollIntoView({ block: "center" });
     } else if (target?.classList.contains("Chapter")) {
       target.classList.add("is-open");
     }
   }
+
+  addEventListener("hashchange", () => {
+    const { videoId } = videoIdFromHash();
+    const i = state.playlist.findIndex((item) => item.vid === videoId);
+    if (videoId && i >= 0) {
+      setTab("player");
+      playAt(i);
+    }
+  });
 }
 
 init();

@@ -5,24 +5,29 @@
 :root {
   color-scheme: light dark;
 
-  --bgColor-default: #ffffff;
-  --bgColor-muted: #f6f8fa;
-  --bgColor-inset: #f6f8fa;
+  /* 燈箱圖譜：影像層與標註文法（主題無關，不隨深淺色反相） */
+  --lightbox: #0c0e12;
+  --mark-teach: #e0b000;   /* 教學標記：只給目標結構（實線） */
+  --mark-pitfall: #c43b6e; /* 陷阱：虛線/斜線填充 */
+
+  --bgColor-default: #faf8f2;
+  --bgColor-muted: #f2efe6;
+  --bgColor-inset: #edeae0;
   --bgColor-neutral-muted: #818b981f;
-  --bgColor-accent-muted: #ddf4ff;
+  --bgColor-accent-muted: #e2ecea;
   --bgColor-success-muted: #dafbe1;
   --bgColor-attention-muted: #fff8c5;
   --bgColor-danger-muted: #ffebe9;
   --bgColor-done-muted: #fbefff;
 
-  --borderColor-default: #d1d9e0;
-  --borderColor-muted: #d1d9e0b3;
-  --borderColor-accent-emphasis: #0969da;
+  --borderColor-default: #d8d2c4;
+  --borderColor-muted: #d8d2c4b3;
+  --borderColor-accent-emphasis: #1b6b73;
 
-  --fgColor-default: #1f2328;
-  --fgColor-muted: #59636e;
+  --fgColor-default: #1a2330;
+  --fgColor-muted: #5c6670;
   --fgColor-onEmphasis: #ffffff;
-  --fgColor-accent: #0969da;
+  --fgColor-accent: #1b6b73;
   --fgColor-success: #1a7f37;
   --fgColor-attention: #9a6700;
   --fgColor-danger: #d1242f;
@@ -45,10 +50,10 @@
   --base-size-32: 32px;
   --base-size-40: 40px;
 
-  --fontStack-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans",
+  --fontStack-sans: "Noto Sans TC", -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans",
     Helvetica, Arial, "PingFang TC", "Noto Sans TC", "Microsoft JhengHei",
     sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
-  --fontStack-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
+  --fontStack-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
     "Liberation Mono", monospace;
 
   --header-height: 56px;
@@ -65,7 +70,7 @@
     --bgColor-muted: #151b23;
     --bgColor-inset: #010409;
     --bgColor-neutral-muted: #656c7633;
-    --bgColor-accent-muted: #388bfd1a;
+    --bgColor-accent-muted: #4fa8b01f;
     --bgColor-success-muted: #23863633;
     --bgColor-attention-muted: #bb800926;
     --bgColor-danger-muted: #f8514926;
@@ -73,11 +78,11 @@
 
     --borderColor-default: #3d444d;
     --borderColor-muted: #3d444db3;
-    --borderColor-accent-emphasis: #316dca;
+    --borderColor-accent-emphasis: #4fa8b0;
 
     --fgColor-default: #f0f6fc;
     --fgColor-muted: #9198a1;
-    --fgColor-accent: #4493f8;
+    --fgColor-accent: #4fa8b0;
     --fgColor-success: #3fb950;
     --fgColor-attention: #d29922;
     --fgColor-danger: #f85149;
@@ -94,7 +99,7 @@
   --bgColor-muted: #151b23;
   --bgColor-inset: #010409;
   --bgColor-neutral-muted: #656c7633;
-  --bgColor-accent-muted: #388bfd1a;
+  --bgColor-accent-muted: #4fa8b01f;
   --bgColor-success-muted: #23863633;
   --bgColor-attention-muted: #bb800926;
   --bgColor-danger-muted: #f8514926;
@@ -102,11 +107,11 @@
 
   --borderColor-default: #3d444d;
   --borderColor-muted: #3d444db3;
-  --borderColor-accent-emphasis: #316dca;
+  --borderColor-accent-emphasis: #4fa8b0;
 
   --fgColor-default: #f0f6fc;
   --fgColor-muted: #9198a1;
-  --fgColor-accent: #4493f8;
+  --fgColor-accent: #4fa8b0;
   --fgColor-success: #3fb950;
   --fgColor-attention: #d29922;
   --fgColor-danger: #f85149;
@@ -142,8 +147,8 @@ body {
   /* 頁尾是 fixed，留出等高的墊底空間，最後一段內容才不會被蓋住 */
   padding-bottom: var(--footer-height);
   font-family: var(--fontStack-sans);
-  font-size: 14px;
-  line-height: 1.5;
+  font-size: 16px;
+  line-height: 1.7;
   color: var(--fgColor-default);
   background-color: var(--bgColor-default);
   -webkit-font-smoothing: antialiased;
@@ -307,11 +312,6 @@ svg {
   color: var(--fgColor-danger);
   background-color: var(--bgColor-danger-muted);
   border-color: color-mix(in srgb, var(--fgColor-danger) 30%, transparent);
-}
-
-.Label--done {
-  color: var(--fgColor-done);
-  background-color: var(--bgColor-done-muted);
 }
 
 .Counter {

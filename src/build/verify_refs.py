@@ -22,10 +22,12 @@ import urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-DATA = Path(os.environ.get("COURSE") or ROOT / "course").resolve() / "data"
+COURSE_DIR = Path(os.environ.get("COURSE") or ROOT / "course").resolve()
+DATA = COURSE_DIR / "data"
 ESUMMARY = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi"
 BATCH = 180
-USER_AGENT = "shoulder-ultrasound-course/1.0 (+https://shoulder-ultrasound.sportsmedicine.tw)"
+_SITE = json.loads((COURSE_DIR / "course.config.json").read_text(encoding="utf-8"))["site"]
+USER_AGENT = f"{_SITE['project']}/1.0 (+{_SITE['url']})"
 
 
 def norm(s: str) -> str:
@@ -36,9 +38,7 @@ def fetch(pmids: list[str]) -> dict:
     data = urllib.parse.urlencode(
         {"db": "pubmed", "retmode": "json", "id": ",".join(pmids)}
     ).encode()
-    req = urllib.request.Request(
-        ESUMMARY, data=data, headers={"User-Agent": USER_AGENT}
-    )
+    req = urllib.request.Request(ESUMMARY, data=data, headers={"User-Agent": USER_AGENT})
     with urllib.request.urlopen(req, timeout=60) as res:
         return json.loads(res.read()).get("result", {})
 

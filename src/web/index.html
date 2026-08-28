@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-Hant">
+<html lang="zh-Hant-TW">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -9,15 +9,18 @@
     <!-- 由 build.py 依 course.json 產生，勿手動編輯 -->
     <script type="application/ld+json" id="schema">{}</script>
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230969da' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2'/%3E%3C/svg%3E" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" />
     <link rel="stylesheet" href="css/tokens.css" />
     <link rel="stylesheet" href="css/layout.css" />
     <link rel="stylesheet" href="css/course.css" />
     <link rel="stylesheet" href="css/evidence.css" />
-    <link rel="stylesheet" href="css/stance.css" />
     <link rel="stylesheet" href="css/tabs.css" />
     <link rel="stylesheet" href="css/player.css" />
     <link rel="stylesheet" href="css/landing.css" />
     <link rel="stylesheet" href="css/clinical.css" />
+    <link rel="stylesheet" href="css/quiz.css" />
     <script>
       // 在繪製前套用主題，避免深色使用者看到白色閃屏
       (function () {
@@ -32,7 +35,7 @@
     <a href="#main" class="visually-hidden">跳到主要內容</a>
 
     <header class="AppHeader">
-      <a class="AppHeader__brand" href="#" data-tab-link="home" aria-label="肩部超音波診斷課程首頁">
+      <a class="AppHeader__brand" href="#" data-tab-link="home" aria-label="{{site.name}}首頁">
         <span class="AppHeader__brandMark">
           <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-activity" /></svg>
           <span class="AppHeader__brandPulse"></span>
@@ -46,16 +49,11 @@
           <button class="TabNav__item is-selected" data-tab="course" type="button" aria-label="{{ui.tabs.course}}" aria-current="page">
             <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-layers" /></svg>
             <span class="TabNav__label">{{ui.tabs.course}}</span>
-            <span class="Counter" id="tabCourseCount">24</span>
+            <span class="Counter" id="tabCourseCount">0</span>
           </button>
           <button class="TabNav__item" data-tab="player" type="button" aria-label="{{ui.tabs.player}}">
             <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-play" /></svg>
             <span class="TabNav__label">{{ui.tabs.player}}</span>
-          </button>
-          <button class="TabNav__item" data-tab="stance" type="button" aria-label="{{ui.tabs.stance}}">
-            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-microscope" /></svg>
-            <span class="TabNav__label">{{ui.tabs.stance}}</span>
-            <span class="Counter" id="tabStanceCount">3</span>
           </button>
         </div>
       </nav>
@@ -82,6 +80,8 @@
         <span id="hitCount"></span>
         <span class="HitCounter__label" id="hitLabel"></span>
       </span>
+
+      <span class="AppHeader__author" id="headerAuthor"></span>
 
       <div class="AppHeader__actions">
         <button class="btn btn-invisible btn-icon" id="expandAll" type="button" title="全部展開／收合">
@@ -118,32 +118,17 @@
                 <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-play" /></svg>
                 開啟影片學習
               </button>
+              <a class="btn Hero__secondary" href="checklist.html" target="_blank" rel="noopener">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-clipboard-list" /></svg>
+                判讀檢核表（可列印）
+              </a>
             </div>
 
             <div class="Hero__stats" id="heroStats"></div>
             <p class="Hero__note" id="heroNote"></p>
           </div>
 
-          <div class="HeroScan" aria-hidden="true">
-            <div class="HeroScan__topbar">
-              <span><i></i> SHOULDER / B-MODE</span>
-              <span>DIAGNOSTIC</span>
-            </div>
-            <div class="HeroScan__screen">
-              <span class="HeroScan__depth">3.0<br />2.0<br />1.0</span>
-              <span class="HeroScan__sector"></span>
-              <span class="HeroScan__sweep"></span>
-              <span class="HeroScan__focus"></span>
-              <span class="HeroScan__label HeroScan__label--a">LHB</span>
-              <span class="HeroScan__label HeroScan__label--b">SSC</span>
-              <span class="HeroScan__label HeroScan__label--c">SSP</span>
-            </div>
-            <div class="HeroScan__readout">
-              <span><b>VIEW SET</b> STANDARD VIEW PATH</span>
-              <span><b>STATUS</b> REVIEW MODE</span>
-            </div>
-            <div class="HeroScan__wave"><span></span></div>
-          </div>
+          
         </div>
       </div>
     </section>
@@ -187,14 +172,12 @@
       </aside>
     </section>
 
-    <section class="StancePage" id="view-stance" hidden></section>
-
     <main class="Layout" id="main" data-view="course">
       <aside class="Layout__sidebar">
         <div class="RailHeader">
           <span class="RailHeader__eyebrow"><i></i> SCAN PATHWAY</span>
           <strong>章節導覽</strong>
-          <small id="railChapterCount">8 CHAPTERS · 24 UNITS</small>
+          <small id="railChapterCount">0 CHAPTERS · 0 UNITS</small>
         </div>
 
         <div class="ProgressPanel">
@@ -248,8 +231,8 @@
               <span class="ConsoleHeader__target"></span>
             </div>
             <div class="ConsoleHeader__monitorMeta">
-              <span id="consoleUnitCount">24 UNITS</span>
-              <span id="consoleVideoCount">13 VIDEOS</span>
+              <span id="consoleUnitCount">0 UNITS</span>
+              <span id="consoleVideoCount">0 VIDEOS</span>
             </div>
           </div>
         </section>

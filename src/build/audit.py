@@ -500,9 +500,7 @@ def audit_structure(cfg: dict, units: list[dict], opts: dict, rep: Report) -> No
         if isinstance(c, dict) and c.get("code")
     }
     kind_ids = {k.get("id") for k in cfg.get("kinds", []) if isinstance(k, dict)}
-    tier_ids = {
-        tier.get("id") for tier in cfg.get("learningTiers", []) if isinstance(tier, dict)
-    }
+    tier_ids = {tier.get("id") for tier in cfg.get("learningTiers", []) if isinstance(tier, dict)}
     unit_types = set(cfg.get("ui", {}).get("unitTypes", {}))
 
     per_chapter = defaultdict(list)
@@ -631,7 +629,15 @@ def audit_videos(cfg: dict, units: list[dict], opts: dict, rep: Report) -> None:
     seen: Counter = Counter()
     within: Counter = Counter()
     hits = 0
-    dead, drift, date_drift, missing_meta_dates, short, long_, unpopular = [], [], [], [], [], [], []
+    dead, drift, date_drift, missing_meta_dates, short, long_, unpopular = (
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+    )
     seconds = Counter()
 
     bounds = {

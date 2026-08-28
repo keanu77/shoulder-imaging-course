@@ -1,0 +1,11 @@
+{
+  "_doc": [
+    "單元知識檢核題：以 unit id 對應 syllabus.json，每個單元可有一個題組。",
+    "題組自帶 review_status；build.py 只輸出 approved 題組，未簽核題目不會上線。",
+    "題幹、選項、解析與引用只能來自已審閱的單元內容，不得引入或編造外部醫療敘述。",
+    "每題 id 必須穩定；single 或 multi 題的每個選項都必須提供 rationale。",
+    "簽核請使用 src/build/approve.py，並保留 reviewer 與 commit 追溯欄位。"
+  ],
+  "review_status": "draft",
+  "units": {}
+}

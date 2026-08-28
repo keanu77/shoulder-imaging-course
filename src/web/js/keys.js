@@ -77,7 +77,7 @@ function toast(text) {
 const SHEET = [
   ["播放", [["Space / K", "播放或暫停"], ["J", "倒退 10 秒"], ["L", "快轉 10 秒"], ["← / →", "±5 秒"], ["0–9", "跳到影片 0%–90%"]]],
   ["聲音與畫面", [["M", "靜音切換"], ["↑ / ↓", "音量 ±10"], ["F", "全螢幕"], ["Shift + . / ,", "加速／減速"]]],
-  ["課程導覽", [["Shift + N", "下一部影片"], ["Shift + P", "上一部影片"], ["/", "搜尋"], ["?", "顯示這張表"]]],
+  ["課程導覽", [["N / P", "下一／上一章"], ["Shift + N / P", "下一／上一部影片"], ["/", "搜尋"], ["T", "切換主題"], ["?", "顯示這張表"]]],
 ];
 
 function toggleSheet(force) {
@@ -113,9 +113,10 @@ function toggleSheet(force) {
 
 /* --- 綁定 ---------------------------------------------------------------- */
 
-export function bindKeys({ next, prev, isPlayerTab }) {
+export function bindKeys({ next, prev, nextChapter, prevChapter, isPlayerTab }) {
   addEventListener("keydown", (e) => {
-    if (/^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement?.tagName)) return;
+    const focused = document.activeElement;
+    if (/^(INPUT|TEXTAREA|SELECT)$/.test(focused?.tagName) || focused?.isContentEditable) return;
     if (e.metaKey || e.ctrlKey || e.altKey) return;
 
     if (e.key === "?" || (e.shiftKey && e.key === "/")) {
@@ -124,9 +125,20 @@ export function bindKeys({ next, prev, isPlayerTab }) {
     }
     if (e.key === "Escape") return toggleSheet(false);
 
+    if (e.key === "/") {
+      e.preventDefault();
+      return $("#search")?.focus();
+    }
+
     // 換片不限分頁，其餘播放控制只在上課模式生效
     if (e.shiftKey && (e.key === "N" || e.key === "n")) return e.preventDefault(), next();
     if (e.shiftKey && (e.key === "P" || e.key === "p")) return e.preventDefault(), prev();
+    if (!e.shiftKey && (e.key === "n" || e.key === "N")) return e.preventDefault(), nextChapter();
+    if (!e.shiftKey && (e.key === "p" || e.key === "P")) return e.preventDefault(), prevChapter();
+    if (!e.shiftKey && (e.key === "t" || e.key === "T")) {
+      e.preventDefault();
+      return $("#themeToggle")?.click();
+    }
     if (!isPlayerTab() || !frame()) return;
 
     const k = e.key;

@@ -1,0 +1,10 @@
+{
+  "_doc": [
+    "雙語名詞表：terms 只能從已審閱的課程內容抽取，aliases 供搜尋同義詞比對。",
+    "名詞表採整份 review_status 治理；只有 approved 時才會進入 course.json 與搜尋索引。",
+    "definition 不得超出課程文本範圍，也不得編造醫療內容。",
+    "簽核請使用 src/build/approve.py，並保留 reviewer 與 commit 追溯欄位。"
+  ],
+  "review_status": "draft",
+  "terms": []
+}
