@@ -4,14 +4,29 @@
 
 ## Pages 設定
 
-- Repository：`keanu77/shoulder-imaging-course`
-  （2026-08-28 由 `shoulder-ultrasound-course` 改名；GitHub 舊名轉址仍可用，
-  但本地 remote 已 `git remote set-url` 指向新名）
+- Repository：`keanu77/shoulder-imaging-course`（**public**，2026-08-29 起）
 - Project name：`shoulder-ultrasound-course`
   **CF Pages 專案名不會跟著 repo 改名，維持原值。** 這個名字同時是
   `course.config.json` 的 `site.project`，並驅動瀏覽計數器的 D1 資料庫名
   `shoulder-ultrasound-course-hits`——**改了會讓現有資料庫變孤兒**。
   CF Pages 以 `repo_id` 綁定 GitHub，改名不影響自動部署（膝部站與本站均已實測）。
+
+### ⚠️ 開源時換過 repo：Git integration 需重新綁定
+
+2026-08-29 開源時**建了新 repo 推乾淨歷史**，不是把原 repo 轉 public。原因：原 repo 的
+`refs/pull/5/head` 保留著一個已從歷史移除的 commit，GitHub 的 PR ref 由 GitHub 管理、
+`git push --delete` 刪不掉，repo 一公開該 PR 頁面就會顯示完整 diff。
+
+| repo | 狀態 | 用途 |
+| --- | --- | --- |
+| `keanu77/shoulder-imaging-course` | **public** | 開源用，歷史乾淨（0 PR refs） |
+| `keanu77/shoulder-imaging-course-archive` | private | 改名前的原 repo，保留 CF `repo_id` 綁定與完整開發歷史 |
+
+**新 repo 有新的 `repo_id`，CF Pages 不會自動跟著換**——Git integration 仍指向 archive。
+在 CF dashboard 完成改綁之前，**推 public repo 不會觸發部署**，要推 archive 才會。
+改綁後記得把 archive 的 webhook 停掉，避免兩邊都部署。
+
+本地 remote 慣例：`origin` = public repo，`old` = archive。
 - Production branch：`main`
 - Root directory：repository root
 - Build command：
