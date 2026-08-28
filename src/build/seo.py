@@ -274,7 +274,7 @@ AI_CRAWLERS = ("GPTBot", "ClaudeBot", "PerplexityBot", "Google-Extended")
 
 
 def write_robots() -> None:
-    """搜尋引擎以 noindex 治理；AI 檢索器依醫療簽核閘門切換。"""
+    """搜尋引擎以 noindex 治理；AI 檢索器依策展審閱閘門切換。"""
     if ALLOW_INDEXING:
         rule = "Allow: /"
         note = "# AI 檢索器放行：醫療內容已完成核准"

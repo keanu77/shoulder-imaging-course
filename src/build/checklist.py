@@ -94,8 +94,8 @@ def generate(dist: Path) -> int:
 <button class="print-btn" onclick="print()">列印／存成 PDF</button>
 <header>
   <h1>{esc(site.get('name'))}｜判讀檢核表</h1>
-  <p>由已簽核（approved）單元自動彙整（{n_units} 個單元）・產生日期 {today}・{esc(site.get('url'))}</p>
-  <p>僅供醫師專業教育；不取代 hands-on training、合格督導與機構 credentialing。未簽核章節（草稿）不收錄。</p>
+  <p>由已通過策展審閱（approved）的單元自動彙整（{n_units} 個單元）・產生日期 {today}・{esc(site.get('url'))}</p>
+  <p>僅供醫師專業教育；不取代 hands-on training、合格督導與機構 credentialing。未通過策展審閱的章節（草稿）不收錄。</p>
 </header>
 {"".join(sections)}
 <footer>{esc(cfg.get('stance', {}).get('intro', ''))}</footer>

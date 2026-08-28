@@ -31,7 +31,7 @@
 - HTML `<meta name="robots" content="noindex, follow">`
 - Cloudflare `_headers` 的 `X-Robots-Tag: noindex, follow`
 
-若仍有任何單元不是 `approved`，將 `allowIndexing` 改為 `true` 會使 `audit_medical.py` 失敗。只有人工醫療簽核完成後才能解除索引閘門。
+若仍有任何單元不是 `approved`，將 `allowIndexing` 改為 `true` 會使 `audit_medical.py` 失敗。只有策展審閱完成後才能解除索引閘門。
 
 ## 自訂網域
 
