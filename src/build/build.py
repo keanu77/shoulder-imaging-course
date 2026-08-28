@@ -91,7 +91,7 @@ def collect_segments() -> tuple[dict, int]:
     """url -> 已簽核的逐段筆記；回傳（對照表、被擋下的未簽核影片數）。
 
     只有 review_status == approved 的影片會進 course.json。逐段筆記是新的教學內容，
-    未經醫師簽核就不該出現在上線站，開放搜尋索引之後更是如此。
+    未通過策展審閱就不該出現在上線站，開放搜尋索引之後更是如此。
     """
     blob = load_json(DATA / "segments.json")
     if not blob:

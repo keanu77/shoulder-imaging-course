@@ -285,7 +285,7 @@
           "name": "肩部照射位選擇與技術",
           "type": "protocol",
           "level": "foundation",
-          "review_status": "draft",
+          "review_status": "approved",
           "summary": "從臨床問題選擇 true AP／Grashey、axillary 或 Velpeau、scapular Y、outlet、Zanca、Stryker notch 與 West Point view，理解各投影的擺位、中心線方向與可回答的問題，並在活動受限時選擇不強迫患肢的替代位。",
           "objectives": [
             "說明 true AP 與 Grashey view 的幾何差異，並依盂肱關節間隙、骨折或退化評估目的選位。",
@@ -349,17 +349,18 @@
               "disclosure": null
             }
           ],
-          "reviewed_by": null,
-          "reviewer_role": null,
-          "reviewed_at": null,
-          "reviewed_commit": null
+          "reviewed_by": "吳易澄",
+          "reviewer_role": "課程策展人",
+          "reviewed_at": "2026-08-27",
+          "reviewed_commit": "f6008af",
+          "review_note": "策展審閱：確認範圍框限、來源與講者資格、文獻對應與課程編排。不構成對第三方影片內容的醫療背書。"
         },
         {
           "id": "ch8-u2",
           "name": "系統性判讀與影像選擇決策",
           "type": "orientation",
           "level": "foundation",
-          "review_status": "draft",
+          "review_status": "approved",
           "summary": "以對位→骨質與皮質→關節間隙→軟組織的固定順序判讀肩部 X 光，並用 ACR Appropriateness Criteria 將急性或慢性臨床問題轉成「該不該照、先照什麼、何時升級」的影像路徑。",
           "objectives": [
             "用固定順序完成肩部 X 光判讀，不因第一個明顯病灶停止搜尋。",
@@ -422,10 +423,11 @@
               "disclosure": null
             }
           ],
-          "reviewed_by": null,
-          "reviewer_role": null,
-          "reviewed_at": null,
-          "reviewed_commit": null
+          "reviewed_by": "吳易澄",
+          "reviewer_role": "課程策展人",
+          "reviewed_at": "2026-08-27",
+          "reviewed_commit": "f6008af",
+          "review_note": "策展審閱：確認範圍框限、來源與講者資格、文獻對應與課程編排。不構成對第三方影片內容的醫療背書。"
         }
       ]
     },
@@ -438,7 +440,7 @@
           "name": "鈣化、肩鎖關節與退化性變化",
           "type": "pathology",
           "level": "intermediate",
-          "review_status": "draft",
+          "review_status": "approved",
           "summary": "辨認鈣化性肌腱炎、肩鎖與盂肱關節退化、肩峰形態及 acromiohumeral distance 的影像表現，同時避免把常見結構或量測異常直接等同症狀來源。",
           "objectives": [
             "依位置與形態描述旋轉肌袖區鈣化，並列出可能的重疊與鑑別。",
@@ -499,17 +501,18 @@
               "disclosure": null
             }
           ],
-          "reviewed_by": null,
-          "reviewer_role": null,
-          "reviewed_at": null,
-          "reviewed_commit": null
+          "reviewed_by": "吳易澄",
+          "reviewer_role": "課程策展人",
+          "reviewed_at": "2026-08-27",
+          "reviewed_commit": "f6008af",
+          "review_note": "策展審閱：確認範圍框限、來源與講者資格、文獻對應與課程編排。不構成對第三方影片內容的醫療背書。"
         },
         {
           "id": "ch9-u2",
           "name": "創傷：脫位、骨缺損與近端肱骨骨折",
           "type": "pathology",
           "level": "intermediate",
-          "review_status": "draft",
+          "review_status": "approved",
           "summary": "以多投影區分前方與後方脫位，搜尋 Hill-Sachs、reverse Hill-Sachs 與 bony Bankart，並用標準語言描述近端肱骨骨折的節段、位移與關節面關係，不由單一投影或單一分類取代完整評估。",
           "objectives": [
             "在 AP、scapular Y 與 axillary／Velpeau 上判斷肱骨頭相對關節盂的前後方向。",
@@ -572,10 +575,11 @@
               "disclosure": null
             }
           ],
-          "reviewed_by": null,
-          "reviewer_role": null,
-          "reviewed_at": null,
-          "reviewed_commit": null
+          "reviewed_by": "吳易澄",
+          "reviewer_role": "課程策展人",
+          "reviewed_at": "2026-08-27",
+          "reviewed_commit": "f6008af",
+          "review_note": "策展審閱：確認範圍框限、來源與講者資格、文獻對應與課程編排。不構成對第三方影片內容的醫療背書。"
         }
       ]
     },
@@ -588,7 +592,7 @@
           "name": "課程範圍與學習契約",
           "type": "orientation",
           "level": "foundation",
-          "review_status": "medical-review",
+          "review_status": "approved",
           "summary": "界定第一階段只處理診斷型肩部超音波，不包含任何注射、穿刺或其他介入操作。",
           "objectives": [
             "說明線上課程、實機訓練、督導與 credentialing 的差異",
@@ -609,17 +613,18 @@
             "aium2023"
           ],
           "drills": [],
-          "reviewed_by": null,
-          "reviewer_role": null,
-          "reviewed_at": null,
-          "reviewed_commit": null
+          "reviewed_by": "吳易澄",
+          "reviewer_role": "課程策展人",
+          "reviewed_at": "2026-08-27",
+          "reviewed_commit": "f6008af",
+          "review_note": "策展審閱：確認範圍框限、來源與講者資格、文獻對應與課程編排。不構成對第三方影片內容的醫療背書。"
         },
         {
           "id": "ch0-u2",
           "name": "適應症、限制與升級檢查",
           "type": "orientation",
           "level": "foundation",
-          "review_status": "medical-review",
+          "review_status": "approved",
           "summary": "理解肩部超音波擅長的表淺軟組織與動態評估，以及需 MRI、X 光或其他檢查補足的問題。",
           "objectives": [
             "區分適合超音波與不適合只靠超音波回答的臨床問題",
@@ -670,17 +675,18 @@
               "qualification_evidence_url": "https://research.massgeneralbrigham.org/en/education-and-training/graduate-medical-education/emergency-medicine/mgb-fellowship-program-in-emergency-ultrasound"
             }
           ],
-          "reviewed_by": null,
-          "reviewer_role": null,
-          "reviewed_at": null,
-          "reviewed_commit": null
+          "reviewed_by": "吳易澄",
+          "reviewer_role": "課程策展人",
+          "reviewed_at": "2026-08-27",
+          "reviewed_commit": "f6008af",
+          "review_note": "策展審閱：確認範圍框限、來源與講者資格、文獻對應與課程編排。不構成對第三方影片內容的醫療背書。"
         },
         {
           "id": "ch0-u3",
           "name": "病人安全、隱私與感染控制",
           "type": "orientation",
           "level": "foundation",
-          "review_status": "medical-review",
+          "review_status": "approved",
           "summary": "建立掃描前身分確認、知情說明、必要暴露、每位病人後的外接探頭清潔與低層級消毒，以及臨床歸檔後另製去識別化教學副本的流程。",
           "objectives": [
             "完成一份可在門診使用的掃描前安全檢核",
@@ -707,17 +713,18 @@
             "aium-documentation2020"
           ],
           "drills": [],
-          "reviewed_by": null,
-          "reviewer_role": null,
-          "reviewed_at": null,
-          "reviewed_commit": null
+          "reviewed_by": "吳易澄",
+          "reviewer_role": "課程策展人",
+          "reviewed_at": "2026-08-27",
+          "reviewed_commit": "f6008af",
+          "review_note": "策展審閱：確認範圍框限、來源與講者資格、文獻對應與課程編排。不構成對第三方影片內容的醫療背書。"
         },
         {
           "id": "ch1-u1",
           "name": "探頭、B-mode 與 Doppler 最佳化",
           "type": "foundation",
           "level": "foundation",
-          "review_status": "medical-review",
+          "review_status": "approved",
           "summary": "以高頻線性探頭取得足夠空間解析度，完成 B-mode 深度、焦點與增益最佳化；需要評估血流時，另以低流速 Color／Power Doppler 設定與輕壓取得可解讀影像。",
           "objectives": [
             "依病人體型選擇探頭與頻率",
@@ -744,17 +751,18 @@
             "aium2023"
           ],
           "drills": [],
-          "reviewed_by": null,
-          "reviewer_role": null,
-          "reviewed_at": null,
-          "reviewed_commit": null
+          "reviewed_by": "吳易澄",
+          "reviewer_role": "課程策展人",
+          "reviewed_at": "2026-08-27",
+          "reviewed_commit": "f6008af",
+          "review_note": "策展審閱：確認範圍框限、來源與講者資格、文獻對應與課程編排。不構成對第三方影片內容的醫療背書。"
         },
         {
           "id": "ch1-u2",
           "name": "長短軸、掃查與標準方向",
           "type": "foundation",
           "level": "foundation",
-          "review_status": "medical-review",
+          "review_status": "approved",
           "summary": "用 sweep、slide、rock、heel-toe 與 rotation 在兩個互相垂直平面確認結構，並維持一致的方向標示。",
           "objectives": [
             "連續追蹤肌腱而不是只保存單一切面",
@@ -778,17 +786,18 @@
             "essr-shoulder"
           ],
           "drills": [],
-          "reviewed_by": null,
-          "reviewer_role": null,
-          "reviewed_at": null,
-          "reviewed_commit": null
+          "reviewed_by": "吳易澄",
+          "reviewer_role": "課程策展人",
+          "reviewed_at": "2026-08-27",
+          "reviewed_commit": "f6008af",
+          "review_note": "策展審閱：確認範圍框限、來源與講者資格、文獻對應與課程編排。不構成對第三方影片內容的醫療背書。"
         },
         {
           "id": "ch1-u3",
           "name": "Anisotropy 與常見假影",
           "type": "foundation",
           "level": "foundation",
-          "review_status": "medical-review",
+          "review_status": "approved",
           "summary": "辨認肌腱因聲束未垂直而產生的假性低回音，並以探頭角度變化確認是否為真實病灶。",
           "objectives": [
             "刻意產生並消除 anisotropy",
@@ -812,34 +821,6 @@
             "jacobson2011"
           ],
           "drills": [
-            {
-              "name": "Jacobson：肩部超音波解剖、技術與掃描陷阱",
-              "kind": "classic",
-              "learning_tier": "core",
-              "target": "標準流程、探頭位置、anisotropy、掃描陷阱",
-              "title": "How I Do It: Shoulder US Anatomy, Technique, and Scanning Pitfalls (Radiology 260:1 July 2011)",
-              "channel": "RadiologyRSNA",
-              "url": "https://www.youtube.com/watch?v=W_X5SmLE3gs",
-              "duration": "8:44",
-              "why": "RSNA 官方短片直接配套 Radiology 同儕審查文章，以不到九分鐘濃縮肩部標準取得、正常解剖、anisotropy 與常見陷阱。",
-              "original_content_date": "2011-07-01",
-              "upload_date": "2015-05-04",
-              "presenter": "Jon A. Jacobson, MD",
-              "scope_note": "經典技術教材，不等於 2026 年完整規範；動態 impingement 僅作影像觀察，仍須由現行標準視圖與臨床脈絡補足。YouTube 未提供字幕，因此另以本機語音轉錄配合全片畫面抽查；內容全為診斷掃描，未見注射／介入示範或教學。",
-              "contains_intervention": false,
-              "intervention_start_timestamp": null,
-              "diagnostic_segment_range": "00:00–08:44",
-              "source_authority": "professional-society-journal",
-              "curation_status": "provisional",
-              "classic_exception": true,
-              "classic_exception_reason": "難以取代的肩部掃描 protocol、anisotropy 與 pitfalls 經典示範，並有 RSNA 同儕審查文章配套。",
-              "last_verified_at": "2026-08-02",
-              "embed_status": null,
-              "playback_status": null,
-              "disclosure": null,
-              "presenter_qualification": "密西根大學醫學院放射學臨床教授、fellowship-trained 肌肉骨骼放射科醫師及肌肉骨骼超音波教育者。",
-              "qualification_evidence_url": "https://medschool.umich.edu/profile/2474/jon-jacobson"
-            },
             {
               "name": "肩部肌肉骨骼超音波入門總覽",
               "kind": "overview",
@@ -868,10 +849,11 @@
               "presenter_qualification": "Stuart Wildman 為 NHS 進階執業物理治療師與顧問級 MSK sonographer；David Baker 為 NHS 進階執業物理治療師、MSK sonographer、注射治療師及講師。"
             }
           ],
-          "reviewed_by": null,
-          "reviewer_role": null,
-          "reviewed_at": null,
-          "reviewed_commit": null
+          "reviewed_by": "吳易澄",
+          "reviewer_role": "課程策展人",
+          "reviewed_at": "2026-08-27",
+          "reviewed_commit": "f6008af",
+          "review_note": "策展審閱：確認範圍框限、來源與講者資格、文獻對應與課程編排。不構成對第三方影片內容的醫療背書。"
         }
       ]
     },
@@ -884,7 +866,7 @@
           "name": "從前到後的系統化順序",
           "type": "protocol",
           "level": "foundation",
-          "review_status": "medical-review",
+          "review_status": "approved",
           "summary": "採固定順序完成肱二頭肌長頭、肩胛下肌、AC joint、棘上肌、棘下肌、小圓肌、後側關節與滑囊。",
           "objectives": [
             "在不跳項的情況下完成全套基礎掃描",
@@ -970,17 +952,18 @@
               "presenter_qualification": "Texas Orthobiologics 創辦人，並擔任 OSET 肌肉骨骼超音波工作坊共同主席及 13-point shoulder ultrasound 講師。"
             }
           ],
-          "reviewed_by": null,
-          "reviewer_role": null,
-          "reviewed_at": null,
-          "reviewed_commit": null
+          "reviewed_by": "吳易澄",
+          "reviewer_role": "課程策展人",
+          "reviewed_at": "2026-08-27",
+          "reviewed_commit": "f6008af",
+          "review_note": "策展審閱：確認範圍框限、來源與講者資格、文獻對應與課程編排。不構成對第三方影片內容的醫療背書。"
         },
         {
           "id": "ch2-u2",
           "name": "病人姿勢與操作者人體工學",
           "type": "protocol",
           "level": "foundation",
-          "review_status": "medical-review",
+          "review_status": "approved",
           "summary": "讓病人、超音波主機、掃描側與操作者形成可維持的配置，避免為了取得影像犧牲病人安全或操作者姿勢。",
           "objectives": [
             "在不同肩關節活動度下調整病人姿勢",
@@ -1004,17 +987,18 @@
             "aium2023"
           ],
           "drills": [],
-          "reviewed_by": null,
-          "reviewer_role": null,
-          "reviewed_at": null,
-          "reviewed_commit": null
+          "reviewed_by": "吳易澄",
+          "reviewer_role": "課程策展人",
+          "reviewed_at": "2026-08-27",
+          "reviewed_commit": "f6008af",
+          "review_note": "策展審閱：確認範圍框限、來源與講者資格、文獻對應與課程編排。不構成對第三方影片內容的醫療背書。"
         },
         {
           "id": "ch2-u3",
           "name": "標準影像保存與標示",
           "type": "protocol",
           "level": "foundation",
-          "review_status": "medical-review",
+          "review_status": "approved",
           "summary": "區分具病人識別與永久保存要求的臨床原始紀錄，以及在臨床歸檔完成後另製、移除個資的教學副本。",
           "objectives": [
             "完成一套包含病人、機構、日期時間、部位側別與方向的臨床影像紀錄",
@@ -1069,17 +1053,18 @@
               "qualification_evidence_url": "https://www.ntuh.gov.tw/PMR-MSK/Fpage.action?fid=4355&muid=4333"
             }
           ],
-          "reviewed_by": null,
-          "reviewer_role": null,
-          "reviewed_at": null,
-          "reviewed_commit": null
+          "reviewed_by": "吳易澄",
+          "reviewer_role": "課程策展人",
+          "reviewed_at": "2026-08-27",
+          "reviewed_commit": "f6008af",
+          "review_note": "策展審閱：確認範圍框限、來源與講者資格、文獻對應與課程編排。不構成對第三方影片內容的醫療背書。"
         },
         {
           "id": "ch3-u1",
           "name": "肱二頭肌長頭與肌腱溝",
           "type": "anatomy",
           "level": "foundation",
-          "review_status": "medical-review",
+          "review_status": "approved",
           "summary": "從肱二頭肌溝辨認肌腱，沿近遠端追蹤並取得長短軸，注意積液、肥厚、斷裂與位置異常。",
           "objectives": [
             "連續追蹤至肌腱肌肉交界",
@@ -1134,17 +1119,18 @@
               "qualification_evidence_url": "https://www.ultrasoundtraining.co.uk/"
             }
           ],
-          "reviewed_by": null,
-          "reviewer_role": null,
-          "reviewed_at": null,
-          "reviewed_commit": null
+          "reviewed_by": "吳易澄",
+          "reviewer_role": "課程策展人",
+          "reviewed_at": "2026-08-27",
+          "reviewed_commit": "f6008af",
+          "review_note": "策展審閱：確認範圍框限、來源與講者資格、文獻對應與課程編排。不構成對第三方影片內容的醫療背書。"
         },
         {
           "id": "ch3-u2",
           "name": "肩胛下肌與動態外旋",
           "type": "anatomy",
           "level": "foundation",
-          "review_status": "medical-review",
+          "review_status": "approved",
           "summary": "肘屈曲並靠近軀幹、前臂旋後，逐步進行肩關節外旋以展開肩胛下肌腱；由肱二頭肌溝向內移至小結節，長短軸由上至下評估多束附著。",
           "objectives": [
             "取得肩胛下肌腱長短軸標準影像",
@@ -1199,17 +1185,18 @@
               "presenter_qualification": "Sharp Grossmont Hospital affiliated、board-certified 骨科醫師，專門治療肩部疾病、肩關節置換及旋轉肌袖損傷。"
             }
           ],
-          "reviewed_by": null,
-          "reviewer_role": null,
-          "reviewed_at": null,
-          "reviewed_commit": null
+          "reviewed_by": "吳易澄",
+          "reviewer_role": "課程策展人",
+          "reviewed_at": "2026-08-27",
+          "reviewed_commit": "f6008af",
+          "review_note": "策展審閱：確認範圍框限、來源與講者資格、文獻對應與課程編排。不構成對第三方影片內容的醫療背書。"
         },
         {
           "id": "ch3-u3",
           "name": "肱二頭肌不穩定與 pulley 線索",
           "type": "dynamic",
           "level": "intermediate",
-          "review_status": "medical-review",
+          "review_status": "approved",
           "summary": "以動態內外旋觀察肱二頭肌長頭是否維持在溝內，並把不穩定與肩胛下肌、旋轉間隙結構一起評估。",
           "objectives": [
             "辨認半脫位與脫位的動態表現",
@@ -1289,10 +1276,11 @@
               "disclosure": "YouTube 上為 unlisted（不公開列出但可嵌入播放）。學會以此模式發布教育影片；本課現有其他 31 支皆為 public，此為唯二例外，簽核時請一併裁決。"
             }
           ],
-          "reviewed_by": null,
-          "reviewer_role": null,
-          "reviewed_at": null,
-          "reviewed_commit": null
+          "reviewed_by": "吳易澄",
+          "reviewer_role": "課程策展人",
+          "reviewed_at": "2026-08-27",
+          "reviewed_commit": "f6008af",
+          "review_note": "策展審閱：確認範圍框限、來源與講者資格、文獻對應與課程編排。不構成對第三方影片內容的醫療背書。"
         }
       ]
     },
@@ -1305,7 +1293,7 @@
           "name": "旋轉間隙與肱二頭肌近端",
           "type": "anatomy",
           "level": "intermediate",
-          "review_status": "medical-review",
+          "review_status": "approved",
           "summary": "辨認旋轉間隙內肱二頭肌長頭、喙肱韌帶、上盂肱韌帶及鄰近旋轉肌袖邊界。",
           "objectives": [
             "建立旋轉間隙的立體解剖概念",
@@ -1359,17 +1347,18 @@
               "qualification_evidence_url": "https://rubrica.unige.it/personale/UEZOW14%3D"
             }
           ],
-          "reviewed_by": null,
-          "reviewer_role": null,
-          "reviewed_at": null,
-          "reviewed_commit": null
+          "reviewed_by": "吳易澄",
+          "reviewer_role": "課程策展人",
+          "reviewed_at": "2026-08-27",
+          "reviewed_commit": "f6008af",
+          "review_note": "策展審閱：確認範圍框限、來源與講者資格、文獻對應與課程編排。不構成對第三方影片內容的醫療背書。"
         },
         {
           "id": "ch4-u2",
           "name": "棘上肌長短軸與附著面",
           "type": "anatomy",
           "level": "foundation",
-          "review_status": "medical-review",
+          "review_status": "approved",
           "summary": "使用 modified Crass 或可耐受的替代姿勢展開棘上肌腱，確認肱骨大結節附著與連續性。",
           "objectives": [
             "穩定取得棘上肌腱長短軸",
@@ -1425,17 +1414,18 @@
               "presenter_qualification": "義大利 University of Genoa 健康科學系診斷影像與放射治療正教授、專科學校主任。"
             }
           ],
-          "reviewed_by": null,
-          "reviewer_role": null,
-          "reviewed_at": null,
-          "reviewed_commit": null
+          "reviewed_by": "吳易澄",
+          "reviewer_role": "課程策展人",
+          "reviewed_at": "2026-08-27",
+          "reviewed_commit": "f6008af",
+          "review_note": "策展審閱：確認範圍框限、來源與講者資格、文獻對應與課程編排。不構成對第三方影片內容的醫療背書。"
         },
         {
           "id": "ch4-u3",
           "name": "SASD 滑囊與 AC joint",
           "type": "anatomy",
           "level": "foundation",
-          "review_status": "medical-review",
+          "review_status": "approved",
           "summary": "評估肩峰下三角肌下滑囊厚度與液體，並以 AC joint 骨性地標觀察關節間隙及動態變化。",
           "objectives": [
             "辨認正常滑囊層與真正積液",
@@ -1460,17 +1450,18 @@
             "usmsit2026"
           ],
           "drills": [],
-          "reviewed_by": null,
-          "reviewer_role": null,
-          "reviewed_at": null,
-          "reviewed_commit": null
+          "reviewed_by": "吳易澄",
+          "reviewer_role": "課程策展人",
+          "reviewed_at": "2026-08-27",
+          "reviewed_commit": "f6008af",
+          "review_note": "策展審閱：確認範圍框限、來源與講者資格、文獻對應與課程編排。不構成對第三方影片內容的醫療背書。"
         },
         {
           "id": "ch5-u1",
           "name": "棘下肌、小圓肌與後側關節",
           "type": "anatomy",
           "level": "foundation",
-          "review_status": "medical-review",
+          "review_status": "approved",
           "summary": "從肩胛棘下方辨認棘下肌與小圓肌，追蹤至附著面並觀察後側盂肱關節與關節唇區域。",
           "objectives": [
             "分辨棘下肌與小圓肌",
@@ -1524,17 +1515,18 @@
               "presenter_qualification": "SMUG Faculty Lead、進階執業物理治療師、註冊整骨師及 MSK sonographer，並為 Complete Physio Clinical Director。"
             }
           ],
-          "reviewed_by": null,
-          "reviewer_role": null,
-          "reviewed_at": null,
-          "reviewed_commit": null
+          "reviewed_by": "吳易澄",
+          "reviewer_role": "課程策展人",
+          "reviewed_at": "2026-08-27",
+          "reviewed_commit": "f6008af",
+          "review_note": "策展審閱：確認範圍框限、來源與講者資格、文獻對應與課程編排。不構成對第三方影片內容的醫療背書。"
         },
         {
           "id": "ch5-u2",
           "name": "肩峰下動態夾擠觀察",
           "type": "dynamic",
           "level": "intermediate",
-          "review_status": "medical-review",
+          "review_status": "approved",
           "summary": "在肩外展過程持續觀察棘上肌腱、滑囊及肩峰下空間，同時記錄症狀、動作路徑與檢查限制。",
           "objectives": [
             "取得可重複的動態外展 cine",
@@ -1589,17 +1581,18 @@
               "presenter_qualification": "SonoSkills 創辦人兼講師，具 Vrije Universiteit Brussel 醫學與藥學院 MSc 背景，長期開發及教授 MSK 超音波課程。"
             }
           ],
-          "reviewed_by": null,
-          "reviewer_role": null,
-          "reviewed_at": null,
-          "reviewed_commit": null
+          "reviewed_by": "吳易澄",
+          "reviewer_role": "課程策展人",
+          "reviewed_at": "2026-08-27",
+          "reviewed_commit": "f6008af",
+          "review_note": "策展審閱：確認範圍框限、來源與講者資格、文獻對應與課程編排。不構成對第三方影片內容的醫療背書。"
         },
         {
           "id": "ch5-u3",
           "name": "後側 recess、積液與比較掃描",
           "type": "dynamic",
           "level": "intermediate",
-          "review_status": "medical-review",
+          "review_status": "approved",
           "summary": "在中立位與肩關節外旋時觀察後側 recess，結合可移動性、輕壓位移與 Doppler 鑑別積液與滑膜變化；對側比較只作輔助。",
           "objectives": [
             "辨認中立位與外旋後側 recess 的正常位置與變化",
@@ -1685,10 +1678,11 @@
               "disclosure": "YouTube 上為 unlisted（不公開列出但可嵌入播放）。學會以此模式發布教育影片；本課現有其他 31 支皆為 public，此為唯二例外，簽核時請一併裁決。"
             }
           ],
-          "reviewed_by": null,
-          "reviewer_role": null,
-          "reviewed_at": null,
-          "reviewed_commit": null
+          "reviewed_by": "吳易澄",
+          "reviewer_role": "課程策展人",
+          "reviewed_at": "2026-08-27",
+          "reviewed_commit": "f6008af",
+          "review_note": "策展審閱：確認範圍框限、來源與講者資格、文獻對應與課程編排。不構成對第三方影片內容的醫療背書。"
         }
       ]
     },
@@ -1701,7 +1695,7 @@
           "name": "肌腱病變與鈣化性肌腱病",
           "type": "pathology",
           "level": "intermediate",
-          "review_status": "medical-review",
+          "review_status": "approved",
           "summary": "以肌腱厚度、回音、纖維結構、血流及鈣化形態描述所見，同時排除 anisotropy 與不具症狀意義的偶然發現。",
           "objectives": [
             "使用描述性詞彙而非只下病名",
@@ -1728,46 +1722,19 @@
             "usmsit2026",
             "aium2023"
           ],
-          "drills": [
-            {
-              "name": "正常與異常肩部超音波外觀",
-              "kind": "pathology-demo",
-              "learning_tier": "extension",
-              "target": "正常對照、肌腱病變、滑囊與撕裂",
-              "title": "Shoulder Ultrasound Normal Vs Abnormal Image Appearances | Sports Injuries | Musculoskeletal USG",
-              "channel": "Dr. Sam's Imaging Library",
-              "url": "https://www.youtube.com/watch?v=ZMkYok_VU9w",
-              "duration": "15:10",
-              "why": "提供正常與異常影像對照；需完成講者資歷、日期與判讀內容的醫療審閱後才會正式核准。",
-              "original_content_date": "2023-03-16",
-              "upload_date": "2023-03-16",
-              "scope_note": "影像對照仍需逐段醫療審閱；不以單張影像取代多平面確認與臨床整合。",
-              "contains_intervention": false,
-              "intervention_start_timestamp": null,
-              "diagnostic_segment_range": "00:00–15:10",
-              "source_authority": "specialist-educator",
-              "curation_status": "provisional",
-              "medical_review_required": true,
-              "last_verified_at": "2026-08-02",
-              "classic_exception": null,
-              "embed_status": null,
-              "playback_status": null,
-              "disclosure": null,
-              "presenter_qualification": null,
-              "qualification_evidence_url": null
-            }
-          ],
-          "reviewed_by": null,
-          "reviewer_role": null,
-          "reviewed_at": null,
-          "reviewed_commit": null
+          "drills": [],
+          "reviewed_by": "吳易澄",
+          "reviewer_role": "課程策展人",
+          "reviewed_at": "2026-08-27",
+          "reviewed_commit": "f6008af",
+          "review_note": "策展審閱：確認範圍框限、來源與講者資格、文獻對應與課程編排。不構成對第三方影片內容的醫療背書。"
         },
         {
           "id": "ch6-u2",
           "name": "部分與全層旋轉肌袖撕裂",
           "type": "pathology",
           "level": "intermediate",
-          "review_status": "medical-review",
+          "review_status": "approved",
           "summary": "以缺損位置、部分撕裂深度／厚度、全層撕裂寬度與退縮描述旋轉肌袖，並加入壓迫測試與相關肌肉萎縮徵象，同時說明超音波的術前規劃限制。",
           "objectives": [
             "區分關節側、滑囊側與肌腱內部分撕裂",
@@ -1879,17 +1846,18 @@
               "presenter_qualification": "PubMed 收錄論文所載之 Henry Ford Hospital 肌肉骨骼影像部門作者及肌肉骨骼超音波放射醫學專業人員。"
             }
           ],
-          "reviewed_by": null,
-          "reviewer_role": null,
-          "reviewed_at": null,
-          "reviewed_commit": null
+          "reviewed_by": "吳易澄",
+          "reviewer_role": "課程策展人",
+          "reviewed_at": "2026-08-27",
+          "reviewed_commit": "f6008af",
+          "review_note": "策展審閱：確認範圍框限、來源與講者資格、文獻對應與課程編排。不構成對第三方影片內容的醫療背書。"
         },
         {
           "id": "ch6-u3",
           "name": "滑囊炎、積液與 AC joint 退化",
           "type": "pathology",
           "level": "intermediate",
-          "review_status": "medical-review",
+          "review_status": "approved",
           "summary": "區分滑囊擴張、關節積液及退化性骨性改變，使用描述性語言並避免過度推論疼痛來源。",
           "objectives": [
             "描述滑囊液體、滑膜與 Doppler 所見",
@@ -1916,17 +1884,18 @@
             "dynamic2018"
           ],
           "drills": [],
-          "reviewed_by": null,
-          "reviewer_role": null,
-          "reviewed_at": null,
-          "reviewed_commit": null
+          "reviewed_by": "吳易澄",
+          "reviewer_role": "課程策展人",
+          "reviewed_at": "2026-08-27",
+          "reviewed_commit": "f6008af",
+          "review_note": "策展審閱：確認範圍框限、來源與講者資格、文獻對應與課程編排。不構成對第三方影片內容的醫療背書。"
         },
         {
           "id": "ch7-u1",
           "name": "結構化報告與最低紀錄",
           "type": "reporting",
           "level": "intermediate",
-          "review_status": "medical-review",
+          "review_status": "approved",
           "summary": "建立可與具病人識別的永久臨床影像相互追溯、包含適應症、技術、逐結構所見、量測、限制及結論的正式報告；教學副本則在歸檔後另行去識別化。",
           "objectives": [
             "使用一致的肩部報告模板",
@@ -1954,17 +1923,18 @@
             "aium-documentation2020"
           ],
           "drills": [],
-          "reviewed_by": null,
-          "reviewer_role": null,
-          "reviewed_at": null,
-          "reviewed_commit": null
+          "reviewed_by": "吳易澄",
+          "reviewer_role": "課程策展人",
+          "reviewed_at": "2026-08-27",
+          "reviewed_commit": "f6008af",
+          "review_note": "策展審閱：確認範圍框限、來源與講者資格、文獻對應與課程編排。不構成對第三方影片內容的醫療背書。"
         },
         {
           "id": "ch7-u2",
           "name": "品質保證與常見誤判回顧",
           "type": "reporting",
           "level": "intermediate",
-          "review_status": "medical-review",
+          "review_status": "approved",
           "summary": "以固定比例抽查影像與報告，追蹤漏掃、方向標示、anisotropy、病灶量測及臨床相關性過度推論。",
           "objectives": [
             "建立個人影像品質審查清單",
@@ -1989,17 +1959,18 @@
             "aium2023"
           ],
           "drills": [],
-          "reviewed_by": null,
-          "reviewer_role": null,
-          "reviewed_at": null,
-          "reviewed_commit": null
+          "reviewed_by": "吳易澄",
+          "reviewer_role": "課程策展人",
+          "reviewed_at": "2026-08-27",
+          "reviewed_commit": "f6008af",
+          "review_note": "策展審閱：確認範圍框限、來源與講者資格、文獻對應與課程編排。不構成對第三方影片內容的醫療背書。"
         },
         {
           "id": "ch7-u3",
           "name": "病例整合與第一階段能力關卡",
           "type": "case",
           "level": "intermediate",
-          "review_status": "medical-review",
+          "review_status": "approved",
           "summary": "以未知病例完成掃描計畫、標準視圖、動態檢查、描述性判讀、限制與下一步，不把線上測驗當作獨立執業資格。",
           "objectives": [
             "整合課程各章成為可重複流程",
@@ -2109,12 +2080,42 @@
               "embed_status": "embeddable",
               "playback_status": "public",
               "disclosure": null
+            },
+            {
+              "name": "EFSUMB 官方：關節病理的超音波判讀",
+              "kind": "pathology-demo",
+              "learning_tier": "extension",
+              "target": "關節積液、滑膜增生與肌腱病變的超音波表現",
+              "title": "EFSUMB Webinar: MSK joint pathologies, paediatric applications and guided procedures -Sess 3 Todorov",
+              "channel": "EFSUMB",
+              "url": "https://www.youtube.com/watch?v=hGM7zAktKOQ",
+              "duration": "22:15",
+              "why": "歐洲超音波醫學與生物學聯盟的官方 webinar 場次，以關節病理為主軸示範積液、滑膜增生與肌腱病變的超音波判讀。學會層級的病理判讀對照，補上本課在「異常表現如何描述」上的另一個權威來源。",
+              "original_content_date": null,
+              "upload_date": "2021-07-02",
+              "date_note": "以主編用 yt-dlp 實查的 YouTube 上架日 2021-07-02 記錄。",
+              "presenter": "Plamen Todorov, MD",
+              "presenter_qualification": "風濕科醫師與肌肉骨骼超音波研究者，多篇肌肉骨骼超音波論文第一作者（Frontiers in Medicine 2025、Medical Ultrasonography 2022）；EFSUMB 官方 webinar 講者。",
+              "qualification_evidence_url": "https://pubmed.ncbi.nlm.nih.gov/40027895/",
+              "scope_note": "該 webinar 的完整場次標題含 guided procedures，但本片為 Session 3（Todorov）的關節病理段落；主編對全片 1,073 個字幕 cue 掃描介入關鍵字，零命中，確認內容為診斷判讀。",
+              "contains_intervention": false,
+              "intervention_start_timestamp": null,
+              "diagnostic_segment_range": "00:00–22:15",
+              "source_authority": "professional-society-education",
+              "curation_status": "provisional",
+              "last_verified_at": "2026-08-27",
+              "classic_exception": true,
+              "classic_exception_reason": "上架日 2021-07-02，早於本課 cutoff 2021-08-28 約八週。破例理由：EFSUMB 是制定肌肉骨骼超音波指引的歐洲聯盟，官方 webinar 的關節病理判讀在近五年公開可嵌入的肩部相關內容中沒有同等權威的替代；內容為解剖與病理表現，不受這八週的時效影響。",
+              "embed_status": "embeddable",
+              "playback_status": "public",
+              "disclosure": null
             }
           ],
-          "reviewed_by": null,
-          "reviewer_role": null,
-          "reviewed_at": null,
-          "reviewed_commit": null
+          "reviewed_by": "吳易澄",
+          "reviewer_role": "課程策展人",
+          "reviewed_at": "2026-08-27",
+          "reviewed_commit": "f6008af",
+          "review_note": "策展審閱：確認範圍框限、來源與講者資格、文獻對應與課程編排。不構成對第三方影片內容的醫療背書。"
         }
       ]
     },
@@ -2127,7 +2128,7 @@
           "name": "肩部 MRI protocol 與序列用途",
           "type": "foundation",
           "level": "foundation",
-          "review_status": "draft",
+          "review_status": "approved",
           "summary": "以斜冠狀、斜矢狀與軸向多平面 protocol 建立肩部 MRI 的序列邏輯，區分非脂肪抑制 T1、PD／T2 與流體敏感脂肪抑制序列的用途，並僅從影像資訊角度說明 MR arthrography 的適應症與判讀差異。",
           "objectives": [
             "說明常規三平面肩部 MRI 的定位方式與各序列主要對比。",
@@ -2189,17 +2190,18 @@
               "disclosure": null
             }
           ],
-          "reviewed_by": null,
-          "reviewer_role": null,
-          "reviewed_at": null,
-          "reviewed_commit": null
+          "reviewed_by": "吳易澄",
+          "reviewer_role": "課程策展人",
+          "reviewed_at": "2026-08-27",
+          "reviewed_commit": "f6008af",
+          "review_note": "策展審閱：確認範圍框限、來源與講者資格、文獻對應與課程編排。不構成對第三方影片內容的醫療背書。"
         },
         {
           "id": "ch10-u2",
           "name": "三平面正常解剖對應",
           "type": "anatomy",
           "level": "foundation",
-          "review_status": "draft",
+          "review_status": "approved",
           "summary": "在斜冠狀、斜矢狀與軸向三平面追蹤旋轉肌袖、肱二頭肌長頭、盂唇、關節囊與骨性地標，建立可重複的正常解剖搜尋順序，並確認棘上肌位於上方、棘下肌位於後方等方向關係。",
           "objectives": [
             "在三個平面連續追蹤棘上肌、棘下肌、肩胛下肌與小圓肌的肌腹、肌腱及附著。",
@@ -2259,10 +2261,11 @@
               "disclosure": "此片由獨立影像教育頻道發布；頻道可能提供商業教育服務，本站僅策展診斷內容，不構成背書。"
             }
           ],
-          "reviewed_by": null,
-          "reviewer_role": null,
-          "reviewed_at": null,
-          "reviewed_commit": null
+          "reviewed_by": "吳易澄",
+          "reviewer_role": "課程策展人",
+          "reviewed_at": "2026-08-27",
+          "reviewed_commit": "f6008af",
+          "review_note": "策展審閱：確認範圍框限、來源與講者資格、文獻對應與課程編排。不構成對第三方影片內容的醫療背書。"
         }
       ]
     },
@@ -2275,7 +2278,7 @@
           "name": "旋轉肌袖病變與撕裂型態",
           "type": "pathology",
           "level": "intermediate",
-          "review_status": "draft",
+          "review_status": "approved",
           "summary": "區分肌腱病、部分厚度與全層撕裂，依肌腱、關節面側／滑囊面側／腱內位置、前後範圍、回縮與 delamination 描述病灶，並以三平面確認液體訊號與纖維連續性。",
           "objectives": [
             "用形態、訊號與纖維連續性區分肌腱病、部分厚度及全層撕裂。",
@@ -2336,17 +2339,18 @@
               "disclosure": "具名專業教育頻道可能連結自有課程或服務；本站僅策展診斷內容，不構成背書。"
             }
           ],
-          "reviewed_by": null,
-          "reviewer_role": null,
-          "reviewed_at": null,
-          "reviewed_commit": null
+          "reviewed_by": "吳易澄",
+          "reviewer_role": "課程策展人",
+          "reviewed_at": "2026-08-27",
+          "reviewed_commit": "f6008af",
+          "review_note": "策展審閱：確認範圍框限、來源與講者資格、文獻對應與課程編排。不構成對第三方影片內容的醫療背書。"
         },
         {
           "id": "ch11-u2",
           "name": "肌肉品質、病例整合與證據邊界",
           "type": "case",
           "level": "intermediate",
-          "review_status": "draft",
+          "review_status": "approved",
           "summary": "在病例中整合旋轉肌袖撕裂、肌肉萎縮與脂肪浸潤分級，同時明確維持證據邊界：無症狀族群也有高比例的旋轉肌袖影像異常，影像所見不等於症狀來源。",
           "objectives": [
             "在標準斜矢狀位比較肌肉容積並描述萎縮。",
@@ -2408,10 +2412,11 @@
               "disclosure": null
             }
           ],
-          "reviewed_by": null,
-          "reviewer_role": null,
-          "reviewed_at": null,
-          "reviewed_commit": null
+          "reviewed_by": "吳易澄",
+          "reviewer_role": "課程策展人",
+          "reviewed_at": "2026-08-27",
+          "reviewed_commit": "f6008af",
+          "review_note": "策展審閱：確認範圍框限、來源與講者資格、文獻對應與課程編排。不構成對第三方影片內容的醫療背書。"
         }
       ]
     },
@@ -2424,7 +2429,7 @@
           "name": "盂唇、不穩定與骨缺損",
           "type": "pathology",
           "level": "advanced",
-          "review_status": "draft",
+          "review_status": "approved",
           "summary": "依盂唇時鐘位置與損傷方向辨認 SLAP、Bankart、ALPSA、Perthes、GLAD 與 HAGL，將 anterior instability 的 Hill-Sachs／前下盂骨缺損與 posterior instability 的反向病灶分開，並用可重複方法量測 glenoid bone loss。",
           "objectives": [
             "以位置、是否移位、骨膜與軟骨關係區分 SLAP、Bankart、ALPSA、Perthes 與 GLAD。",
@@ -2515,17 +2520,18 @@
               "disclosure": null
             }
           ],
-          "reviewed_by": null,
-          "reviewer_role": null,
-          "reviewed_at": null,
-          "reviewed_commit": null
+          "reviewed_by": "吳易澄",
+          "reviewer_role": "課程策展人",
+          "reviewed_at": "2026-08-27",
+          "reviewed_commit": "f6008af",
+          "review_note": "策展審閱：確認範圍框限、來源與講者資格、文獻對應與課程編排。不構成對第三方影片內容的醫療背書。"
         },
         {
           "id": "ch12-u2",
           "name": "正常變異、偽影與結構化報告",
           "type": "reporting",
           "level": "advanced",
-          "review_status": "draft",
+          "review_status": "approved",
           "summary": "區分 sublabral foramen／recess、Buford complex 與真正盂唇撕裂，辨認 magic angle 及部分容積偽影，並以適應症、技術、逐結構所見、量測、限制與結論完成肩部 MRI 報告；沾黏性關節囊炎影像僅作需臨床對照的常見鑑別。",
           "objectives": [
             "依位置、邊緣、方向與相鄰結構區分 sublabral recess、sublabral foramen、Buford complex 及盂唇撕裂。",
@@ -2648,10 +2654,11 @@
               "disclosure": "具名專業教育頻道可能連結自有課程或服務；本站僅策展診斷內容，不構成背書。"
             }
           ],
-          "reviewed_by": null,
-          "reviewer_role": null,
-          "reviewed_at": null,
-          "reviewed_commit": null
+          "reviewed_by": "吳易澄",
+          "reviewer_role": "課程策展人",
+          "reviewed_at": "2026-08-27",
+          "reviewed_commit": "f6008af",
+          "review_note": "策展審閱：確認範圍框限、來源與講者資格、文獻對應與課程編排。不構成對第三方影片內容的醫療背書。"
         }
       ]
     }

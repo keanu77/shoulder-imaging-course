@@ -591,7 +591,7 @@ def main() -> int:
     else:
         print("  ✓ 診斷限定、審閱狀態與經典影片例外規則通過")
 
-    print("\n注意：結構稽核通過不等於醫療核准；所有未 approved 單元仍需具資格醫師簽核。")
+    print("\n注意：結構稽核通過不等於醫療核准。approved 代表通過策展審閱（範圍框限、來源與資格查證、文獻對應），\n不代表策展人對第三方影片的臨床內容背書；未 approved 的內容不會進入 course.json。")
     return 1 if errors else 0
 
 
