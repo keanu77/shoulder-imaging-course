@@ -2556,7 +2556,7 @@
               "presenter": "Scott Schiffman, MD",
               "presenter_qualification": "Assistant Professor of Clinical Imaging Sciences, University of Rochester Medical Center；American Board of Radiology certified in Diagnostic Radiology",
               "qualification_evidence_url": "https://www.urmc.rochester.edu/people/112360903-scott-schiffman",
-              "scope_note": "僅觀看 00:00–38:34 與 38:45–44:05；38:35–38:40 的顯影劑量不足情境排除。全單元只談 MRA 影像資訊，不談執行方式。",
+              "scope_note": "僅觀看 00:00–38:34 與 38:45–44:05；38:35–38:40 的顯影劑量不足情境排除。全單元只談 MRA 影像資訊，不談執行方式。 本片 21:58–22:43 對 Hill-Sachs 的 on-track／off-track 再咬合風險敘述與現行 glenoid track 概念相反——off-track 才是病灶越出軌道、會咬合、再脫位風險高而需手術處置的一類；該段請以文獻為準，本課程的逐段筆記亦未採用其方向與風險敘述。",
               "contains_intervention": true,
               "intervention_start_timestamp": "38:35",
               "diagnostic_segment_range": "00:00–38:34、38:45–44:05",

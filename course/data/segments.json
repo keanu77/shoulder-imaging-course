@@ -10,7 +10,7 @@
   "videos": [
     {
       "video_url": "https://www.youtube.com/watch?v=-sVLoelvpQs",
-      "review_status": "draft",
+      "review_status": "approved",
       "transcript_verified_at": "2026-08-28",
       "transcript_source": "yt-dlp 自動字幕（en, VTT）2026-08-28 實抓，依 diagnostic_segment_range 裁切後逐段對照時間戳核對",
       "note": "本片字幕品質普通，已更正：supereninoid tubicle→supraglenoid tubercle（盂上結節）；gleenoid→glenoid（關節盂）；hummeral→humeral（肱骨的）；anotropy→anisotropy（各向異性）；corocoid process→coracoid process（喙突）；hyperacoic→hyperechoic（高回音）；pec major tendon→pectoralis major tendon（胸大肌肌腱）；muscular tenderness junction→musculotendinous junction（肌腱肌肉交界處）。側別在本片未指定，方向描述全程無疑義。",
@@ -61,11 +61,15 @@
             "在交界處可辨認肱二頭肌長頭的最近端肌纖維及其與肌腱的連接。"
           ]
         }
-      ]
+      ],
+      "reviewed_by": "吳易澄",
+      "reviewer_role": "課程策展人",
+      "reviewed_at": "2026-08-28",
+      "reviewed_commit": "7bf15eb0858a418b1de93c74da9d5b25958b7494"
     },
     {
       "video_url": "https://www.youtube.com/watch?v=24Y2UY_YPvg",
-      "review_status": "draft",
+      "review_status": "approved",
       "transcript_verified_at": "2026-08-28",
       "transcript_source": "yt-dlp 自動字幕（en, VTT）2026-08-28 實抓，依 diagnostic_segment_range 裁切後逐段對照時間戳核對",
       "note": "本片字幕品質普通，已更正：major tubercle→greater tubercle（肱骨大結節）；subscap→subscapularis（肩胛下肌）；supra→supraspinatus（棘上肌）；infra→infraspinatus（棘下肌）；subcoracoidal→subcoracoid（喙突下）；condral print sign→chondral print sign（軟骨印記徵象）；acoustic shade→acoustic shadow（聲影）；fusion→effusion（積液）。側別在本片42:00–42:43有疑義，已標註。",
@@ -270,11 +274,15 @@
             "講者提及形成期等分期名稱，但表示文獻顯示超音波無法據此作出階段判斷。"
           ]
         }
-      ]
+      ],
+      "reviewed_by": "吳易澄",
+      "reviewer_role": "課程策展人",
+      "reviewed_at": "2026-08-28",
+      "reviewed_commit": "7bf15eb0858a418b1de93c74da9d5b25958b7494"
     },
     {
       "video_url": "https://www.youtube.com/watch?v=2sLrqeVOL_k",
-      "review_status": "draft",
+      "review_status": "approved",
       "transcript_verified_at": "2026-08-28",
       "transcript_source": "yt-dlp 自動字幕（en, VTT）2026-08-28 實抓，依 diagnostic_segment_range 裁切後逐段對照時間戳核對",
       "note": "本片字幕品質差，已更正：Athena blago→Athena Plagou（雅典娜・普拉古）；acromeo clavicular joint→acromioclavicular joint（肩鎖關節）；sub chromium space→subacromial space（肩峰下空間）；biceps brachi muscle→biceps brachii muscle（肱二頭肌）；supraglanoid tubercle→supraglenoid tubercle（盂上結節）；correct with→coracoid（喙突）；control tendon→conjoint tendon（聯合腱）；intertubercular group→intertubercular groove（結節間溝）；creative tuberosity→greater tuberosity（大結節）；synovial line shift→synovial-lined sheath（滑膜鞘）；myotendum Junction／mountainous Junction→myotendinous junction（肌腱交界）；human shaft→humeral shaft（肱骨幹）；short taxi scans／short access scan→short-axis scans（短軸掃描）；Tantrum／tension／Sand Dune／stand on／syndrome→tendon（肌腱）；incision→insertion（附著處）；sub scapularis／subscapular→subscapularis（肩胛下肌）；Collective tuberosity→lesser tuberosity（小結節）；interdigitated pattern→interdigitating pattern（交錯排列）；anterior solder→anterior shoulder（肩前側）；participital／bicipital groove→intertubercular groove（結節間溝）；grated tuberosity→greater tuberosity（大結節）；hypercholic／hypercorn→hyperechoic（高回音）；isotropy→anisotropy（各向異性）；fibrilla／fibrill echotecture→fibrillar echotexture（纖維狀回音結構）；subcoracoid burza→subcoracoid bursa（喙突下滑囊）；satacromial subtiltoid／Cyber chromium sub deltoid Bursa→subacromial-subdeltoid bursa（肩峰下－三角肌下滑囊）；supraspinator／super spinato／suprasinatus／supraspinators→supraspinatus（棘上肌）；supraspinous force→supraspinous fossa（棘上窩）；coracochromial arch→coracoacromial arch（喙肩弓）；pig-shaped／big-shaped→beak-shaped（鳥喙狀）；infraspinator→infraspinatus（棘下肌）；crater／Granite tuberosity→greater tuberosity（大結節）；burn Atomic area→anatomic area（解剖區域）；Quran ligament→coracohumeral ligament（喙肱韌帶）；clinohumeral／xenohumeral ligament→glenohumeral ligament（盂肱韌帶）；reflection Pony→reflection pulley（反折滑車）；Rotator cable／rotator cuff cable→rotator cable（旋轉肌袖纜索）；material bundle→medial bundle（內側束）；incisional fibers→insertional fibers（附著部纖維）；cross position→Crass position（Crass姿勢）；tear is minor→teres minor（小圓肌）；Rotator cuffing liver→rotator cuff interval（旋轉肌袖間隙）。側別在本片某處有疑義，已標註。",
@@ -409,11 +417,15 @@
             "少部分人的棘上肌腱甚至可能延伸附著至小結節；高階設備可細看旋轉肌袖間隙結構。"
           ]
         }
-      ]
+      ],
+      "reviewed_by": "吳易澄",
+      "reviewer_role": "課程策展人",
+      "reviewed_at": "2026-08-28",
+      "reviewed_commit": "7bf15eb0858a418b1de93c74da9d5b25958b7494"
     },
     {
       "video_url": "https://www.youtube.com/watch?v=7_0epksK8BY",
-      "review_status": "draft",
+      "review_status": "approved",
       "transcript_verified_at": "2026-08-28",
       "transcript_source": "yt-dlp 自動字幕（en, VTT）2026-08-28 實抓，依 diagnostic_segment_range 裁切後逐段對照時間戳核對",
       "note": "本片字幕品質差，已更正：superspinatus／super spinatus／super smooth is→supraspinatus（棘上肌）；infra spinatus／infra→infraspinatus（棘下肌）；sub scapular／sub scapa／sub SCAP→subscapularis（肩胛下肌）；crash／krabs→Crass（Crass 姿勢）；mile attendant junction→myotendinous junction（肌腱交界）；sub deltoid Bursa→subdeltoid bursa（三角肌下滑囊）；inter articular／intraocular→intra-articular（關節內）；fibula pattern→fibrillar pattern（纖維狀紋理）；tenon Apogee／Tynan apogee／tendon tapa the→tendinopathy（肌腱病變）；intercepts and tears→intrasubstance tears（腱內撕裂）；paradox movement→paradoxical movement（反常運動）；delta herniation→deltoid herniation（三角肌疝入）；articular marsden→articular margin（關節面邊緣）；super spinous／super spinning→supraspinatus（棘上肌）；infraspinous fossa→infraspinatus fossa（棘下窩）；rim red／rim rinsing／rim Rance→rim-rent（附著點裂隙）；barroso fibers→bursal fibers（滑囊側纖維）；coracle outline→cortical outline（骨皮質輪廓）；series minor→teres minor（小圓肌）；coca humeral／corocut humeral→coracohumeral（喙肱）；co-broker humerus sling→coracohumeral sling（喙肱韌帶吊帶）；reit air→retear（再撕裂）；aibee duction→abduction（外展）。側別在本片未特別指定，未自行推定。",
@@ -625,11 +637,15 @@
             "講者提醒健康韌帶也可能彎曲；若動態影像同時再現患者主要症狀，才較支持臨床相關的夾擠。"
           ]
         }
-      ]
+      ],
+      "reviewed_by": "吳易澄",
+      "reviewer_role": "課程策展人",
+      "reviewed_at": "2026-08-28",
+      "reviewed_commit": "7bf15eb0858a418b1de93c74da9d5b25958b7494"
     },
     {
       "video_url": "https://www.youtube.com/watch?v=9iMNnvT69CQ",
-      "review_status": "draft",
+      "review_status": "approved",
       "transcript_verified_at": "2026-08-28",
       "transcript_source": "yt-dlp 自動字幕（en, VTT）2026-08-28 實抓，依 diagnostic_segment_range 裁切後逐段對照時間戳核對",
       "note": "本片字幕品質差，已更正：Derson→Duerson（杜爾森）；muskeletal ultrasound／muscular sketal ultrasound→musculoskeletal ultrasound（肌肉骨骼超音波）；synography→sonography（超音波檢查）；proximal hummeral epipolyis／epiphysolyis／pipsilyis→proximal humeral epiphysiolysis（肱骨近端骨骺鬆解）；radioraphs→radiographs（放射線攝影）；contrlateral→contralateral（對側）；ocification→ossification（骨化）；unosified→unossified（未骨化）；cartilagynous epiphosis／epiphosis→cartilaginous epiphysis／epiphysis（軟骨性骨骺／骨骺）；anacoic→anechoic（無回音）；stifled→stippled（點狀）；apothesis／hypothesis→apophysis（骨突）；fiscus／ficusis／feis／fis→physis（生長板）；metaphysical epiphysial→metaphyseal-epiphyseal（幹骺端－骨骺端）；viceal groove→bicipital groove（肱二頭肌溝）；muscular tennis junction→musculotendinous junction（肌腱交界）；correialis→coracobrachialis（喙肱肌）；corocoid／corcoid→coracoid（喙突）；brachio plexus→brachial plexus（臂神經叢）；subcorticoid bersa→subcoracoid bursa（喙突下滑囊）；bersa／bristal→bursa／bursal（滑囊／滑囊的）；eusion→effusion（積液）；salter hair fracture→Salter-Harris fracture（Salter-Harris 骨折）；acchromian／acrobian→acromion（肩峰）；apoitis→apophysitis（骨突炎）；hypermia／hyperabia→hyperemia（充血）；sonal palpation→sono-palpation（超音波探頭觸診）；suppinatus／suppatus→supraspinatus（棘上肌）；modified crass／cr→modified Crass position（改良式 Crass 姿勢）；infraspanatus→infraspinatus（棘下肌）；corochromial→coracoacromial（喙肩）；tererry's minor→teres minor（小圓肌）；glenoumeral→glenohumeral（盂肱）；labreum／laboral→labrum／labral（盂唇／盂唇的）；supcapular→suprascapular（肩胛上）；spinal glenoid notch→spinoglenoid notch（棘盂切跡）；facicicular→fascicular（束狀）；perryostium／perryostial→periosteum／periosteal（骨膜／骨膜的）；little leak／Lily shoulder→Little League shoulder（少棒肩）；fial→physeal（生長板的）；metaphysical mass→metaphyseal mass（幹骺端腫塊）。側別在本片某處有疑義，已標註。",
@@ -835,11 +851,15 @@
             "生長板或骨突增寬及碎裂可能持續較久，講者表示追蹤時不一定會看到這些表現完全消失。"
           ]
         }
-      ]
+      ],
+      "reviewed_by": "吳易澄",
+      "reviewer_role": "課程策展人",
+      "reviewed_at": "2026-08-28",
+      "reviewed_commit": "7bf15eb0858a418b1de93c74da9d5b25958b7494"
     },
     {
       "video_url": "https://www.youtube.com/watch?v=AAm493BgSH8",
-      "review_status": "draft",
+      "review_status": "approved",
       "transcript_verified_at": "2026-08-28",
       "transcript_source": "yt-dlp 自動字幕（en, VTT）2026-08-28 實抓，依 diagnostic_segment_range 裁切後逐段對照時間戳核對",
       "note": "本片字幕品質差，已更正：coracle clavicular→coracoclavicular（喙鎖）；metathesis→metaphysis（幹骺端）；NIR→Neer（尼爾）；grassy／graph→Grashey（Grashey 攝影位）；on foss→en face（正面觀）；veldt PO／Valpo→Velpeau（Velpeau 攝影位）；shoulder Haitians→shoulder dislocations（肩關節脫位）；coracle→coracoid（喙突）；CIMMYT→symmetry（對稱性）；looks a co erecta→luxatio erecta（直立性肱骨脫位）；pseudo subluxation→pseudosubluxation（假性半脫位）；cat scan→CT scan（電腦斷層）。側別在本片未特別指明；方向敘述全程無明顯疑義。",
@@ -1000,11 +1020,15 @@
             "講者表示此型閉合處理成功不易，建議維持禁食並立即聯絡骨科。"
           ]
         }
-      ]
+      ],
+      "reviewed_by": "吳易澄",
+      "reviewer_role": "課程策展人",
+      "reviewed_at": "2026-08-28",
+      "reviewed_commit": "7bf15eb0858a418b1de93c74da9d5b25958b7494"
     },
     {
       "video_url": "https://www.youtube.com/watch?v=AFIehgVaIFk",
-      "review_status": "draft",
+      "review_status": "approved",
       "transcript_verified_at": "2026-08-28",
       "transcript_source": "yt-dlp 自動字幕（en, VTT）2026-08-28 實抓，依 diagnostic_segment_range 裁切後逐段對照時間戳核對",
       "note": "本片字幕品質差，已更正：briding sign→bridging sign（橋接徵）；rat C→rotator cuff（旋轉肌袖）；sub capillar／subcap→subscapularis（肩胛下肌）；suus／superm／supinatus→supraspinatus（棘上肌）；infras／inates／inpat→infraspinatus（棘下肌）；superior glom ligament→superior glenohumeral ligament（上盂肱韌帶）；Coro humal ligament→coracohumeral ligament（喙肱韌帶）；full thickness stairs→full-thickness tears（全層撕裂）；corid／corite process→coracoid process（喙突）；capler spine→scapular spine（肩胛棘）；bicep tendon→biceps tendon（肱二頭肌腱）。側別在本片未提及，未作推定。",
@@ -1137,11 +1161,15 @@
             "若同事對此徵象有疑問，可參照影片先前介紹的相關文獻。"
           ]
         }
-      ]
+      ],
+      "reviewed_by": "吳易澄",
+      "reviewer_role": "課程策展人",
+      "reviewed_at": "2026-08-28",
+      "reviewed_commit": "7bf15eb0858a418b1de93c74da9d5b25958b7494"
     },
     {
       "video_url": "https://www.youtube.com/watch?v=JwMcy65g4Oc",
-      "review_status": "draft",
+      "review_status": "approved",
       "transcript_verified_at": "2026-08-28",
       "transcript_source": "yt-dlp 自動字幕（en, VTT）2026-08-28 實抓，依 diagnostic_segment_range 裁切後逐段對照時間戳核對",
       "note": "本片字幕品質普通，已更正：fibular tendinous bundles→fibrillar tendinous bundles（纖維狀肌腱束）；arm and extension→arm in extension（手臂伸展）；body habit is→body habitus（體型）。側別在本片全程正確。",
@@ -1241,11 +1269,15 @@
             "在此盂肱關節視窗中，可分別以長軸與短軸評估棘下肌腱。"
           ]
         }
-      ]
+      ],
+      "reviewed_by": "吳易澄",
+      "reviewer_role": "課程策展人",
+      "reviewed_at": "2026-08-28",
+      "reviewed_commit": "7bf15eb0858a418b1de93c74da9d5b25958b7494"
     },
     {
       "video_url": "https://www.youtube.com/watch?v=M8xGUNSK3MU",
-      "review_status": "draft",
+      "review_status": "approved",
       "transcript_verified_at": "2026-08-28",
       "transcript_source": "yt-dlp 自動字幕（en, VTT）2026-08-28 實抓，依 diagnostic_segment_range 裁切後逐段對照時間戳核對",
       "note": "本片字幕品質差，已更正：Tha→thawing（解凍期）；adhesive cap itis／adhesive cap capsulitis→adhesive capsulitis（黏連性關節囊炎）；ax recess／XI recess／a resus／axel recess→axillary recess（腋窩隱窩）；inferior Glen humoral／inferior gleno humoral／inferior GL humoral／inferior Glen humor／inferior gloral ligament→inferior glenohumeral ligament（下盂肱韌帶）；corco humoral／coral humoral／Coco humoral ligament→coracohumeral ligament（喙肱韌帶）；super spinous tendon→supraspinatus tendon（棘上肌腱）；subscapular attendant→subscapularis tendon（肩胛下肌腱）；posture superiorly→posterosuperiorly（後上方）；anro inferiorly→anteroinferiorly（前下方）；Adema／EMA→edema（水腫）；igl→IGHL（下盂肱韌帶）；Sagal→sagittal（矢狀面）；CL diagnosis→clinical diagnosis（臨床診斷）。側別在本片未具體交代，未自行推定。",
@@ -1361,11 +1393,15 @@
             "上述MRI表現只能提示黏連性關節囊炎，也可能由影響肩部的其他疾病造成。"
           ]
         }
-      ]
+      ],
+      "reviewed_by": "吳易澄",
+      "reviewer_role": "課程策展人",
+      "reviewed_at": "2026-08-28",
+      "reviewed_commit": "7bf15eb0858a418b1de93c74da9d5b25958b7494"
     },
     {
       "video_url": "https://www.youtube.com/watch?v=R1kG9Mu1at4",
-      "review_status": "draft",
+      "review_status": "approved",
       "transcript_verified_at": "2026-08-28",
       "transcript_source": "yt-dlp 自動字幕（en, VTT）2026-08-28 實抓，依 diagnostic_segment_range 裁切後逐段對照時間戳核對",
       "note": "本片字幕品質差，已更正：axial chronal→axial／coronal（軸位／冠狀位）；a bear→ABER（外展外旋位）；anthro inferior→anteroinferior（前下方）；krakow humeral→coracohumeral（喙肱）；glenar humeral／gonna hear more→glenohumeral（盂肱）；sub scapularis→subscapularis（肩胛下肌）；labor／label／labarum→labrum／labral（盂唇）；Conger labral／control April／contralateral junction→chondrolabral junction（軟骨盂唇交界）；slapped error→SLAP tear（上盂唇前後向撕裂）；parallel／Peres liberal cyst→paralabral cyst（盂唇旁囊腫）；spinal glenoid notch→spinoglenoid notch（肩胛棘盂切跡）；super scapular nerve→suprascapular nerve（肩胛上神經）；sub-label recess→sublabral recess（盂唇下隙）；sub-label foramen→sublabral foramen（盂唇下孔）；Beaufort complex→Buford complex（布福複合體）；he'll sacks／hill sacks→Hill-Sachs（希爾－薩克斯）；Bank heart／bankcard→Bankart（班卡特）；glaad→GLAD（盂肱關節盂唇關節面破壞）；alpha→ALPSA（前盂唇骨膜袖套撕脫）；Hagel／bagel／gaggle→HAGL／BHAGL／GAGL（下盂肱韌帶撕脫傷）；reversal sacs→reverse Hill-Sachs（反向希爾－薩克斯）；Rembrandt／rim ren tear→rim-rent tear（腱附著處裂隙型撕裂）；superspinatus→supraspinatus（棘上肌）；muscular tenderness junction→musculotendinous junction（肌腱交界）；subacromial subtlety bursa→subacromial-subdeltoid bursa（肩峰下－三角肌下滑囊）；Romeo clavicular→acromioclavicular（肩鎖）；Caraco clavicular→coracoclavicular（喙鎖）。側別在本片某處有疑義，已標註。\n\n**⚠️ 主編抽驗發現影片本身的臨床敘述有誤（非字幕訛誤，需策展人裁決）**：21:58–22:43 講者說明 Hill-Sachs 的 on-track／off-track 時，連續三次一致地表示「on-track 較容易再咬合（reengagement）、較需緊急手術介入」。此敘述與現行 glenoid track 概念相反：off-track 才是病灶越出軌道、會咬合、再脫位風險高而需手術處置的一類。字幕在該段清晰可辨，因此判定為影片內容問題，不是聽寫錯誤。逐段筆記已不採用該段的方向與風險敘述，僅保留骨缺損量測方法。",
@@ -1586,11 +1622,15 @@
             "總結病例同時有Hill-Sachs變形、前下關節盂GLAD傷，以及移至關節後方的軟骨碎片。"
           ]
         }
-      ]
+      ],
+      "reviewed_by": "吳易澄",
+      "reviewer_role": "課程策展人",
+      "reviewed_at": "2026-08-28",
+      "reviewed_commit": "7bf15eb0858a418b1de93c74da9d5b25958b7494"
     },
     {
       "video_url": "https://www.youtube.com/watch?v=SCJkbHht-wg",
-      "review_status": "draft",
+      "review_status": "approved",
       "transcript_verified_at": "2026-08-28",
       "transcript_source": "yt-dlp 自動字幕（en, VTT）2026-08-28 實抓，依 diagnostic_segment_range 裁切後逐段對照時間戳核對",
       "note": "本片字幕品質差，已更正：radaph／radioraps→radiographs（X 光片）；gloh humeral／Glen humeral→glenohumeral（盂肱）；AC chromian／acroman→acromion（肩峰）；humoral／feral head→humeral head（肱骨頭）；entro inferior／Antro inferior→anteroinferior（前下方）；Hill saxs／Hill sex→Hill-Sachs（希爾－薩克斯）；bankart／Bankart leion→Bankart lesion（班卡特病灶）；lrim／laborel→labrum／labral（盂唇／盂唇的）；suboc chromal→subacromial（肩峰下）；seilat→cephalad（頭側）；cows→callus（骨痂）；sternal cicular→sternoclavicular（胸鎖）；jointed Fusion／joiny fusion／infusion→joint effusion（關節積液）；fad pad／bad pads→fat pad（脂肪墊）；citis／cobitis／cintis→synovitis（滑膜炎）；ovial giant cell tumor→tenosynovial giant cell tumor（腱鞘滑膜巨細胞瘤）；Epic cond／condic cond→epicondyle／condyle（上髁／髁）；elecron／electron／elron→olecranon（鷹嘴）；evoltion／evulsion→avulsion（撕脫）；Venus→venous（靜脈性）；apothesis→apophyses（骨突）；feces→physes（生長板）；oifc centers→ossification centers（骨化中心）。側別在本片全程未特別指明左右，前後、上下及內外方向未見需棄用的疑義。",
@@ -1798,11 +1838,15 @@
             "肩部系列差異很大；創傷情境下講者認為至少需要三視圖，缺少腋位類影像可能漏掉後方脫位。"
           ]
         }
-      ]
+      ],
+      "reviewed_by": "吳易澄",
+      "reviewer_role": "課程策展人",
+      "reviewed_at": "2026-08-28",
+      "reviewed_commit": "7bf15eb0858a418b1de93c74da9d5b25958b7494"
     },
     {
       "video_url": "https://www.youtube.com/watch?v=UFXRpfK1gHA",
-      "review_status": "draft",
+      "review_status": "approved",
       "transcript_verified_at": "2026-08-28",
       "transcript_source": "yt-dlp 自動字幕（en, VTT）2026-08-28 實抓，依 diagnostic_segment_range 裁切後逐段對照時間戳核對",
       "note": "本片字幕品質差，已更正：glenoumeral／glenhemeral→glenohumeral（盂肱）；labum／labram／labreum／laboral→labrum／labral（盂唇／盂唇的）；hummeral／humoral→humeral（肱骨的）；MR forography／MROography／arthography→MR arthrography（磁振關節攝影）；rayo→radial（放射狀）；chronal→coronal（冠狀面）；sashto→sagittal（矢狀面）；fedure→FADIR（屈曲、內收、內旋）；condol laboral／condoloral→chondrolabral（軟骨盂唇的）；highland cartilage→hyaline cartilage（透明軟骨）；sublaboral→sublabral（盂唇下的）；forammen→foramen（孔）；bord／Bufort→Buford（布福德）；slab／slapped→SLAP（上盂唇前後向撕裂）；parallel cyst→paralabral cyst（盂唇旁囊腫）；hillsax／hail sax／tail sacks→Hill-Sachs（希爾－薩克斯）；bankard／bank→Bankart（班卡特）；perryostium→periosteum（骨膜）；absolion／also→ALPSA（前盂唇韌帶骨膜袖套撕脫）；perthese→Perthes（佩爾特斯）；glenol laboral articular disruption→glenolabral articular disruption（盂軟骨盂唇關節面損傷）；pulpsa→POLPSA（後盂唇骨膜袖套撕脫）；foo→FOOSH（伸手撐地受傷）；picture→pitcher（投手）；haggle→HAGL（肱骨側盂肱韌帶撕脫）；gaggle→GAGL（盂側盂肱韌帶撕脫）；IG shell→IGHL（下盂肱韌帶）；anterior inferior→posterior inferior（後下方）。側別在本片全程正確。",
@@ -2004,11 +2048,15 @@
             "對年輕患者若盂唇撕裂可能改變後續處置，講者會建議進一步接受磁振關節攝影。"
           ]
         }
-      ]
+      ],
+      "reviewed_by": "吳易澄",
+      "reviewer_role": "課程策展人",
+      "reviewed_at": "2026-08-28",
+      "reviewed_commit": "7bf15eb0858a418b1de93c74da9d5b25958b7494"
     },
     {
       "video_url": "https://www.youtube.com/watch?v=Us_8gKPbrdk",
-      "review_status": "draft",
+      "review_status": "approved",
       "transcript_verified_at": "2026-08-28",
       "transcript_source": "yt-dlp 自動字幕（en, VTT）2026-08-28 實抓，依 diagnostic_segment_range 裁切後逐段對照時間戳核對",
       "note": "本片字幕品質差，已更正：humorris→humerus（肱骨）；humorus→humerus（肱骨）；corocoid→coracoid（喙突）；anotropy→anisotropy（各向異性）；supraleenoid tubicle→supraglenoid tubercle（盂上結節）；gleen hummeral ligament→glenohumeral ligament（盂肱韌帶）；subscap→subscapularis（肩胛下肌）；supraspanatus→supraspinatus（棘上肌）；fibula structure→fibrillar structure（纖維狀結構）；coroco hummeral ligament→coracohumeral ligament（喙肱韌帶）；suppinatus→supraspinatus（棘上肌）；coroumeral ligament→coracohumeral ligament（喙肱韌帶）；berscal plane→bursal plane（滑囊層面）；bersal plane→bursal plane（滑囊層面）；very approximately→proximally（向近端）；frivolous structure→fibrillar structure（纖維狀結構）；annisotropy→anisotropy（各向異性）；muscular tenderness junction→musculotendinous junction（肌腱交界）；anterior circumflex artery→anterior circumflex humeral artery（肱骨前旋動脈）；letters tuberosity→lesser tuberosity（小結節）。側別在本片全程正確。",
@@ -2109,11 +2157,15 @@
             "長軸影像應同時顯示近端與遠端纖維；若僅一端清楚，固定該端並以魚尾式調整另一端。"
           ]
         }
-      ]
+      ],
+      "reviewed_by": "吳易澄",
+      "reviewer_role": "課程策展人",
+      "reviewed_at": "2026-08-28",
+      "reviewed_commit": "7bf15eb0858a418b1de93c74da9d5b25958b7494"
     },
     {
       "video_url": "https://www.youtube.com/watch?v=VLKFpKpCjgQ",
-      "review_status": "draft",
+      "review_status": "approved",
       "transcript_verified_at": "2026-08-28",
       "transcript_source": "yt-dlp 自動字幕（en, VTT）2026-08-28 實抓，依 diagnostic_segment_range 裁切後逐段對照時間戳核對",
       "note": "本片字幕品質差，已更正：moral trophy→MR arthrography（MR 關節攝影）；superior gano humeral ligament→superior glenohumeral ligament（上盂肱韌帶）；indirect term or orthography→indirect MR arthrography（間接 MR 關節攝影）；pet saturation→fat saturation（脂肪抑制）；correlation ligament→coracohumeral ligament（喙肱韌帶）；a p' normal→abnormal（異常）；taken／second→thickened（增厚）；pic table→depictable（可辨識）；avocado lynnium／cat lynnium／idea lynnium→IV gadolinium（靜脈注射釓對比劑）；rotatable enhancement→rotator interval enhancement（旋轉肌袖間隙增強）；john capsule→joint capsule（關節囊）；accelerate joint recess／Excel recess／explain recess→axillary recess（腋窩隱窩）；peed affected／PDF at that／PDE Fetzer／pity fat head／PDF at set→PD fat-saturated（PD 脂肪抑制序列）；sachet→sagittal（矢狀面）；superspinatus→supraspinatus（棘上肌）；direct immoral drug Rafi→direct MR arthrography（直接 MR 關節攝影）；extra relation→extravasation（外滲）；muscle either intense→muscle-isointense（與肌肉等訊號）；t-cell capsulitis→adhesive capsulitis（沾黏性關節囊炎）；Cottman→Codman（科德曼）；periarthritis humerus capillaries→periarthritis humeroscapularis（肩胛肱骨關節周圍炎）。側別在本片全程未指明，未作側別推定。",
@@ -2208,11 +2260,15 @@
             "報告中不宜以肩胛肱骨關節周圍炎取代明確診斷，因該詞僅籠統表達肩部疼痛。"
           ]
         }
-      ]
+      ],
+      "reviewed_by": "吳易澄",
+      "reviewer_role": "課程策展人",
+      "reviewed_at": "2026-08-28",
+      "reviewed_commit": "7bf15eb0858a418b1de93c74da9d5b25958b7494"
     },
     {
       "video_url": "https://www.youtube.com/watch?v=WzCnmptsMQ8",
-      "review_status": "draft",
+      "review_status": "approved",
       "transcript_verified_at": "2026-08-28",
       "transcript_source": "yt-dlp 自動字幕（en, VTT）2026-08-28 實抓，依 diagnostic_segment_range 裁切後逐段對照時間戳核對",
       "note": "本片字幕品質差，已更正：suppinatus→supraspinatus（棘上肌）；supraspanatus→supraspinatus（棘上肌）；implanatus→infraspinatus（棘下肌）；humorris→humerus（肱骨）；infraspanatus→infraspinatus（棘下肌）；spogenoid notch→spinoglenoid notch（盂棘切跡）；gleenoid→glenoid（肩胛盂）；labreum→labrum（盂唇）；fibular structure→fibrillar structure（纖維狀結構）；infasminatus→infraspinatus（棘下肌）；hetogenous→heterogeneous（回音不均）；isotropic→anisotropy（各向異性）。側別在本片全程正確。",
@@ -2262,11 +2318,15 @@
             "不建議全程只使用單一手臂姿勢；可先由中立位開始，再依觀察需要調整。"
           ]
         }
-      ]
+      ],
+      "reviewed_by": "吳易澄",
+      "reviewer_role": "課程策展人",
+      "reviewed_at": "2026-08-28",
+      "reviewed_commit": "7bf15eb0858a418b1de93c74da9d5b25958b7494"
     },
     {
       "video_url": "https://www.youtube.com/watch?v=WzkiVfEg3qw",
-      "review_status": "draft",
+      "review_status": "approved",
       "transcript_verified_at": "2026-08-28",
       "transcript_source": "yt-dlp 自動字幕（en, VTT）2026-08-28 實抓，依 diagnostic_segment_range 裁切後逐段對照時間戳核對",
       "note": "本片字幕品質差，已更正：conjoint attendant→conjoint tendon（聯合肌腱）；subacromial deltoid person／versa→subacromial-subdeltoid bursa（肩峰下－三角肌下滑囊）；labor／labarum→labrum（盂唇）；long bicipital pendant／long bicycle tendon→long head of biceps tendon（肱二頭肌長頭肌腱）；chroma curricular／acromial Club the killer→acromioclavicular（肩鎖）；coral color malignant／coke with normal ligament→coracohumeral ligament（喙肱韌帶）；superior glam human ligament→superior glenohumeral ligament（上盂肱韌帶）；fassett→facet（小面）；in thesis→enthesis（肌腱附著點）；articular island college→articular hyaline cartilage（關節透明軟骨）；muscular tenderness junction→musculotendinous junction（肌腱肌肉交界）；spinal glenoid notch／groove→spinoglenoid notch／groove（肩胛盂棘切跡／溝）；super scapular ganyan→suprascapular ganglion（肩胛上神經節囊腫）；an colic→anechoic（無回音）；chronic sinusitis→chronic synovitis（慢性滑膜炎）；para label sift→paralabral cyst（盂唇旁囊腫）；bank art→Bankart（班卡特）；slap lesions→SLAP lesions（上盂唇前後向病灶）；diffusion→effusion（關節積液）；RMS k→RMSK（註冊肌肉骨骼超音波認證）。側別在本片某處有疑義，已標註。",
@@ -2489,11 +2549,15 @@
             "若同時存在關節積液，撕裂盂唇或Bankart病灶的骨性碎片可能更容易顯示。"
           ]
         }
-      ]
+      ],
+      "reviewed_by": "吳易澄",
+      "reviewer_role": "課程策展人",
+      "reviewed_at": "2026-08-28",
+      "reviewed_commit": "7bf15eb0858a418b1de93c74da9d5b25958b7494"
     },
     {
       "video_url": "https://www.youtube.com/watch?v=_PrcLweY_X0",
-      "review_status": "draft",
+      "review_status": "approved",
       "transcript_verified_at": "2026-08-28",
       "transcript_source": "yt-dlp 自動字幕（en, VTT）2026-08-28 實抓，依 diagnostic_segment_range 裁切後逐段對照時間戳核對",
       "note": "本片字幕品質差，已更正：rotator calf→rotator cuff（旋轉肌袖）；tenon／tenant／tender／tunnel→tendon（肌腱）；subscapular／sub scapularis→subscapularis（肩胛下肌）；Mayo tininess junction／maintenance junction／mountainous junction→myotendinous junction（肌腱肌肉交界）；fiber allure／fibril ER／fiber ealer→fibrillar（纖維狀）；inter muscle or tendon／international tendon／intermezzo lieutenant→intramuscular tendon（肌內肌腱）；multi penet→multipennate（多羽狀）；quirky humeral ligament／core Co humeral ligament→coracohumeral ligament（喙肱韌帶）；reflection Puli／reflection pool→reflection pulley（反折滑車）；middleton position→Middleton position（Middleton 姿勢）；modified crash→modified Crass position（改良 Crass 姿勢）；I poco→hypoechoic（低回音）；hyper allergenic／hyper echogenic→hyperechoic（高回音）；superior compress→superior complex（上方複合體）；elimination→delamination（分層）；de lesser tuberosity→lesser tuberosity（小結節）。側別在本片未明示；方向描述有一處字幕不清，已標註。",
@@ -2676,11 +2740,15 @@
             "在適當軸線下，可顯示棘下肌腱並將其與深面的上方複合體區分。"
           ]
         }
-      ]
+      ],
+      "reviewed_by": "吳易澄",
+      "reviewer_role": "課程策展人",
+      "reviewed_at": "2026-08-28",
+      "reviewed_commit": "7bf15eb0858a418b1de93c74da9d5b25958b7494"
     },
     {
       "video_url": "https://www.youtube.com/watch?v=b-mrSITJeSU",
-      "review_status": "draft",
+      "review_status": "approved",
       "transcript_verified_at": "2026-08-28",
       "transcript_source": "yt-dlp 自動字幕（en, VTT）2026-08-28 實抓，依 diagnostic_segment_range 裁切後逐段對照時間戳核對",
       "note": "本片字幕品質差，已更正：orthopaedic piays→orthopaedic PAs（骨科醫師助理）；calcification node→calcification noted（發現鈣化）；sheath fusion→sheath effusion（腱鞘積液）；sub scalp／sub scalpel→subscapularis（肩胛下肌）；this will click your osteolysis→distal clavicular osteolysis（遠端鎖骨溶解）；Kachina city→echogenicity（回音性）；Terry's minor→teres minor（小圓肌）；pene／pinning pattern→pennate pattern（羽狀排列）；impersonate us→infraspinatus（棘下肌）；posterior going humeral joint→posterior glenohumeral joint（後側盂肱關節）；fusions→effusions（積液）；Hill sacks→Hill-Sachs（Hill-Sachs 病灶）；internal and pinched ment→internal impingement（內部夾擠）；actually recess→axillary recess（腋窩隱窩）；spine of one-half a notch／spinal glenoid notch→spinoglenoid notch（棘盂切跡）；assist→cyst（囊腫）；trap→trapezius（斜方肌）；crafts position→Crass position（Crass 姿勢）；post yearly→posteriorly（向後）；superspinatus／super comb-over→supraspinatus（棘上肌）；racial thickening→bursal thickening（滑囊增厚）；CA ligament→coracoacromial ligament（喙肩韌帶）；komi oula bursa→subacromial-subdeltoid bursa（肩峰下－三角肌下滑囊）；döner baited→denervated（去神經支配）；going to humeral joint effusion→glenohumeral joint effusion（盂肱關節積液）；displaced ball→displaceable（可推移）。側別在本片全程正確。",
@@ -2863,11 +2931,15 @@
             "判讀時需考慮腱鞘炎、生理性積液與盂肱關節積液；若疼痛且血流增加，可指出腱鞘炎。"
           ]
         }
-      ]
+      ],
+      "reviewed_by": "吳易澄",
+      "reviewer_role": "課程策展人",
+      "reviewed_at": "2026-08-28",
+      "reviewed_commit": "7bf15eb0858a418b1de93c74da9d5b25958b7494"
     },
     {
       "video_url": "https://www.youtube.com/watch?v=brxQ1WqIVRo",
-      "review_status": "draft",
+      "review_status": "approved",
       "transcript_verified_at": "2026-08-28",
       "transcript_source": "yt-dlp 自動字幕（en, VTT）2026-08-28 實抓，依 diagnostic_segment_range 裁切後逐段對照時間戳核對",
       "note": "本片字幕品質差，已更正：acromeo graphicular joint→acromioclavicular joint（肩鎖關節）；acronym clavicular ligament→acromioclavicular ligament（肩鎖韌帶）；coracochromial large／document／Vegemite→coracoacromial ligament（喙肩韌帶）；aquarium→acromion（肩峰）；clavic→clavicle（鎖骨）；supraspinatus angle→supraspinatus tendon（棘上肌腱）；low head of biceps tendon→long head of biceps tendon（肱二頭肌長頭肌腱）；subacromial subductory person→subacromial-subdeltoid bursa（肩峰下－三角肌下滑囊）；croissant maneuver→cross-arm maneuver（交叉臂動作）；impeachment→impingement（夾擠）；intraspinatus／infraspinato→infraspinatus（棘下肌）；infraspinous force→infraspinous fossa（棘下窩）；actor is mine／terrorist minor／Terrace minor→teres minor（小圓肌）；degraded tuberosity／critic tuberosity／greater duplicity→greater tuberosity（肱骨大結節）；capular spine→scapular spine（肩胛岡）；testoid muscle→deltoid muscle（三角肌）；eponymous／acne roses→aponeurosis（腱膜）；clinohumeral joint／posterior cleaner human joint→glenohumeral joint（盂肱關節）；superscapular／sucroscapular→suprascapular（肩胛上）；spinal glenoid→spinoglenoid（棘盂）；posteroglenoid labrum→posterior glenoid labrum（後盂唇）；paralabriel cysts→paralabral cysts（盂唇旁囊腫）；sides of compression→signs of compression（壓迫徵象）。側別在本片某處有疑義，已標註。",
@@ -2967,11 +3039,15 @@
             "在棘盂切跡尋找盂唇旁囊腫及肩胛上神經受壓徵象。"
           ]
         }
-      ]
+      ],
+      "reviewed_by": "吳易澄",
+      "reviewer_role": "課程策展人",
+      "reviewed_at": "2026-08-28",
+      "reviewed_commit": "7bf15eb0858a418b1de93c74da9d5b25958b7494"
     },
     {
       "video_url": "https://www.youtube.com/watch?v=eglplbWaqxA",
-      "review_status": "draft",
+      "review_status": "approved",
       "transcript_verified_at": "2026-08-28",
       "transcript_source": "yt-dlp 自動字幕（en, VTT）2026-08-28 實抓，依 diagnostic_segment_range 裁切後逐段對照時間戳核對",
       "note": "本片字幕品質差，已更正：shoulder roll sound→shoulder ultrasound（肩部超音波）；Contra lateral→contralateral（對側）；corid→coracoid（喙突）；humoral／humoris→humeral／humerus（肱骨）；bicipital group→bicipital groove（肱二頭肌溝）；muscular tendonous Junction→musculotendinous junction（肌腱交界）；hyper aoic→hyperechoic（高回音）；hypo aoic→hypoechoic（低回音）；an aoic→anechoic（無回音）；subscap→subscapularis（肩胛下肌）；conjoin tendon→conjoint tendon（聯合肌腱）；supinatus／sup spinatus／super spinus→supraspinatus（棘上肌）；superior third sub scap teers→superior-third subscapularis tears（肩胛下肌上三分之一撕裂）；corco humeral→coracohumeral（喙肱）；subc Coro→subcoracoid（喙突下）；acromium／a chromian→acromion（肩峰）；partial te→partial tear（部分撕裂）；subd delto→subdeltoid（肩峰下三角肌下）；sub chromal→subacromial（肩峰下）；laum→labrum（盂唇）；Sagal→sagittal（矢狀）；slap Legion→SLAP lesion（上盂唇前後向病灶）；laboral／labor Fray→labral／labral fraying（盂唇／盂唇磨損）；interarticular→intra-articular（關節內）；F degeneration→fatty degeneration（脂肪變性）；curbal linear→curvilinear（曲面線陣）；haar→tear（撕裂）。側別在本片全程正確。",
@@ -3190,11 +3266,15 @@
             "開始保守治療前先做超音波，可協助避免漏掉可在門診快速辨認的全層撕裂。"
           ]
         }
-      ]
+      ],
+      "reviewed_by": "吳易澄",
+      "reviewer_role": "課程策展人",
+      "reviewed_at": "2026-08-28",
+      "reviewed_commit": "7bf15eb0858a418b1de93c74da9d5b25958b7494"
     },
     {
       "video_url": "https://www.youtube.com/watch?v=fhrbY81YRN0",
-      "review_status": "draft",
+      "review_status": "approved",
       "transcript_verified_at": "2026-08-28",
       "transcript_source": "yt-dlp 自動字幕（en, VTT）2026-08-28 實抓，依 diagnostic_segment_range 裁切後逐段對照時間戳核對",
       "note": "本片字幕品質普通，已更正：Supra→supraspinatus（棘上肌）；infra→infraspinatus（棘下肌）；supinatus→supraspinatus（棘上肌）；SU atus→supraspinatus（棘上肌）；tender→tendon（肌腱）；teras minor→teres minor（小圓肌）。側別在本片全程正確。**主編抽驗補記**：講者於 01:38 口誤說「inferior facet 是棘下肌附著」，但同片 01:20 與 01:56 均正確說明 middle facet 對應棘下肌、inferior facet 對應小圓肌。逐段筆記一律採用正確版本（上／中／下關節面 = 棘上肌／棘下肌／小圓肌），學員若聽到該句口誤請以本筆記為準。",
@@ -3234,11 +3314,15 @@
             "上關節面對應棘上肌，中關節面對應棘下肌，兩者之間為肌腱交界。"
           ]
         }
-      ]
+      ],
+      "reviewed_by": "吳易澄",
+      "reviewer_role": "課程策展人",
+      "reviewed_at": "2026-08-28",
+      "reviewed_commit": "7bf15eb0858a418b1de93c74da9d5b25958b7494"
     },
     {
       "video_url": "https://www.youtube.com/watch?v=gXRiTm5EWm4",
-      "review_status": "draft",
+      "review_status": "approved",
       "transcript_verified_at": "2026-08-28",
       "transcript_source": "yt-dlp 自動字幕（en, VTT）2026-08-28 實抓，依 diagnostic_segment_range 裁切後逐段對照時間戳核對",
       "note": "本片字幕品質差，已更正：multi-penta→multipennate（多羽狀）；super scapular phosphorous／super scapular fossa→supraspinous fossa（棘上窩）；intertubercular stalk→intertubercular sulcus（結節間溝）；interest substance→intrasubstance（腱內）；o chromium→acromion（肩峰）；osteochromial→os acromiale（未融合肩峰骨）；apple neurotic expansion→aponeurotic expansion（腱膜擴展）；cuffed hair→cuff tear（旋轉肌袖撕裂）；personal sided→bursal-sided（滑囊側）；suburban subdeltoid bursa→subacromial-subdeltoid bursa（肩峰下三角肌下滑囊）；under surface scalping→undersurface scalloping（下表面扇貝狀侵蝕）；gootalia→Goutallier（Goutallier 分級）；bank card／bank heart→Bankart（Bankart 病灶）；hexanes→sextants（六分區）；metabolic hormone→MGHL（中盂肱韌帶）；sub-label foramen／sulcus→sublabral foramen／sulcus（盂唇下孔／溝）；hill sacs→Hill-Sachs（Hill-Sachs 壓陷）；spinal glenoid notch→spinoglenoid notch（棘盂切跡）；superscapular→suprascapular（肩胛上）；periminiscible cyst→parameniscal cyst（半月板旁囊腫）；avers avulsion→sleeve avulsion（袖套撕脫）；alpha→ALPSA（前盂唇骨膜袖套撕脫）。側別鐘面慣例在本片某處有疑義，已標註。",
@@ -3421,11 +3505,15 @@
             "以盂唇六分區直接描述上、前上、前下等位置，可減少鐘面表達的歧義。"
           ]
         }
-      ]
+      ],
+      "reviewed_by": "吳易澄",
+      "reviewer_role": "課程策展人",
+      "reviewed_at": "2026-08-28",
+      "reviewed_commit": "7bf15eb0858a418b1de93c74da9d5b25958b7494"
     },
     {
       "video_url": "https://www.youtube.com/watch?v=hGM7zAktKOQ",
-      "review_status": "draft",
+      "review_status": "approved",
       "transcript_verified_at": "2026-08-28",
       "transcript_source": "yt-dlp 自動字幕（en, VTT）2026-08-28 實抓，依 diagnostic_segment_range 裁切後逐段對照時間戳核對",
       "note": "本片字幕品質差，已更正：cyanobitis／cyanobite／cellulitis／sunrises→synovitis（滑膜炎）；posterior glenohumeral resistance／recessions／stereo recesses→posterior glenohumeral recess（肩盂肱骨關節後隱窩）；biceps tendon sheet／business tendency→biceps tendon sheath（肱二頭肌腱鞘）；rotator cup／cafter→rotator cuff／tear（旋轉肌袖／撕裂）；telepathy／tendopatie／topology／tautology→tendinopathy／pathology（肌腱病變／病理）；tendon extraction→tendon echotexture（肌腱回音結構）；clinical mirror joint／camera joint→glenohumeral joint（肩盂肱骨關節）；subscript wire→subscapularis（肩胛下肌）；actual／axial recessions→axillary recess（腋窩隱窩）；partial thickness there／full technicians→partial-thickness／full-thickness tear（部分厚度／全層撕裂）；cover doppler→Power Doppler（能量都卜勒）；aromatic shoulder→rheumatic shoulder（風濕性肩部病變）；first wine→first-line（第一線）；meat information→knee inflammation（膝關節發炎）；suprapatient／superpower recess→suprapatellar recess（髕上隱窩）；bankruptcy／banker choosing→Baker cyst（貝克氏囊腫）；cpd→CPPD（焦磷酸鈣沉積）；uride→urate（尿酸鹽）；angle of insulation→angle of insonation（入射角）；in doubt→gout（痛風）；hyperholic fossil／process／dogs→hyperechoic foci（高回音灶）；ministry／minister／menace→meniscus／meniscal（半月板／半月板的）；newborn formation→new bone formation（新生骨形成）；subcontrol bone→subchondral bone（軟骨下骨）；diffusion→effusion（積液）；negative productive value→negative predictive value（陰性預測值）；medium meniscus→medial meniscus（內側半月板）；mixing raptures→meniscal ruptures（半月板破裂）；functional plane→longitudinal plane（縱切面）；forcing proliferation→synovial proliferation（滑膜增生）；hostile trials／new Austrian arthritis→knee osteoarthritis（膝骨關節炎）；early bone collaboration→early bone proliferation（早期骨增生）。側別在本片某處有疑義，已標註。",
@@ -3597,11 +3685,15 @@
             "講者指出，上述結構評估可用於膝骨關節炎的診斷與處理，且該項建議強度為強。"
           ]
         }
-      ]
+      ],
+      "reviewed_by": "吳易澄",
+      "reviewer_role": "課程策展人",
+      "reviewed_at": "2026-08-28",
+      "reviewed_commit": "7bf15eb0858a418b1de93c74da9d5b25958b7494"
     },
     {
       "video_url": "https://www.youtube.com/watch?v=jjzMYgbYwTg",
-      "review_status": "draft",
+      "review_status": "approved",
       "transcript_verified_at": "2026-08-28",
       "transcript_source": "yt-dlp 自動字幕（en, VTT）2026-08-28 實抓，依 diagnostic_segment_range 裁切後逐段對照時間戳核對",
       "note": "本片字幕品質差，已更正：calf interval→rotator interval（旋轉肌間隙）；cocoa emerald ligament→coracohumeral ligament（喙肱韌帶）；Decorah humeral ligament→coracohumeral ligament（喙肱韌帶）。側別在本片未提及，方向描述無疑義。",
@@ -3639,11 +3731,15 @@
             "講者指出，橫肱韌帶在穩定肱二頭肌長頭肌腱方面的生物力學重要性較低。"
           ]
         }
-      ]
+      ],
+      "reviewed_by": "吳易澄",
+      "reviewer_role": "課程策展人",
+      "reviewed_at": "2026-08-28",
+      "reviewed_commit": "7bf15eb0858a418b1de93c74da9d5b25958b7494"
     },
     {
       "video_url": "https://www.youtube.com/watch?v=juUSIoplk1k",
-      "review_status": "draft",
+      "review_status": "approved",
       "transcript_verified_at": "2026-08-28",
       "transcript_source": "yt-dlp 自動字幕（en, VTT）2026-08-28 實抓，依 diagnostic_segment_range 裁切後逐段對照時間戳核對",
       "note": "本片字幕品質差，已更正：muscularkeeletal→musculoskeletal（肌肉骨骼）；paranal tendons→peroneal tendons（腓骨肌腱）；tus／talis→talus（距骨）；facicicular→fascicular（束狀）；medial gastro→medial gastrocnemius（內側腓腸肌）；cellus→soleus（比目魚肌）；coroumeral→coracohumeral（喙肱）；corochromial→coracoacromial（喙肩峰）；calccania fibular→calcaneofibular（跟腓）；tailor tilt→talar tilt（距骨傾斜）；anizotropy／nizotropy→anisotropy（各向異性）；bural／bersal／burial→bursal（滑囊側／滑囊相關）；bersa／bers／burst→bursa（滑囊）；berscitis／burcitis→bursitis（滑囊炎）；joint diffusion／eusion／fusion→joint effusion（關節積液）；rotenic cuff／rotated cuff→rotator cuff（旋轉肌袖）；suppinatus→supraspinatus（棘上肌）；infraspanatus／infraspan→infraspinatus（棘下肌）；supcapular nerve→suprascapular nerve（肩胛上神經）；hummeral／humor→humeral（肱骨的）；corocoid→coracoid（喙突）；conjooint→conjoint（聯合的）；muscular tendonous／muscular tenderness→musculotendinous（肌腱肌肉交界）；tiger strip→tiger stripe（虎紋）；cataric→cadaveric（大體的）；acromian→acromion（肩峰）；hypoacoic→hypoechoic（低回音）；bersided→bursal-sided（滑囊側）；gle hummeral／goumeral→glenohumeral（盂肱）；anacoic→anechoic（無回音）；corticular→cortical（骨皮質的）；labreum→labrum（盂唇）；gleoid→glenoid（關節盂）；terraas minor→teres minor（小圓肌）；sinovial→synovial（滑膜的）；panis→pannus（血管翳）；pasta lesions→PASTA lesions（關節面側部分厚度撕裂）；evulsions→avulsions（撕脫）；subcoroid→subcoracoid（喙突下）；subchromial→subacromial（肩峰下）；synographer→sonographer（超音波檢查師）。側別在本片全程正確。",
@@ -3863,11 +3959,15 @@
             "結構缺損仍可能被經驗不足者誤解，因此影像所見需要被適當處理與溝通。"
           ]
         }
-      ]
+      ],
+      "reviewed_by": "吳易澄",
+      "reviewer_role": "課程策展人",
+      "reviewed_at": "2026-08-28",
+      "reviewed_commit": "7bf15eb0858a418b1de93c74da9d5b25958b7494"
     },
     {
       "video_url": "https://www.youtube.com/watch?v=mezZ0x5-D3s",
-      "review_status": "draft",
+      "review_status": "approved",
       "transcript_verified_at": "2026-08-28",
       "transcript_source": "yt-dlp 自動字幕（en, VTT）2026-08-28 實抓，依 diagnostic_segment_range 裁切後逐段對照時間戳核對",
       "note": "本片字幕品質差，已更正：instructors→structures（構造）；muscular ten disjunction→musculotendinous junction（肌腱交界）；isotropy／nice otra p／anti-assad repiy→anisotropy（各向異性）；sub-Q／sub cute issue→subcutaneous tissue（皮下組織）；answer humorous→anterior humerus（肱骨前側）；biceps chief／bicep sheet／sheep→bicipital sheath（肱二頭肌腱鞘）；circumcircle flex humeral artery→circumflex humeral artery（肱骨旋動脈）；sub scap／sub SCAP／subscale／sub Scott／subscript herring→subscapularis（肩胛下肌）；super spinatus／super spin days／super spinetta／super spinning its→supraspinatus（棘上肌）；infra spinatus→infraspinatus（棘下肌）；sub deltoid fashion／subtlety Tasha→subdeltoid fascia（肩峰下－三角肌下筋膜界面）；interception stare／interests substance tear→intrasubstance tear（腱內撕裂）；folks tear→full-thickness tear（全層撕裂）；actuary lateral→axillary lateral（腋位側面）；fusion→effusion（積液）；split care／split pairs→split tear（縱裂）；phone→bone（骨）；switcher→suture（縫線）；tough tears→cuff tears（旋轉肌袖撕裂）；terry's minor→teres minor（小圓肌）；calcific tenant→calcific tendinitis（鈣化性肌腱炎）；tendin otic→tendinotic（肌腱病變）；degenerates of terror→degenerative tear（退化性撕裂）。側別在本片全程正確。",
@@ -4073,11 +4173,15 @@
             "大型慢性回縮性撕裂可呈三角肌直接接觸肱骨頭皮質，原應存在的厚實棘上肌與棘下肌腱消失。"
           ]
         }
-      ]
+      ],
+      "reviewed_by": "吳易澄",
+      "reviewer_role": "課程策展人",
+      "reviewed_at": "2026-08-28",
+      "reviewed_commit": "7bf15eb0858a418b1de93c74da9d5b25958b7494"
     },
     {
       "video_url": "https://www.youtube.com/watch?v=n45q8fNv4oE",
-      "review_status": "draft",
+      "review_status": "approved",
       "transcript_verified_at": "2026-08-28",
       "transcript_source": "yt-dlp 自動字幕（en, VTT）2026-08-28 實抓，依 diagnostic_segment_range 裁切後逐段對照時間戳核對",
       "note": "本片字幕品質差，已更正：ver／Versa／Vera／versy／BSA→bursa（滑囊）；subac→subacromial（肩峰下）；subd Delta／selto／subet→subdeltoid（三角肌下）；subac selto／subal sub→subacromial-subdeltoid（肩峰下－三角肌下）；sub cor／subo／sura→subcoracoid（喙突下）；reset→recess（隱窩）；glenar humeral／gleno humal→glenohumeral（盂肱）；acromium→acromion（肩峰）；cor AC ligament→coracoacromial ligament（喙肩韌帶）；super spinatus→supraspinatus（棘上肌）；L head of BPS pulley→long head of biceps pulley（肱二頭肌長頭滑車）；upper super scapularis／super scapularis→upper subscapularis／subscapularis（肩胛下肌上部／肩胛下肌）；Velocity→tuberosity（粗隆）；veritis→bursitis（滑囊炎）；infra spinatus→infraspinatus（棘下肌）；corob／coraco braad／Cor Calis／Calis／Coralis→coracobrachialis（喙肱肌）；scoid→coracoid（喙突）；subscapular tendon→subscapularis tendon（肩胛下肌肌腱）；leral capsule→glenohumeral capsule（盂肱關節囊）；Middle Glen humal ligament→middle glenohumeral ligament（中盂肱韌帶）；superior gloal ligament→superior glenohumeral ligament（上盂肱韌帶）；diffusion→effusion（積液）。側別在本片全程正確。",
@@ -4163,11 +4267,15 @@
             "肩胛下滑囊位於肩胛下肌深面，且可能是盂肱關節的前方隱窩。"
           ]
         }
-      ]
+      ],
+      "reviewed_by": "吳易澄",
+      "reviewer_role": "課程策展人",
+      "reviewed_at": "2026-08-28",
+      "reviewed_commit": "7bf15eb0858a418b1de93c74da9d5b25958b7494"
     },
     {
       "video_url": "https://www.youtube.com/watch?v=oSMful3J4gQ",
-      "review_status": "draft",
+      "review_status": "approved",
       "transcript_verified_at": "2026-08-28",
       "transcript_source": "yt-dlp 自動字幕（en, VTT）2026-08-28 實抓，依 diagnostic_segment_range 裁切後逐段對照時間戳核對",
       "note": "本片字幕品質差，已更正：pacipal grooove／bical groove／biceptual groove／bpal Grove→bicipital groove（肱二頭肌溝）；Lesser tuos→lesser tuberosity（小結節）；greater Tu brosy／greater to rosty／greater tuberosity→greater tuberosity（大結節）；p pus major→pectoralis major（胸大肌）；muscular tendance Junction／muscular tendis Junction→musculotendinous junction（肌腱交界）；fibler pattern→fibrillar pattern（纖維狀紋理）；Rotator interval→rotator interval（旋轉肌間隙）；subcis／subsc capillaris／subscap arus／subs capillaris／sub capar／sub c hours→subscapularis（肩胛下肌）；co covid process→coracoid process（喙突）；super patus／superspinatus／supinatus→supraspinatus（棘上肌）；infra spinat／infras spinat→infraspinatus（棘下肌）；subacromial subdeltoid burer→subacromial-subdeltoid bursa（肩峰下－三角肌下滑囊）；humorus→humerus（肱骨）；gleo→glenoid（盂窩）；labram→labrum（盂唇）；spinal glenoid Notch→spinoglenoid notch（棘盂切跡）；blood fessel→blood vessel（血管）；acromio clavicular Joint→acromioclavicular joint（肩鎖關節）；intrarticular Fusion→intra-articular effusion（關節內積液）。側別在本片某處有疑義，已標註。",
@@ -4254,11 +4362,15 @@
             "測試過程觀察兩骨之間是否出現關節囊腫脹；若關節腫脹，可見關節囊向上隆起。"
           ]
         }
-      ]
+      ],
+      "reviewed_by": "吳易澄",
+      "reviewer_role": "課程策展人",
+      "reviewed_at": "2026-08-28",
+      "reviewed_commit": "7bf15eb0858a418b1de93c74da9d5b25958b7494"
     },
     {
       "video_url": "https://www.youtube.com/watch?v=tIz43v5vvf8",
-      "review_status": "draft",
+      "review_status": "approved",
       "transcript_verified_at": "2026-08-28",
       "transcript_source": "yt-dlp 自動字幕（en, VTT）2026-08-28 實抓，依 diagnostic_segment_range 裁切後逐段對照時間戳核對",
       "note": "本片字幕品質差，已更正：muscular scutal／muscular scal→musculoskeletal（肌肉骨骼）；clavical→clavicle（鎖骨）；chromian／acroman／AC chromian→acromion（肩峰）；humoris／humorous→humerus（肱骨）；glal humoral／glal humo／glal FAL→glenohumeral（盂肱）；cormal clavicular／chromio clavicular／acral clavicular→acromioclavicular（肩鎖）；gra／grai／graci／Gracy→Grashey（Grashey 位）；rotat cuff／Rotator cuup／Rotator CU→rotator cuff（旋轉肌袖）；suboc chral／subacromial impendent→subacromial impingement（肩峰下夾擠）；veritis→bursitis（滑囊炎）；squil／seila／sequa→sequelae（後遺變化）；cvic／cpic／calcivic→calcific（鈣化性）；supinatus→supraspinatus（棘上肌）；osophy→osteophyte（骨贅）；hill sex→Hill-Sachs（Hill-Sachs 病灶）；bony bankart→bony Bankart（骨性 Bankart 病灶）；laum／laal／labor→labrum／labral（盂唇／盂唇的）。側別在本片某處有疑義，已標註。",
@@ -4377,11 +4489,15 @@
             "判讀肩部或其他關節X光時應維持系統化順序，以免遺漏可能與症狀相關的發現。"
           ]
         }
-      ]
+      ],
+      "reviewed_by": "吳易澄",
+      "reviewer_role": "課程策展人",
+      "reviewed_at": "2026-08-28",
+      "reviewed_commit": "7bf15eb0858a418b1de93c74da9d5b25958b7494"
     },
     {
       "video_url": "https://www.youtube.com/watch?v=wqVvVegpBdE",
-      "review_status": "draft",
+      "review_status": "approved",
       "transcript_verified_at": "2026-08-28",
       "transcript_source": "yt-dlp 自動字幕（en, VTT）2026-08-28 實抓，依 diagnostic_segment_range 裁切後逐段對照時間戳核對",
       "note": "本片字幕品質普通，已更正：liver→sliver（少量）；reconstitution→reconversion（紅骨髓再轉化）；false→fall（跌倒）。側別在本片某處有疑義，已標註。",
@@ -4599,11 +4715,15 @@
             "最後檢查相關滑囊、骨骼、肩部特殊間隙及影像範圍內的肺部。"
           ]
         }
-      ]
+      ],
+      "reviewed_by": "吳易澄",
+      "reviewer_role": "課程策展人",
+      "reviewed_at": "2026-08-28",
+      "reviewed_commit": "7bf15eb0858a418b1de93c74da9d5b25958b7494"
     },
     {
       "video_url": "https://www.youtube.com/watch?v=x7Ds0hGEMb8",
-      "review_status": "draft",
+      "review_status": "approved",
       "transcript_verified_at": "2026-08-28",
       "transcript_source": "yt-dlp 自動字幕（en, VTT）2026-08-28 實抓，依 diagnostic_segment_range 裁切後逐段對照時間戳核對",
       "note": "本片字幕品質普通，已更正：George Rom→George Raum（喬治・勞姆）；existed external rotation→resisted external rotation（阻力外旋）；acromial ligament→acromioclavicular ligament（肩鎖韌帶）；axillary MRI→axial MRI（軸位 MRI）；gird→GIRD（盂肱關節內旋缺損）；AB ducted→abducted（外展）；AD duct→adduct（內收）。側別在本片全程正確。",
@@ -4800,11 +4920,15 @@
             "重現患者原有動作有助於定位後肩疼痛及可能涉及的盂唇或旋轉肌袖，但未必有單一特異測試。"
           ]
         }
-      ]
+      ],
+      "reviewed_by": "吳易澄",
+      "reviewer_role": "課程策展人",
+      "reviewed_at": "2026-08-28",
+      "reviewed_commit": "7bf15eb0858a418b1de93c74da9d5b25958b7494"
     },
     {
       "video_url": "https://www.youtube.com/watch?v=xspeQczm_mY",
-      "review_status": "draft",
+      "review_status": "approved",
       "transcript_verified_at": "2026-08-28",
       "transcript_source": "yt-dlp 自動字幕（en, VTT）2026-08-28 實抓，依 diagnostic_segment_range 裁切後逐段對照時間戳核對",
       "note": "本片字幕品質差，已更正：labor/label/labarum→labrum（盂唇）；anthro/ancho/Anto/antral→anterior（前方）；postural/post or→posterior（後方）；Anne Shiell/ancien→anterosuperior（前上方）；planet humo/glenar humeral→glenohumeral（盂肱）；end to articular→intra-articular（關節內）；a bearer→ABER（外展外旋位）；MR at the gram/Martha Graham→MR arthrogram（磁振關節攝影）；Colonel/Corona→coronal（冠狀面）；satchel→sagittal（矢狀面）；sub-label→sublabral（盂唇下）；clan would→glenoid（盂窩）；MGA gel/MGR gel→MGHL（中盂肱韌帶）；subscapular→subscapularis（肩胛下肌）；pair label→paralabral（盂唇旁）；Bank heart→Bankart（Bankart 病灶）；poor DS/Persis→Perthes（Perthes 病灶）；alpha/ALP Silesian→ALPSA lesion（前盂唇韌帶骨膜袖套撕脫）；Pope's→POLPSA lesion（後盂唇韌帶骨膜袖套撕脫）；glad/glenoid labrum or ticular disruption→GLAD/glenolabral articular disruption（盂窩盂唇關節面損傷）；reverse he'll sacs→reverse Hill-Sachs（反向 Hill-Sachs 病灶）；stop lesion→SLAP lesion（上盂唇前後向撕裂）；slider→Snyder（Snyder 分型）；SGA jelf→SGHL（上盂肱韌帶）；interest substance→intrasubstance（盂唇內部）；posterior civilization→posterior subluxation（後方半脫位）。側別在本片未指明；Hill-Sachs 精確方位有疑義，已標註未採用。",
@@ -4997,11 +5121,15 @@
             "SLAP 病灶宜直接描述撕裂本身及延伸至哪些結構。"
           ]
         }
-      ]
+      ],
+      "reviewed_by": "吳易澄",
+      "reviewer_role": "課程策展人",
+      "reviewed_at": "2026-08-28",
+      "reviewed_commit": "7bf15eb0858a418b1de93c74da9d5b25958b7494"
     },
     {
       "video_url": "https://www.youtube.com/watch?v=zkhIYmlPgNk",
-      "review_status": "draft",
+      "review_status": "approved",
       "transcript_verified_at": "2026-08-28",
       "transcript_source": "yt-dlp 自動字幕（en, VTT）2026-08-28 實抓，依 diagnostic_segment_range 裁切後逐段對照時間戳核對",
       "note": "本片字幕品質差，已更正：super spinatus／superspinatus→supraspinatus（棘上肌）；input spinatus／infrasounds／Empress bonatus→infraspinatus（棘下肌）；sub scapularis→subscapularis（肩胛下肌）；teres Meyer→teres minor（小圓肌）；saginol→sagittal（矢狀面）；Rotator tough→rotator cuff（旋轉肌袖）；bicipital group→bicipital groove（肱二頭肌溝）；cortical humeral ligament→coracohumeral ligament（喙肱韌帶）；lung had biceps→long head biceps（肱二頭肌長頭）；bisubal／visofliberal／biceps label complex→biceps-labral complex（肱二頭肌－盂唇複合體）；labarum／Labor Mar／liberal→labrum（盂唇）；paralympal system→paralabral cyst（盂唇旁囊腫）；slab／lap tear→SLAP tear（上盂唇前後向撕裂）；chondroilable junction→chondrolabral junction（軟骨盂唇交界）；superscapular notch→suprascapular notch（肩胛上切跡）；sphenoglenoid／spending phenol glenoid notch→spinoglenoid notch（棘盂切跡）；sub label foramen／recess→sublabral foramen／recess（盂唇下孔／隱窩）；Glen hemoral／glenham→glenohumeral（盂肱）；Heats of capsulitis→adhesive capsulitis（沾黏性關節囊炎）；control Malaysia→chondromalacia（軟骨軟化）；chondylysis→chondrolysis（軟骨溶解）；intracticular control fragment→intra-articular chondral fragment（關節內軟骨碎片）；humoral head office→humeral head osteophyte（肱骨頭骨贅）；chromium→acromion（肩峰）；birthday／burza→bursa（滑囊）；subdotoid／subductory→subdeltoid（肩峰下三角肌下）；subcoid→subcoracoid（喙突下）；osochromial→os acromiale（肩峰骨）；end chondroma→enchondroma（內生軟骨瘤）；chronal／kernel→coronal（冠狀面）。側別在本片某處有疑義，已標註。",
@@ -5195,7 +5323,11 @@
             "最後依序複習冠狀T1、冠狀PD抑脂、冠狀T2、軸位PD抑脂、矢狀T2及斜位影像。"
           ]
         }
-      ]
+      ],
+      "reviewed_by": "吳易澄",
+      "reviewer_role": "課程策展人",
+      "reviewed_at": "2026-08-28",
+      "reviewed_commit": "7bf15eb0858a418b1de93c74da9d5b25958b7494"
     }
   ]
 }

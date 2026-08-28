@@ -7,7 +7,8 @@
   uv run python src/build/approve.py glossary --by 姓名 --role 職稱
 
 行為：把目標的 review_status 設為 approved，寫入 reviewed_by / reviewer_role /
-reviewed_at / reviewed_commit（當前 HEAD）。簽核代表具名醫師已逐項確認內容；
+reviewed_at / reviewed_commit（當前 HEAD）。approved 代表通過策展審閱——範圍框限、
+來源與講者資格、文獻對應與課程編排——不代表策展人對第三方影片的臨床內容背書。
 本工具只記錄事實，不做任何內容驗證——先跑 make audit 確保結構通過。
 """
 from __future__ import annotations
@@ -32,7 +33,8 @@ def stamp(entry: dict, by: str, role: str, commit: str) -> None:
     entry["review_status"] = "approved"
     entry["reviewed_by"] = by
     entry["reviewer_role"] = role
-    entry["reviewed_at"] = datetime.date.today().isoformat()
+    # CF Pages 建置機跑 UTC：本地日期會讓台北 00:00–08:00 的簽核在線上 build 失敗
+    entry["reviewed_at"] = datetime.datetime.now(datetime.UTC).date().isoformat()
     entry["reviewed_commit"] = commit
 
 
