@@ -137,16 +137,16 @@ addEventListener("message", (e) => {
   if (e.origin === EMBED_ORIGIN) frameReady = true;
 });
 
-function frameHtml(item, startSeconds = null) {
+function frameHtml(item, startSeconds = null, autoplay = true) {
   const start = startSeconds == null ? "" : `&start=${startSeconds}`;
-  return `<iframe id="ytFrame" src="${EMBED}${esc(item.vid)}?rel=0&modestbranding=1&autoplay=1&enablejsapi=1${start}&origin=${encodeURIComponent(location.origin)}"
+  return `<iframe id="ytFrame" src="${EMBED}${esc(item.vid)}?rel=0&modestbranding=1&autoplay=${autoplay ? 1 : 0}&enablejsapi=1${start}&origin=${encodeURIComponent(location.origin)}"
             title="${esc(item.title || item.name)}"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerpolicy="strict-origin-when-cross-origin"
             allowfullscreen></iframe>`;
 }
 
-/** 逐段筆記軌。course.json 只會帶入已簽核的段落，未簽核的在建置階段就被擋掉。 */
+/** 逐段筆記軌。course.json 只會帶入已通過策展審閱的段落，未通過的在建置階段就被擋掉。 */
 function segmentRail(item, query = "") {
   const segments = (item.segments || [])
     .map((s) => ({ ...s, seconds: parseClock(s.start) }))
@@ -257,11 +257,11 @@ export function renderPlaylist(items, { doneSet, currentIndex, query, onlyTodo, 
 
 /* --- 播放 ---------------------------------------------------------------- */
 
-export function play(item, { total, query = "" }) {
+export function play(item, { total, query = "", autoplay = true }) {
   if (!item?.vid) return;
 
   currentItem = item;
-  $("#playerFrame").innerHTML = frameHtml(item);
+  $("#playerFrame").innerHTML = frameHtml(item, null, autoplay);
   listenToFrame();
 
   const k = item.kind === "lesson" ? null : KIND[item.kind];
@@ -340,7 +340,7 @@ export function play(item, { total, query = "" }) {
 
 /**
  * 只重繪逐段筆記區。搜尋時不能走 play()——那會重設 iframe src，影片會從頭播。
- * 找不到既有的 .Segments 就不動（該片沒有已簽核的段落）。
+ * 找不到既有的 .Segments 就不動（該片沒有已通過策展審閱的段落）。
  */
 export function refreshSegments(item, query = "") {
   const host = document.querySelector("#playerInfo .Segments");

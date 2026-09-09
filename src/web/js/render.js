@@ -573,7 +573,7 @@ function renderUnit(u, mastery) {
         ${quiz(u)}
         ${muscles(u.tight, u.weak)}
         ${evidence(u.evidence, u.id)}
-        ${groups}
+        ${groups || '<p class="Unit__readingNote">本單元以文字重點與參考資料學習，目前未配置對應影片。</p>'}
         ${drillEvidence(u)}
       </div>
     </article>`;
@@ -661,7 +661,9 @@ export function renderHome(course, { doneSet = new Set(), lastUnit = null } = {}
       </div>`;
   }).join("");
 
-  const chapterCards = chapters.map((ch) => {
+  const chapterCards = (CFG.nav || []).map((group) => {
+    const grouped = chapters.filter((ch) => group.chapters.includes(ch.code));
+    return `<section class="CourseMap__group"><h3>${esc(group.title)}</h3><div class="ChapterGrid">${grouped.map((ch) => {
     const drills = ch.units.reduce((n, u) => n + (u.drills?.length || 0), 0);
     return `
       <button class="ChapterCard" type="button" data-goto-chapter="${esc(ch.code)}">
@@ -670,9 +672,17 @@ export function renderHome(course, { doneSet = new Set(), lastUnit = null } = {}
           <span class="ChapterCard__title"><span class="Chapter__code">${esc(ch.code)}</span> ${esc(ch.title)}</span>
           <span class="ChapterCard__meta">${ch.units.length} 單元${drills ? ` · ${drills} ${UI.drillNoun || "支精選影片"}` : ""}</span>
           <span class="ChapterCard__units">${ch.units.map((u) => esc(u.name)).join("、")}</span>
+          <span class="ChapterCard__progress">已完成 ${ch.units.filter((u) => doneSet.has(u.id)).length} / ${ch.units.length}</span>
         </span>
       </button>`;
+    }).join("")}</div></section>`;
   }).join("");
+
+  const courseMap = `<section class="Landing__section CourseMap" aria-labelledby="courseMapTitle">
+    <div class="CourseMap__head"><h2 class="Landing__h2" id="courseMapTitle">課程地圖</h2>
+    <p>${chapters.length} 章 · ${total} 單元，選擇章節開始閱讀</p></div>
+    <div class="CourseMap__columns">${chapterCards}</div>
+  </section>`;
 
   return `
     <section class="ContinueCard" aria-labelledby="continueTitle">
@@ -700,6 +710,7 @@ export function renderHome(course, { doneSet = new Set(), lastUnit = null } = {}
         : ""}
     </section>
 
+    ${courseMap}
     <section class="Landing__section">
       <h2 class="Landing__h2">${icon("book-open", 20)} ${esc(L.howTitle || "")}</h2>
       <div class="Steps">${steps}</div>
@@ -730,11 +741,6 @@ ${esc(L.stanceLede || "")}
            </div>
          </section>`
       : ""}
-
-    <section class="Landing__section">
-      <h2 class="Landing__h2">${icon("layers", 20)} ${esc(L.chaptersTitle || "")}</h2>
-      <div class="ChapterGrid">${chapterCards}</div>
-    </section>
 
     <section class="Landing__cta">
       <div>

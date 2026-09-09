@@ -7,7 +7,7 @@ import { renderMusclePanel, syncMuscleChips, applyFilters as runFilters } from "
 import {
   buildPlaylist, renderPlaylist, playlistItemMatches, play, stop, fitFrame, watchFrame,
   initResizer, setLanguages,
-  refreshSegments,
+  refreshSegments, seekTo,
 } from "./player.js";
 import { bindKeys, listen as ytListen } from "./keys.js";
 import { mountPictograms } from "./pictograms.js";
@@ -212,11 +212,11 @@ function applyChrome(data) {
   const group = $(".FilterBar__group");
   if (group && c.kinds?.length) {
     group.innerHTML =
-      `<button class="FilterBar__btn is-active" data-filter="all" type="button">${esc(c.ui?.filterAll || "全部")}</button>` +
+      `<button class="FilterBar__btn is-active" data-filter="all" type="button" aria-pressed="true">${esc(c.ui?.filterAll || "全部")}</button>` +
       c.kinds
         .map(
           (k) =>
-            `<button class="FilterBar__btn" data-filter="${esc(k.id)}" type="button">` +
+            `<button class="FilterBar__btn" data-filter="${esc(k.id)}" type="button" aria-pressed="false">` +
             `<span class="Drill__marker" style="background:var(--fgColor-${esc(k.tone || "accent")})"></span>` +
             `${esc(k.label)}</button>`,
         )
@@ -249,6 +249,34 @@ function applyChrome(data) {
   const coreCount = data.meta?.drill_tier_counts?.core || 0;
   if (coreCount) set("#consoleVideoCount", `${data.meta?.video_unique || 0} VIDEOS · ${coreCount} CORE`);
   set("#consoleReviewStatus", esc(courseReviewLabel(data)));
+  set("#pathwayStatus", esc(courseReviewLabel(data)));
+  if (data.advanced?.status === "approved") {
+    const workshop = data.advanced;
+    const section = document.createElement("section");
+    section.className = "AdvancedEntry container";
+    section.id = "advancedEntry";
+    section.innerHTML = `<h2>進階判讀與報告練習</h2><p>${workshop.units.length} 個進階單元 · ${workshop.questions} 題附解析知識題 · ${workshop.cases} 個判讀與報告練習</p><p><a class="btn" href="${esc(workshop.url)}">進入進階工作坊</a></p><div class="AdvancedEntry__units">${workshop.units.map(unit => `<a href="${esc(unit.url)}"><strong>${esc(unit.title)}</strong><span>${esc(unit.summary)}</span></a>`).join("")}</div><p class="AdvancedEntry__note">本批策展審閱通過；公開圖例與虛構情境分別標示，自我評量不等於臨床能力認證。</p>`;
+    document.querySelector("#landingBody").before(section);
+    const courseEntry = section.cloneNode(true);
+    courseEntry.id = "advancedCourseEntry";
+    document.querySelector("#chapters").before(courseEntry);
+  }
+  set("#heroPathways", (c.nav || []).map((group) => {
+    const chapters = data.chapters.filter((ch) => group.chapters.includes(ch.code));
+    const units = chapters.flatMap((ch) => ch.units);
+    const videos = units.flatMap((unit) => unit.drills || []);
+    return chapters.length ? `<button class="Pathway" type="button" data-goto-chapter="${esc(chapters[0].code)}">
+      <span class="Pathway__code">${esc(chapters[0].code.replace(/\d+$/, ""))}</span>
+      <span class="Pathway__body"><strong>${esc(group.title)}</strong>
+        <small>${chapters.length} 章 · ${units.length} 單元 · ${videos.length} 支影片</small></span>
+      ${icon("chevron-right", 18)}</button>` : "";
+  }).join(""));
+  const checklist = $(".Hero__actions a[href='checklist.html']");
+  if (checklist && !data.chapters.some((ch) => ch.units.some((unit) => unit.review_status === "approved"))) {
+    checklist.replaceWith(Object.assign(document.createElement("span"), {
+      className: "Hero__reviewNote", textContent: "判讀檢核表：待內容審閱後開放",
+    }));
+  }
 
   const coreToggle = $("#corePathToggle");
   const playlistCore = $("#playlistCoreOnly");
@@ -602,7 +630,7 @@ function renderGlossaryList() {
 
 function renderGlossaryPanel(course) {
   const terms = course.glossary;
-  if (!Array.isArray(terms)) return;
+  if (!Array.isArray(terms) || !terms.length) return;
 
   const html = `
     <section class="GlossaryPanel" id="glossaryPanel">
@@ -652,7 +680,8 @@ function toggleCorePath() {
 
 /* --- 分頁 ---------------------------------------------------------------- */
 
-function setTab(tab) {
+function setTab(tab, { restorePlayer = true } = {}) {
+  if (!["home", "course", "player"].includes(tab)) tab = "home";
   state.tab = tab;
   save(STORE.tab, tab);
   document.body.dataset.tab = tab; // 給 CSS 用（上課模式要吃滿版、隱藏頁尾）
@@ -670,6 +699,9 @@ function setTab(tab) {
 
   if (tab === "player") {
     refreshPlaylist();
+    if (restorePlayer && !$("#ytFrame") && state.playlist.length) {
+      playAt(state.playing >= 0 ? state.playing : 0, { autoplay: false });
+    }
     requestAnimationFrame(fitFrame);
   }
   else stop(); // 離開上課模式就卸掉 iframe，不要背景播放
@@ -728,11 +760,11 @@ function savePlaying() {
   if (id) save(STORE.playing, id);
 }
 
-function playAt(i) {
+function playAt(i, { autoplay = true } = {}) {
   if (i < 0 || i >= state.playlist.length) return;
   state.playing = i;
   savePlaying();
-  play(state.playlist[i], { total: state.playlist.length, query: state.playlistQuery });
+  play(state.playlist[i], { total: state.playlist.length, query: state.playlistQuery, autoplay });
   setTimeout(ytListen, 900); // iframe 載入後才收得到 infoDelivery
   if (load(STORE.wide, false)) {
     $(".Player").classList.add("is-wide");
@@ -757,13 +789,49 @@ function stepPlaylist(delta) {
 function goToUnit(unitId, updateHash = true) {
   const el = $(`[data-unit="${CSS.escape(unitId)}"]`);
   if (!el) return;
+  resetCourseFilters();
   setTab("course");
   el.classList.add("is-open");
   el.closest(".Chapter")?.classList.add("is-open");
   markLearning(unitId);
   rememberUnit(unitId);
-  if (updateHash && location.hash !== `#${unitId}`) location.hash = unitId;
-  el.scrollIntoView({ block: "center" });
+  if (updateHash && location.hash !== `#${unitId}`) history.pushState(null, "", `#${unitId}`);
+  el.scrollIntoView({ block: "start" });
+  $(".Unit__header", el)?.focus({ preventScroll: true });
+}
+
+function resetCourseFilters() {
+  state.query = "";
+  state.filter = "all";
+  state.learningTier = "all";
+  state.muscles.clear();
+  $("#search").value = "";
+  $("#searchBox").classList.remove("has-value");
+  $$("[data-filter]").forEach((button) => {
+    const active = button.dataset.filter === "all";
+    button.classList.toggle("is-active", active);
+    button.setAttribute("aria-pressed", String(active));
+  });
+  syncTierControls();
+  applyFilters();
+}
+
+function goToChapter(code) {
+  const el = $(`[data-chapter="${CSS.escape(code)}"]`);
+  if (!el) return;
+  resetCourseFilters();
+  setTab("course");
+  el.classList.add("is-open");
+  if (location.hash !== `#${code}`) history.pushState(null, "", `#${code}`);
+  el.scrollIntoView({ block: "start" });
+  $(".Chapter__header", el)?.focus({ preventScroll: true });
+}
+
+function followCourseHash() {
+  const { hashValue } = videoIdFromHash();
+  const target = document.getElementById(hashValue);
+  if (target?.classList.contains("Unit")) goToUnit(target.dataset.unit, false);
+  else if (target?.classList.contains("Chapter")) goToChapter(target.dataset.chapter);
 }
 
 function stepChapter(delta) {
@@ -809,16 +877,19 @@ function bindEvents() {
     const link = e.target.closest("[data-tab-link]");
     if (link) {
       e.preventDefault();
-      return setTab(link.dataset.tabLink);
+      setTab(link.dataset.tabLink);
+      if (link.classList.contains("SkipLink")) {
+        $("#main").tabIndex = -1;
+        $("#main").focus();
+      }
+      return;
     }
     const goCh = e.target.closest("[data-goto-chapter]");
     if (goCh) {
-      setTab("course");
-      const el = $(`[data-chapter="${CSS.escape(goCh.dataset.gotoChapter)}"]`);
-      el?.classList.add("is-open");
-      el?.scrollIntoView({ block: "start" });
+      goToChapter(goCh.dataset.gotoChapter);
       return;
     }
+    if (e.target.closest("[data-reset-filters]")) resetCourseFilters();
     const resume = e.target.closest("[data-continue-unit]");
     if (resume) goToUnit(resume.dataset.continueUnit);
   });
@@ -893,6 +964,12 @@ function bindEvents() {
   });
 
   $("#playerInfo").addEventListener("click", (e) => {
+    const jump = e.target.closest("[data-seek]");
+    if (jump) {
+      const seconds = Number(jump.dataset.seek);
+      if (Number.isFinite(seconds) && seconds >= 0) seekTo(seconds);
+      return;
+    }
     const step = e.target.closest("[data-step]");
     if (step) return stepPlaylist(+step.dataset.step);
 
@@ -959,7 +1036,7 @@ function bindEvents() {
     const i = urlIndex.get(link.href);
     if (i == null) return; // 不在播放清單裡就讓它正常開連結
     e.preventDefault();
-    setTab("player");
+    setTab("player", { restorePlayer: false });
     playAt(i);
   });
 
@@ -1036,6 +1113,7 @@ function bindEvents() {
   let debounce;
   searchInput.addEventListener("input", () => {
     state.query = searchInput.value;
+    if (state.query.trim() && state.tab !== "course") setTab("course");
     $("#searchBox").classList.toggle("has-value", !!state.query);
     clearTimeout(debounce);
     debounce = setTimeout(applyFilters, 120);
@@ -1052,8 +1130,10 @@ function bindEvents() {
   // 類型篩選
   $$(".FilterBar__btn").forEach((btn) => {
     btn.addEventListener("click", () => {
-      $$(".FilterBar__btn").forEach((b) => b.classList.remove("is-active"));
-      btn.classList.add("is-active");
+      $$(".FilterBar__btn").forEach((b) => {
+        b.classList.toggle("is-active", b === btn);
+        b.setAttribute("aria-pressed", String(b === btn));
+      });
       state.filter = btn.dataset.filter;
       applyFilters();
     });
@@ -1153,12 +1233,18 @@ async function init() {
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     data = await res.json();
   } catch (err) {
+    $("#view-home").hidden = true;
+    $("#main").hidden = false;
+    $("#view-player").hidden = true;
+    document.body.dataset.tab = "course";
     $("#chapters").innerHTML = `
-      <div class="Blankslate">
+      <div class="Blankslate" role="alert">
         ${icon("triangle-alert", 32)}
         <p class="Blankslate__heading">課程資料載入失敗</p>
-        <p>${esc(err.message)}</p>
+        <p>請檢查網路連線，稍後重新載入課程。</p>
+        <button class="btn" id="retryCourse" type="button">重新載入</button>
       </div>`;
+    $("#retryCourse").addEventListener("click", () => location.reload());
     return;
   }
 
@@ -1220,7 +1306,7 @@ async function init() {
   // 舊的 ?tab=player&play=12 仍可用；新的 #play=<ytid> 不受清單排序影響。
   const params = new URLSearchParams(location.search);
   const wanted = params.get("tab");
-  const { hashValue, videoId: hashPlay } = videoIdFromHash();
+  const { videoId: hashPlay } = videoIdFromHash();
   const hashPlayIndex = hashPlay
     ? state.playlist.findIndex((item) => item.vid === hashPlay)
     : -1;
@@ -1230,6 +1316,7 @@ async function init() {
       : ["home", "course", "player"].includes(wanted)
       ? wanted
       : load(STORE.tab, "home"),
+    { restorePlayer: false },
   );
 
   const deepPlay = params.has("play") ? Number(params.get("play")) : NaN;
@@ -1238,9 +1325,11 @@ async function init() {
   } else if (state.tab === "player" && Number.isInteger(deepPlay) && state.playlist[deepPlay]) {
     state.playing = deepPlay;
   }
-  // 還原上次看到哪，但不自動播放，回來時先看到資訊就好
-  if (state.tab === "player" && state.playlist[state.playing]) {
-    playAt(state.playing);
+  // 明確影片連結才自動播放；一般返回先還原影片，等學員按播放。
+  if (state.tab === "player" && state.playlist.length) {
+    playAt(state.playing >= 0 ? state.playing : 0, {
+      autoplay: hashPlayIndex >= 0 || (Number.isInteger(deepPlay) && !!state.playlist[deepPlay]),
+    });
   }
 
   // 首次造訪展開第一章，讓畫面不是一片收合（不要硬編章節代碼，重編後會失效）
@@ -1248,26 +1337,15 @@ async function init() {
     $(".Chapter[data-chapter]")?.classList.add("is-open");
   }
 
-  // 深連結：#ch5-u1 直接展開該單元
-  if (hashValue && !hashPlay) {
-    const target = document.getElementById(hashValue);
-    if (target?.classList.contains("Unit")) {
-      target.classList.add("is-open");
-      target.closest(".Chapter")?.classList.add("is-open");
-      markLearning(target.dataset.unit);
-      target.scrollIntoView({ block: "center" });
-    } else if (target?.classList.contains("Chapter")) {
-      target.classList.add("is-open");
-    }
-  }
+  followCourseHash();
 
   addEventListener("hashchange", () => {
     const { videoId } = videoIdFromHash();
     const i = state.playlist.findIndex((item) => item.vid === videoId);
     if (videoId && i >= 0) {
-      setTab("player");
+      setTab("player", { restorePlayer: false });
       playAt(i);
-    }
+    } else followCourseHash();
   });
 }
 

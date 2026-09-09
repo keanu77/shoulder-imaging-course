@@ -1,0 +1,556 @@
+{
+  "schema_version": 1,
+  "status": "draft",
+  "clinical_approval": null,
+  "site": "shoulder-ultrasound-course",
+  "title": "肩部影像進階判讀工作坊",
+  "created": "2026-09-09",
+  "baseline_commit": "ec050583749f830d2fbf36c18419107c6b70e732",
+  "scope": "供醫療專業人員練習診斷影像判讀；尚待臨床審閱，非個案醫療建議、能力認證或治療操作教材。",
+  "research_method": "以 OpenEvidence 探索缺口，再逐項核對 PubMed / Europe PMC 原始書目、摘要與可取得全文。不是系統性文獻回顧；全文未取得者不宣稱完成全文審讀。",
+  "limitations": [
+    "原文圖例僅連結、不重製；2026-09-09 已核對實際圖像、圖說與面板。公開圖例無法取代完整檢查及盲測。",
+    "虛構文字情境與原文圖例分開標示；未提供完整 DICOM、盲測病例或專家評分效度。",
+    "新增稿件不會由正式 build 輸出；既有單元、題目、審閱與收錄狀態不變。"
+  ],
+  "sources": [
+    {
+      "id": "shoulder-nerve",
+      "title": "Suprascapular Nerve Entrapment: Current Concepts and Recent Advances.",
+      "authors": "Ashton F, Swaile H, Tambe A.",
+      "year": "2025",
+      "first_publication": "2025-03-26",
+      "pmid": "40511344",
+      "doi": "10.1007/s43465-024-01302-4",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40511344/",
+      "verified_on": "2026-09-09",
+      "verification_level": "metadata + abstract",
+      "verification_endpoint": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:40511344%20AND%20SRC:MED&format=json&resultType=core"
+    },
+    {
+      "id": "shoulder-nerve-review",
+      "title": "Suprascapular Neuropathy around the Shoulder: A Current Concept Review.",
+      "authors": "Bozzi F, Alabau-Rodriguez S, Barrera-Ochoa S, Ateschrang A, Schreiner AJ, Monllau JC, Perelli S.",
+      "year": "2020",
+      "first_publication": "2020-07-22",
+      "pmid": "32707860",
+      "doi": "10.3390/jcm9082331",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32707860/",
+      "verified_on": "2026-09-09",
+      "verification_level": "metadata + abstract + full-text XML",
+      "verification_endpoint": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:32707860%20AND%20SRC:MED&format=json&resultType=core"
+    },
+    {
+      "id": "shoulder-postop",
+      "title": "Postoperative Imaging of the Rotator Cuff: A Systematic Review and Meta-Analysis.",
+      "authors": "Gyftopoulos S, Cardoso MDS, Rodrigues TC, Qian K, Chang CY.",
+      "year": "2022",
+      "first_publication": "2022-06-01",
+      "pmid": "35642759",
+      "doi": "10.2214/ajr.22.27847",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35642759/",
+      "verified_on": "2026-09-09",
+      "verification_level": "metadata + abstract",
+      "verification_endpoint": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:35642759%20AND%20SRC:MED&format=json&resultType=core"
+    },
+    {
+      "id": "shoulder-repaired",
+      "title": "The Repaired Rotator Cuff: MRI and Ultrasound Evaluation.",
+      "authors": "Lee SC, Williams D, Endo Y.",
+      "year": "2018",
+      "first_publication": "2018-03-01",
+      "pmid": "29362995",
+      "doi": "10.1007/s12178-018-9463-6",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29362995/",
+      "verified_on": "2026-09-09",
+      "verification_level": "metadata + abstract",
+      "verification_endpoint": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:29362995%20AND%20SRC:MED&format=json&resultType=core"
+    },
+    {
+      "id": "shoulder-track",
+      "title": "Accuracy and reliability of imaging modalities for studying bipolar bone loss in anterior shoulder instability: A systematic review.",
+      "authors": "Adriani M, Saccomanno MF, Bergomi A, De Filippo F, Daffara V, Milano G.",
+      "year": "2025",
+      "first_publication": "2024-11-04",
+      "pmid": "39497437",
+      "doi": "10.1002/ksa.12531",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39497437/",
+      "verified_on": "2026-09-09",
+      "verification_level": "metadata + abstract + full-text XML",
+      "verification_endpoint": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:39497437%20AND%20SRC:MED&format=json&resultType=core"
+    },
+    {
+      "id": "shoulder-track-primary",
+      "title": "Validating the Glenoid Track Concept Using Dynamic Arthroscopic Assessment.",
+      "authors": "Rashid MS, Tsuchiya S, More KD, LeBlanc J, Bois AJ, Kwong CA, Lo IKY.",
+      "year": "2024",
+      "first_publication": "2024-02-21",
+      "pmid": "38390400",
+      "doi": "10.1177/23259671241226943",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38390400/",
+      "verified_on": "2026-09-09",
+      "verification_level": "metadata + abstract + full-text XML",
+      "verification_endpoint": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:38390400%20AND%20SRC:MED&format=json&resultType=core"
+    }
+  ],
+  "units": [
+    {
+      "id": "adv-shoulder-cuff-postop",
+      "title": "旋轉肌袖修補後：預期外觀、再撕裂與模態限制",
+      "prerequisite_units": [
+        "ch11-u1",
+        "ch11-u2",
+        "ch4-u2",
+        "ch6-u2"
+      ],
+      "source_ids": [
+        "shoulder-postop",
+        "shoulder-repaired"
+      ],
+      "objectives": [
+        "將術後肌腱外觀與再撕裂的判讀分開。",
+        "比較 US 和 MRI 所回答的問題。",
+        "正確解讀無顯著差異與等效的不同。"
+      ],
+      "required_views": [
+        "術式、修補日期、術前及術後比較影像。",
+        "US 長短軸核對肌腱連續性、附著處及可見範圍；動態依情境評估。",
+        "MRI 多平面與適當序列核對連續性、肌肉、植入物及偽影。"
+      ],
+      "interpretation_steps": [
+        "先取得手術時程與修補範圍，避免用未手術肌腱的外觀標準判定所有術後影像。",
+        "核對肌腱連續性、缺損範圍、附著處與肌肉狀態；只見訊號增高或不均不應直接寫再撕裂。",
+        "依待解問題、可近性、操作者與金屬偽影選擇 US 或 MRI，說明各自盲區。",
+        "將結構發現、症狀關聯與功能分開；資料不足時保留術後改變與再撕裂的鑑別。"
+      ],
+      "pitfalls": [
+        "修補肌腱可長期有不均、增厚或訊號異常；不能只憑亮度確診再撕裂。",
+        "統合分析沒有顯著差異，並不證明每個環境下兩模態完全等效。"
+      ],
+      "evidence_boundary": "2022 統合分析納入 8 項研究，其中 US 僅 2 項；研究年代、選樣及方法有差異。結果支持依情境使用兩種模態，但不能由此保證操作者無關、所有部分撕裂都不漏診，或單一檢查即可解釋症狀。",
+      "reporting_template": "修補部位／時間＿＿；肌腱連續性與缺損＿＿，肌肉及可見植入物＿＿。與＿＿比較。偽影／視窗限制＿＿；結構與症狀需＿＿對照。",
+      "questions": [
+        {
+          "stem": "術後肌腱增厚且訊號不均，應如何解讀？",
+          "options": [
+            {
+              "text": "既然術後常不均，所有異常都不用管。",
+              "rationale": "仍需評估真正缺損與其他併發狀態。",
+              "correct": false
+            },
+            {
+              "text": "先核對連續性、手術時程及比較影像。",
+              "rationale": "術後外觀不等於再撕裂。",
+              "correct": true
+            },
+            {
+              "text": "只要訊號增高就是再撕裂。",
+              "rationale": "忽略常見術後改變。",
+              "correct": false
+            }
+          ],
+          "id": "adv-shoulder-cuff-postop-q1",
+          "source_ids": [
+            "shoulder-postop",
+            "shoulder-repaired"
+          ]
+        },
+        {
+          "stem": "統合分析中 US 與 MRI 無顯著差異，最恰當的說法是？",
+          "options": [
+            {
+              "text": "研究未顯示明確差異，仍須考慮樣本及技術限制。",
+              "rationale": "無顯著差異不等於已證明等效。",
+              "correct": true
+            },
+            {
+              "text": "研究證明 US 一定優於 MRI。",
+              "rationale": "沒有支持這個優越性結論。",
+              "correct": false
+            },
+            {
+              "text": "兩者在所有場合百分之百等效。",
+              "rationale": "超出研究設計和結果。",
+              "correct": false
+            }
+          ],
+          "id": "adv-shoulder-cuff-postop-q2",
+          "source_ids": [
+            "shoulder-postop",
+            "shoulder-repaired"
+          ]
+        },
+        {
+          "stem": "MRI 因植入物偽影無法評估附著處，該怎麼報告？",
+          "options": [
+            {
+              "text": "一定是完全再撕裂。",
+              "rationale": "品質限制本身不是陽性診斷。",
+              "correct": false
+            },
+            {
+              "text": "註明附著處受限，依問題考慮補充評估。",
+              "rationale": "不可見不等於完整。",
+              "correct": true
+            },
+            {
+              "text": "肌腱完整，因為沒看見裂口。",
+              "rationale": "缺口可能被偽影遮蔽。",
+              "correct": false
+            }
+          ],
+          "id": "adv-shoulder-cuff-postop-q3",
+          "source_ids": [
+            "shoulder-postop",
+            "shoulder-repaired"
+          ]
+        }
+      ],
+      "cases": [
+        {
+          "kind": "synthetic",
+          "prompt": "虛構：修補後 5 個月，US 長軸肌腱不均；沒有短軸、完整附著處或動態資料。請寫一段尚不足以判定再撕裂的報告。",
+          "rubric": [
+            "說明只有單一平面。",
+            "核對連續性與附著處尚不足。",
+            "補手術時程、範圍與比較。"
+          ],
+          "sample_report": "目前單一長軸影像顯示術後肌腱不均，未完整評估連續性及附著處；不足以單獨判定再撕裂，需完整檢查及既往比較。",
+          "source": null,
+          "figure": null,
+          "source_url": null,
+          "verification": "作者編寫的虛構文字情境；沒有真實病人影像。",
+          "id": "adv-shoulder-cuff-postop-case1",
+          "source_ids": [
+            "shoulder-postop",
+            "shoulder-repaired"
+          ]
+        },
+        {
+          "kind": "synthetic",
+          "prompt": "虛構：MRI 報告為「修補肌腱連續」，患者仍有疼痛與無力。請寫出兩個不應由此影像直接推論的結論，以及需補的資訊。",
+          "rubric": [
+            "不能保證沒有其他疼痛原因。",
+            "不能由肌腱連續等同正常力量或活動許可。",
+            "補臨床功能、疼痛位置及其他結構評估。"
+          ],
+          "sample_report": "修補肌腱影像上連續，但此所見不足以解釋全部疼痛或功能；需對照臨床評估及其他結構。",
+          "source": null,
+          "figure": null,
+          "source_url": null,
+          "verification": "作者編寫的虛構文字情境；沒有真實病人影像。",
+          "id": "adv-shoulder-cuff-postop-case2",
+          "source_ids": [
+            "shoulder-postop",
+            "shoulder-repaired"
+          ]
+        }
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "adv-shoulder-glenoid-track",
+      "title": "雙極骨缺損：可重現的量測與邊界分類",
+      "prerequisite_units": [
+        "ch12-u1",
+        "ch12-u2",
+        "ch9-u2"
+      ],
+      "source_ids": [
+        "shoulder-track",
+        "shoulder-track-primary"
+      ],
+      "objectives": [
+        "在一致的重組與方法下記錄盂骨缺損及 Hill–Sachs interval。",
+        "區分線性量測可靠度與動態 engagement 預測。",
+        "對臨界結果保留量測不確定性。"
+      ],
+      "required_views": [
+        "適當 3D CT 盂面 en face 與肱骨頭視圖，核對方向及影像品質。",
+        "記錄最佳擬合圓、原盂寬 D、骨缺損寬 d、Hill–Sachs interval（HSI）的定義。",
+        "提供臨床不穩定背景及既往手術，不能只提交一個 on/off-track 標籤。"
+      ],
+      "interpretation_steps": [
+        "先確認盂面方向與骨邊界，使用一致方法建立最佳擬合圓並保存量測。",
+        "依所採方法記錄 D、d 及 HSI；肱骨頭後方視圖的 HSI 為 Hill–Sachs 缺損寬度，加上缺損外側緣至後方旋轉肌袖附著區內側緣的骨橋距離。常用模型 GT = 0.83D − d，量測單位必須一致。",
+        "同時呈現 HSI 與 GT 數值、差距及方法；接近邊界時核對不同讀者和重組帶來的差異。",
+        "將形態模型分類與動態 engagement、復發風險及治療選擇分開；影像不能單獨決定手術。"
+      ],
+      "pitfalls": [
+        "量測數字可重現，不代表模型對動態 engagement 同樣準確。",
+        "四捨五入或微小重組差異可能改變臨界分類，不能把標籤當成確定命運。"
+      ],
+      "evidence_boundary": "系統性回顧涉及不同影像與量測終點；2024 年 49 人手術族群研究用動態關節鏡作參照，3D CT 分類正確率約 65%，讀者間一致性有限。此為選定族群的比較結果，不能視為普遍診斷準確率；模型可提供部分結構資訊，但不能單獨決定術式，動態關節鏡參考標準也有其限制。",
+      "reporting_template": "影像與量測方法＿＿。D＿＿、d＿＿、GT＿＿、HSI＿＿（同一單位）。模型分類及距邊界＿＿；量測限制＿＿。需與臨床不穩定及其他因素整合。",
+      "questions": [
+        {
+          "stem": "HSI 與 GT 差距很小，報告應如何呈現？",
+          "options": [
+            {
+              "text": "只寫 off-track，不提供量測。",
+              "rationale": "讀者無法核對方法或邊界。",
+              "correct": false
+            },
+            {
+              "text": "由這個結果直接指定術式。",
+              "rationale": "超出影像模型能支持的範圍。",
+              "correct": false
+            },
+            {
+              "text": "保留原數值、方法與臨界不確定性。",
+              "rationale": "避免小量測誤差造成過度確定的分類。",
+              "correct": true
+            }
+          ],
+          "id": "adv-shoulder-glenoid-track-q1",
+          "source_ids": [
+            "shoulder-track",
+            "shoulder-track-primary"
+          ]
+        },
+        {
+          "stem": "某方法線性量測一致性高，是否代表能準確預測動態 engagement？",
+          "options": [
+            {
+              "text": "所以所有量測都應刪除。",
+              "rationale": "量測仍可提供結構資訊，需標示限制。",
+              "correct": false
+            },
+            {
+              "text": "不一定，兩者是不同驗證終點。",
+              "rationale": "需要針對動態參考標準的研究。",
+              "correct": true
+            },
+            {
+              "text": "是，量測一致等同臨床預測正確。",
+              "rationale": "可靠度不等於效度。",
+              "correct": false
+            }
+          ],
+          "id": "adv-shoulder-glenoid-track-q2",
+          "source_ids": [
+            "shoulder-track",
+            "shoulder-track-primary"
+          ]
+        },
+        {
+          "stem": "採 GT = 0.83D − d 時，最基本的可核對資訊是什麼？",
+          "options": [
+            {
+              "text": "把左右肩的測量值混在一起取平均。",
+              "rationale": "側別與個別結構必須保持一致。",
+              "correct": false
+            },
+            {
+              "text": "只有一個百分比，不用原始數值。",
+              "rationale": "不足以核對計算或模型分類。",
+              "correct": false
+            },
+            {
+              "text": "D、d、HSI 的定義、單位、視圖與量測方法。",
+              "rationale": "讓後續讀者可重現並理解模型。",
+              "correct": true
+            }
+          ],
+          "id": "adv-shoulder-glenoid-track-q3",
+          "source_ids": [
+            "shoulder-track",
+            "shoulder-track-primary"
+          ]
+        }
+      ],
+      "cases": [
+        {
+          "kind": "source_figure",
+          "prompt": "開啟 Figure 1，指出 D、d 與 HSI 各自的解剖量測位置。這是方法示例，不能直接把圖的模型標籤當成治療指令。",
+          "rubric": [
+            "D 與 d 來自盂面量測。",
+            "HSI 是缺損寬度加上缺損外側緣至後方旋轉肌袖附著區內側緣的骨橋距離。",
+            "區分影像模型與動態參考標準。"
+          ],
+          "sample_report": "依原圖方法保存盂骨與肱骨頭量測，再呈現模型分類；分類需連同方法及不確定性，不能單獨決定治療。",
+          "source": "shoulder-track-primary",
+          "figure": "fig1-23259671241226943",
+          "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10883128/#fig1-23259671241226943",
+          "verification": "2026-09-09 已核對原文圖說、實際圖像與面板；此為公開圖例，原頁可能顯示答案，並非完整 DICOM 或盲測病例。",
+          "id": "adv-shoulder-glenoid-track-case1",
+          "source_ids": [
+            "shoulder-track-primary"
+          ]
+        },
+        {
+          "kind": "synthetic",
+          "prompt": "虛構計算：D = 30 mm、d = 3 mm、HSI = 22 mm。先算 GT，再說明為何不宜只留下單一分類。",
+          "rubric": [
+            "GT = 21.9 mm。",
+            "依此模型 HSI 比 GT 大 0.1 mm，但差距極小。",
+            "核對重組、邊界與量測誤差，不推導術式。"
+          ],
+          "sample_report": "此組示範數值 GT 21.9 mm、HSI 22 mm，僅差 0.1 mm；應報告為接近模型分類邊界，核對量測，不宜由標籤單獨決策。",
+          "source": null,
+          "figure": null,
+          "source_url": null,
+          "verification": "作者編寫的虛構文字情境；沒有真實病人影像。",
+          "id": "adv-shoulder-glenoid-track-case2",
+          "source_ids": [
+            "shoulder-track",
+            "shoulder-track-primary"
+          ]
+        }
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "adv-shoulder-neuropathy",
+      "title": "肩胛上神經病變：由肌肉分布定位，再整合神經功能",
+      "prerequisite_units": [
+        "ch10-u2",
+        "ch12-u2",
+        "ch7-u3"
+      ],
+      "source_ids": [
+        "shoulder-nerve",
+        "shoulder-nerve-review"
+      ],
+      "objectives": [
+        "由棘上肌與棘下肌分布提出定位假說。",
+        "區分囊腫、肌肉去神經變化與功能證實。",
+        "結合頸椎、臂神經叢與周邊神經鑑別。"
+      ],
+      "required_views": [
+        "MRI 水敏感與 T1 影像，涵蓋棘上、棘下肌及肩胛上切跡／棘盂切跡。",
+        "關節盂唇旁囊腫的位置、延伸與相鄰結構。",
+        "臨床肌力、感覺及電生理資料；US 可依可見範圍補充結構資訊。"
+      ],
+      "interpretation_steps": [
+        "先比較棘上與棘下肌水腫、體積和脂肪變化，核對側別與分布。",
+        "兩肌同受影響可提出較近端肩胛上神經受影響假說；孤立棘下肌變化可使棘盂切跡區成為重點，但仍須考慮其他原因。",
+        "沿相關區域尋找囊腫等結構性病因；囊腫存在不能單獨證明有功能性神經病變。",
+        "將影像定位與臨床／電生理對照，保留頸椎神經根、臂神經叢、其他神經病變及肌腱問題的鑑別。"
+      ],
+      "pitfalls": [
+        "肌肉水腫並不專屬神經壓迫，也不能只由影像決定病程或可逆性。",
+        "電生理與影像互補；任何單項結果都可能受到時程與技術影響。"
+      ],
+      "evidence_boundary": "資料主要為解剖與臨床回顧，適合建立定位框架，但不是一個已驗證的影像單獨診斷規則。囊腫與神經症狀的因果需個別核對；本單元不提供注射、神經阻斷或手術操作。",
+      "reporting_template": "側別＿＿。受影響肌肉及水腫／萎縮／脂肪變化＿＿。囊腫或其他結構所見＿＿。影像定位假說＿＿；需與＿＿對照，替代解釋＿＿。",
+      "questions": [
+        {
+          "stem": "僅棘下肌出現疑似去神經變化，最合宜的結論是？",
+          "options": [
+            {
+              "text": "重點評估較遠端肩胛上神經區域，並保留鑑別。",
+              "rationale": "肌肉分布可引導定位，但不能單獨確診。",
+              "correct": true
+            },
+            {
+              "text": "必然是頸椎病變。",
+              "rationale": "不能由單一分布直接確定近端病因。",
+              "correct": false
+            },
+            {
+              "text": "必然是棘盂切跡囊腫，不必再看影像。",
+              "rationale": "還需找結構及其他原因。",
+              "correct": false
+            }
+          ],
+          "id": "adv-shoulder-neuropathy-q1",
+          "source_ids": [
+            "shoulder-nerve",
+            "shoulder-nerve-review"
+          ]
+        },
+        {
+          "stem": "MRI 看到盂唇旁囊腫，是否已證實肩胛上神經功能受損？",
+          "options": [
+            {
+              "text": "已證實，囊腫一定壓迫神經。",
+              "rationale": "忽略偶發與無症狀可能。",
+              "correct": false
+            },
+            {
+              "text": "尚未，需核對位置、肌肉表現、臨床及電生理。",
+              "rationale": "結構存在與功能受損不是同一命題。",
+              "correct": true
+            },
+            {
+              "text": "囊腫與任何神經問題絕不相關。",
+              "rationale": "某些位置的囊腫可能有臨床意義。",
+              "correct": false
+            }
+          ],
+          "id": "adv-shoulder-neuropathy-q2",
+          "source_ids": [
+            "shoulder-nerve",
+            "shoulder-nerve-review"
+          ]
+        },
+        {
+          "stem": "棘上與棘下肌都出現水腫，應如何使用這項所見？",
+          "options": [
+            {
+              "text": "提出定位假說，同時核對其他神經與非神經原因。",
+              "rationale": "分布有提示性但不專一。",
+              "correct": true
+            },
+            {
+              "text": "兩肌水腫就排除肩胛上神經病變。",
+              "rationale": "較近端受影響可涵蓋兩肌。",
+              "correct": false
+            },
+            {
+              "text": "只由水腫即可確定需要手術。",
+              "rationale": "超出診斷影像範圍。",
+              "correct": false
+            }
+          ],
+          "id": "adv-shoulder-neuropathy-q3",
+          "source_ids": [
+            "shoulder-nerve",
+            "shoulder-nerve-review"
+          ]
+        }
+      ],
+      "cases": [
+        {
+          "kind": "source_figure",
+          "prompt": "開啟 Figure 4 的右肩盂唇旁囊腫 MRI。只根據此圖可描述什麼？還缺哪些資訊才能判定神經功能？",
+          "rubric": [
+            "側別為右肩；左側面板是冠狀，右側面板是橫斷。",
+            "描述囊腫位置，不虛構圖未示範的電生理結果。",
+            "需肌肉分布、臨床及電生理對照。"
+          ],
+          "sample_report": "右肩可見原文標示的盂唇旁囊腫；此圖不能單獨證實肩胛上神經功能受損，需完整影像及臨床／電生理評估。",
+          "source": "shoulder-nerve-review",
+          "figure": "jcm-09-02331-f004",
+          "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7465639/#jcm-09-02331-f004",
+          "verification": "2026-09-09 已核對原文圖說、實際圖像與面板；此為公開圖例，原頁可能顯示答案，並非完整 DICOM 或盲測病例。",
+          "id": "adv-shoulder-neuropathy-case1",
+          "source_ids": [
+            "shoulder-nerve-review"
+          ]
+        },
+        {
+          "kind": "synthetic",
+          "prompt": "虛構：右肩外旋無力，MRI 棘下肌水腫，棘上肌未見明顯變化，未見囊腫。請寫定位假說及兩個不能直接下的結論。",
+          "rubric": [
+            "可重點評估較遠端肩胛上神經相關區域。",
+            "沒有囊腫不等於排除神經病變。",
+            "不能僅憑水腫確定病因或可逆性。"
+          ],
+          "sample_report": "右棘下肌水腫可提示去神經相關變化，宜核對肩胛上神經較遠端區域及其他原因；未見囊腫不能排除神經病變，需臨床與電生理對照。",
+          "source": null,
+          "figure": null,
+          "source_url": null,
+          "verification": "作者編寫的虛構文字情境；沒有真實病人影像。",
+          "id": "adv-shoulder-neuropathy-case2",
+          "source_ids": [
+            "shoulder-nerve",
+            "shoulder-nerve-review"
+          ]
+        }
+      ],
+      "status": "draft"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "course/course.config.json": "e0c93f984f529aa782022825232558157475caf902a43b6050871f0999c06a5e",
+  "course/research/caption-corrections.json": "ce23cb1afdff93201c11634253f017d8426e8ac273b96a7e7d11df3ac581f67e",
+  "course/research/source-candidates.csv": "5c28b28d52593ea02626b905174a61654998e228d4036bf6ada48f567315b2ba",
+  "course/data/video-meta.json": "628a1a510105c2f8350e4b382cc9394deee683f278ffbb68fb8e5e3288ed9e81",
+  "course/data/questions.json": "383216ce45797d258f37bb9da7c0b0081f150296e121199002c35f844e486222",
+  "course/data/glossary.json": "e990a4d7afd9f89ef99484b60fd8c95e58ea01a52c63a02d7c70a52af7b25339",
+  "course/data/segments.json": "a87ad2631b5122f414c02bae21949cb1f80526698180a8bac045791dda346cc8",
+  "course/data/syllabus.json": "b71161c0a165a71106922bf3d29355808ed7f1a602b5d837037b8828bce484bf"
+}

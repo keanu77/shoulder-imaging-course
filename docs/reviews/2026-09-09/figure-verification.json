@@ -1,0 +1,18 @@
+[
+  {
+    "case": "adv-shoulder-glenoid-track-case1",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10883128/#fig1-23259671241226943",
+    "image_url": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/5b44/10883128/17092feed34f/10.1177_23259671241226943-fig1.jpg",
+    "bytes": 68707,
+    "image_sha256": "2bdd237f3bcc35e5df59bc0f75767ccfb1c0ca7ca6b00bf3f6ebcb236232ca0d",
+    "verification": "主編於 2026-09-09 讀取實際圖像並對照 XML 圖說；來源圖像不轉載，仍非完整檢查或臨床簽核。"
+  },
+  {
+    "case": "adv-shoulder-neuropathy-case1",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7465639/#jcm-09-02331-f004",
+    "image_url": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/9724/7465639/d3c2419ffd87/jcm-09-02331-g004.jpg",
+    "bytes": 58665,
+    "image_sha256": "78dbf70c2bdb9d05fd8f0abff450ffab2e9ea72abfd3a2688f13b8a198b77384",
+    "verification": "主編於 2026-09-09 讀取實際圖像並對照 XML 圖說；來源圖像不轉載，仍非完整檢查或臨床簽核。"
+  }
+]

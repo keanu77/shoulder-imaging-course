@@ -499,6 +499,13 @@ def main() -> int:
         course["glossary"] = glossary
 
     sync_web()
+    import advanced
+    workshop = advanced.generate(DIST, ROOT)
+    if workshop:
+        course["advanced"] = workshop
+        course["meta"]["advanced_units"] = len(workshop["units"])
+        course["meta"]["advanced_questions"] = workshop["questions"]
+        course["meta"]["advanced_cases"] = workshop["cases"]
     OUT.write_text(json.dumps(course, ensure_ascii=False, indent=1))
     version_web_assets()
 

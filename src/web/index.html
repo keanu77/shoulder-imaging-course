@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="css/landing.css" />
     <link rel="stylesheet" href="css/clinical.css" />
     <link rel="stylesheet" href="css/quiz.css" />
+    <link rel="stylesheet" href="css/course-guide.css" />
     <script>
       // 在繪製前套用主題，避免深色使用者看到白色閃屏
       (function () {
@@ -32,7 +33,8 @@
     </script>
   </head>
   <body>
-    <a href="#main" class="visually-hidden">跳到主要內容</a>
+    <noscript><p class="Blankslate">互動課程需要 JavaScript。請啟用後重新整理；亦可閱讀<a href="llms.txt">課程範圍與使用須知</a>。</p></noscript>
+    <a href="#main" class="SkipLink" data-tab-link="course">跳到主要內容</a>
 
     <header class="AppHeader">
       <a class="AppHeader__brand" href="#" data-tab-link="home" aria-label="{{site.name}}首頁">
@@ -41,7 +43,7 @@
           <span class="AppHeader__brandPulse"></span>
         </span>
         <span class="AppHeader__brandName">{{site.name}}</span>
-        <small class="AppHeader__edition">DIAGNOSTIC WORKSTATION</small>
+        <small class="AppHeader__edition">IMAGING ATLAS</small>
       </a>
 
       <nav class="TabNav" aria-label="主要分頁">
@@ -112,7 +114,7 @@
             <div class="Hero__actions">
               <button class="btn btn-primary Hero__primary" type="button" data-tab-link="course">
                 <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-scan-line" /></svg>
-                進入掃描工作站
+                瀏覽課程與判讀重點
               </button>
               <button class="btn Hero__secondary" type="button" data-tab-link="player">
                 <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-play" /></svg>
@@ -127,6 +129,13 @@
             <div class="Hero__stats" id="heroStats"></div>
             <p class="Hero__note" id="heroNote"></p>
           </div>
+          <aside class="CourseGuide" aria-labelledby="guideTitle">
+            <span class="CourseGuide__eyebrow">COURSE NAVIGATOR</span>
+            <h2 id="guideTitle">從影像類型開始</h2>
+            <p>依序學習，或直接前往要複習的章節。</p>
+            <div id="heroPathways"></div>
+            <div class="CourseGuide__foot"><span id="pathwayStatus"></span><span>僅供專業教育</span></div>
+          </aside>
 
           
         </div>
@@ -248,7 +257,8 @@
             <span>只看核心必看</span>
           </button>
           <div class="FilterBar__spacer"></div>
-          <span class="FilterBar__count" id="filterCount"></span>
+          <button class="btn" type="button" data-reset-filters>清除所有篩選</button>
+          <span class="FilterBar__count" id="filterCount" role="status" aria-live="polite"></span>
         </div>
 
         <div id="chapters">
