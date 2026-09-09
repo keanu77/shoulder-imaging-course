@@ -1,3 +1,9 @@
+# 2026-09-10 學習站正式網域
+
+- 主頁正式網址：https://imaging-course-hub.sportsmedicine.tw/。課程返回按鈕與主頁 canonical 同步更新。
+- 各公開頁面提供推薦影片／文獻入口，沿用 injury.sportsmedicine.tw/contribute/；網址 context 帶入課程頁面，主課程含目前單元。
+- 延續預設深色與既有教材審閱狀態。發布及驗證紀錄見工作區 HANDOFF 與 hub-domain-*.json。
+
 # 2026-09-10 預設深色與返回主頁
 
 - 首次造訪預設深色；即使系統偏好淺色、無儲存權限或無 JavaScript 亦然。原有深淺切換與有效偏好繼續保留。

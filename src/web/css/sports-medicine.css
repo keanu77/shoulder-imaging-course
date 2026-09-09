@@ -219,3 +219,11 @@ body { color:var(--sm-ink); background:var(--sm-paper); }
 .HubReturn:hover{text-decoration:underline}
 .HubReturn:focus-visible{outline:2px solid currentColor;outline-offset:3px}
 @media print{.HubReturn{display:none!important}}
+
+/* Shared learning and contribution navigation. */
+.ContributionNav{display:flex;flex-wrap:wrap;align-items:center;gap:0 24px;margin:0 16px;padding:0}
+.ContributionNav .HubReturn{margin:0;max-width:100%}
+.ContributionLink{display:inline-flex;align-items:center;min-height:44px;font:500 13px/1.5 "Noto Sans TC","PingFang TC",sans-serif;color:inherit;text-decoration:none;text-underline-offset:4px}
+.ContributionLink:hover{text-decoration:underline}
+.ContributionLink:focus-visible{outline:2px solid currentColor;outline-offset:3px}
+@media print{.ContributionNav{display:none!important}}

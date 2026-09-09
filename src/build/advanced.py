@@ -78,7 +78,7 @@ def generate(dist, root=ROOT):
         doc = render(data, digest, "", root=root, published=True)
         doc = doc.replace('<html lang="zh-Hant-TW">', '<html lang="zh-Hant-TW" data-theme="dark">')
         doc = doc.replace('</head>', f'<script src="{prefix}../js/theme.js"></script></head>')
-        doc = doc.replace('<header>', '<a class="HubReturn" href="https://imaging-course-hub.pages.dev/" aria-label="返回運動醫學影像學習站首頁"><span aria-hidden="true">←</span> 學習站首頁</a><header>', 1)
+        doc = doc.replace('<header>', '<a class="HubReturn" href="https://imaging-course-hub.sportsmedicine.tw/" aria-label="返回運動醫學影像學習站首頁"><span aria-hidden="true">←</span> 學習站首頁</a><header>', 1)
         doc = doc.replace('href="review.css"', f'href="{prefix}{assets["css"]}"')
         doc = doc.replace(
             'src="review.js"', f'src="{prefix}{assets["js"]}" data-questions="{question_file}"'
