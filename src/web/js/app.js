@@ -1,3 +1,4 @@
+import "./theme.js";
 // app.js — 載入課程資料、渲染、互動與進度追蹤
 import { mountIcons, icon } from "./icons.js";
 import {

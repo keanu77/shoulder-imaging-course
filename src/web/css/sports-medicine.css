@@ -213,3 +213,9 @@ body { color:var(--sm-ink); background:var(--sm-paper); }
 }
 
 @media screen { .CourseMap__group h3 { border-top:0; border-bottom:1px solid var(--sm-line); padding-bottom:14px; } }
+
+.HubReturn{display:flex;align-items:center;gap:8px;width:max-content;max-width:calc(100% - 32px);min-height:44px;margin:0 16px;padding:6px 0;box-sizing:border-box;font:500 13px/1.5 "Noto Sans TC","PingFang TC",sans-serif;color:#126b96;text-decoration:none;text-underline-offset:4px}
+:root[data-theme="dark"] .HubReturn{color:#86cfee}
+.HubReturn:hover{text-decoration:underline}
+.HubReturn:focus-visible{outline:2px solid currentColor;outline-offset:3px}
+@media print{.HubReturn{display:none!important}}
