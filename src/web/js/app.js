@@ -227,7 +227,7 @@ function applyChrome(data) {
   set("#muscleToggle span:first-of-type", esc(c.ui?.facetLabel || ""));
 
   for (const [key, label] of Object.entries(c.ui?.tabs || {})) {
-    set(`.TabNav__item[data-tab="${key}"] .TabNav__label`, esc(label));
+    set(`.TabNav__item[data-tab="${key}"] .TabNav__label`, esc(key === "course" ? "課程" : key === "player" ? "影片" : label));
     $(`.TabNav__item[data-tab="${key}"]`)?.setAttribute("aria-label", label);
   }
 
@@ -874,14 +874,21 @@ function bindEvents() {
 
   // 品牌與首頁上的按鈕都走同一個入口
   document.addEventListener("click", (e) => {
+    const focusCurrentView = () => {
+      const target = $(state.tab === "home" ? "#view-home" : state.tab === "player" ? "#view-player" : "#main");
+      target.tabIndex = -1;
+      target.focus({ preventScroll: true });
+    };
+    if (e.target.closest("[data-skip-current]")) {
+      e.preventDefault();
+      focusCurrentView();
+      return;
+    }
     const link = e.target.closest("[data-tab-link]");
     if (link) {
       e.preventDefault();
       setTab(link.dataset.tabLink);
-      if (link.classList.contains("SkipLink")) {
-        $("#main").tabIndex = -1;
-        $("#main").focus();
-      }
+      if (link.closest("[hidden]")) focusCurrentView();
       return;
     }
     const goCh = e.target.closest("[data-goto-chapter]");

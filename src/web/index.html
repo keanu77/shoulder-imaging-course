@@ -22,19 +22,23 @@
     <link rel="stylesheet" href="css/clinical.css" />
     <link rel="stylesheet" href="css/quiz.css" />
     <link rel="stylesheet" href="css/course-guide.css" />
+    <link rel="stylesheet" href="css/sports-medicine.css" />
     <script>
       // 在繪製前套用主題，避免深色使用者看到白色閃屏
       (function () {
         try {
           var t = localStorage.getItem("susc:theme");
-          if (t) document.documentElement.dataset.theme = t;
+          if (t && t !== "light" && t !== "dark") {
+            try { t = JSON.parse(t); } catch (e) { t = null; }
+          }
+          if (t === "light" || t === "dark") document.documentElement.dataset.theme = t;
         } catch (e) {}
       })();
     </script>
   </head>
   <body>
     <noscript><p class="Blankslate">互動課程需要 JavaScript。請啟用後重新整理；亦可閱讀<a href="llms.txt">課程範圍與使用須知</a>。</p></noscript>
-    <a href="#main" class="SkipLink" data-tab-link="course">跳到主要內容</a>
+    <a href="#main" class="SkipLink" data-skip-current>跳到主要內容</a>
 
     <header class="AppHeader">
       <a class="AppHeader__brand" href="#" data-tab-link="home" aria-label="{{site.name}}首頁">
@@ -43,19 +47,19 @@
           <span class="AppHeader__brandPulse"></span>
         </span>
         <span class="AppHeader__brandName">{{site.name}}</span>
-        <small class="AppHeader__edition">IMAGING ATLAS</small>
+        <small class="AppHeader__edition">SPORTS MEDICINE</small>
       </a>
 
       <nav class="TabNav" aria-label="主要分頁">
         <div class="TabNav__inner">
           <button class="TabNav__item is-selected" data-tab="course" type="button" aria-label="{{ui.tabs.course}}" aria-current="page">
             <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-layers" /></svg>
-            <span class="TabNav__label">{{ui.tabs.course}}</span>
+            <span class="TabNav__label">課程</span>
             <span class="Counter" id="tabCourseCount">0</span>
           </button>
           <button class="TabNav__item" data-tab="player" type="button" aria-label="{{ui.tabs.player}}">
             <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-play" /></svg>
-            <span class="TabNav__label">{{ui.tabs.player}}</span>
+            <span class="TabNav__label">影片</span>
           </button>
         </div>
       </nav>
@@ -98,7 +102,7 @@
 
 
 
-    <div id="view-home">
+    <div id="view-home" role="main" aria-label="課程首頁">
     <section class="Hero" id="top">
       <div class="container">
         <div class="Hero__grid">
@@ -126,8 +130,7 @@
               </a>
             </div>
 
-            <div class="Hero__stats" id="heroStats"></div>
-            <p class="Hero__note" id="heroNote"></p>
+
           </div>
           <aside class="CourseGuide" aria-labelledby="guideTitle">
             <span class="CourseGuide__eyebrow">COURSE NAVIGATOR</span>
@@ -138,13 +141,18 @@
           </aside>
 
           
+          <div class="Hero__meta">
+            <div class="Hero__stats" id="heroStats"></div>
+            <p class="Hero__note" id="heroNote"></p>
+            <a class="BrandSignature" href="https://sportsmedicine.tw/" target="_blank" rel="noopener">吳易澄醫師 · 運動醫學</a>
+          </div>
         </div>
       </div>
     </section>
       <div class="Landing" id="landingBody"></div>
     </div>
 
-    <section class="Player" id="view-player" hidden>
+    <section class="Player" id="view-player" role="main" aria-label="影片學習" hidden>
       <div class="Player__stage">
         <div class="Player__frame" id="playerFrame">
           <div class="Player__placeholder">

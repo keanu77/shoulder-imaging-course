@@ -104,7 +104,8 @@ fs.mkdirSync(out, {recursive:true});
   await page.setViewportSize({width,height:1000});await home();
   await check(`home and course fit ${width}px`,async()=>{
    assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
-   assert.ok(await page.locator('.TabNav').evaluate(el=>el.clientWidth>=160), 'mobile navigation must not collapse');
+   // Compact 課程 / 影片 labels: preserve actual hit targets and visibility below.
+   assert.equal(await page.locator('.TabNav__label:visible').count(),2);
    for (const item of await page.locator('.TabNav__item').all()) {
      const box=await item.boundingBox();assert.ok(box.width>=44&&box.height>=44);
      assert.ok(await item.evaluate(el=>{const r=el.getBoundingClientRect();return el.contains(document.elementFromPoint(r.x+r.width/2,r.y+r.height/2));}));
