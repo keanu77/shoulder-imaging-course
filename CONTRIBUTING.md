@@ -1,61 +1,27 @@
 # 貢獻指南
 
-這個 repo 同時裝著兩種東西，貢獻政策不一樣：**引擎（程式碼）歡迎 PR，課程內容不接受 PR。**
+## 技術貢獻
 
-## 歡迎的貢獻
+歡迎針對程式、版面、可及性、測試或文件提出 PR。請說明問題、修正後的行為、驗證方法及已知限制。維護者確認檢查結果後才合併；測試通過不代表自動核准。
 
-建置與前端相關的一切：
+執行 `uv sync --locked`、`make check`；介面變動另依 [開發說明](docs/DEVELOPMENT.md) 測試桌機、手機與鍵盤。
 
-- `src/build/` — 建置、SEO、稽核腳本
-- `src/web/` — 靜態前端（CSS、JS）
-- `tools/` — 策展與逐段筆記的工作腳本
-- `tests/` — 測試
-- `functions/` — Cloudflare Pages Functions
-- 文件的錯字、連結失效、說明不清
+## 影片、文獻與教材
 
-送 PR 前請跑：
+優先使用網站的「推薦影片／文獻」表單，附所屬單元、原始影片與時間碼、文獻 DOI／PubMed／學會網址及推薦或修正理由。網站有公開表單，不需要 GitHub 帳號。
 
-```bash
-uv sync
-make check      # lint + jscheck + test + build + audit
-```
+若由維護者安排教材 PR，新增或變更內容必須保持 draft，附原句、修改理由與來源；不可自行改為 approved，也不可代填或改寫 reviewed_by、reviewer_role、reviewed_at、reviewed_commit。原始受審包及雜湊證據不可覆寫。
 
-`make check` 必須全綠。**不要為了讓稽核通過而放寬閘門**——
-`src/build/audit_medical.py` 的檢查項是刻意嚴格的，繞過它等於拆掉這個專案的核心。
-如果你認為某條規則有誤，開 issue 討論規則本身，不要在 PR 裡改寬它。
+審閱人確認來源、適用範圍與具體版本後，才由維護者整合。策展審閱不代表醫師對第三方影片逐項醫療背書，亦不表示取得臨床認證。舊文件中不同用語屬歷史紀錄，現行定義以本文件及 DATA_AND_REVIEW 為準。
 
-## 不接受的貢獻
+## 來源與範圍
 
-**課程內容不接受外部 PR**，包括：
+影片以近十年為優先；經典教材請附保留理由。提供原發布者連結、講者資訊與可查證來源，缺資料要明示。若有介入片段，請附時間範圍；課程以診斷影像學習為範圍，不新增注射或穿刺操作指引。
 
-- `course/data/syllabus.json` — 影片策展、單元教材、參考文獻
-- `course/data/{segments,questions,glossary}.json` — 逐段筆記、知識檢核、名詞表
-- `course/course.config.json` 的醫療與文案設定
-- 任何 `review_status`、`reviewed_by`、`reviewer_role` 欄位
+不得提交憑證、病人個資、未獲授權圖片、整篇付費論文、影片檔案或完整字幕。送出內容前請確認你有權分享，並遵守 [授權範圍](LICENSE-CONTENT.md)。
 
-原因是治理上的，不是不歡迎：`approved` 代表**具名策展人**確認過範圍框限、
-來源與講者資格、文獻對應與課程編排。策展人為這件事具名負責，
-所以不能由外部 PR 代為變更。
+## 授權與改作
 
-**發現內容有問題請開 issue**，這非常有價值。特別是：
+保留原作者與第三方授權聲明。程式貢獻依專案現有程式碼授權處理；教材貢獻依 LICENSE-CONTENT.md，不以送出 PR 視為取得第三方素材權利。修改教材後必須重新審閱，不能沿用原版審閱作為新版背書。
 
-- 影片內容與現行文獻不符（曾發生：某支影片把 on-track／off-track 的風險講反，
-  見 `docs/VIDEO_CURATION.md`）
-- 解剖名詞、側別或方向錯誤
-- 逐段筆記的時間碼對不上影片內容
-- 文獻引用的 PMID、年份或結論有誤
-
-請附上**具體位置**（影片 id 與時間碼、或單元 id）與**依據**。
-
-## Fork 與改作
-
-MIT 授權涵蓋程式碼，**不涵蓋第三方影片、學會指引與論文**（見 [`NOTICE.md`](NOTICE.md)）。
-
-fork 去做自己部位的課程站時，**必須移除所有審閱紀錄**
-（`reviewed_by` / `reviewer_role` / `reviewed_at` / `reviewed_commit`），
-並把 `review_status` 全部改回 `draft`。
-不得讓改作內容看起來像是由原策展人審閱過。
-
-## 回報安全問題
-
-不要開公開 issue。請用 GitHub 的 Security advisory 私下回報。
+安全問題不要放公開 issue，請讀 [SECURITY](SECURITY.md)。

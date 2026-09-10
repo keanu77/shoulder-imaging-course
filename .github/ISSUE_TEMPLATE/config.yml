@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 推薦影片、參考文獻或資料修正
+    url: "https://injury.sportsmedicine.tw/contribute/?context=https%3A%2F%2Fshoulder-imaging.sportsmedicine.tw%2F"
+    about: 使用網站表單提供來源與具體位置，先查核再評估更新。
+  - name: 私下回報安全問題
+    url: "https://github.com/keanu77/shoulder-imaging-course/security/advisories/new"
+    about: 不要在公開 issue 貼出憑證、個資或可直接濫用的細節。

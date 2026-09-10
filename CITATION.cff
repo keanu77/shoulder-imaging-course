@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: "引用本專案時請註明使用版本；臨床結論另引原始文獻。"
+type: software
+title: "肩部影像診斷課程"
+authors:
+  - family-names: "吳"
+    given-names: "易澄"
+    website: "https://sportsmedicine.tw/"
+repository-code: "https://github.com/keanu77/shoulder-imaging-course"
+url: "https://shoulder-imaging.sportsmedicine.tw/"
+abstract: "繁體中文運動醫學影像教育網站；策展與程式驗證不等於臨床能力認證。"
+keywords:
+  - medical-education
+  - musculoskeletal-imaging
+  - traditional-chinese

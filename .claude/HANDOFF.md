@@ -1,3 +1,13 @@
+# 2026-09-10 Repo 文件整備
+
+- 原始碼可見性：PUBLIC；依使用者指示，只公開肩部與膝部，其餘維持私有。
+- 現行入口：https://shoulder-imaging.sportsmedicine.tw/；系列首頁：https://imaging-course-hub.sportsmedicine.tw/。
+- README、引用、貢獻、安全回報、資料範圍、開發、部署與改作說明已整理。歷史說明見 docs/COURSE_GUIDE.md；其他日期報告維持歷史用途。
+- 本次不新增教材、不刷新醫療審閱、不更動搜尋索引。資料以 course 原始檔 SHA 比對確認。
+- 最終驗證與部署摘要見 docs/REPOSITORY_READINESS.md。
+
+以下保留之前交接；其中網址、可見性與未發布狀態可能已過期，以本段和現行文件為準。
+
 # 2026-09-10 學習站正式網域
 
 - 主頁正式網址：https://imaging-course-hub.sportsmedicine.tw/。課程返回按鈕與主頁 canonical 同步更新。

@@ -1,101 +1,89 @@
 # 肩部影像診斷課程
 
-以醫師為主要學員的繁體中文肩部影像判讀課程，涵蓋 **X 光、肌肉骨骼超音波與 MRI** 三種模態。
-全課為診斷判讀，不含注射、穿刺或其他影像導引介入操作的教學。
+以醫師為主要學員的肩部影像自學課程，涵蓋肌肉骨骼超音波、X 光與 MRI 三種模態，依 ACR、AIUM、ESSR 與台灣 USMSIT/NMUSIT 等專業指引建立標準掃描與照射位、序列判讀、常見病理與報告品質的學習路徑。
 
-正式站：<https://shoulder-imaging.sportsmedicine.tw>
+[開始學習](https://shoulder-imaging.sportsmedicine.tw/) · [七站總覽](https://imaging-course-hub.sportsmedicine.tw/) · [吳易澄醫師](https://sportsmedicine.tw/)
 
-**9 章 · 34 個教學單元 · 34 支精選公開影片 · 16 小時 6 分 · 414 段逐段筆記**
+**原始碼狀態：公開。歡迎參考、回報問題與提出技術 PR。** 網站可瀏覽與 repo 是否公開是兩個獨立設定。
 
-> **這是策展彙編，不是醫療背書。** 影片來自各原始頻道，著作權與臨床內容責任屬原發布單位與講者。
-> 策展人負責的是篩選、範圍框限、來源與講者資格查證、文獻對應與課程編排。
-> 本課不是 credentialing，也不取代實體 hands-on training、合格督導或正式影像判讀報告。
+![肩部影像診斷課程桌機畫面](docs/images/desktop.png)
 
-## 課程結構
+[手機畫面](docs/images/mobile.png) · 畫面與資料快照：2026-09-10。
 
-依 **X 光 → 超音波 → MRI** 三大主軸編排：
+## 可以參考什麼
 
-| 章 | 主題 | 單元 |
-| --- | --- | ---: |
-| `XR1` | X 光：照射位選擇與系統性判讀 | 2 |
-| `XR2` | X 光：常見病理與判讀陷阱 | 2 |
-| `US1` | 超音波基礎：診斷範圍、安全與影像最佳化 | 6 |
-| `US2` | 超音波前側：標準流程、肱二頭肌與肩胛下肌 | 6 |
-| `US3` | 超音波上外側與後側：旋轉間隙、棘上肌與動態檢查 | 6 |
-| `US4` | 超音波判讀、報告與品質 | 6 |
-| `MR1` | MRI：序列邏輯與正常解剖 | 2 |
-| `MR2` | MRI：旋轉肌袖與證據邊界 | 2 |
-| `MR3` | MRI：盂唇、不穩定與常見陷阱 | 2 |
+- 資料驅動的課程與影片來源整理，維持可追溯的單元、來源及版本資訊。
+- 繁體中文、手機版面與預設深色設計；使用者可切換並保存主題偏好。
+- 各課程左上方可返回學習站，並透過「推薦影片／文獻」提供連結或回報修正。
+- 教材與研究包分開管理；策展審閱、技術驗證與臨床能力認證不混用。
 
-每個單元具備學習目標、必備視圖、操作重點、常見陷阱、評量與審閱狀態。
-詳見 [課程結構](docs/CURRICULUM.md)。
+## 現有資料
 
-## 這個 repo 有什麼值得參考
+以下依 2026-09-10 本機正式建置統計；資料量與影片時數不能證明臨床能力。
 
-課程內容本身是策展成果，**真正可以借用的是治理機制**——如何在大量引用第三方影片的前提下，
-維持可追溯、可稽核、且不誇大的醫學教育內容。
+| 項目 | 數量 |
+| --- | --- |
+| 章節 | 9 |
+| 主課程單元 | 34 |
+| 不重複影片 | 34 |
+| 已輸出逐段筆記 | 414 |
+| 主課程知識檢核題 | 0 |
+| 已發布進階單元 | 3（另含 9 題） |
 
-**審閱閘門**
-`draft → medical-review → approved`。只有 `approved` 的內容會進入 `course.json`。
-單元、逐段筆記、知識檢核與名詞表各有獨立狀態，新增內容一律從 `draft` 開始，
-不影響既有審閱。`reviewer_role` 是「課程策展人」而非醫療專科職稱——
-**審閱確認的是範圍框限與來源資格，不是對第三方臨床內容的背書**。
-
-**影片可追溯性**
-每支影片有約 26 個 provenance 欄位：原始頻道、具名講者、**可驗證的第三方資格證據 URL**
-（大學／醫院 faculty 頁、學會講者頁、PubMed 作者頁）、來源權威層級、可嵌入與公開狀態、
-實查日期。缺欄位會被 `src/build/audit_medical.py` 擋下。
-
-**介入內容框限**
-課程是 `diagnostic-only`。影片若含介入段落，以 `intervention_start_timestamp` 與
-`diagnostic_segment_range` 切出可播範圍，逐段筆記也止於框限。
-框限由字幕關鍵字掃描（`tools/scan_intervention.py`）定位、再逐字核對前後文裁定——
-自動字幕會把肌腱 **insertion（止點）** 誤辨成 injection，直接信關鍵字會產生假警報。
-
-**文獻驗證**
-`reference_catalog` 的每一筆都以 PubMed eutils 實查過 PMID、標題與年份。
-`make verify` 會打真 API 重驗所有影片連結與文獻來源。
-
-**策展決策留痕**
-[`docs/VIDEO_CURATION.md`](docs/VIDEO_CURATION.md) 記錄每一輪策展的**拒絕清單與理由**、
-早於內容 cutoff 的破例理由、介入框限的裁定依據，以及被否決的建議。
-未來要回答「為什麼沒收這支」時，答案在那裡。
+完整範圍與限制見 [DATA_AND_REVIEW](docs/DATA_AND_REVIEW.md)。零筆代表目前未提供該類資料，不表示建置失敗。
 
 ## 本機建置
 
-需要 Python 3.11+ 與 [uv](https://docs.astral.sh/uv/)：
+需要 Python 3.11+、uv；`make check` 的 JavaScript 語法檢查另需 Node.js。
 
 ```bash
-uv sync
-make check      # lint + jscheck + test + build + audit
-make serve      # http://localhost:8899
-make verify     # 打真實 API 重驗影片連結與 PubMed 引用
+uv sync --locked
+make check
+make serve PORT=8899
 ```
 
-`make audit` 執行框架稽核與醫療內容結構閘門。**通過只代表資料結構完整，不等於內容正確。**
+開啟 http://127.0.0.1:8899/ 。只建置靜態網站時可直接執行 `python3 src/build/build.py`，不需要 Cloudflare 帳號或憑證。
 
-Cloudflare Pages 採 GitHub integration，設定與索引閘門見 [部署文件](docs/DEPLOYMENT.md)。
+瀏覽器測試、資料更新及不需正式服務的驗證方式見 [開發說明](docs/DEVELOPMENT.md)。部署設定見 [DEPLOYMENT](docs/DEPLOYMENT.md)。
 
-## 內容維護
+## 檔案入口
 
-| 路徑 | 內容 |
+| 路徑 | 用途 |
 | --- | --- |
-| `course/course.config.json` | 網站文案、章節、配額、稽核與醫療範圍設定 |
-| `course/data/syllabus.json` | 課綱、單元、參考文獻與策展影片 |
-| `course/data/{segments,questions,glossary}.json` | 逐段筆記、知識檢核、名詞表 |
-| `course/data/video-meta.json` | 影片實查中繼資料 |
-| `course/research/` | 策展原始輸出與字幕訛誤對照表 |
-| `src/web/` | 靜態前端 |
-| `src/build/` | 建置、SEO、連結與醫療內容稽核 |
-| `tools/` | 策展與逐段筆記的工作腳本（實查、框限掃描、逐字稿裁切、字幕密度與訛誤預篩、初稿驗證與併檔）——見 [`tools/README.md`](tools/README.md) |
+| `course/course.config.json` | 網站、課程與稽核設定 |
+| `course/data/` | 課綱、影片中繼資料、筆記、題目與名詞表 |
+| `course/research/` | 候選與審閱包；草稿不等於已發布教材 |
+| `src/web/` | 原生 HTML、CSS、JavaScript |
+| `src/build/` | 建置、來源及範圍稽核 |
+| `tests/` | 結構與互動回歸檢查 |
 
-## 來源與授權
+## 提供影片、文獻或修正
 
-參考 [keanu77/online-course](https://github.com/keanu77/online-course) 的資料驅動靜態課程架構重新建置。
+從網站「推薦影片／文獻」進入表單，會自動附上課程與單元網址。可提供公開影片、DOI／PubMed／學會文獻連結或資料修正；投稿須先查核，不會自動上線。請不要提供病人個資或未獲授權的影像。
 
-程式碼採 [MIT License](LICENSE)。**第三方影片、學會指引及論文不包含在此授權內**——
-本站只儲存連結與書目中繼資料，影片由 YouTube 官方播放器提供，不重製也不代管。
+程式與介面 PR 請讀 [CONTRIBUTING](CONTRIBUTING.md)；安全問題請依 [SECURITY](SECURITY.md) 私下回報。Fork 與改作請讀 [FORKING](docs/FORKING.md)，重新設定作者、網域與投稿目的地。
 
-授權範圍、第三方內容清單與「審閱紀錄不隨授權轉移」的完整說明見 [`NOTICE.md`](NOTICE.md)。
-fork 或改作時必須移除 `reviewed_by` / `reviewer_role` / `reviewed_at` / `reviewed_commit`，
-並把 `review_status` 改回 `draft`，不得聲稱原策展人為改作內容背書。
+## 授權與引用
+
+程式碼維持 MIT；原創教材未新增重製或改作授權。 詳見 [LICENSE](LICENSE)、[教材授權範圍](LICENSE-CONTENT.md) 與 [第三方及品牌聲明](NOTICE.md)。第三方影片、文獻與素材維持原權利人的條件，本站不代為授權。
+
+引用專案可使用 [CITATION.cff](CITATION.cff)，並註明實際使用的 commit 或版本。引用臨床結論時，請直接引用原始文獻；專案引用不取代文獻引用。
+
+## 使用範圍
+
+供醫療專業人員教育使用。策展審閱確認收錄範圍、來源及課程編排，不代表對第三方影片內容的醫療背書；模型檢查或測試通過也不等於醫師逐項審閱、專業認證或獨立執業資格。使用時仍需實作訓練、合格督導與臨床判斷。
+
+## 系列網站
+
+| 課程 | 學習網站 | 原始碼 |
+| --- | --- | --- |
+| 髖關節 | [進入網站](https://hip-imaging-course.pages.dev/) | 私有，未開放 |
+| 踝與足 | [進入網站](https://ankle-foot-imaging-course.pages.dev/) | 私有，未開放 |
+| 肩部 | [進入網站](https://shoulder-imaging.sportsmedicine.tw/) | [GitHub](https://github.com/keanu77/shoulder-imaging-course) |
+| 頸椎 | [進入網站](https://cervical-imaging-course.pages.dev/) | 私有，未開放 |
+| 腰椎 | [進入網站](https://lumbar-imaging-course.pages.dev/) | 私有，未開放 |
+| 腕與手 | [進入網站](https://wrist-hand-imaging-course.pages.dev/) | 私有，未開放 |
+| 膝關節 | [進入網站](https://knee-imaging.sportsmedicine.tw/) | [GitHub](https://github.com/keanu77/knee-imaging-course) |
+| 課程總覽 | [進入網站](https://imaging-course-hub.sportsmedicine.tw/) | 私有，未開放 |
+
+[文件索引](docs/README.md) · [先前課程說明](docs/COURSE_GUIDE.md)
