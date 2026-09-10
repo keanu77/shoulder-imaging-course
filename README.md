@@ -84,6 +84,6 @@ make serve PORT=8899
 | 腰椎 | [進入網站](https://lumbar-imaging-course.pages.dev/) | 私有，未開放 |
 | 腕與手 | [進入網站](https://wrist-hand-imaging-course.pages.dev/) | 私有，未開放 |
 | 膝關節 | [進入網站](https://knee-imaging.sportsmedicine.tw/) | [GitHub](https://github.com/keanu77/knee-imaging-course) |
-| 課程總覽 | [進入網站](https://imaging-course-hub.sportsmedicine.tw/) | 私有，未開放 |
+| 課程總覽 | [進入網站](https://imaging-course-hub.sportsmedicine.tw/) | [GitHub](https://github.com/keanu77/imaging-course-hub) |
 
 [文件索引](docs/README.md) · [先前課程說明](docs/COURSE_GUIDE.md)
